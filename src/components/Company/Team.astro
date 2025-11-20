@@ -1,0 +1,49 @@
+---
+// types
+import type { TeamMember } from './types';
+
+type Props = {
+  teamMembers: TeamMember[];
+};
+
+const { teamMembers } = Astro.props;
+---
+
+<section class="lg:py-24 py-16">
+  <div class="container">
+    <div class="text-center">
+      <span class="text-sm bg-primary/10 text-primary/40 rounded-full px-3 py-1">
+        Nuestro Equipo
+      </span>
+      <h1 class="text-3xl/tight font-medium mt-3 mb-4">
+        Conoce a Nuestro Equipo
+      </h1>
+      <p class="text-gray-500">
+        Comienza a trabajar con<span class="text-primary"> Agoramy </span>para
+        gestionar mejor tu fuerza laboral.
+      </p>
+    </div>
+    <div class="mt-14">
+      <div
+        class="grid xl:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-12"
+        data-aos="fade-up"
+      >
+        {teamMembers.map((teamMember) => (
+          <div>
+            <div class="flex gap-4 items-center">
+              <img
+                src={teamMember.avatar}
+                alt="avatar"
+                class="h-16 w-16 rounded-md"
+              />
+              <div>
+                <h6 class="font-medium">{teamMember.name}</h6>
+                <p class="text-gray-500">{teamMember.designation}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

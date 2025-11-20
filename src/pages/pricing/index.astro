@@ -1,0 +1,18 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Hero from '../../components/Pricing/Hero.astro';
+import PricingPlans from '../../components/Pricing/PricingPlans.astro';
+import Benefits from '../../components/Pricing/Benefits.astro';
+import FAQs from '../../components/Pricing/FAQs.tsx';
+import CTA from '../../components/Pricing/CTA.astro';
+---
+
+<Layout title="Precios - Agoramy">
+  <div>
+    <Hero />
+    <PricingPlans />
+    <Benefits />
+    <FAQs client:load />
+    <CTA />
+  </div>
+</Layout>

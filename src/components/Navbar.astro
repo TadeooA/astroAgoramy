@@ -1,0 +1,135 @@
+---
+import logo from '../assets/agoramyLandingw.webp';
+---
+
+<nav class="fixed top-0 left-0 right-0 z-50 bg-transparent border-b-0 transition-all duration-300">
+  <div class="container mx-auto px-4">
+    <div class="flex items-center justify-between h-20">
+      <!-- Logo -->
+      <div class="flex-shrink-0">
+        <a href="/">
+          <img id="navbar-logo" src={logo.src} alt="Agoramy" class="h-[54px] transition-all duration-300" />
+        </a>
+      </div>
+
+      <!-- Desktop Navigation -->
+      <div class="hidden md:flex items-center space-x-8">
+        <a href="/" class="text-gray-700 hover:text-green-500 transition-colors font-medium">
+          Inicio
+        </a>
+        <a href="/company" class="text-gray-700 hover:text-green-500 transition-colors font-medium">
+          Quiénes Somos
+        </a>
+        <a href="/career" class="text-gray-700 hover:text-green-500 transition-colors font-medium">
+          Carreras
+        </a>
+        <a href="/pricing" class="text-gray-700 hover:text-green-500 transition-colors font-medium">
+          Precios
+        </a>
+        <a href="/blog" class="text-gray-700 hover:text-green-500 transition-colors font-medium">
+          Blog
+        </a>
+
+        <a href="/help" class="text-gray-700 hover:text-green-500 transition-colors font-medium">
+          Ayuda
+        </a>
+        <a href="/contact" class="text-gray-700 hover:text-green-500 transition-colors font-medium">
+          Contacto
+        </a>
+      </div>
+
+      <!-- CTA Buttons -->
+      <div class="hidden md:flex items-center space-x-4">
+      
+        <a
+          href="/product"
+          class="bg-green-500 text-white px-6 py-2 rounded-lg hover:bg-green-600 hover:shadow-lg hover:shadow-green-500/30 transition-all font-medium"
+        >
+          Registrarse
+        </a>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button
+        id="mobile-menu-button"
+        class="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors"
+        aria-label="Toggle menu"
+      >
+        <svg
+          class="w-6 h-6 text-gray-700"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M4 6h16M4 12h16M4 18h16"
+          ></path>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div
+      id="mobile-menu"
+      class="hidden md:hidden pb-4 border-t border-gray-200 mt-2"
+    >
+      <div class="flex flex-col space-y-3 pt-4">
+        <a href="/" class="text-gray-700 hover:text-green-500 transition-colors font-medium py-2">
+          Inicio
+        </a>
+        <a href="/company" class="text-gray-700 hover:text-green-500 transition-colors font-medium py-2">
+          Quiénes Somos
+        </a>
+        <a href="/career" class="text-gray-700 hover:text-green-500 transition-colors font-medium py-2">
+          Carreras
+        </a>
+        <a href="/pricing" class="text-gray-700 hover:text-green-500 transition-colors font-medium py-2">
+          Precios
+        </a>
+        <a href="/blog" class="text-gray-700 hover:text-green-500 transition-colors font-medium py-2">
+          Blog
+        </a>
+
+        <a href="/help" class="text-gray-700 hover:text-green-500 transition-colors font-medium py-2">
+          Ayuda
+        </a>
+        <a href="/contact" class="text-gray-700 hover:text-green-500 transition-colors font-medium py-2">
+          Contacto
+        </a>
+        <div class="flex flex-col space-y-2 pt-2">
+
+          <a
+            href="/product"
+            class="text-center bg-green-500 text-white px-6 py-2 rounded-lg hover:bg-green-600 transition-all font-medium"
+          >
+            Registrarse
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- Spacer to prevent content from hiding under fixed navbar -->
+<div class="h-20"></div>
+
+<script>
+  // Mobile menu functionality
+  const mobileMenuButton = document.getElementById('mobile-menu-button');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  mobileMenuButton?.addEventListener('click', () => {
+    mobileMenu?.classList.toggle('hidden');
+  });
+
+  // Close mobile menu when clicking on a link
+  const mobileLinks = mobileMenu?.querySelectorAll('a');
+  mobileLinks?.forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu?.classList.add('hidden');
+    });
+  });
+</script>

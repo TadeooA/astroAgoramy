@@ -1,0 +1,75 @@
+---
+import FeedBackSwiper from './FeedBackSwiper.tsx';
+
+import avatar1 from '../assets/images/avatars/img-1.jpg';
+import avatar2 from '../assets/images/avatars/img-2.jpg';
+import avatar3 from '../assets/images/avatars/img-3.jpg';
+
+import google from '../assets/images/brands/google.svg';
+import amazon from '../assets/images/brands/amazon.svg';
+import lenovo from '../assets/images/brands/lenovo.svg';
+
+const testimonials = [
+  {
+    avatar: avatar1.src,
+    logo: google.src,
+    name: 'Dr. Ana Gómez',
+    title: 'Propietaria de Farmacia Central',
+    quote: 'Agoramy POS ha transformado la gestión de mi farmacia. El control de inventario y la facturación electrónica son impecables. ¡Es mucho más moderno y eficiente que cualquier otro sistema que haya probado!',
+  },
+  {
+    avatar: avatar2.src,
+    logo: amazon.src,
+    name: 'Lic. Carlos Ruíz',
+    title: 'Farmacéutico en Farmacias del Sol',
+    quote: 'La facilidad de uso de Agoramy es asombrosa. Capacitar a mi personal fue muy rápido y ahora podemos atender a los clientes de forma más ágil, incluso con la gestión de recetas.',
+  },
+  {
+    avatar: avatar3.src,
+    logo: lenovo.src,
+    name: 'Marta Pérez',
+    title: 'Encargada de Compras en Salud Total',
+    quote: 'Con Agoramy, las alertas de caducidad y el control de lotes me ahorran tiempo y dinero. La tranquilidad de saber que mis productos están siempre al día no tiene precio. ¡Adiós a las pérdidas por caducidad!',
+  },
+];
+---
+
+<section class="py-16 sm:py-24 overflow-x-hidden">
+  <div class="container mx-auto px-4" data-aos="fade-up" data-aos-duration="600">
+    <div class="grid xl:grid-cols-4 grid-cols-3 gap-6">
+      <div class="col-span-3 lg:col-span-1">
+        <span class="text-sm font-medium py-1 px-3 rounded-full text-green-500 bg-green-500/10">
+          Comentarios
+        </span>
+        <h1 class="text-3xl/tight font-medium mt-3 mb-4">
+          Lo que la gente dice
+        </h1>
+        <p class="text-gray-500">
+          Algunas palabras valiosas de nuestros clientes al probar nuestra version beta
+        </p>
+
+        <div class="flex gap-4 mt-10">
+          <div class="button-prev swiper-custom-prev cursor-pointer text-xl transition-all duration-300 hover:text-green-500">
+            <i class="fa-solid fa-arrow-left"></i>
+          </div>
+          <div class="button-next text-xl swiper-custom-next cursor-pointer transition-all duration-300 hover:text-green-500">
+            <i class="fa-solid fa-arrow-right"></i>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-span-3 lg:col-span-2 xl:col-span-3">
+        <div class="relative">
+          <div class="hidden sm:block">
+            <div class="before:w-24 before:h-24 before:absolute before:-top-8 before:-end-8 before:bg-[url('/src/assets/images/pattern/dot5.svg')]"></div>
+            <div class="after:w-24 after:h-24 after:absolute after:-bottom-8 after:-start-8 after:bg-[url('/src/assets/images/pattern/dot2.svg')]"></div>
+          </div>
+
+          <div id="swiper_one" class="swiper relative">
+            <FeedBackSwiper testimonials={testimonials} client:load />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

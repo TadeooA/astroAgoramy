@@ -1,11 +1,49 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import Features from '../components/Features.astro';
+import Clients from '../components/Clients.astro';
+import FeedBack from '../components/FeedBack.astro';
+import PricingCards from '../components/PricingCards.astro';
+import FAQs from '../components/FAQs.astro';
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+// image
+import whiteWave from '../assets/images/shapes/white-wave.svg';
 ---
 
-<Layout>
-	<Welcome />
+<Layout title="SaaS Modern - Agoramy">
+  	<div class="text-gray-800 py-4 px-4">    <section id="home">
+      <Hero />
+    </section>
+
+    <section id="features">
+      <Features />
+    </section>
+
+    <section id="clients">
+      <Clients />
+    </section>
+
+    <FeedBack />
+
+    <section id="pricing" class="bg-gradient-to-r from-gray-100/70 to-gray-100 relative py-16 sm:py-24">
+      <div class="absolute top-0 inset-x-0 hidden sm:block">
+        <img src={whiteWave.src} alt="svg" class="w-full -scale-x-100" />
+      </div>
+      <div class="py-5">
+        <PricingCards />
+      </div>
+      <div class="absolute bottom-0 inset-x-0 hidden sm:block">
+        <img
+          src={whiteWave.src}
+          alt="svg"
+          class="w-full scale-x-100 -scale-y-100"
+        />
+      </div>
+    </section>
+
+    <section id="faq">
+      <FAQs />
+    </section>
+  </div>
 </Layout>

@@ -1,0 +1,64 @@
+---
+import AddComment from './AddComment';
+
+//images
+import avatar1 from '../../assets/images/avatars/img-1.jpg';
+import avatar2 from '../../assets/images/avatars/img-2.jpg';
+import avatar4 from '../../assets/images/avatars/img-4.jpg';
+---
+
+<section class="lg:py-24 py-14">
+	<div class="container">
+		<div class="flex items-center gap-2">
+			<h1 class="tracking-wider">Comments</h1>
+			<span class="bg-gray-200 px-2 rounded-md">3</span>
+		</div>
+		<div>
+			<div class="flex gap-3 my-6">
+				<img src={avatar4.src} class="h-11 w-11 rounded-md" alt="Sansa Stark" />
+				<div>
+					<h6 class="text-sm mb-1">Sansa Stark</h6>
+					<p class="text-sm text-gray-500">2 days ago</p>
+					<p class="text-sm/relaxed tracking-wider text-gray-600 mt-2">
+						At vero eos et accusamus et iusto odio dignissimos ducimus qui
+						blanditiis praesentium voluptatum deleniti atque.
+					</p>
+					<a href="" class="text-primary text-sm">
+						<i class="fa-regular fa-comment me-1"></i> Reply
+					</a>
+					<div class="flex gap-3 my-6">
+						<img src={avatar1.src} class="h-11 w-11 rounded-md" alt="Cersei Lannister" />
+						<div>
+							<h6 class="text-sm mb-1">Cersei Lannister</h6>
+							<p class="text-sm text-gray-500">1 days ago</p>
+							<p class="text-sm/relaxed tracking-wider text-gray-600 mt-2">
+								Itaque earum rerum hic tenetur sapiente delectus aut
+								reiciendis voluptatibus maiores alias consequatur aut
+								perferendis
+							</p>
+							<a href="" class="text-primary text-sm">
+								<i class="fa-regular fa-comment me-1"></i> Reply
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="border-b"></div>
+			<div class="flex gap-3 my-6">
+				<img src={avatar2.src} class="h-11 w-11 rounded-md" alt="Sansa Stark" />
+				<div>
+					<h6 class="text-sm mb-1">Sansa Stark</h6>
+					<p class="text-sm text-gray-500">2 days ago</p>
+					<p class="text-sm/relaxed tracking-wider text-gray-600 mt-2">
+						At vero eos et accusamus et iusto odio dignissimos ducimus qui
+						blanditiis praesentium voluptatum deleniti atque.
+					</p>
+					<a href="" class="text-primary text-sm">
+						<i class="fa-regular fa-comment me-1"></i> Reply
+					</a>
+				</div>
+			</div>
+		</div>
+		<AddComment client:load />
+	</div>
+</section>

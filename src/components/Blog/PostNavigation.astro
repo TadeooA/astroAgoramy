@@ -1,0 +1,53 @@
+---
+//images
+import blogImg3 from '../../assets/images/blog/blog-3.png';
+import blogImg2 from '../../assets/images/blog/blog-2.png';
+import avatar2 from '../../assets/images/avatars/img-2.jpg';
+---
+
+<section>
+	<div class="container">
+		<div class="border-t mb-5"></div>
+		<div class="grid md:grid-cols-4 grid-cols-1 items-center">
+			<div>
+				<div>
+					<div class="flex items-center justify-start">
+						<a
+							href=""
+							class="border border-gray-300 rounded-md text-sm tracking-wider transition-all duration-500 hover:shadow-lg py-2 px-5"
+						>
+							{' '}
+							<i class="fa-solid fa-arrow-left me-2"></i>
+							Prev Post
+						</a>
+					</div>
+				</div>
+			</div>
+			<div class="col-span-2">
+				<div class="my-5 md:my-0">
+					<div class="flex md:justify-center justify-start items-center gap-4">
+						<img src={avatar2.src} class="h-12 w-12 rounded-full" alt="Emily Blunt" />
+						<div>
+							<h6 class="text-sm transition-all hover:text-primary">
+								<a href="">Emily Blunt</a>
+							</h6>
+							<p class="text-sm text-gray-500">
+								I write about the latest trend in web design and
+								development.
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="flex items-center md:justify-end justify-start">
+				<a
+					href=""
+					class="border border-gray-300 rounded-md text-sm tracking-wider transition-all duration-500 hover:shadow-lg py-2 px-5"
+				>
+					Next Post <i class="fa-solid fa-arrow-right ms-2"></i>
+				</a>
+			</div>
+		</div>
+		<div class="border-b mt-5"></div>
+	</div>
+</section>

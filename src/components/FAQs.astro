@@ -1,0 +1,49 @@
+---
+import AccordionFAQ from './AccordionFAQ.tsx';
+
+const FAQContent = [
+  {
+    title: '¿Agoramy cumple con las regulaciones fiscales mexicanas?',
+    description: 'Sí, Agoramy está completamente integrado con el SAT para generar facturas electrónicas (CFDI) de forma automática. Todas las transacciones cumplen con los requisitos fiscales vigentes en México.',
+  },
+  {
+    title: '¿Puedo usar Agoramy en múltiples sucursales?',
+    description: 'Absolutamente. Con nuestros planes Profesional y Empresarial puedes gestionar múltiples sucursales desde una sola plataforma, con sincronización en tiempo real de inventario y ventas.',
+  },
+  {
+    title: '¿Qué pasa si mi conexión a Internet falla?',
+    description: 'Agoramy funciona en modo offline. Puedes seguir registrando ventas y cuando se restablezca la conexión, toda la información se sincronizará automáticamente.',
+  },
+  {
+    title: '¿Incluye control de medicamentos controlados?',
+    description: 'Sí, Agoramy incluye un módulo especial para el manejo de medicamentos controlados, cumpliendo con las normativas de COFEPRIS, incluyendo el registro de recetas médicas.',
+  },
+];
+---
+
+<section class="py-16 sm:py-24">
+  <div class="container mx-auto px-4" data-aos="fade-up" data-aos-duration="2000">
+    <div class="text-center">
+      <span class="text-sm font-medium py-1 px-3 rounded-full text-green-500 bg-green-500/10">
+        Preguntas Frecuentes
+      </span>
+      <h1 class="text-3xl/tight font-medium mt-3 mb-4">
+        Preguntas Frecuentes
+      </h1>
+      <p class="text-gray-500">
+        Resolvemos las dudas más comunes sobre Agoramy
+      </p>
+    </div>
+
+    <AccordionFAQ items={FAQContent} client:load />
+
+    <div class="text-center mt-14">
+      <p class="inline-flex flex-wrap gap-1 bg-gray-100 text-sm rounded-lg py-2 px-5">
+        ¿Aún tienes dudas?
+        <a href="/contact" class="hover:text-green-500 transition-all">
+          Contáctanos
+        </a>
+      </p>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,294 @@
+---
+import FeaturesAccordion from './FeaturesAccordion.tsx';
+
+// images
+import sass1 from '../assets/saas1.webp';
+import sass2 from '../assets/saas2.jpg';
+
+const accordionItems = [
+  {
+    icon: `<svg class="h-6 w-6 text-blue-500" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><polygon points="0 0 24 0 24 24 0 24"></polygon><path d="M18,14 C16.3431458,14 15,12.6568542 15,11 C15,9.34314575 16.3431458,8 18,8 C19.6568542,8 21,9.34314575 21,11 C21,12.6568542 19.6568542,14 18,14 Z M9,11 C6.790861,11 5,9.209139 5,7 C5,4.790861 6.790861,3 9,3 C11.209139,3 13,4.790861 13,7 C13,9.209139 11.209139,11 9,11 Z" fill="currentColor" opacity="0.3"></path><path d="M17.6011961,15.0006174 C21.0077043,15.0378534 23.7891749,16.7601418 23.9984937,20.4 C24.0069246,20.5466056 23.9984937,21 23.4559499,21 L19.6,21 C19.6,18.7490654 18.8562935,16.6718327 17.6011961,15.0006174 Z M0.00065168429,20.1992055 C0.388258525,15.4265159 4.26191235,13 8.98334134,13 C13.7712164,13 17.7048837,15.2931929 17.9979143,20.2 C18.0095879,20.3954741 17.9979143,21 17.2466999,21 C13.541124,21 8.03472472,21 0.727502227,21 C0.476712155,21 -0.0204617505,20.45918 0.00065168429,20.1992055 Z" fill="currentColor"></path></g></svg>`,
+    iconColor: 'text-blue-500',
+    iconBgColor: 'bg-blue-500/10',
+    title: 'Gestión de Clientes y Ventas',
+    description: 'Control total de tus clientes, historial de compras, recetas médicas y programas de lealtad. Gestiona ventas presenciales y en línea desde una sola plataforma.',
+  },
+  {
+    icon: `<svg class="h-6 w-6 text-green-500" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><polygon points="0 0 24 0 24 24 0 24"></polygon><path d="M18,8 L16,8 C15.4477153,8 15,7.55228475 15,7 C15,6.44771525 15.4477153,6 16,6 L18,6 L18,4 C18,3.44771525 18.4477153,3 19,3 C19.5522847,3 20,3.44771525 20,4 L20,6 L22,6 C22.5522847,6 23,6.44771525 23,7 C23,7.55228475 22.5522847,8 22,8 L20,8 L20,10 C20,10.5522847 19.5522847,11 19,11 C18.4477153,11 18,10.5522847 18,10 L18,8 Z M9,11 C6.790861,11 5,9.209139 5,7 C5,4.790861 6.790861,3 9,3 C11.209139,3 13,4.790861 13,7 C13,9.209139 11.209139,11 9,11 Z" fill="currentColor" opacity="0.3"></path><path d="M0.00065168429,20.1992055 C0.388258525,15.4265159 4.26191235,13 8.98334134,13 C13.7712164,13 17.7048837,15.2931929 17.9979143,20.2 C18.0095879,20.3954741 17.9979143,21 17.2466999,21 C13.541124,21 8.03472472,21 0.727502227,21 C0.476712155,21 -0.0204617505,20.45918 0.00065168429,20.1992055 Z" fill="currentColor"></path></g></svg>`,
+    iconColor: 'text-green-500',
+    iconBgColor: 'bg-green-500/10',
+    title: 'Inventario Inteligente',
+    description: 'Administra tu inventario con control de lotes, fechas de caducidad, alertas automáticas de reorden y seguimiento en tiempo real. Compatible con lectores de código de barras.',
+  },
+  {
+    icon: `<svg class="h-6 w-6 text-orange-500" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"></rect><rect fill="currentColor" opacity="0.3" x="7" y="4" width="3" height="13" rx="1.5"></rect><rect fill="currentColor" opacity="0.3" x="12" y="9" width="3" height="8" rx="1.5"></rect><path d="M5,19 L20,19 C20.5522847,19 21,19.4477153 21,20 C21,20.5522847 20.5522847,21 20,21 L4,21 C3.44771525,21 3,20.5522847 3,20 L3,4 C3,3.44771525 3.44771525,3 4,3 C4.55228475,3 5,3.44771525 5,4 L5,19 Z" fill="currentColor"></path><rect fill="currentColor" opacity="0.3" x="17" y="11" width="3" height="6" rx="1.5"></rect></g></svg>`,
+    iconColor: 'text-orange-500',
+    iconBgColor: 'bg-orange-500/10',
+    title: 'Reportes y Análisis',
+    description: 'Toma decisiones informadas con reportes detallados de ventas, inventario, productos más vendidos, análisis de rentabilidad y proyecciones de negocio.',
+  },
+];
+
+const featuresList = [
+  'Punto de Venta Rápido',
+  'Control de Inventario',
+  'Gestión de Recetas',
+  'Facturación Electrónica',
+  'Reportes en Tiempo Real',
+  'Multi-sucursal',
+  'Alertas de Caducidad',
+  'Programa de Lealtad',
+  'Control de Empleados',
+  'Integración Contable',
+  'Integración con Terminal Bancaria',
+  'Control de Caducidades',
+  'Gestión de Personal',
+  'Soporte 24/7',
+  'Personalización de Recibos',
+];
+---
+
+<section class="overflow-hidden">
+  <div class="xl:py-24 py-16">
+    <div class="container mx-auto px-4">
+      <div class="text-center">
+        <span class="text-sm font-medium py-1 px-3 rounded-full text-green-500 bg-green-500/10">
+          Características
+        </span>
+        <h1 class="text-3xl/tight font-medium mt-3 mb-4">
+          Mejor Gestión. Mejores Resultados
+        </h1>
+        <p class="text-gray-500">
+          Comienza a trabajar con <span class="text-green-500">Agoramy</span> para administrar tu farmacia de manera profesional
+        </p>
+      </div>
+
+      <div class="xl:pt-16 xl:pb-28 py-16">
+        <div class="grid lg:grid-cols-2 grid-cols-1 gap-6 items-center">
+          <div class="relative">
+            <div class="hidden sm:block">
+              <div class="after:w-20 after:h-20 after:absolute after:-top-8 after:-start-8 2xl:after:end-0 after:bg-[url('/src/assets/images/pattern/dot5.svg')]"></div>
+              <div class="before:w-20 before:h-20 before:absolute before:-bottom-8 before:-end-8 before:bg-[url('/src/assets/images/pattern/dot2.svg')]"></div>
+            </div>
+            <img
+              src={sass1.src}
+              alt="saas1"
+              data-aos="fade-right"
+              data-aos-duration="400"
+            />
+          </div>
+
+          <div class="lg:ms-24">
+            <div data-aos="fade-up" data-aos-duration="500">
+              <FeaturesAccordion items={accordionItems} client:load />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sección COFEPRIS y Regulaciones -->
+      <div class="xl:pt-16 xl:pb-16 py-16">
+        <div class="grid lg:grid-cols-2 grid-cols-1 gap-6 items-center">
+          <div
+            class="2xl:w-9/12"
+            data-aos="fade-up"
+            data-aos-duration="500"
+          >
+            <div class="h-12 w-12 bg-blue-500/10 flex items-center justify-center rounded-lg">
+              <svg
+                class="h-7 w-7 text-blue-500"
+                viewBox="0 0 24 24"
+                version="1.1"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlnsXlink="http://www.w3.org/1999/xlink"
+              >
+                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                  <rect x="0" y="0" width="24" height="24"></rect>
+                  <path d="M12,2 C12.5522847,2 13,2.44771525 13,3 L13,6 C13,6.55228475 12.5522847,7 12,7 C11.4477153,7 11,6.55228475 11,6 L11,3 C11,2.44771525 11.4477153,2 12,2 Z M12,17 C12.5522847,17 13,17.4477153 13,18 L13,21 C13,21.5522847 12.5522847,22 12,22 C11.4477153,22 11,21.5522847 11,21 L11,18 C11,17.4477153 11.4477153,17 12,17 Z M19,12 C19,11.4477153 19.4477153,11 20,11 L23,11 C23.5522847,11 24,11.4477153 24,12 C24,12.5522847 23.5522847,13 23,13 L20,13 C19.4477153,13 19,12.5522847 19,12 Z M0,12 C0,11.4477153 0.44771525,11 1,11 L4,11 C4.55228475,11 5,11.4477153 5,12 C5,12.5522847 4.55228475,13 4,13 L1,13 C0.44771525,13 0,12.5522847 0,12 Z" fill="currentColor" opacity="0.3"></path>
+                  <path d="M12,8 C14.209139,8 16,9.790861 16,12 C16,14.209139 14.209139,16 12,16 C9.790861,16 8,14.209139 8,12 C8,9.790861 9.790861,8 12,8 Z" fill="currentColor"></path>
+                </g>
+              </svg>
+            </div>
+
+            <h1 class="text-3xl/tight font-medium mt-6 mb-4">
+              Cumplimiento con COFEPRIS y Regulaciones Sanitarias
+            </h1>
+            <p class="text-gray-500 mb-4">
+              Agoramy cumple con todas las regulaciones sanitarias mexicanas para farmacias, incluyendo normativas de COFEPRIS para el control y registro de medicamentos controlados.
+            </p>
+            <div class="space-y-3">
+              <div class="flex items-start gap-3">
+                <i class="fa-solid fa-shield-alt text-blue-500 text-lg mt-1"></i>
+                <div>
+                  <p class="font-semibold text-gray-700">Control de Medicamentos Controlados</p>
+                  <p class="text-gray-500 text-sm">Registro y trazabilidad según normativa COFEPRIS</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-3">
+                <i class="fa-solid fa-file-medical text-blue-500 text-lg mt-1"></i>
+                <div>
+                  <p class="font-semibold text-gray-700">Gestión de Recetas Médicas</p>
+                  <p class="text-gray-500 text-sm">Control de recetas según NOM-072-SSA1-2012</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-3">
+                <i class="fa-solid fa-calendar-check text-blue-500 text-lg mt-1"></i>
+                <div>
+                  <p class="font-semibold text-gray-700">Control de Caducidades</p>
+                  <p class="text-gray-500 text-sm">Alertas automáticas para cumplir con regulaciones sanitarias</p>
+                </div>
+              </div>
+            </div>
+            <div class="flex items-center mt-8">
+              <a href="#" class="text-blue-500">
+                Conocer más <i class="fa-solid fa-arrow-right ms-2"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="relative">
+            <div class="hidden sm:block">
+              <div class="after:w-20 after:h-20 after:absolute after:-top-8 after:-end-8 2xl:after:-end-8 after:bg-[url('/src/assets/images/pattern/dot2.svg')]"></div>
+              <div class="before:w-20 before:h-20 before:absolute before:-bottom-8 before:-start-8 before:bg-[url('/src/assets/images/pattern/dot5.svg')]"></div>
+            </div>
+
+            <img
+              src={sass2.src}
+              alt="Regulaciones COFEPRIS"
+              data-aos="fade-left"
+              data-aos-duration="400"
+            />
+          </div>
+        </div>
+      </div>
+
+      <!-- Sección Facturación SAT -->
+      <div>
+        <div class="grid lg:grid-cols-2 grid-cols-1 gap-6 items-center">
+          <div
+            class="order-2 lg:order-1 2xl:w-9/12"
+            data-aos="fade-up"
+            data-aos-duration="500"
+          >
+            <div class="h-12 w-12 bg-green-500/10 flex items-center justify-center rounded-lg">
+              <svg
+                class="h-7 w-7 text-green-500"
+                viewBox="0 0 24 24"
+                version="1.1"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlnsXlink="http://www.w3.org/1999/xlink"
+              >
+                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                  <rect x="0" y="0" width="24" height="24"></rect>
+                  <path
+                    d="M10.8226874,8.36941377 L12.7324324,9.82298668 C13.4112512,8.93113547 14.4592942,8.4 15.6,8.4 C17.5882251,8.4 19.2,10.0117749 19.2,12 C19.2,13.9882251 17.5882251,15.6 15.6,15.6 C14.5814697,15.6 13.6363389,15.1780547 12.9574041,14.4447676 L11.1963369,16.075302 C12.2923051,17.2590082 13.8596186,18 15.6,18 C18.9137085,18 21.6,15.3137085 21.6,12 C21.6,8.6862915 18.9137085,6 15.6,6 C13.6507856,6 11.9186648,6.9294879 10.8226874,8.36941377 Z"
+                    fill="currentColor"
+                    opacity="0.3"
+                  ></path>
+                  <path
+                    d="M8.4,18 C5.0862915,18 2.4,15.3137085 2.4,12 C2.4,8.6862915 5.0862915,6 8.4,6 C11.7137085,6 14.4,8.6862915 14.4,12 C14.4,15.3137085 11.7137085,18 8.4,18 Z"
+                    fill="currentColor"
+                  ></path>
+                </g>
+              </svg>
+            </div>
+
+            <h1 class="text-3xl/tight font-medium mt-6 mb-4">
+              Facturación Inteligente. Cumple con el SAT sin complicaciones
+            </h1>
+            <p class="text-gray-500">
+              Genera facturas electrónicas automáticamente con cada venta. Agoramy se integra con el SAT
+              para garantizar que todas tus transacciones cumplan con los requisitos fiscales mexicanos.
+            </p>
+            <div class="flex items-center mt-12">
+              <a href="#" class="text-green-500">
+                Conocer más <i class="fa-solid fa-arrow-right ms-2"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="relative order-1 lg:order-2">
+            <div class="hidden sm:block">
+              <div class="after:w-20 after:h-20 after:absolute after:-top-8 after:-end-8 2xl:after:-end-8 after:bg-[url('/src/assets/images/pattern/dot2.svg')]"></div>
+              <div class="before:w-20 before:h-20 before:absolute before:-bottom-8 before:-start-8 before:bg-[url('/src/assets/images/pattern/dot5.svg')]"></div>
+            </div>
+
+            <img
+              src={sass2.src}
+              alt="saas2"
+              data-aos="fade-left"
+              data-aos-duration="400"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="xl:py-24 py-16">
+    <div class="container mx-auto px-4" data-aos="fade-up" data-aos-duration="600">
+      <div class="text-center">
+        <h1 class="text-2xl font-medium">
+          Y muchas más funciones poderosas
+        </h1>
+      </div>
+
+      <div class="py-16">
+        <div class="grid xl:grid-cols-4 sm:grid-cols-2 grid-cols-1 gap-5">
+          <div class="order-1">
+            <div class="flex flex-col gap-5">
+              {featuresList.slice(0, 4).map((feature) => (
+                <p class="flex items-center gap-3">
+                  <i class="fa-solid fa-check text-green-500 text-xl"></i>
+                  {feature}
+                </p>
+              ))}
+            </div>
+          </div>
+
+          <div class="order-3 xl:order-2">
+            <div class="flex flex-col gap-5">
+              {featuresList.slice(4, 8).map((feature) => (
+                <p class="flex items-center gap-3">
+                  <i class="fa-solid fa-check text-green-500 text-xl"></i>
+                  {feature}
+                </p>
+              ))}
+            </div>
+          </div>
+
+          <div class="order-4 xl:order-3">
+            <div class="flex flex-col gap-5">
+              {featuresList.slice(8, 12).map((feature) => (
+                <p class="flex items-center gap-3">
+                  <i class="fa-solid fa-check text-green-500 text-xl"></i>
+                  {feature}
+                </p>
+              ))}
+            </div>
+          </div>
+
+          <div class="order-2 xl:order-4">
+            <div class="flex flex-col gap-5">
+              {featuresList.slice(12, 15).map((feature) => (
+                <p class="flex items-center gap-3">
+                  <i class="fa-solid fa-check text-green-500 text-xl"></i>
+                  {feature}
+                </p>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <button class="flex items-center justify-center mx-auto">
+        <a
+          href="#"
+          class="bg-green-500 text-white rounded-lg text-sm font-semibold flex-none hover:shadow-lg hover:shadow-green-500/30 focus:shadow-none focus:outline focus:outline-green-500/40 px-6 py-3"
+        >
+          Regístrate Ahora <i class="fa-solid fa-arrow-right ms-2"></i>
+        </a>
+      </button>
+    </div>
+  </div>
+</section>

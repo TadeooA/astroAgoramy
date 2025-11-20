@@ -1,0 +1,16 @@
+---
+interface Props {
+    type?: string;
+    name?: string;
+    placeholder?: string;
+    containerClass?: string;
+    className?: string;
+}
+
+const { type = 'text', name, placeholder, containerClass, className } = Astro.props;
+---
+
+<div class={containerClass}>
+    <input type={type} name={name} placeholder={placeholder} class={className} />
+    <slot />
+</div>

@@ -1,0 +1,54 @@
+---
+import type { Post } from './data';
+
+interface Props {
+	post: Post;
+}
+
+const { post } = Astro.props;
+---
+
+<div class="lg:col-span-2">
+	<div class="grid md:grid-cols-5 gap-10">
+		<div class="md:col-span-2 col-span-3">
+			<a href={post.slug ? `/blog/${post.slug}` : '#'}>
+				<img src={post.image} class="w-full h-full rounded-md hover:opacity-90 transition-opacity" alt={post.title} />
+			</a>
+		</div>
+		<div class="col-span-3">
+			<div class="flex flex-col gap-14 justify-between xl:h-full">
+				<div>
+					<span class="bg-orange-500/10 text-orange-500 font-medium rounded-md text-xs py-1 px-2">
+						<a href={post.slug ? `/blog/${post.slug}` : '#'}>{post.tag.value}</a>
+					</span>
+					<h1 class="text-lg my-3 transition-all hover:text-primary">
+						<a href={post.slug ? `/blog/${post.slug}` : '#'}>{post.title}</a>
+					</h1>
+					<p class="text-sm/relaxed tracking-wider text-gray-500">
+						{post.description}{' '}
+						<a href={post.slug ? `/blog/${post.slug}` : '#'} class="text-primary">
+							leer más
+						</a>
+					</p>
+				</div>
+				<div>
+					<div class="flex items-center gap-2">
+						<img
+							src={post.postedBy?.avatar}
+							class="h-10 w-10 rounded-md"
+							alt={post.postedBy?.name}
+						/>
+						<div>
+							<h6 class="text-sm transition-all hover:text-primary">
+								<a href="#">{post.postedBy?.name}</a>
+							</h6>
+							<p class="text-sm text-gray-500">
+								{post.postedOn?.date} · {post.postedOn?.time}
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,19 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import PostHero from '../../../components/Blog/PostHero.astro';
+import PostContent from '../../../components/Blog/PostContent.astro';
+import PostNavigation from '../../../components/Blog/PostNavigation.astro';
+import Comments from '../../../components/Blog/Comments.astro';
+---
+
+<Layout title="Blog - Agoramy">
+	<div class="text-gray-700">
+		<PostHero />
+
+		<PostContent />
+
+		<PostNavigation />
+
+		<Comments />
+	</div>
+</Layout>

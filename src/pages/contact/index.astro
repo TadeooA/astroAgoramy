@@ -1,0 +1,10 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Hero from '../../components/Contact/Hero.astro';
+import ContactUs from '../../components/Contact/ContactUs.tsx';
+---
+
+<Layout title="Contacto - Agoramy">
+  <Hero />
+  <ContactUs client:load />
+</Layout>

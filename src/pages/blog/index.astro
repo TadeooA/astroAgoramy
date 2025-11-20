@@ -1,0 +1,159 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Hero from '../../components/Blog/Hero.astro';
+import BlogPost1 from '../../components/Blog/BlogPost1.astro';
+import BlogPost2 from '../../components/Blog/BlogPost2.astro';
+import SubscriptionForm from '../../components/Blog/SubscriptionForm.tsx';
+import { post1, post2 } from '../../components/Blog/data';
+
+// images
+import avatar1 from '../../assets/images/avatars/img-1.jpg';
+import avatar2 from '../../assets/images/avatars/img-2.jpg';
+import avatar3 from '../../assets/images/avatars/img-3.jpg';
+import blogImg from '../../assets/images/blog/post-bg.png';
+---
+
+<Layout title="Blog - Agoramy">
+	<div class="text-gray-700">
+		<Hero />
+		<section class="py-24">
+			<div class="container">
+				<div class="flex items-center gap-2">
+					<p>Etiquetas:</p>
+					<div class="flex flex-wrap items-center gap-1">
+						<a
+							href=""
+							class="border border-gray-300 rounded-md text-xs font-medium tracking-wider transition-all duration-150 hover:shadow-lg focus:shadow-lg py-2 px-3"
+						>
+							Negocios
+						</a>
+						<a
+							href=""
+							class="border border-gray-300 rounded-md text-xs font-medium tracking-wider transition-all duration-150 hover:shadow-lg focus:shadow-lg py-2 px-3"
+						>
+							Comunidad
+						</a>
+						<a
+							href=""
+							class="border border-gray-300 rounded-md text-xs font-medium tracking-wider transition-all duration-150 hover:shadow-lg focus:shadow-lg py-2 px-3"
+						>
+							Anuncio
+						</a>
+						<a
+							href=""
+							class="border border-gray-300 rounded-md text-xs font-medium tracking-wider transition-all duration-150 hover:shadow-lg focus:shadow-lg py-2 px-3"
+						>
+							Tutoriales
+						</a>
+						<a
+							href=""
+							class="border border-gray-300 rounded-md text-xs font-medium tracking-wider transition-all duration-150 hover:shadow-lg focus:shadow-lg py-2 px-3"
+						>
+							Recursos
+						</a>
+						<a
+							href=""
+							class="border border-gray-300 rounded-md text-xs font-medium tracking-wider transition-all duration-150 hover:shadow-lg focus:shadow-lg py-2 px-3"
+						>
+							Entrevista
+						</a>
+					</div>
+				</div>
+				<div
+					class="grid lg:grid-cols-3 grid-cols-1 gap-10 items-center lg:py-16 py-14"
+					data-aos="fade-up"
+					data-aos-duration="300"
+				>
+					<BlogPost1 post={post1[0]} />
+
+					<SubscriptionForm client:load />
+				</div>
+				<div
+					class="grid lg:grid-cols-3 grid-cols-1 gap-6 lg:py-16 py-14"
+					data-aos="fade-up"
+				>
+					{post2.map((item) => (
+						<div>
+							<BlogPost2 post={item} />
+						</div>
+					))}
+				</div>
+				<div
+					class="grid lg:grid-cols-3 grid-cols-1 gap-10 items-center lg:py-16 py-14"
+					data-aos="fade-up"
+				>
+					<BlogPost1 post={post1[1]} />
+					<div>
+						<div class="border relative shadow-xl rounded-lg w-full">
+							<div class="relative">
+								<div class="absolute inset-0 bg-black/20"></div>
+								<div class="absolute top-4 right-4 text-sm bg-red-500 text-white rounded py-1 px-3">
+									Recurso
+								</div>
+								<img src={blogImg.src} class="w-full" alt="Blog resource" />
+								<div class="absolute right-5 bottom-3 left-5 text-white">
+									<h2 class="text-2xl">
+										<a href="">
+											Las 10 mejores ideas para mejorar la productividad del equipo
+										</a>
+									</h2>
+									<div class="flex mt-3">
+										<a href="" class="ms-1 -me-3 shadow-lg">
+											<img
+												src={avatar1.src}
+												alt="image"
+												class="w-8 h-8 shadow-lg border-2 border-white rounded-full"
+											/>
+										</a>
+										<a href="" class="ms-1 -me-3 shadow-lg">
+											<img
+												src={avatar2.src}
+												alt="image"
+												class="w-8 h-8 shadow-lg border-2 border-white rounded-full"
+											/>
+										</a>
+										<a href="" class="ms-1 -me-3 shadow-lg">
+											<img
+												src={avatar3.src}
+												alt="image"
+												class="w-8 h-8 shadow-lg border-2 border-white rounded-full"
+											/>
+										</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div
+					class="grid lg:grid-cols-3 gap-6 lg:py-16 py-14"
+					data-aos="fade-up"
+				>
+					{post2.map((item) => (
+						<div>
+							<BlogPost2 post={item} />
+						</div>
+					))}
+				</div>
+				<div class="flex justify-center items-center gap-2">
+					<div class="flex items-center">
+						<a
+							href=""
+							class="border border-gray-300 rounded-md text-sm tracking-wider transition-all duration-150 hover:shadow-lg focus:shadow-lg py-2 px-3"
+						>
+							<i class="fa-solid fa-arrow-left me-2"></i> Anterior
+						</a>
+					</div>
+					<div class="flex items-center">
+						<a
+							href=""
+							class="border border-gray-300 rounded-md text-sm tracking-wider transition-all duration-150 hover:shadow-lg focus:shadow-lg py-2 px-3"
+						>
+							Siguiente <i class="fa-solid fa-arrow-right ms-2"></i>
+						</a>
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
+</Layout>
