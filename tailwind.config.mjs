@@ -17,7 +17,8 @@ export default {
       },
     },
     fontFamily: {
-      body: ['Be Vietnam Pro', 'sans-serif'],
+      body: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+      sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
     },
     extend: {
       colors: {
