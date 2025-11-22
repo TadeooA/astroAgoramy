@@ -7,38 +7,38 @@ import logo from '../assets/agoramyLandingw.webp';
     <div class="flex items-center justify-between h-20">
       <!-- Logo -->
       <div class="flex-shrink-0">
-        <a href="/">
+        <a href={import.meta.env.BASE_URL}>
           <img id="navbar-logo" src={logo.src} alt="Agoramy" class="h-[54px] transition-all duration-300" />
         </a>
       </div>
 
       <!-- Desktop Navigation -->
       <div class="hidden md:flex items-center space-x-8">
-        <a href="/" class="text-gray-700 hover:text-green-500 transition-colors font-medium">
+        <a href={import.meta.env.BASE_URL} class="text-gray-700 hover:text-green-500 transition-colors font-medium">
           Inicio
         </a>
-        <a href="/company" class="text-gray-700 hover:text-green-500 transition-colors font-medium">
+        <a href={`${import.meta.env.BASE_URL}/company`} class="text-gray-700 hover:text-green-500 transition-colors font-medium">
           Quiénes Somos
         </a>
-        <a href="/career" class="text-gray-700 hover:text-green-500 transition-colors font-medium">
+        <a href={`${import.meta.env.BASE_URL}/career`} class="text-gray-700 hover:text-green-500 transition-colors font-medium">
           Carreras
         </a>
-        <a href="/pricing" class="text-gray-700 hover:text-green-500 transition-colors font-medium">
+        <a href={`${import.meta.env.BASE_URL}/pricing`} class="text-gray-700 hover:text-green-500 transition-colors font-medium">
           Precios
         </a>
-        <a href="/blog" class="text-gray-700 hover:text-green-500 transition-colors font-medium">
+        <a href={`${import.meta.env.BASE_URL}/blog`} class="text-gray-700 hover:text-green-500 transition-colors font-medium">
           Blog
         </a>
-        <a href="/contact" class="text-gray-700 hover:text-green-500 transition-colors font-medium">
+        <a href={`${import.meta.env.BASE_URL}/contact`} class="text-gray-700 hover:text-green-500 transition-colors font-medium">
           Contacto
         </a>
       </div>
 
       <!-- CTA Buttons -->
       <div class="hidden md:flex items-center space-x-4">
-      
+
         <a
-          href="/product"
+          href={`${import.meta.env.BASE_URL}/product`}
           class="bg-green-500 text-white px-6 py-2 rounded-lg hover:bg-green-600 hover:shadow-lg hover:shadow-green-500/30 transition-all font-medium"
         >
           Registrarse
@@ -73,28 +73,28 @@ import logo from '../assets/agoramyLandingw.webp';
       class="hidden md:hidden pb-4 border-t border-gray-200 mt-2"
     >
       <div class="flex flex-col space-y-3 pt-4">
-        <a href="/" class="text-gray-700 hover:text-green-500 transition-colors font-medium py-2">
+        <a href={import.meta.env.BASE_URL} class="text-gray-700 hover:text-green-500 transition-colors font-medium py-2">
           Inicio
         </a>
-        <a href="/company" class="text-gray-700 hover:text-green-500 transition-colors font-medium py-2">
+        <a href={`${import.meta.env.BASE_URL}/company`} class="text-gray-700 hover:text-green-500 transition-colors font-medium py-2">
           Quiénes Somos
         </a>
-        <a href="/career" class="text-gray-700 hover:text-green-500 transition-colors font-medium py-2">
+        <a href={`${import.meta.env.BASE_URL}/career`} class="text-gray-700 hover:text-green-500 transition-colors font-medium py-2">
           Carreras
         </a>
-        <a href="/pricing" class="text-gray-700 hover:text-green-500 transition-colors font-medium py-2">
+        <a href={`${import.meta.env.BASE_URL}/pricing`} class="text-gray-700 hover:text-green-500 transition-colors font-medium py-2">
           Precios
         </a>
-        <a href="/blog" class="text-gray-700 hover:text-green-500 transition-colors font-medium py-2">
+        <a href={`${import.meta.env.BASE_URL}/blog`} class="text-gray-700 hover:text-green-500 transition-colors font-medium py-2">
           Blog
         </a>
-        <a href="/contact" class="text-gray-700 hover:text-green-500 transition-colors font-medium py-2">
+        <a href={`${import.meta.env.BASE_URL}/contact`} class="text-gray-700 hover:text-green-500 transition-colors font-medium py-2">
           Contacto
         </a>
         <div class="flex flex-col space-y-2 pt-2">
 
           <a
-            href="/product"
+            href={`${import.meta.env.BASE_URL}/product`}
             class="text-center bg-green-500 text-white px-6 py-2 rounded-lg hover:bg-green-600 transition-all font-medium"
           >
             Registrarse

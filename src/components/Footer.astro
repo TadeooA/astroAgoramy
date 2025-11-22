@@ -7,7 +7,7 @@ import logo from '../assets/agoramyLandingw.webp';
   <div class="container mx-auto px-4">
     <div class="grid xl:grid-cols-5 gap-8 py-16">
       <div class="xl:col-span-2">
-        <a href="/" class="flex items-center mb-6 hover:opacity-80 transition-opacity">
+        <a href={import.meta.env.BASE_URL} class="flex items-center mb-6 hover:opacity-80 transition-opacity">
           <img src={logo.src} alt="Agoramy Logo" class="h-16" />
         </a>
         <p class="text-gray-300 text-lg leading-relaxed lg:w-4/5">
@@ -65,8 +65,8 @@ import logo from '../assets/agoramyLandingw.webp';
           <div>
             <div class="flex flex-col gap-3">
               <h5 class="mb-3 text-green-500 font-bold text-lg">Plataforma</h5>
-              <a href="/product" class="text-gray-300 hover:text-green-500 transition-colors">Demo</a>
-              <a href="/pricing" class="text-gray-300 hover:text-green-500 transition-colors">Precios</a>
+              <a href={`${import.meta.env.BASE_URL}/product`} class="text-gray-300 hover:text-green-500 transition-colors">Demo</a>
+              <a href={`${import.meta.env.BASE_URL}/pricing`} class="text-gray-300 hover:text-green-500 transition-colors">Precios</a>
               <a href="#" class="text-gray-300 hover:text-green-500 transition-colors">Integraciones</a>
               <a href="#" class="text-gray-300 hover:text-green-500 transition-colors">Estado</a>
             </div>
@@ -74,8 +74,8 @@ import logo from '../assets/agoramyLandingw.webp';
           <div>
             <div class="flex flex-col gap-3">
               <h5 class="mb-3 text-green-500 font-bold text-lg">Recursos</h5>
-              <a href="/blog" class="text-gray-300 hover:text-green-500 transition-colors">Blog</a>
-              <a href="/help" class="text-gray-300 hover:text-green-500 transition-colors">Centro de Ayuda</a>
+              <a href={`${import.meta.env.BASE_URL}/blog`} class="text-gray-300 hover:text-green-500 transition-colors">Blog</a>
+              <a href={`${import.meta.env.BASE_URL}/help`} class="text-gray-300 hover:text-green-500 transition-colors">Centro de Ayuda</a>
               <a href="#" class="text-gray-300 hover:text-green-500 transition-colors">Tutoriales</a>
               <a href="#" class="text-gray-300 hover:text-green-500 transition-colors">API</a>
             </div>
@@ -83,9 +83,9 @@ import logo from '../assets/agoramyLandingw.webp';
           <div>
             <div class="flex flex-col gap-3">
               <h5 class="mb-3 text-green-500 font-bold text-lg">Empresa</h5>
-              <a href="/company" class="text-gray-300 hover:text-green-500 transition-colors">Quiénes Somos</a>
-              <a href="/career" class="text-gray-300 hover:text-green-500 transition-colors">Carreras</a>
-              <a href="/contact" class="text-gray-300 hover:text-green-500 transition-colors">Contacto</a>
+              <a href={`${import.meta.env.BASE_URL}/company`} class="text-gray-300 hover:text-green-500 transition-colors">Quiénes Somos</a>
+              <a href={`${import.meta.env.BASE_URL}/career`} class="text-gray-300 hover:text-green-500 transition-colors">Carreras</a>
+              <a href={`${import.meta.env.BASE_URL}/contact`} class="text-gray-300 hover:text-green-500 transition-colors">Contacto</a>
             </div>
           </div>
           <div>
