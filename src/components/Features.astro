@@ -4,6 +4,12 @@ import FeaturesAccordion from './FeaturesAccordion.tsx';
 // images
 import sass1 from '../assets/saas1.webp';
 import sass2 from '../assets/saas2.jpg';
+import feature2w from '../assets/images/features/feature2w.webp';
+import feature3w from '../assets/images/features/feature3w.webp';
+import feature4w from '../assets/images/features/feature4w.webp';
+import feature5w from '../assets/images/features/feature5w.webp';
+import feature6w from '../assets/images/features/feature6w.webp';
+import feature7w from '../assets/images/features/feature7w.webp';
 
 const accordionItems = [
   {
@@ -86,7 +92,7 @@ const featuresList = [
         </div>
       </div>
 
-      <!-- Sección COFEPRIS y Regulaciones -->
+      <!-- Sección Control de Medicamentos -->
       <div class="xl:pt-16 xl:pb-16 py-16">
         <div class="grid lg:grid-cols-2 grid-cols-1 gap-6 items-center">
           <div
@@ -94,53 +100,41 @@ const featuresList = [
             data-aos="fade-up"
             data-aos-duration="500"
           >
-            <div class="h-12 w-12 bg-blue-500/10 flex items-center justify-center rounded-lg">
-              <svg
-                class="h-7 w-7 text-blue-500"
-                viewBox="0 0 24 24"
-                version="1.1"
-                xmlns="http://www.w3.org/2000/svg"
-                xmlnsXlink="http://www.w3.org/1999/xlink"
-              >
-                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                  <rect x="0" y="0" width="24" height="24"></rect>
-                  <path d="M12,2 C12.5522847,2 13,2.44771525 13,3 L13,6 C13,6.55228475 12.5522847,7 12,7 C11.4477153,7 11,6.55228475 11,6 L11,3 C11,2.44771525 11.4477153,2 12,2 Z M12,17 C12.5522847,17 13,17.4477153 13,18 L13,21 C13,21.5522847 12.5522847,22 12,22 C11.4477153,22 11,21.5522847 11,21 L11,18 C11,17.4477153 11.4477153,17 12,17 Z M19,12 C19,11.4477153 19.4477153,11 20,11 L23,11 C23.5522847,11 24,11.4477153 24,12 C24,12.5522847 23.5522847,13 23,13 L20,13 C19.4477153,13 19,12.5522847 19,12 Z M0,12 C0,11.4477153 0.44771525,11 1,11 L4,11 C4.55228475,11 5,11.4477153 5,12 C5,12.5522847 4.55228475,13 4,13 L1,13 C0.44771525,13 0,12.5522847 0,12 Z" fill="currentColor" opacity="0.3"></path>
-                  <path d="M12,8 C14.209139,8 16,9.790861 16,12 C16,14.209139 14.209139,16 12,16 C9.790861,16 8,14.209139 8,12 C8,9.790861 9.790861,8 12,8 Z" fill="currentColor"></path>
-                </g>
-              </svg>
+            <div class="h-12 w-12 bg-red-500/10 flex items-center justify-center rounded-lg">
+              <i class="fa-solid fa-pills text-red-500 text-2xl"></i>
             </div>
 
             <h1 class="text-3xl/tight font-medium mt-6 mb-4">
-              Cumplimiento con COFEPRIS y Regulaciones Sanitarias
+              Control de Medicamentos Controlados
             </h1>
             <p class="text-gray-500 mb-4">
-              Agoramy cumple con todas las regulaciones sanitarias mexicanas para farmacias, incluyendo normativas de COFEPRIS para el control y registro de medicamentos controlados.
+              Cumple con todas las normativas de COFEPRIS para el manejo de medicamentos controlados. Registro completo, trazabilidad y reportes automáticos.
             </p>
             <div class="space-y-3">
               <div class="flex items-start gap-3">
-                <i class="fa-solid fa-shield-alt text-blue-500 text-lg mt-1"></i>
+                <i class="fa-solid fa-shield-alt text-red-500 text-lg mt-1"></i>
                 <div>
-                  <p class="font-semibold text-gray-700">Control de Medicamentos Controlados</p>
-                  <p class="text-gray-500 text-sm">Registro y trazabilidad según normativa COFEPRIS</p>
+                  <p class="font-semibold text-gray-700">Registro Completo COFEPRIS</p>
+                  <p class="text-gray-500 text-sm">Control y registro de medicamentos psicotrópicos y estupefacientes</p>
                 </div>
               </div>
               <div class="flex items-start gap-3">
-                <i class="fa-solid fa-file-medical text-blue-500 text-lg mt-1"></i>
+                <i class="fa-solid fa-clipboard-list text-red-500 text-lg mt-1"></i>
                 <div>
-                  <p class="font-semibold text-gray-700">Gestión de Recetas Médicas</p>
-                  <p class="text-gray-500 text-sm">Control de recetas según NOM-072-SSA1-2012</p>
+                  <p class="font-semibold text-gray-700">Trazabilidad Completa</p>
+                  <p class="text-gray-500 text-sm">Seguimiento de lote, caducidad y recetas médicas</p>
                 </div>
               </div>
               <div class="flex items-start gap-3">
-                <i class="fa-solid fa-calendar-check text-blue-500 text-lg mt-1"></i>
+                <i class="fa-solid fa-file-alt text-red-500 text-lg mt-1"></i>
                 <div>
-                  <p class="font-semibold text-gray-700">Control de Caducidades</p>
-                  <p class="text-gray-500 text-sm">Alertas automáticas para cumplir con regulaciones sanitarias</p>
+                  <p class="font-semibold text-gray-700">Reportes Automáticos</p>
+                  <p class="text-gray-500 text-sm">Genera reportes requeridos por autoridades sanitarias</p>
                 </div>
               </div>
             </div>
             <div class="flex items-center mt-8">
-              <a href="#" class="text-blue-500">
+              <a href="#" class="text-red-500">
                 Conocer más <i class="fa-solid fa-arrow-right ms-2"></i>
               </a>
             </div>
@@ -153,8 +147,8 @@ const featuresList = [
             </div>
 
             <img
-              src={sass2.src}
-              alt="Regulaciones COFEPRIS"
+              src={feature2w.src}
+              alt="Control de Medicamentos"
               data-aos="fade-left"
               data-aos-duration="400"
             />
@@ -162,63 +156,319 @@ const featuresList = [
         </div>
       </div>
 
-      <!-- Sección Facturación SAT -->
-      <div>
+      <!-- Sección Gestión de Empleados y Permisos -->
+      <div class="xl:pb-16 py-16">
         <div class="grid lg:grid-cols-2 grid-cols-1 gap-6 items-center">
+          <div class="relative order-2 lg:order-1">
+            <div class="hidden sm:block">
+              <div class="after:w-20 after:h-20 after:absolute after:-top-8 after:-start-8 2xl:after:end-0 after:bg-[url('/src/assets/images/pattern/dot5.svg')]"></div>
+              <div class="before:w-20 before:h-20 before:absolute before:-bottom-8 before:-end-8 before:bg-[url('/src/assets/images/pattern/dot2.svg')]"></div>
+            </div>
+            <img
+              src={feature3w.src}
+              alt="Gestión de Empleados"
+              data-aos="fade-right"
+              data-aos-duration="400"
+            />
+          </div>
+
           <div
-            class="order-2 lg:order-1 2xl:w-9/12"
+            class="2xl:w-9/12 lg:ms-auto order-1 lg:order-2"
             data-aos="fade-up"
             data-aos-duration="500"
           >
-            <div class="h-12 w-12 bg-green-500/10 flex items-center justify-center rounded-lg">
-              <svg
-                class="h-7 w-7 text-green-500"
-                viewBox="0 0 24 24"
-                version="1.1"
-                xmlns="http://www.w3.org/2000/svg"
-                xmlnsXlink="http://www.w3.org/1999/xlink"
-              >
-                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                  <rect x="0" y="0" width="24" height="24"></rect>
-                  <path
-                    d="M10.8226874,8.36941377 L12.7324324,9.82298668 C13.4112512,8.93113547 14.4592942,8.4 15.6,8.4 C17.5882251,8.4 19.2,10.0117749 19.2,12 C19.2,13.9882251 17.5882251,15.6 15.6,15.6 C14.5814697,15.6 13.6363389,15.1780547 12.9574041,14.4447676 L11.1963369,16.075302 C12.2923051,17.2590082 13.8596186,18 15.6,18 C18.9137085,18 21.6,15.3137085 21.6,12 C21.6,8.6862915 18.9137085,6 15.6,6 C13.6507856,6 11.9186648,6.9294879 10.8226874,8.36941377 Z"
-                    fill="currentColor"
-                    opacity="0.3"
-                  ></path>
-                  <path
-                    d="M8.4,18 C5.0862915,18 2.4,15.3137085 2.4,12 C2.4,8.6862915 5.0862915,6 8.4,6 C11.7137085,6 14.4,8.6862915 14.4,12 C14.4,15.3137085 11.7137085,18 8.4,18 Z"
-                    fill="currentColor"
-                  ></path>
-                </g>
-              </svg>
+            <div class="h-12 w-12 bg-purple-500/10 flex items-center justify-center rounded-lg">
+              <i class="fa-solid fa-users-cog text-purple-500 text-2xl"></i>
             </div>
 
             <h1 class="text-3xl/tight font-medium mt-6 mb-4">
-              Facturación Inteligente. Cumple con el SAT sin complicaciones
+              Gestión de Empleados y Permisos
             </h1>
-            <p class="text-gray-500">
-              Genera facturas electrónicas automáticamente con cada venta. Agoramy se integra con el SAT
-              para garantizar que todas tus transacciones cumplan con los requisitos fiscales mexicanos.
+            <p class="text-gray-500 mb-4">
+              Administra tu equipo de trabajo con control de accesos, permisos personalizados y registro de actividades para mayor seguridad y transparencia.
             </p>
-            <div class="flex items-center mt-12">
-              <a href="#" class="text-green-500">
+            <div class="space-y-3">
+              <div class="flex items-start gap-3">
+                <i class="fa-solid fa-user-shield text-purple-500 text-lg mt-1"></i>
+                <div>
+                  <p class="font-semibold text-gray-700">Control de Accesos por Rol</p>
+                  <p class="text-gray-500 text-sm">Define permisos específicos para cada empleado</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-3">
+                <i class="fa-solid fa-clock text-purple-500 text-lg mt-1"></i>
+                <div>
+                  <p class="font-semibold text-gray-700">Registro de Horarios</p>
+                  <p class="text-gray-500 text-sm">Control de entrada/salida y turnos de trabajo</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-3">
+                <i class="fa-solid fa-history text-purple-500 text-lg mt-1"></i>
+                <div>
+                  <p class="font-semibold text-gray-700">Auditoría de Actividades</p>
+                  <p class="text-gray-500 text-sm">Historial completo de acciones realizadas</p>
+                </div>
+              </div>
+            </div>
+            <div class="flex items-center mt-8">
+              <a href="#" class="text-purple-500">
+                Conocer más <i class="fa-solid fa-arrow-right ms-2"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sección Catálogo Digital y Gestión de Compras -->
+      <div class="xl:pb-16 py-16">
+        <div class="grid lg:grid-cols-2 grid-cols-1 gap-6 items-center">
+          <div
+            class="2xl:w-9/12"
+            data-aos="fade-up"
+            data-aos-duration="500"
+          >
+            <div class="h-12 w-12 bg-indigo-500/10 flex items-center justify-center rounded-lg">
+              <i class="fa-solid fa-truck text-indigo-500 text-2xl"></i>
+            </div>
+
+            <h1 class="text-3xl/tight font-medium mt-6 mb-4">
+              Catálogo Digital, Gestión de Compras y Envíos
+            </h1>
+            <p class="text-gray-500 mb-4">
+              Optimiza tus procesos de compra con catálogos digitales, órdenes automatizadas a proveedores y gestión completa de envíos a domicilio.
+            </p>
+            <div class="space-y-3">
+              <div class="flex items-start gap-3">
+                <i class="fa-solid fa-book text-indigo-500 text-lg mt-1"></i>
+                <div>
+                  <p class="font-semibold text-gray-700">Catálogo Digital Completo</p>
+                  <p class="text-gray-500 text-sm">Base de datos actualizada de productos y proveedores</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-3">
+                <i class="fa-solid fa-shopping-cart text-indigo-500 text-lg mt-1"></i>
+                <div>
+                  <p class="font-semibold text-gray-700">Órdenes de Compra Automatizadas</p>
+                  <p class="text-gray-500 text-sm">Genera órdenes cuando el inventario alcanza el punto de reorden</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-3">
+                <i class="fa-solid fa-shipping-fast text-indigo-500 text-lg mt-1"></i>
+                <div>
+                  <p class="font-semibold text-gray-700">Control de Envíos</p>
+                  <p class="text-gray-500 text-sm">Gestión de entregas a domicilio con seguimiento en tiempo real</p>
+                </div>
+              </div>
+            </div>
+            <div class="flex items-center mt-8">
+              <a href="#" class="text-indigo-500">
                 Conocer más <i class="fa-solid fa-arrow-right ms-2"></i>
               </a>
             </div>
           </div>
 
-          <div class="relative order-1 lg:order-2">
+          <div class="relative">
             <div class="hidden sm:block">
               <div class="after:w-20 after:h-20 after:absolute after:-top-8 after:-end-8 2xl:after:-end-8 after:bg-[url('/src/assets/images/pattern/dot2.svg')]"></div>
               <div class="before:w-20 before:h-20 before:absolute before:-bottom-8 before:-start-8 before:bg-[url('/src/assets/images/pattern/dot5.svg')]"></div>
             </div>
 
             <img
-              src={sass2.src}
-              alt="saas2"
+              src={feature4w.src}
+              alt="Gestión de Compras"
               data-aos="fade-left"
               data-aos-duration="400"
             />
+          </div>
+        </div>
+      </div>
+
+      <!-- Sección Facturación Electrónica México -->
+      <div class="xl:pb-16 py-16">
+        <div class="grid lg:grid-cols-2 grid-cols-1 gap-6 items-center">
+          <div class="relative order-2 lg:order-1">
+            <div class="hidden sm:block">
+              <div class="after:w-20 after:h-20 after:absolute after:-top-8 after:-start-8 2xl:after:end-0 after:bg-[url('/src/assets/images/pattern/dot5.svg')]"></div>
+              <div class="before:w-20 before:h-20 before:absolute before:-bottom-8 before:-end-8 before:bg-[url('/src/assets/images/pattern/dot2.svg')]"></div>
+            </div>
+            <img
+              src={feature5w.src}
+              alt="Facturación Electrónica"
+              data-aos="fade-right"
+              data-aos-duration="400"
+            />
+          </div>
+
+          <div
+            class="2xl:w-9/12 lg:ms-auto order-1 lg:order-2"
+            data-aos="fade-up"
+            data-aos-duration="500"
+          >
+            <div class="h-12 w-12 bg-green-500/10 flex items-center justify-center rounded-lg">
+              <i class="fa-solid fa-file-invoice-dollar text-green-500 text-2xl"></i>
+            </div>
+
+            <h1 class="text-3xl/tight font-medium mt-6 mb-4">
+              Facturación Electrónica México - CFDI 4.0
+            </h1>
+            <p class="text-gray-500 mb-4">
+              Genera facturas electrónicas automáticamente cumpliendo con todas las normativas del SAT. Sistema actualizado a CFDI 4.0 con timbrado en tiempo real.
+            </p>
+            <div class="space-y-3">
+              <div class="flex items-start gap-3">
+                <i class="fa-solid fa-check-circle text-green-500 text-lg mt-1"></i>
+                <div>
+                  <p class="font-semibold text-gray-700">CFDI 4.0 Actualizado</p>
+                  <p class="text-gray-500 text-sm">Cumple con la última versión del SAT</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-3">
+                <i class="fa-solid fa-bolt text-green-500 text-lg mt-1"></i>
+                <div>
+                  <p class="font-semibold text-gray-700">Timbrado Automático</p>
+                  <p class="text-gray-500 text-sm">Genera y timbra facturas en segundos</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-3">
+                <i class="fa-solid fa-envelope text-green-500 text-lg mt-1"></i>
+                <div>
+                  <p class="font-semibold text-gray-700">Envío Automático por Email</p>
+                  <p class="text-gray-500 text-sm">Entrega facturas PDF y XML a tus clientes</p>
+                </div>
+              </div>
+            </div>
+            <div class="flex items-center mt-8">
+              <a href="#" class="text-green-500">
+                Conocer más <i class="fa-solid fa-arrow-right ms-2"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sección Gestión de Promociones y Ofertas -->
+      <div class="xl:pb-16 py-16">
+        <div class="grid lg:grid-cols-2 grid-cols-1 gap-6 items-center">
+          <div
+            class="2xl:w-9/12"
+            data-aos="fade-up"
+            data-aos-duration="500"
+          >
+            <div class="h-12 w-12 bg-yellow-500/10 flex items-center justify-center rounded-lg">
+              <i class="fa-solid fa-tags text-yellow-500 text-2xl"></i>
+            </div>
+
+            <h1 class="text-3xl/tight font-medium mt-6 mb-4">
+              Gestión de Promociones y Ofertas
+            </h1>
+            <p class="text-gray-500 mb-4">
+              Crea promociones, descuentos y programas de lealtad para aumentar tus ventas. Sistema flexible que se adapta a cualquier estrategia comercial.
+            </p>
+            <div class="space-y-3">
+              <div class="flex items-start gap-3">
+                <i class="fa-solid fa-percent text-yellow-500 text-lg mt-1"></i>
+                <div>
+                  <p class="font-semibold text-gray-700">Descuentos Programables</p>
+                  <p class="text-gray-500 text-sm">2x1, 3x2, descuentos por volumen y más</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-3">
+                <i class="fa-solid fa-gift text-yellow-500 text-lg mt-1"></i>
+                <div>
+                  <p class="font-semibold text-gray-700">Programa de Lealtad</p>
+                  <p class="text-gray-500 text-sm">Acumula puntos y recompensa a tus clientes frecuentes</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-3">
+                <i class="fa-solid fa-calendar-alt text-yellow-500 text-lg mt-1"></i>
+                <div>
+                  <p class="font-semibold text-gray-700">Promociones Temporales</p>
+                  <p class="text-gray-500 text-sm">Define ofertas por fecha, hora o temporada</p>
+                </div>
+              </div>
+            </div>
+            <div class="flex items-center mt-8">
+              <a href="#" class="text-yellow-500">
+                Conocer más <i class="fa-solid fa-arrow-right ms-2"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="relative">
+            <div class="hidden sm:block">
+              <div class="after:w-20 after:h-20 after:absolute after:-top-8 after:-end-8 2xl:after:-end-8 after:bg-[url('/src/assets/images/pattern/dot2.svg')]"></div>
+              <div class="before:w-20 before:h-20 before:absolute before:-bottom-8 before:-start-8 before:bg-[url('/src/assets/images/pattern/dot5.svg')]"></div>
+            </div>
+
+            <img
+              src={feature6w.src}
+              alt="Promociones y Ofertas"
+              data-aos="fade-left"
+              data-aos-duration="400"
+            />
+          </div>
+        </div>
+      </div>
+
+      <!-- Sección Analítica de Empleados, Ventas y Compras -->
+      <div class="xl:pb-16 py-16">
+        <div class="grid lg:grid-cols-2 grid-cols-1 gap-6 items-center">
+          <div class="relative order-2 lg:order-1">
+            <div class="hidden sm:block">
+              <div class="after:w-20 after:h-20 after:absolute after:-top-8 after:-start-8 2xl:after:end-0 after:bg-[url('/src/assets/images/pattern/dot5.svg')]"></div>
+              <div class="before:w-20 before:h-20 before:absolute before:-bottom-8 before:-end-8 before:bg-[url('/src/assets/images/pattern/dot2.svg')]"></div>
+            </div>
+            <img
+              src={feature7w.src}
+              alt="Analítica Avanzada"
+              data-aos="fade-right"
+              data-aos-duration="400"
+            />
+          </div>
+
+          <div
+            class="2xl:w-9/12 lg:ms-auto order-1 lg:order-2"
+            data-aos="fade-up"
+            data-aos-duration="500"
+          >
+            <div class="h-12 w-12 bg-blue-500/10 flex items-center justify-center rounded-lg">
+              <i class="fa-solid fa-chart-line text-blue-500 text-2xl"></i>
+            </div>
+
+            <h1 class="text-3xl/tight font-medium mt-6 mb-4">
+              Analítica de Empleados, Ventas y Compras
+            </h1>
+            <p class="text-gray-500 mb-4">
+              Toma decisiones basadas en datos con reportes detallados de rendimiento, ventas y eficiencia operativa. Visualiza métricas clave en tiempo real.
+            </p>
+            <div class="space-y-3">
+              <div class="flex items-start gap-3">
+                <i class="fa-solid fa-chart-bar text-blue-500 text-lg mt-1"></i>
+                <div>
+                  <p class="font-semibold text-gray-700">Dashboard en Tiempo Real</p>
+                  <p class="text-gray-500 text-sm">Métricas de ventas, inventario y rendimiento al instante</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-3">
+                <i class="fa-solid fa-user-chart text-blue-500 text-lg mt-1"></i>
+                <div>
+                  <p class="font-semibold text-gray-700">Análisis de Rendimiento</p>
+                  <p class="text-gray-500 text-sm">Evalúa el desempeño individual y por equipo</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-3">
+                <i class="fa-solid fa-trending-up text-blue-500 text-lg mt-1"></i>
+                <div>
+                  <p class="font-semibold text-gray-700">Tendencias y Proyecciones</p>
+                  <p class="text-gray-500 text-sm">Identifica patrones y anticipa demanda futura</p>
+                </div>
+              </div>
+            </div>
+            <div class="flex items-center mt-8">
+              <a href="#" class="text-blue-500">
+                Conocer más <i class="fa-solid fa-arrow-right ms-2"></i>
+              </a>
+            </div>
           </div>
         </div>
       </div>

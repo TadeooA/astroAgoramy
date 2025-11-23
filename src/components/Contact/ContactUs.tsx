@@ -154,19 +154,12 @@ const ContactUs = () => {
             </div>
           </div>
           <div className="lg:w-5/12 ms-auto overflow-x-hidden">
-            <div className="h-[520px]">
-              <div
-                id="marker-map5"
-                className="h-100"
-                data-toggle="map"
-                data-map='{"mapCenter": [40.749179, -73.989276], "zoom": 12, "useTextIcon": false, "interactive": true, "geojson": "/assets/sample-listing-geojson.json" }'
-              >
-                <iframe
-                  className="w-full h-[500px]"
-                  src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d6030.418742494061!2d-111.34563870463673!3d26.01036670629853!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses-419!2smx!4v1471908546569"
-                  frameBorder={0}
-                />
-              </div>
+            <div className="h-[520px] flex items-center justify-center">
+              <img
+                src="/astroAgoramy/contactow.webp"
+                alt="Contacto"
+                className="w-full h-full object-contain"
+              />
             </div>
           </div>
         </div>
