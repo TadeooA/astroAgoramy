@@ -20,7 +20,7 @@ export default function SwiperSlider({ images }: SwiperSliderProps) {
         disableOnInteraction: false,
       }}
       loop={true}
-      className="border-[6px] border-white bg-white 2xl:w-[140%]"
+      className="border-[6px] border-white bg-white xl:w-[130%] 2xl:w-[140%]"
     >
       {images.map((image, index) => (
         <SwiperSlide key={index}>

@@ -2,20 +2,28 @@ import { useState } from 'react'
 
 const faqContent = [
   {
-    title: '¿Cómo funciona Prompt?',
-    description: 'Prompt es una plataforma SaaS que ayuda a las empresas a gestionar sus relaciones con los clientes y sus procesos de ventas. Proporciona herramientas para el seguimiento de clientes potenciales, la gestión de contactos y la automatización de flujos de trabajo.'
+    title: '¿Cómo funciona Agoramy?',
+    description: 'Agoramy es un sistema POS diseñado específicamente para farmacias en México. Te ayuda a gestionar inventario, ventas, facturación electrónica, control de medicamentos controlados, empleados y mucho más desde una sola plataforma.'
   },
   {
-    title: '¿Qué incluye la prueba gratuita?',
-    description: 'La prueba gratuita incluye acceso a todas las características de nuestro plan Profesional durante 14 días. No se requiere tarjeta de crédito.'
+    title: '¿Qué incluye cada plan?',
+    description: 'Cada plan incluye diferentes límites de cajas, empleados y productos. Todos los planes incluyen facturación electrónica, soporte técnico, capacitación y acceso a análisis de datos. Los planes superiores incluyen características adicionales como mensajes de IA y análisis avanzados.'
   },
   {
     title: '¿Puedo cambiar mi plan más tarde?',
-    description: 'Sí, puedes actualizar o degradar tu plan en cualquier momento. Los cambios se reflejarán en tu próximo ciclo de facturación.'
+    description: 'Sí, puedes actualizar o cambiar tu plan en cualquier momento según las necesidades de tu farmacia. Los cambios se reflejarán en tu próximo ciclo de facturación mensual.'
   },
   {
-    title: '¿Ofrecen reembolsos?',
-    description: 'Ofrecemos una garantía de devolución de dinero de 30 días para todos nuestros planes. Si no estás satisfecho, contacta a nuestro equipo de soporte para un reembolso completo.'
+    title: '¿Cómo funcionan los extras?',
+    description: 'Cada plan permite agregar extras como cajas adicionales, empleados extra, más productos o mensajes de IA. Los costos de los extras se suman a tu suscripción mensual y puedes ajustarlos según tus necesidades.'
+  },
+  {
+    title: '¿El sistema cumple con las normativas mexicanas?',
+    description: 'Sí, Agoramy cumple con todas las normativas de COFEPRIS para el manejo de medicamentos controlados y con los requisitos del SAT para facturación electrónica CFDI 4.0.'
+  },
+  {
+    title: '¿Ofrecen capacitación?',
+    description: 'Sí, todos los planes incluyen capacitación inicial para que tu equipo aprenda a usar la plataforma. Además, contamos con soporte técnico continuo para resolver cualquier duda.'
   }
 ]
 

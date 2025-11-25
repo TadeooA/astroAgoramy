@@ -18,41 +18,66 @@
     <div class="grid xl:grid-cols-3 lg:grid-cols-2 grid-cols-1 gap-6 items-center mt-16">
       <div>
         <div class="border p-6 text-center rounded hover:shadow-lg">
-          <h4 class="text-lg text-primary">Básico</h4>
+          <h4 class="text-lg text-primary">Plan Básico</h4>
           <h1 class="mt-3 mb-8">
             <sup class="align-super text-sm text-slate-500">$</sup>
-            <span class="text-3xl font-semibold">49</span>
-            <sub class="text-sm text-slate-500">/ mes</sub>
+            <span class="text-3xl font-semibold">120</span>
+            <sub class="text-sm text-slate-500"> MXN/mes</sub>
           </h1>
           <hr />
-          <div class="grid gap-y-4 mt-8">
+          <div class="grid gap-y-3 mt-8 text-sm">
             <div class="flex items-center gap-2">
-              <svg class="w-5 h-5 text-green-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <svg class="w-5 h-5 text-green-500 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <polyline points="20 6 9 17 4 12"></polyline>
               </svg>
-              <span>Hasta 600 minutos de tiempo de uso</span>
+              <span class="text-left">3 cajas</span>
             </div>
             <div class="flex items-center gap-2">
-              <svg class="w-5 h-5 text-green-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <svg class="w-5 h-5 text-green-500 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <polyline points="20 6 9 17 4 12"></polyline>
               </svg>
-              <span>Uso personal únicamente</span>
+              <span class="text-left">25 empleados</span>
             </div>
             <div class="flex items-center gap-2">
-              <svg class="w-5 h-5 text-green-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <svg class="w-5 h-5 text-green-500 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <polyline points="20 6 9 17 4 12"></polyline>
               </svg>
-              <span>Añadir hasta 10 asistentes</span>
+              <span class="text-left">3,000 productos</span>
             </div>
             <div class="flex items-center gap-2">
-              <svg class="w-5 h-5 text-green-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <svg class="w-5 h-5 text-green-500 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <polyline points="20 6 9 17 4 12"></polyline>
               </svg>
-              <span>Soporte técnico por correo electrónico</span>
+              <span class="text-left">Facturación</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <svg class="w-5 h-5 text-green-500 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span class="text-left">Analítica de datos básica</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <svg class="w-5 h-5 text-green-500 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span class="text-left">Trazabilidad de ventas y compras</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <svg class="w-5 h-5 text-green-500 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span class="text-left">Módulo de ofertas</span>
             </div>
           </div>
-          <div class="mt-24">
-            <a href="#" class="py-3 px-6 flex items-center justify-center rounded hover:border hover:border-primary/50 text-primary bg-primary/10 transition-all duration-500">Registrarse Ahora</a>
+          <hr class="my-5" />
+          <div class="text-xs text-left text-slate-500">
+            <p class="font-semibold text-slate-700">Extras:</p>
+            <p>Caja extra: $30/mes</p>
+            <p>Empleado extra: $20/mes</p>
+            <p>+2,000 productos: $60/mes</p>
+          </div>
+          <div class="mt-6">
+            <a href={`${import.meta.env.BASE_URL}product`} class="py-3 px-6 flex items-center justify-center rounded hover:border hover:border-primary/50 text-primary bg-primary/10 transition-all duration-500">Comenzar Ahora</a>
           </div>
         </div>
       </div>
@@ -61,93 +86,121 @@
           <div class="absolute w-full h-[188px] -z-10 top-0 left-0 overflow-hidden">
             <span class="absolute transform rotate-45 bg-primary text-center text-white font-medium py-1 right-[-52px] top-[23px] w-[170px] h-5 z-[2] text-xs overflow-hidden border border-dashed leading-[8px] border-white shadow-[0_0_0_3px] shadow-primary/40">Popular</span>
           </div>
-          <h4 class="text-lg text-primary text-center">Profesional</h4>
+          <h4 class="text-lg text-primary text-center">Plan Emprendedor</h4>
           <h1 class="mt-3 mb-8 text-center">
             <sup class="align-super text-sm text-slate-500">$</sup>
-            <span class="text-3xl font-semibold">99</span>
-            <sub class="text-sm text-slate-500">/ mes</sub>
+            <span class="text-3xl font-semibold">250</span>
+            <sub class="text-sm text-slate-500"> MXN/mes</sub>
           </h1>
           <hr />
-          <div class="grid gap-y-4 mt-8">
+          <p class="text-xs text-slate-600 mt-4 mb-3">Incluye todo lo del Plan Básico más:</p>
+          <div class="grid gap-y-3 text-sm">
             <div class="flex items-center gap-2">
-              <svg class="w-5 h-5 text-green-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <svg class="w-5 h-5 text-green-500 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <polyline points="20 6 9 17 4 12"></polyline>
               </svg>
-              <span>Hasta 6000 minutos de tiempo de uso</span>
+              <span class="text-left">6 cajas</span>
             </div>
             <div class="flex items-center gap-2">
-              <svg class="w-5 h-5 text-green-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <svg class="w-5 h-5 text-green-500 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <polyline points="20 6 9 17 4 12"></polyline>
               </svg>
-              <span>Uso personal o para cliente comercial</span>
+              <span class="text-left">50 empleados</span>
             </div>
             <div class="flex items-center gap-2">
-              <svg class="w-5 h-5 text-green-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <svg class="w-5 h-5 text-green-500 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <polyline points="20 6 9 17 4 12"></polyline>
               </svg>
-              <span>Añadir hasta 100 asistentes</span>
+              <span class="text-left">6,000 productos</span>
             </div>
             <div class="flex items-center gap-2">
-              <svg class="w-5 h-5 text-green-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <svg class="w-5 h-5 text-green-500 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <polyline points="20 6 9 17 4 12"></polyline>
               </svg>
-              <span>Hasta 5 equipos</span>
+              <span class="text-left">Catálogo digital</span>
             </div>
             <div class="flex items-center gap-2">
-              <svg class="w-5 h-5 text-green-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <svg class="w-5 h-5 text-green-500 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <polyline points="20 6 9 17 4 12"></polyline>
               </svg>
-              <span>Soporte técnico por correo electrónico</span>
+              <span class="text-left">Gestión de ventas y envíos</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <svg class="w-5 h-5 text-green-500 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span class="text-left">100 mensajes de IA para clientes</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <svg class="w-5 h-5 text-green-500 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span class="text-left">3 análisis mensuales de datos</span>
             </div>
           </div>
-          <div class="mt-14">
-            <a href="#" class="py-3 px-6 flex items-center justify-center rounded hover:border hover:border-primary/50 text-primary bg-primary/10 transition-all duration-500">Registrarse Ahora</a>
+          <hr class="my-5" />
+          <div class="text-xs text-left text-slate-500">
+            <p class="font-semibold text-slate-700">Extras:</p>
+            <p>Caja extra: $20/mes</p>
+            <p>+2,000 productos: $40/mes</p>
+            <p>+200 mensajes de IA: $100/mes</p>
+          </div>
+          <div class="mt-6">
+            <a href={`${import.meta.env.BASE_URL}product`} class="py-3 px-6 flex items-center justify-center rounded hover:border hover:border-primary/50 text-primary bg-primary/10 transition-all duration-500">Comenzar Ahora</a>
           </div>
         </div>
       </div>
       <div>
         <div class="border p-6 rounded hover:shadow-lg">
-          <h4 class="text-lg text-primary text-center">Empresarial</h4>
+          <h4 class="text-lg text-primary text-center">Plan Empresa</h4>
           <h1 class="mt-3 mb-8 text-center">
             <sup class="align-super text-sm text-slate-500">$</sup>
-            <span class="text-3xl font-semibold">599</span>
-            <sub class="text-sm text-slate-500">/ mes</sub>
+            <span class="text-3xl font-semibold">450</span>
+            <sub class="text-sm text-slate-500"> MXN/mes</sub>
           </h1>
           <hr />
-          <div class="grid gap-y-4 mt-8">
+          <p class="text-xs text-slate-600 mt-4 mb-3">Incluye todo lo del Plan Emprendedor y Básico más:</p>
+          <div class="grid gap-y-3 text-sm">
             <div class="flex items-center gap-2">
-              <svg class="w-5 h-5 text-green-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <svg class="w-5 h-5 text-green-500 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <polyline points="20 6 9 17 4 12"></polyline>
               </svg>
-              <span>Tiempo de uso ilimitado</span>
+              <span class="text-left">12 cajas</span>
             </div>
             <div class="flex items-center gap-2">
-              <svg class="w-5 h-5 text-green-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <svg class="w-5 h-5 text-green-500 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <polyline points="20 6 9 17 4 12"></polyline>
               </svg>
-              <span>Uso personal o para cliente comercial</span>
+              <span class="text-left">100 empleados</span>
             </div>
             <div class="flex items-center gap-2">
-              <svg class="w-5 h-5 text-green-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <svg class="w-5 h-5 text-green-500 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <polyline points="20 6 9 17 4 12"></polyline>
               </svg>
-              <span>Añadir asistentes ilimitados</span>
+              <span class="text-left">12,000 productos</span>
             </div>
             <div class="flex items-center gap-2">
-              <svg class="w-5 h-5 text-green-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <svg class="w-5 h-5 text-green-500 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <polyline points="20 6 9 17 4 12"></polyline>
               </svg>
-              <span>Soporte técnico 24x7 por teléfono</span>
+              <span class="text-left">400 mensajes de IA</span>
             </div>
             <div class="flex items-center gap-2">
-              <svg class="w-5 h-5 text-green-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <svg class="w-5 h-5 text-green-500 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <polyline points="20 6 9 17 4 12"></polyline>
               </svg>
-              <span>Soporte técnico por correo electrónico</span>
+              <span class="text-left">8 análisis mensuales de IA avanzada</span>
             </div>
           </div>
-          <div class="mt-14">
-            <a href="#" class="py-3 px-6 flex items-center justify-center rounded hover:border hover:border-primary/50 text-primary bg-primary/10 transition-all duration-500">Registrarse Ahora</a>
+          <hr class="my-5" />
+          <div class="text-xs text-left text-slate-500">
+            <p class="font-semibold text-slate-700">Extras:</p>
+            <p>Caja extra: $15/mes</p>
+            <p>Empleado extra: $10/mes</p>
+            <p>+200 mensajes de IA: $50/mes</p>
+          </div>
+          <div class="mt-6">
+            <a href={`${import.meta.env.BASE_URL}product`} class="py-3 px-6 flex items-center justify-center rounded hover:border hover:border-primary/50 text-primary bg-primary/10 transition-all duration-500">Contactar Ventas</a>
           </div>
         </div>
       </div>

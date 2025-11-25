@@ -17,34 +17,53 @@
     <div data-aos="fade-up" data-aos-duration="500">
       <div class="transition-all duration-300 pointer-events-auto hover:shadow-[0_0_1.5rem_0_rgba(0,0,0,.12)] hover:-translate-y-1">
         <div class="border border-gray-300 bg-white rounded w-full h-full text-center p-5">
-          <span class="text-lg text-green-500">Básico</span>
+          <span class="text-lg text-green-500">Plan Básico</span>
           <h1 class="text-3xl/tight font-semibold mt-3">
-            <sup class="text-gray-500 text-sm font-normal">$</sup> 599
-            <sub class="text-gray-500 text-sm font-normal">/mes</sub>
+            <sup class="text-gray-500 text-sm font-normal">$</sup> 120
+            <sub class="text-gray-500 text-sm font-normal"> MXN/mes</sub>
           </h1>
           <div class="border-b border-gray-200 w-full my-7"></div>
           <div>
-            <div class="flex flex-col gap-4">
-              <p class="flex items-center text-gray-600 gap-4">
-                <i class="fa-solid fa-check text-green-500 text-lg"></i>
-                1 sucursal / 1 caja
+            <div class="flex flex-col gap-3 text-sm">
+              <p class="flex items-start text-gray-600 gap-3">
+                <i class="fa-solid fa-check text-green-500 text-base mt-0.5"></i>
+                <span class="text-left">3 cajas</span>
               </p>
-              <p class="flex items-center text-gray-600 gap-4">
-                <i class="fa-solid fa-check text-green-500 text-lg"></i>
-                Hasta 5,000 productos
+              <p class="flex items-start text-gray-600 gap-3">
+                <i class="fa-solid fa-check text-green-500 text-base mt-0.5"></i>
+                <span class="text-left">25 empleados</span>
               </p>
-              <p class="flex items-center text-gray-600 gap-4">
-                <i class="fa-solid fa-check text-green-500 text-lg"></i>
-                Control de inventario básico
+              <p class="flex items-start text-gray-600 gap-3">
+                <i class="fa-solid fa-check text-green-500 text-base mt-0.5"></i>
+                <span class="text-left">3,000 productos</span>
               </p>
-              <p class="flex items-center text-gray-600 gap-4">
-                <i class="fa-solid fa-check text-green-500 text-lg"></i>
-                Soporte por correo electrónico
+              <p class="flex items-start text-gray-600 gap-3">
+                <i class="fa-solid fa-check text-green-500 text-base mt-0.5"></i>
+                <span class="text-left">Facturación</span>
+              </p>
+              <p class="flex items-start text-gray-600 gap-3">
+                <i class="fa-solid fa-check text-green-500 text-base mt-0.5"></i>
+                <span class="text-left">Analítica de datos básica</span>
+              </p>
+              <p class="flex items-start text-gray-600 gap-3">
+                <i class="fa-solid fa-check text-green-500 text-base mt-0.5"></i>
+                <span class="text-left">Trazabilidad de ventas y compras</span>
+              </p>
+              <p class="flex items-start text-gray-600 gap-3">
+                <i class="fa-solid fa-check text-green-500 text-base mt-0.5"></i>
+                <span class="text-left">Módulo de ofertas</span>
               </p>
             </div>
-            <div class="flex mt-[120px]">
+            <div class="border-t border-gray-200 w-full my-5"></div>
+            <div class="flex flex-col gap-2 text-xs text-gray-500">
+              <p class="font-semibold text-gray-700">Extras:</p>
+              <p>Caja extra: $30/mes</p>
+              <p>Empleado extra: $20/mes</p>
+              <p>+2,000 productos: $60/mes</p>
+            </div>
+            <div class="flex mt-6">
               <a
-                href="#"
+                href={`${import.meta.env.BASE_URL}product`}
                 class="bg-green-500/10 text-green-500/90 w-full py-3 rounded-lg border border-transparent hover:border hover:border-green-500/20 transition-all duration-300"
               >
                 Comenzar Ahora
@@ -58,38 +77,54 @@
     <div data-aos="fade-up" data-aos-duration="700">
       <div class="transition-all duration-300 pointer-events-auto hover:shadow-[0_0_1.5rem_0_rgba(0,0,0,.12)] hover:-translate-y-1">
         <div class="border border-gray-300 bg-white rounded w-full h-full text-center p-5">
-          <span class="text-lg text-green-500">Profesional</span>
+          <span class="text-lg text-green-500">Plan Emprendedor</span>
           <h1 class="text-3xl/tight font-semibold mt-3">
-            <sup class="text-gray-500 text-sm font-normal">$</sup> 1,299
-            <sub class="text-gray-500 text-sm font-normal">/mes</sub>
+            <sup class="text-gray-500 text-sm font-normal">$</sup> 250
+            <sub class="text-gray-500 text-sm font-normal"> MXN/mes</sub>
           </h1>
           <div class="border-b border-gray-200 w-full my-7"></div>
           <div>
-            <div class="flex flex-col gap-4">
-              <p class="flex items-center text-gray-600 gap-4">
-                <i class="fa-solid fa-check text-green-500 text-lg"></i>
-                Hasta 3 sucursales / 5 cajas
+            <p class="text-xs text-gray-600 mb-3">Incluye todo lo del Plan Básico más:</p>
+            <div class="flex flex-col gap-3 text-sm">
+              <p class="flex items-start text-gray-600 gap-3">
+                <i class="fa-solid fa-check text-green-500 text-base mt-0.5"></i>
+                <span class="text-left">6 cajas</span>
               </p>
-              <p class="flex items-center text-gray-600 gap-4">
-                <i class="fa-solid fa-check text-green-500 text-lg"></i>
-                Productos ilimitados
+              <p class="flex items-start text-gray-600 gap-3">
+                <i class="fa-solid fa-check text-green-500 text-base mt-0.5"></i>
+                <span class="text-left">50 empleados</span>
               </p>
-              <p class="flex items-center text-gray-600 gap-4">
-                <i class="fa-solid fa-check text-green-500 text-lg"></i>
-                Facturación electrónica
+              <p class="flex items-start text-gray-600 gap-3">
+                <i class="fa-solid fa-check text-green-500 text-base mt-0.5"></i>
+                <span class="text-left">6,000 productos</span>
               </p>
-              <p class="flex items-center text-gray-600 gap-4">
-                <i class="fa-solid fa-check text-green-500 text-lg"></i>
-                Gestión de recetas médicas
+              <p class="flex items-start text-gray-600 gap-3">
+                <i class="fa-solid fa-check text-green-500 text-base mt-0.5"></i>
+                <span class="text-left">Catálogo digital</span>
               </p>
-              <p class="flex items-center text-gray-600 gap-4">
-                <i class="fa-solid fa-check text-green-500 text-lg"></i>
-                Soporte prioritario
+              <p class="flex items-start text-gray-600 gap-3">
+                <i class="fa-solid fa-check text-green-500 text-base mt-0.5"></i>
+                <span class="text-left">Gestión de ventas y envíos</span>
+              </p>
+              <p class="flex items-start text-gray-600 gap-3">
+                <i class="fa-solid fa-check text-green-500 text-base mt-0.5"></i>
+                <span class="text-left">100 mensajes de IA para clientes</span>
+              </p>
+              <p class="flex items-start text-gray-600 gap-3">
+                <i class="fa-solid fa-check text-green-500 text-base mt-0.5"></i>
+                <span class="text-left">3 análisis mensuales de datos</span>
               </p>
             </div>
-            <div class="flex mt-20">
+            <div class="border-t border-gray-200 w-full my-5"></div>
+            <div class="flex flex-col gap-2 text-xs text-gray-500">
+              <p class="font-semibold text-gray-700">Extras:</p>
+              <p>Caja extra: $20/mes</p>
+              <p>+2,000 productos: $40/mes</p>
+              <p>+200 mensajes de IA: $100/mes</p>
+            </div>
+            <div class="flex mt-6">
               <a
-                href="#"
+                href={`${import.meta.env.BASE_URL}product`}
                 class="bg-green-500 text-white w-full py-3 rounded-lg border border-transparent hover:shadow-lg hover:shadow-green-500/30 focus:shadow-none focus:outline focus:outline-green-500/40 hover:border hover:border-green-500 transition-all duration-300"
               >
                 Comenzar Ahora
@@ -103,38 +138,46 @@
     <div data-aos="fade-up" data-aos-duration="900">
       <div class="transition-all duration-300 pointer-events-auto hover:shadow-[0_0_1.5rem_0_rgba(0,0,0,.12)] hover:-translate-y-1">
         <div class="border border-gray-300 bg-white rounded w-full h-full text-center p-5">
-          <span class="text-lg text-green-500">Empresarial</span>
+          <span class="text-lg text-green-500">Plan Empresa</span>
           <h1 class="text-3xl/tight font-semibold mt-3">
-            <sup class="text-gray-500 text-sm font-normal">$</sup> 2,499
-            <sub class="text-gray-500 text-sm font-normal">/mes</sub>
+            <sup class="text-gray-500 text-sm font-normal">$</sup> 450
+            <sub class="text-gray-500 text-sm font-normal"> MXN/mes</sub>
           </h1>
           <div class="border-b border-gray-200 w-full my-7"></div>
           <div>
-            <div class="flex flex-col gap-4">
-              <p class="flex items-center text-gray-600 gap-4">
-                <i class="fa-solid fa-check text-green-500 text-lg"></i>
-                Sucursales y cajas ilimitadas
+            <p class="text-xs text-gray-600 mb-3">Incluye todo lo del Plan Emprendedor y Básico más:</p>
+            <div class="flex flex-col gap-3 text-sm">
+              <p class="flex items-start text-gray-600 gap-3">
+                <i class="fa-solid fa-check text-green-500 text-base mt-0.5"></i>
+                <span class="text-left">12 cajas</span>
               </p>
-              <p class="flex items-center text-gray-600 gap-4">
-                <i class="fa-solid fa-check text-green-500 text-lg"></i>
-                Todo lo del plan Profesional
+              <p class="flex items-start text-gray-600 gap-3">
+                <i class="fa-solid fa-check text-green-500 text-base mt-0.5"></i>
+                <span class="text-left">100 empleados</span>
               </p>
-              <p class="flex items-center text-gray-600 gap-4">
-                <i class="fa-solid fa-check text-green-500 text-lg"></i>
-                API para integraciones
+              <p class="flex items-start text-gray-600 gap-3">
+                <i class="fa-solid fa-check text-green-500 text-base mt-0.5"></i>
+                <span class="text-left">12,000 productos</span>
               </p>
-              <p class="flex items-center text-gray-600 gap-4">
-                <i class="fa-solid fa-check text-green-500 text-lg"></i>
-                Soporte 24/7 por teléfono
+              <p class="flex items-start text-gray-600 gap-3">
+                <i class="fa-solid fa-check text-green-500 text-base mt-0.5"></i>
+                <span class="text-left">400 mensajes de IA</span>
               </p>
-              <p class="flex items-center text-gray-600 gap-4">
-                <i class="fa-solid fa-check text-green-500 text-lg"></i>
-                Capacitación personalizada
+              <p class="flex items-start text-gray-600 gap-3">
+                <i class="fa-solid fa-check text-green-500 text-base mt-0.5"></i>
+                <span class="text-left">8 análisis mensuales de IA avanzada</span>
               </p>
             </div>
-            <div class="flex mt-20">
+            <div class="border-t border-gray-200 w-full my-5"></div>
+            <div class="flex flex-col gap-2 text-xs text-gray-500">
+              <p class="font-semibold text-gray-700">Extras:</p>
+              <p>Caja extra: $15/mes</p>
+              <p>Empleado extra: $10/mes</p>
+              <p>+200 mensajes de IA: $50/mes</p>
+            </div>
+            <div class="flex mt-6">
               <a
-                href="#"
+                href={`${import.meta.env.BASE_URL}product`}
                 class="bg-green-500/10 text-green-500/90 w-full py-3 rounded-lg border border-transparent hover:border hover:border-green-500/20 transition-all duration-300"
               >
                 Contactar Ventas
