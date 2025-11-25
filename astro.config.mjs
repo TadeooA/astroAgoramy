@@ -6,7 +6,7 @@ import tailwind from '@astrojs/tailwind';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://agoramy.com',
-  base: '/',
+  base: '',
   trailingSlash: 'ignore',
   build: {
     assets: '_astro'
