@@ -4,9 +4,9 @@ import postImg2 from '../../assets/images/blog/post3.jpg'
 
 import agoramyAutor from '../../assets/images/agoramyAutorw.webp'
 
-import blog1 from '../../assets/images/blog/blog-1.png'
-import blog2 from '../../assets/images/blog/blog-2.png'
-import blog3 from '../../assets/images/blog/blog-3.png'
+import lanzamientoBlog from '../../assets/images/blog/lanzamientoBlogw.webp'
+import consideracionesBlog from '../../assets/images/blog/consideracionesw.webp'
+import inventarioBlog from '../../assets/images/blog/inventarioBlogw.webp'
 
 export type Post = {
 	image: string
@@ -29,7 +29,7 @@ export type Post = {
 
 const post1: Post[] = [
 	{
-		image: postImg1.src,
+		image: lanzamientoBlog.src,
 		tag: { value: 'Anuncio' },
 		title: '¡Agoramy Está por Llegar! Acceso Beta Gratuito por 2 Meses',
 		slug: 'lanzamiento-beta-agoramy',
@@ -145,7 +145,7 @@ const post1: Post[] = [
 
 const post2: Post[] = [
 	{
-		image: blog2.src,
+		image: consideracionesBlog.src,
 		tag: { variant: 'bg-green-500/10 text-green-500 ', value: 'Tutorial' },
 		title: 'Lo que debes saber antes de considerar Agoramy',
 		slug: 'que-saber-antes-agoramy',
@@ -176,7 +176,7 @@ const post2: Post[] = [
 		},
 	},
 	{
-		image: blog2.src,
+		image: inventarioBlog.src,
 		tag: { variant: 'bg-purple-500/10 text-purple-500', value: 'Tutorial' },
 		title: 'Cómo Gestionar el Inventario de tu Farmacia',
 		slug: 'gestionar-inventario-farmacia',
