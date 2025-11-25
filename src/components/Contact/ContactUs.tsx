@@ -191,8 +191,8 @@ const ContactUs = () => {
             </span>
             <div className="grow">
               <h5 className="text-base text-gray-700">Correo Electrónico</h5>
-              <a href="#" className="text-gray-500 my-1">
-                youremail@gmail.com
+              <a href="mailto:contacto@agoramy.com" className="text-gray-500 my-1">
+                contacto@agoramy.com
               </a>
             </div>
           </div>
@@ -223,8 +223,8 @@ const ContactUs = () => {
             </span>
             <div className="grow">
               <h5 className="text-base text-gray-700">Teléfono</h5>
-              <a href="#" className="text-gray-500 my-1">
-                +00 123 456 7890
+              <a href="tel:xxxx-xxx-xxx-xx" className="text-gray-500 my-1">
+                xxxx-xxx-xxx-xx
               </a>
             </div>
           </div>
@@ -249,9 +249,9 @@ const ContactUs = () => {
             </span>
             <div className="grow">
               <h5 className="text-base text-gray-700">Dirección</h5>
-              <a href="#" className="text-gray-500 my-1">
-                565 Brrom Str, NY
-              </a>
+              <p className="text-gray-500 my-1">
+                Ciudad de México, México
+              </p>
             </div>
           </div>
         </div>

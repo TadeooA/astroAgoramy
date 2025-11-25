@@ -37,16 +37,22 @@ const CountdownClock: React.FC<CountdownClockProps> = ({ targetDate }) => {
       return;
     }
 
+    // En móvil, ocultar segundos
+    const hideOnMobile = interval === 'segundos' ? 'hidden md:flex' : 'flex';
+
     timerComponents.push(
-      <div key={interval} className="flex flex-col items-center mx-2 p-4 bg-white border border-gray-200 rounded-lg shadow-lg">
-        <span className="text-4xl md:text-5xl font-bold text-gray-900">{timeLeft[interval as keyof typeof timeLeft]}</span>
-        <span className="text-sm uppercase text-gray-600 mt-1">{interval}</span>
+      <div
+        key={interval}
+        className={`${hideOnMobile} flex-col items-center mx-1.5 sm:mx-2 px-4 py-5 sm:px-5 sm:py-6 bg-white border border-gray-200 rounded-lg shadow-lg min-w-[70px] sm:min-w-[90px]`}
+      >
+        <span className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900">{timeLeft[interval as keyof typeof timeLeft]}</span>
+        <span className="text-xs sm:text-sm capitalize text-gray-600 mt-1">{interval}</span>
       </div>
     );
   });
 
   return (
-    <div className="flex justify-center items-center mt-8 mb-12" data-aos="fade-up" data-aos-delay="250">
+    <div className="flex flex-wrap justify-center items-center gap-1 mt-8 mb-12 px-4" data-aos="fade-up" data-aos-delay="250">
       {timerComponents.length ? (
         timerComponents
       ) : (
