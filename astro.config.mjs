@@ -7,6 +7,10 @@ import tailwind from '@astrojs/tailwind';
 export default defineConfig({
   site: 'https://TadeooA.github.io',
   base: '/astroAgoramy',
+  trailingSlash: 'ignore',
+  build: {
+    assets: '_astro'
+  },
   integrations: [
     react(),
     tailwind({
