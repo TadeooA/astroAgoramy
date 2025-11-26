@@ -29,9 +29,9 @@ const { post } = Astro.props;
 					<!-- Breadcrumb -->
 					<div class="mb-8">
 						<nav class="flex items-center text-sm text-gray-500 gap-2">
-							<a href={import.meta.env.BASE_URL} class="hover:text-green-500 transition-colors">Inicio</a>
+							<a href="/" class="hover:text-green-500 transition-colors">Inicio</a>
 							<i class="fas fa-chevron-right text-xs"></i>
-							<a href={`${import.meta.env.BASE_URL}/blog`} class="hover:text-green-500 transition-colors">Blog</a>
+							<a href="/blog" class="hover:text-green-500 transition-colors">Blog</a>
 							<i class="fas fa-chevron-right text-xs"></i>
 							<span class="text-gray-700 truncate">{post.title}</span>
 						</nav>
@@ -144,7 +144,7 @@ const { post } = Astro.props;
 					<!-- Back to Blog -->
 					<div class="mt-12 text-center">
 						<a
-							href={`${import.meta.env.BASE_URL}/blog`}
+							href="/blog"
 							class="inline-flex items-center gap-2 px-6 py-3 bg-green-500 text-white font-semibold rounded-lg hover:bg-green-600 hover:shadow-lg hover:scale-105 transition-all"
 						>
 							<i class="fas fa-arrow-left"></i>
@@ -168,7 +168,7 @@ const { post } = Astro.props;
 							.filter(p => p.slug && p.slug !== post.slug && p.tag.value === post.tag.value)
 							.slice(0, 2)
 							.map(relatedPost => (
-								<a href={`${import.meta.env.BASE_URL}/blog/${relatedPost.slug}`} class="group block">
+								<a href={`/blog/${relatedPost.slug}`} class="group block">
 									<div class="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-green-200">
 										<div class="overflow-hidden">
 											<img
