@@ -1,8 +1,12 @@
 import * as yup from 'yup'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { useForm } from 'react-hook-form'
+import { useState } from 'react'
+import Turnstile from '../Common/Turnstile'
 
 const ContactUs = () => {
+  const [turnstileToken, setTurnstileToken] = useState<string | null>(null)
+  const [isSubmitting, setIsSubmitting] = useState(false)
   // form validation schema
   const schemaResolver = yupResolver(
     yup.object().shape({
@@ -38,8 +42,26 @@ const ContactUs = () => {
                                   Por favor, rellena el siguiente formulario y nos pondremos en contacto
                                   contigo en breve                </p>
                 <form
-                  onSubmit={handleSubmit(() => {
-                    console.log('Form submitted')
+                  onSubmit={handleSubmit(async (data) => {
+                    if (!turnstileToken) {
+                      alert('Por favor, completa la verificación de seguridad')
+                      return
+                    }
+
+                    setIsSubmitting(true)
+                    try {
+                      // Aquí puedes enviar los datos del formulario junto con el token
+                      console.log('Form data:', data)
+                      console.log('Turnstile token:', turnstileToken)
+
+                      // TODO: Enviar a tu backend para validación
+                      alert('Formulario enviado correctamente')
+                    } catch (error) {
+                      console.error('Error al enviar el formulario:', error)
+                      alert('Error al enviar el formulario')
+                    } finally {
+                      setIsSubmitting(false)
+                    }
                   })}
                 >
                   <div className="flex gap-6">
@@ -114,11 +136,25 @@ const ContactUs = () => {
                       )}
                     </div>
                   </div>
+                  <div className="mb-5">
+                    <Turnstile
+                      onVerify={(token) => setTurnstileToken(token)}
+                      onError={() => {
+                        console.error('Turnstile error')
+                        setTurnstileToken(null)
+                      }}
+                      onExpire={() => {
+                        console.log('Turnstile token expired')
+                        setTurnstileToken(null)
+                      }}
+                    />
+                  </div>
                   <button
                     type="submit"
-                    className="inline-flex items-center text-sm bg-primary text-white font-medium leading-6 text-center align-middle select-none py-2 px-4 rounded-md transition-all hover:shadow-lg hover:shadow-primary/80"
+                    disabled={isSubmitting || !turnstileToken}
+                    className="inline-flex items-center text-sm bg-primary text-white font-medium leading-6 text-center align-middle select-none py-2 px-4 rounded-md transition-all hover:shadow-lg hover:shadow-primary/80 disabled:opacity-50 disabled:cursor-not-allowed"
                   >
-                    Enviar
+                    {isSubmitting ? 'Enviando...' : 'Enviar'}
                     <span className="w-4 h-4 ms-1">
                       <svg
                         className="w-full h-full text-white"

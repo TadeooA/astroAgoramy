@@ -1,6 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import CountdownClock from '../../components/Common/CountdownClock.tsx';
+import SubscriptionForm from '../../components/Product/SubscriptionForm.tsx';
 
 ---
 
@@ -80,20 +81,7 @@ import CountdownClock from '../../components/Common/CountdownClock.tsx';
 							<p class="text-gray-600 mb-8 text-base leading-relaxed">
 								Regístrate para recibir una notificación cuando lancemos. Además, obtén acceso exclusivo anticipado y beneficios especiales.
 							</p>
-							<form class="flex flex-col sm:flex-row gap-4">
-								<input
-									type="email"
-									placeholder="tu@email.com"
-									class="flex-1 px-6 py-4 border-2 border-gray-300 rounded-xl text-gray-900 placeholder-gray-400 focus:outline-none focus:border-green-500 focus:ring-4 focus:ring-green-500/10 bg-white text-base transition-all"
-									required
-								/>
-								<button
-									type="submit"
-									class="px-8 py-4 bg-green-500 text-white font-semibold rounded-xl hover:bg-green-600 hover:shadow-lg hover:shadow-green-500/30 transition-all duration-300 text-base"
-								>
-									Notifícame
-								</button>
-							</form>
+							<SubscriptionForm client:load />
 							<p class="text-sm text-gray-500 mt-5 flex items-center justify-center gap-2">
 								<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
