@@ -156,7 +156,7 @@ const ContactUs = () => {
           <div className="lg:w-5/12 ms-auto overflow-x-hidden">
             <div className="h-[520px] flex items-center justify-center">
               <img
-                src="/astroAgoramy/contactow.webp"
+                src="/contactow.webp"
                 alt="Contacto"
                 className="w-full h-full object-contain"
               />
