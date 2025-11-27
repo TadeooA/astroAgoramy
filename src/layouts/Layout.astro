@@ -4,9 +4,17 @@ import Footer from '../components/Footer.astro';
 
 interface Props {
 	title: string;
+	description?: string;
+	image?: string;
+	url?: string;
 }
 
-const { title } = Astro.props;
+const {
+	title,
+	description = "Sistema POS moderno diseñado específicamente para farmacias en México. Gestiona tu negocio de forma eficiente y profesional.",
+	image = "/agoramyOpengraphw.webp",
+	url = Astro.url.href
+} = Astro.props;
 ---
 
 <!doctype html>
@@ -17,6 +25,21 @@ const { title } = Astro.props;
 		<link rel="icon" type="image/webp" href="/agoramiIconw.webp" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
+		<meta name="description" content={description} />
+
+		<!-- Open Graph / Facebook -->
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content={url} />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:image" content={new URL(image, Astro.site || Astro.url.origin).href} />
+
+		<!-- Twitter -->
+		<meta property="twitter:card" content="summary_large_image" />
+		<meta property="twitter:url" content={url} />
+		<meta property="twitter:title" content={title} />
+		<meta property="twitter:description" content={description} />
+		<meta property="twitter:image" content={new URL(image, Astro.site || Astro.url.origin).href} />
 
 		<!-- Google Fonts - Inter -->
 		<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -58,10 +81,13 @@ const { title } = Astro.props;
 
 				function handleScroll() {
 					if (navbar && navbarLogo) {
+						const isLargeScreen = window.innerWidth >= 1024;
+
 						// Si es página de blog, siempre mantener fondo blanco
 						if (isBlogPage) {
 							navbar.classList.add('bg-white');
-							
+							navbar.classList.remove('bg-transparent');
+
 							if (window.scrollY > scrollThreshold) {
 								navbar.classList.add('border-b', 'border-gray-200');
 								navbarLogo.classList.remove('h-[54px]');
@@ -74,13 +100,20 @@ const { title } = Astro.props;
 						} else {
 							// Comportamiento normal para otras páginas
 							if (window.scrollY > scrollThreshold) {
+								// Con scroll: siempre blanco en todas las pantallas
 								navbar.classList.add('border-b', 'border-gray-200', 'bg-white');
 								navbar.classList.remove('bg-transparent');
 								navbarLogo.classList.remove('h-[54px]');
 								navbarLogo.classList.add('h-[50px]');
 							} else {
-								navbar.classList.remove('border-b', 'border-gray-200', 'bg-white');
-								navbar.classList.add('bg-transparent');
+								// Sin scroll: transparente solo en pantallas grandes
+								if (isLargeScreen) {
+									navbar.classList.remove('border-b', 'border-gray-200', 'bg-white');
+									navbar.classList.add('bg-transparent');
+								} else {
+									navbar.classList.add('bg-white');
+									navbar.classList.remove('bg-transparent', 'border-b', 'border-gray-200');
+								}
 								navbarLogo.classList.remove('h-[50px]');
 								navbarLogo.classList.add('h-[54px]');
 							}
@@ -90,6 +123,9 @@ const { title } = Astro.props;
 
 				// Add scroll event listener
 				window.addEventListener('scroll', handleScroll);
+
+				// Add resize event listener
+				window.addEventListener('resize', handleScroll);
 
 				// Execute immediately to set correct initial state
 				handleScroll();
