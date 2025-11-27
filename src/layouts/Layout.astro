@@ -84,12 +84,9 @@ const {
 						const isLargeScreen = window.innerWidth >= 1024;
 						const hasScrolled = window.scrollY > scrollThreshold;
 
-						// Siempre remover ambas clases primero para evitar conflictos
-						navbar.classList.remove('bg-white', 'bg-transparent');
-
 						// Si es página de blog, siempre mantener fondo blanco
 						if (isBlogPage) {
-							navbar.classList.add('bg-white');
+							navbar.style.backgroundColor = 'white';
 
 							if (hasScrolled) {
 								navbar.classList.add('border-b', 'border-gray-200');
@@ -104,18 +101,19 @@ const {
 							// Comportamiento normal para otras páginas
 							if (hasScrolled) {
 								// Con scroll: SIEMPRE blanco en TODAS las pantallas
-								navbar.classList.add('bg-white', 'border-b', 'border-gray-200');
+								navbar.style.backgroundColor = 'white';
+								navbar.classList.add('border-b', 'border-gray-200');
 								navbarLogo.classList.remove('h-[54px]');
 								navbarLogo.classList.add('h-[50px]');
 							} else {
 								// Sin scroll
 								if (isLargeScreen) {
 									// Pantallas grandes sin scroll: transparente
-									navbar.classList.add('bg-transparent');
+									navbar.style.backgroundColor = 'transparent';
 									navbar.classList.remove('border-b', 'border-gray-200');
 								} else {
 									// Pantallas pequeñas sin scroll: blanco
-									navbar.classList.add('bg-white');
+									navbar.style.backgroundColor = 'white';
 									navbar.classList.remove('border-b', 'border-gray-200');
 								}
 								navbarLogo.classList.remove('h-[50px]');
