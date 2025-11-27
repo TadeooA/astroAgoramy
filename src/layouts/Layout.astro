@@ -82,13 +82,16 @@ const {
 				function handleScroll() {
 					if (navbar && navbarLogo) {
 						const isLargeScreen = window.innerWidth >= 1024;
+						const hasScrolled = window.scrollY > scrollThreshold;
+
+						// Siempre remover ambas clases primero para evitar conflictos
+						navbar.classList.remove('bg-white', 'bg-transparent');
 
 						// Si es página de blog, siempre mantener fondo blanco
 						if (isBlogPage) {
 							navbar.classList.add('bg-white');
-							navbar.classList.remove('bg-transparent');
 
-							if (window.scrollY > scrollThreshold) {
+							if (hasScrolled) {
 								navbar.classList.add('border-b', 'border-gray-200');
 								navbarLogo.classList.remove('h-[54px]');
 								navbarLogo.classList.add('h-[50px]');
@@ -99,20 +102,21 @@ const {
 							}
 						} else {
 							// Comportamiento normal para otras páginas
-							if (window.scrollY > scrollThreshold) {
-								// Con scroll: siempre blanco en todas las pantallas
-								navbar.classList.add('border-b', 'border-gray-200', 'bg-white');
-								navbar.classList.remove('bg-transparent');
+							if (hasScrolled) {
+								// Con scroll: SIEMPRE blanco en TODAS las pantallas
+								navbar.classList.add('bg-white', 'border-b', 'border-gray-200');
 								navbarLogo.classList.remove('h-[54px]');
 								navbarLogo.classList.add('h-[50px]');
 							} else {
-								// Sin scroll: transparente solo en pantallas grandes
+								// Sin scroll
 								if (isLargeScreen) {
-									navbar.classList.remove('border-b', 'border-gray-200', 'bg-white');
+									// Pantallas grandes sin scroll: transparente
 									navbar.classList.add('bg-transparent');
+									navbar.classList.remove('border-b', 'border-gray-200');
 								} else {
+									// Pantallas pequeñas sin scroll: blanco
 									navbar.classList.add('bg-white');
-									navbar.classList.remove('bg-transparent', 'border-b', 'border-gray-200');
+									navbar.classList.remove('border-b', 'border-gray-200');
 								}
 								navbarLogo.classList.remove('h-[50px]');
 								navbarLogo.classList.add('h-[54px]');
