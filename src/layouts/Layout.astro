@@ -61,7 +61,7 @@ const { title } = Astro.props;
 						// Si es página de blog, siempre mantener fondo blanco
 						if (isBlogPage) {
 							navbar.classList.add('bg-white');
-							navbar.classList.remove('bg-transparent');
+							
 							if (window.scrollY > scrollThreshold) {
 								navbar.classList.add('border-b', 'border-gray-200');
 								navbarLogo.classList.remove('h-[54px]');
