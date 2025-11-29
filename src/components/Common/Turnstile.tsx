@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useCallback } from 'react'
 
 interface TurnstileProps {
   onVerify: (token: string) => void
@@ -9,6 +9,16 @@ interface TurnstileProps {
 const Turnstile = ({ onVerify, onError, onExpire }: TurnstileProps) => {
   const containerRef = useRef<HTMLDivElement>(null)
   const widgetIdRef = useRef<string | null>(null)
+  const onVerifyRef = useRef(onVerify)
+  const onErrorRef = useRef(onError)
+  const onExpireRef = useRef(onExpire)
+
+  // Actualizar refs cuando cambien las callbacks
+  useEffect(() => {
+    onVerifyRef.current = onVerify
+    onErrorRef.current = onError
+    onExpireRef.current = onExpire
+  }, [onVerify, onError, onExpire])
 
   useEffect(() => {
     // Wait for Cloudflare Turnstile script to load
@@ -17,43 +27,45 @@ const Turnstile = ({ onVerify, onError, onExpire }: TurnstileProps) => {
         widgetIdRef.current = window.turnstile.render(containerRef.current, {
           sitekey: '0x4AAAAAACDHjL7M7WPmIUEt',
           theme: 'light',
-          size: 'invisible',
+          size: 'normal',
+          appearance: 'interaction-only',
           callback: (token: string) => {
-            onVerify(token)
+            onVerifyRef.current(token)
           },
           'error-callback': () => {
-            if (onError) onError()
+            if (onErrorRef.current) onErrorRef.current()
           },
           'expired-callback': () => {
-            if (onExpire) onExpire()
+            if (onExpireRef.current) onExpireRef.current()
           },
         })
       }
     }
+
+    let interval: NodeJS.Timeout | null = null
 
     // Check if script is already loaded
     if (window.turnstile) {
       initTurnstile()
     } else {
       // Wait for script to load
-      const interval = setInterval(() => {
+      interval = setInterval(() => {
         if (window.turnstile) {
-          clearInterval(interval)
+          clearInterval(interval!)
           initTurnstile()
         }
       }, 100)
-
-      return () => clearInterval(interval)
     }
 
     // Cleanup
     return () => {
+      if (interval) clearInterval(interval)
       if (widgetIdRef.current && window.turnstile) {
         window.turnstile.remove(widgetIdRef.current)
         widgetIdRef.current = null
       }
     }
-  }, [onVerify, onError, onExpire])
+  }, [])
 
   return <div ref={containerRef}></div>
 }
@@ -68,6 +80,7 @@ declare global {
           sitekey: string
           theme?: string
           size?: string
+          appearance?: string
           callback?: (token: string) => void
           'error-callback'?: () => void
           'expired-callback'?: () => void
