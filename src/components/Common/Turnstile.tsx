@@ -25,7 +25,7 @@ const Turnstile = ({ onVerify, onError, onExpire }: TurnstileProps) => {
     const initTurnstile = () => {
       if (containerRef.current && window.turnstile && !widgetIdRef.current) {
         widgetIdRef.current = window.turnstile.render(containerRef.current, {
-          sitekey: '0x4AAAAAACDHjL7M7WPmIUEt',
+          sitekey: '0x4AAAAAACDm_ksAJvXupdOP',
           theme: 'light',
           size: 'normal',
           appearance: 'interaction-only',
