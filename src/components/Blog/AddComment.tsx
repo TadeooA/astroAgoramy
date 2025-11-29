@@ -7,12 +7,14 @@ const AddComment = () => {
 		subject: '',
 		message: ''
 	});
+	const [acceptPrivacy, setAcceptPrivacy] = useState(false);
 
 	const [errors, setErrors] = useState({
 		name: '',
 		email: '',
 		subject: '',
-		message: ''
+		message: '',
+		privacy: ''
 	});
 
 	const validateEmail = (email: string) => {
@@ -32,7 +34,8 @@ const AddComment = () => {
 			name: '',
 			email: '',
 			subject: '',
-			message: ''
+			message: '',
+			privacy: ''
 		};
 
 		if (!formData.name) newErrors.name = 'Please enter Name';
@@ -43,6 +46,7 @@ const AddComment = () => {
 		}
 		if (!formData.subject) newErrors.subject = 'Please enter Subject';
 		if (!formData.message) newErrors.message = 'Please enter Message';
+		if (!acceptPrivacy) newErrors.privacy = 'Debes aceptar las políticas de privacidad';
 
 		if (Object.values(newErrors).some(error => error !== '')) {
 			setErrors(newErrors);
@@ -54,6 +58,7 @@ const AddComment = () => {
 
 		// Limpiar formulario
 		setFormData({ name: '', email: '', subject: '', message: '' });
+		setAcceptPrivacy(false);
 	};
 
 	return (
@@ -114,6 +119,30 @@ const AddComment = () => {
 							/>
 							{errors.message && (
 								<p className="text-red-500 text-xs mt-1">{errors.message}</p>
+							)}
+						</div>
+
+						<div>
+							<div className="flex items-start gap-2">
+								<input
+									id="comment-privacy-checkbox"
+									type="checkbox"
+									checked={acceptPrivacy}
+									onChange={(e) => {
+										setAcceptPrivacy(e.target.checked);
+										setErrors(prev => ({ ...prev, privacy: '' }));
+									}}
+									className="mt-1 rounded border-gray-300 text-black focus:ring-black"
+								/>
+								<label htmlFor="comment-privacy-checkbox" className="text-sm text-gray-600">
+									Acepto el{' '}
+									<a href="/privacy/" className="text-black hover:underline">
+										manejo de mis datos y las políticas de privacidad
+									</a>
+								</label>
+							</div>
+							{errors.privacy && (
+								<p className="text-red-500 text-xs mt-1">{errors.privacy}</p>
 							)}
 						</div>
 

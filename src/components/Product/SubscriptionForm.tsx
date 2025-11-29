@@ -4,6 +4,7 @@ import Turnstile from '../Common/Turnstile'
 
 const SubscriptionForm = () => {
   const [email, setEmail] = useState('')
+  const [acceptPrivacy, setAcceptPrivacy] = useState(false)
   const [turnstileToken, setTurnstileToken] = useState<string | null>(null)
   const [isSubmitting, setIsSubmitting] = useState(false)
 
@@ -75,6 +76,11 @@ const SubscriptionForm = () => {
       return
     }
 
+    if (!acceptPrivacy) {
+      alert('Debes aceptar las políticas de privacidad para continuar')
+      return
+    }
+
     if (!turnstileToken) {
       alert('Por favor, completa la verificación de seguridad')
       return
@@ -136,6 +142,22 @@ const SubscriptionForm = () => {
         >
           {isSubmitting ? 'Procesando...' : 'Notifícame'}
         </button>
+      </div>
+      <div className="flex items-start gap-2">
+        <input
+          id="product-privacy-checkbox"
+          type="checkbox"
+          checked={acceptPrivacy}
+          onChange={(e) => setAcceptPrivacy(e.target.checked)}
+          className="mt-1 rounded border-gray-300 text-green-500 focus:ring-green-500"
+          required
+        />
+        <label htmlFor="product-privacy-checkbox" className="text-sm text-gray-600">
+          Acepto el{' '}
+          <a href="/privacy/" className="text-green-500 hover:underline">
+            manejo de mis datos y las políticas de privacidad
+          </a>
+        </label>
       </div>
       <div className="flex justify-center">
         <Turnstile
