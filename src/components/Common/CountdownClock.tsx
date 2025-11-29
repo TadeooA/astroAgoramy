@@ -20,15 +20,20 @@ const calculateTimeLeft = (targetDate: string) => {
 };
 
 const CountdownClock: React.FC<CountdownClockProps> = ({ targetDate }) => {
-  const [timeLeft, setTimeLeft] = useState(calculateTimeLeft(targetDate));
+  const [timeLeft, setTimeLeft] = useState<Record<string, number>>({});
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
+    // Inicializar solo en el cliente
+    setMounted(true);
+    setTimeLeft(calculateTimeLeft(targetDate));
+
+    const timer = setInterval(() => {
       setTimeLeft(calculateTimeLeft(targetDate));
     }, 1000);
 
-    return () => clearTimeout(timer);
-  });
+    return () => clearInterval(timer);
+  }, [targetDate]);
 
   const timerComponents: JSX.Element[] = [];
 
@@ -50,6 +55,26 @@ const CountdownClock: React.FC<CountdownClockProps> = ({ targetDate }) => {
       </div>
     );
   });
+
+  // No renderizar hasta que esté montado en el cliente
+  if (!mounted) {
+    return (
+      <div className="flex flex-wrap justify-center items-center gap-1 mt-8 mb-12 px-4" data-aos="fade-up" data-aos-delay="250">
+        <div className="flex flex-col items-center mx-1.5 sm:mx-2 px-4 py-5 sm:px-5 sm:py-6 bg-white border border-gray-200 rounded-lg shadow-lg min-w-[70px] sm:min-w-[90px]">
+          <span className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900">--</span>
+          <span className="text-xs sm:text-sm capitalize text-gray-600 mt-1">días</span>
+        </div>
+        <div className="flex flex-col items-center mx-1.5 sm:mx-2 px-4 py-5 sm:px-5 sm:py-6 bg-white border border-gray-200 rounded-lg shadow-lg min-w-[70px] sm:min-w-[90px]">
+          <span className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900">--</span>
+          <span className="text-xs sm:text-sm capitalize text-gray-600 mt-1">horas</span>
+        </div>
+        <div className="flex flex-col items-center mx-1.5 sm:mx-2 px-4 py-5 sm:px-5 sm:py-6 bg-white border border-gray-200 rounded-lg shadow-lg min-w-[70px] sm:min-w-[90px]">
+          <span className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900">--</span>
+          <span className="text-xs sm:text-sm capitalize text-gray-600 mt-1">minutos</span>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="flex flex-wrap justify-center items-center gap-1 mt-8 mb-12 px-4" data-aos="fade-up" data-aos-delay="250">
