@@ -8,13 +8,29 @@ const SubscriptionForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false)
 
   const launchConfetti = () => {
-    const duration = 3000
+    const duration = 4000
     const animationEnd = Date.now() + duration
-    const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 }
+    const defaults = {
+      startVelocity: 45,
+      spread: 360,
+      ticks: 100,
+      zIndex: 9999,
+      gravity: 0.8,
+      decay: 0.9,
+      scalar: 1.2
+    }
 
     const randomInRange = (min: number, max: number) => {
       return Math.random() * (max - min) + min
     }
+
+    // Explosión inicial grande desde el centro
+    confetti({
+      particleCount: 150,
+      spread: 120,
+      origin: { y: 0.5 },
+      colors: ['#10b981', '#3b82f6', '#8b5cf6', '#ec4899', '#f59e0b']
+    })
 
     const interval: any = setInterval(() => {
       const timeLeft = animationEnd - Date.now()
@@ -23,19 +39,32 @@ const SubscriptionForm = () => {
         return clearInterval(interval)
       }
 
-      const particleCount = 50 * (timeLeft / duration)
+      const particleCount = 100 * (timeLeft / duration)
 
+      // Confeti desde la izquierda
       confetti({
         ...defaults,
         particleCount,
-        origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 }
+        origin: { x: randomInRange(0, 0.2), y: Math.random() * 0.5 },
+        colors: ['#10b981', '#3b82f6', '#8b5cf6']
       })
+
+      // Confeti desde la derecha
       confetti({
         ...defaults,
         particleCount,
-        origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 }
+        origin: { x: randomInRange(0.8, 1), y: Math.random() * 0.5 },
+        colors: ['#ec4899', '#f59e0b', '#10b981']
       })
-    }, 250)
+
+      // Confeti desde arriba centro
+      confetti({
+        ...defaults,
+        particleCount: particleCount / 2,
+        origin: { x: randomInRange(0.4, 0.6), y: 0 },
+        colors: ['#3b82f6', '#8b5cf6', '#f59e0b']
+      })
+    }, 150)
   }
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
