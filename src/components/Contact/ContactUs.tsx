@@ -50,10 +50,11 @@ const ContactUs = () => {
                                   contigo en breve                </p>
                 <form
                   onSubmit={handleSubmit(async (data) => {
-                    if (!turnstileToken) {
-                      alert('Por favor, completa la verificación de seguridad')
-                      return
-                    }
+                    // Turnstile desactivado temporalmente
+                    // if (!turnstileToken) {
+                    //   alert('Por favor, completa la verificación de seguridad')
+                    //   return
+                    // }
 
                     setIsSubmitting(true)
                     try {
@@ -177,7 +178,8 @@ const ContactUs = () => {
                       )}
                     </div>
                   </div>
-                  <div className="mb-5">
+                  {/* Turnstile desactivado temporalmente */}
+                  {/* <div className="mb-5">
                     <Turnstile
                       onVerify={(token) => setTurnstileToken(token)}
                       onError={() => {
@@ -189,10 +191,10 @@ const ContactUs = () => {
                         setTurnstileToken(null)
                       }}
                     />
-                  </div>
+                  </div> */}
                   <button
                     type="submit"
-                    disabled={isSubmitting || !turnstileToken}
+                    disabled={isSubmitting}
                     className="inline-flex items-center text-sm bg-primary text-white font-medium leading-6 text-center align-middle select-none py-2 px-4 rounded-md transition-all hover:shadow-lg hover:shadow-primary/80 disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     {isSubmitting ? 'Enviando...' : 'Enviar'}

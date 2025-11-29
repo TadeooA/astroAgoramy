@@ -14,10 +14,11 @@ const SubscriptionForm = () => {
       return
     }
 
-    if (!turnstileToken) {
-      alert('Por favor, completa la verificación de seguridad')
-      return
-    }
+    // Turnstile desactivado temporalmente
+    // if (!turnstileToken) {
+    //   alert('Por favor, completa la verificación de seguridad')
+    //   return
+    // }
 
     setIsSubmitting(true)
     try {
@@ -64,13 +65,14 @@ const SubscriptionForm = () => {
         />
         <button
           type="submit"
-          disabled={isSubmitting || !turnstileToken}
+          disabled={isSubmitting}
           className="px-8 py-4 bg-green-500 text-white font-semibold rounded-xl hover:bg-green-600 hover:shadow-lg hover:shadow-green-500/30 transition-all duration-300 text-base disabled:opacity-50 disabled:cursor-not-allowed"
         >
           {isSubmitting ? 'Procesando...' : 'Notifícame'}
         </button>
       </div>
-      <div className="flex justify-center">
+      {/* Turnstile desactivado temporalmente */}
+      {/* <div className="flex justify-center">
         <Turnstile
           onVerify={(token) => setTurnstileToken(token)}
           onError={() => {
@@ -82,7 +84,7 @@ const SubscriptionForm = () => {
             setTurnstileToken(null)
           }}
         />
-      </div>
+      </div> */}
     </form>
   )
 }
