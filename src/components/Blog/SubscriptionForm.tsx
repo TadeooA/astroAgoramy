@@ -60,7 +60,7 @@ const SubscriptionForm = () => {
 						name="email"
 						value={email}
 						onChange={(e) => setEmail(e.target.value)}
-						className="w-full md:w-1/2 lg:w-full text-sm border-gray-300 focus:border-gray-200 focus:ring-0 rounded-md bg-white py-3"
+						className="w-full md:w-1/2 lg:w-full text-sm border border-gray-300 focus:border-primary focus:ring-0 rounded-md bg-white py-3 px-4"
 						placeholder="Introduce tu correo electrónico"
 						required
 					/>
