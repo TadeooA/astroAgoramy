@@ -24,21 +24,25 @@ const Turnstile = ({ onVerify, onError, onExpire }: TurnstileProps) => {
     // Wait for Cloudflare Turnstile script to load
     const initTurnstile = () => {
       if (containerRef.current && window.turnstile && !widgetIdRef.current) {
+        console.log('Inicializando Turnstile...')
         widgetIdRef.current = window.turnstile.render(containerRef.current, {
           sitekey: '0x4AAAAAACDm_ksAJvXupdOP',
           theme: 'light',
           size: 'normal',
-          appearance: 'interaction-only',
           callback: (token: string) => {
+            console.log('Turnstile token recibido')
             onVerifyRef.current(token)
           },
           'error-callback': () => {
+            console.error('Turnstile error callback')
             if (onErrorRef.current) onErrorRef.current()
           },
           'expired-callback': () => {
+            console.log('Turnstile token expirado')
             if (onExpireRef.current) onExpireRef.current()
           },
         })
+        console.log('Turnstile renderizado con ID:', widgetIdRef.current)
       }
     }
 
