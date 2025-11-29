@@ -55,6 +55,8 @@ const SubscriptionForm = () => {
     <form onSubmit={handleSubmit} className="flex flex-col gap-4">
       <div className="flex flex-col sm:flex-row gap-4">
         <input
+          id="subscription-email"
+          name="email"
           type="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}

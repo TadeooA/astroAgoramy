@@ -55,6 +55,7 @@ const SubscriptionForm = () => {
 				</p>
 				<form onSubmit={handleSubmit} className="flex flex-col md:flex-row lg:flex-col gap-2 mt-7">
 					<input
+						id="blog-subscription-email"
 						type="email"
 						name="email"
 						value={email}

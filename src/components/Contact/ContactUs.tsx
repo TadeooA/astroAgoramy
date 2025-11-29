@@ -92,10 +92,11 @@ const ContactUs = () => {
                   <div className="flex gap-6">
                     <div className="md:w-1/2">
                       <div className="mb-5">
-                        <label className="block text-sm font-medium mb-1 text-gray-600">
+                        <label htmlFor="fname" className="block text-sm font-medium mb-1 text-gray-600">
                           Nombre
                         </label>
                         <input
+                          id="fname"
                           type="text"
                           className="py-2 px-4 leading-6 block w-full border border-gray-300 rounded text-sm focus:border-green-500 focus:ring-0"
                           placeholder="Tu Nombre"
@@ -110,10 +111,11 @@ const ContactUs = () => {
                     </div>
                     <div className="md:w-1/2">
                       <div className="mb-5">
-                        <label className="block text-sm font-medium mb-1 text-gray-600">
+                        <label htmlFor="lname" className="block text-sm font-medium mb-1 text-gray-600">
                           Apellido
                         </label>
                         <input
+                          id="lname"
                           type="text"
                           className="py-2 px-4 leading-6 block w-full border border-gray-300 rounded text-sm focus:border-green-500 focus:ring-0"
                           placeholder="Tu Apellido"
@@ -129,10 +131,11 @@ const ContactUs = () => {
                   </div>
                   <div className="w-full">
                     <div className="mb-5">
-                      <label className="block text-sm font-medium mb-1 text-gray-600">
+                      <label htmlFor="email" className="block text-sm font-medium mb-1 text-gray-600">
                         Correo Electrónico
                       </label>
                       <input
+                        id="email"
                         type="email"
                         className="py-2 px-4 leading-6 block w-full border border-gray-300 rounded text-sm focus:border-green-500 focus:ring-0"
                         placeholder="Tu Correo Electrónico"
@@ -145,10 +148,11 @@ const ContactUs = () => {
                       )}
                     </div>
                     <div className="mb-5">
-                      <label className="block text-sm font-medium mb-1 text-gray-600">
+                      <label htmlFor="phone" className="block text-sm font-medium mb-1 text-gray-600">
                         Teléfono
                       </label>
                       <input
+                        id="phone"
                         type="tel"
                         className="py-2 px-4 leading-6 block w-full border border-gray-300 rounded text-sm focus:border-green-500 focus:ring-0"
                         placeholder="Tu Teléfono"
@@ -161,10 +165,11 @@ const ContactUs = () => {
                       )}
                     </div>
                     <div className="mb-5">
-                      <label className="block text-sm font-medium mb-1 text-gray-600">
+                      <label htmlFor="message" className="block text-sm font-medium mb-1 text-gray-600">
                         Mensaje
                       </label>
                       <textarea
+                        id="message"
                         className="py-2 px-4 leading-6 block w-full border border-gray-300 rounded text-sm focus:border-green-500 focus:ring-0"
                         placeholder="Escribe tu Mensaje..."
                         rows={4}
