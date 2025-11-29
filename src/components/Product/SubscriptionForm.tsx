@@ -21,16 +21,31 @@ const SubscriptionForm = () => {
 
     setIsSubmitting(true)
     try {
-      // Aquí puedes enviar los datos del formulario junto con el token
-      console.log('Email:', email)
-      console.log('Turnstile token:', turnstileToken)
+      const response = await fetch(
+        'https://farmacialaluz.com/agoramy/api/mailapp/',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            email: email,
+          }),
+        }
+      )
 
-      // TODO: Enviar a tu backend para validación y suscripción
+      if (!response.ok) {
+        const errorData = await response.json()
+        throw new Error(errorData.error || 'Error al suscribirse')
+      }
+
+      const result = await response.json()
+      console.log('Suscripción exitosa:', result)
       alert('¡Gracias por suscribirte! Te notificaremos cuando lancemos.')
       setEmail('')
     } catch (error) {
       console.error('Error al suscribirse:', error)
-      alert('Error al procesar tu suscripción')
+      alert(error instanceof Error ? error.message : 'Error al procesar tu suscripción')
     } finally {
       setIsSubmitting(false)
     }

@@ -16,7 +16,14 @@ const ContactUs = () => {
         .string()
         .required('Por favor, introduce tu correo electrónico')
         .email('Por favor, introduce un correo electrónico válido'),
-      message: yup.string().required('Por favor, introduce tu mensaje'),
+      phone: yup
+        .string()
+        .required('Por favor, introduce tu teléfono')
+        .min(10, 'El teléfono debe tener al menos 10 dígitos'),
+      message: yup
+        .string()
+        .required('Por favor, introduce tu mensaje')
+        .min(10, 'El mensaje debe tener al menos 10 caracteres'),
     })
   )
 
@@ -50,15 +57,33 @@ const ContactUs = () => {
 
                     setIsSubmitting(true)
                     try {
-                      // Aquí puedes enviar los datos del formulario junto con el token
-                      console.log('Form data:', data)
-                      console.log('Turnstile token:', turnstileToken)
+                      const response = await fetch(
+                        'https://farmacialaluz.com/agoramy/api/messages/',
+                        {
+                          method: 'POST',
+                          headers: {
+                            'Content-Type': 'application/json',
+                          },
+                          body: JSON.stringify({
+                            name: `${data.fname} ${data.lname}`,
+                            email: data.email,
+                            phone: data.phone,
+                            message: data.message,
+                          }),
+                        }
+                      )
 
-                      // TODO: Enviar a tu backend para validación
-                      alert('Formulario enviado correctamente')
+                      if (!response.ok) {
+                        const errorData = await response.json()
+                        throw new Error(errorData.error || 'Error al enviar el mensaje')
+                      }
+
+                      const result = await response.json()
+                      console.log('Mensaje enviado:', result)
+                      alert('¡Mensaje enviado correctamente! Nos pondremos en contacto contigo pronto.')
                     } catch (error) {
                       console.error('Error al enviar el formulario:', error)
-                      alert('Error al enviar el formulario')
+                      alert(error instanceof Error ? error.message : 'Error al enviar el formulario')
                     } finally {
                       setIsSubmitting(false)
                     }
@@ -116,6 +141,22 @@ const ContactUs = () => {
                       {errors.email && (
                         <p className="text-xs text-red-600 mt-2">
                           {errors.email.message}
+                        </p>
+                      )}
+                    </div>
+                    <div className="mb-5">
+                      <label className="block text-sm font-medium mb-1 text-gray-600">
+                        Teléfono
+                      </label>
+                      <input
+                        type="tel"
+                        className="py-2 px-4 leading-6 block w-full border border-gray-300 rounded text-sm focus:border-green-500 focus:ring-0"
+                        placeholder="Tu Teléfono"
+                        {...register('phone')}
+                      />
+                      {errors.phone && (
+                        <p className="text-xs text-red-600 mt-2">
+                          {errors.phone.message}
                         </p>
                       )}
                     </div>
