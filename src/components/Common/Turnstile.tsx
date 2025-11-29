@@ -1,4 +1,4 @@
-import { useEffect, useRef, useCallback } from 'react'
+import { useEffect, useRef } from 'react'
 
 interface TurnstileProps {
   onVerify: (token: string) => void
@@ -12,6 +12,7 @@ const Turnstile = ({ onVerify, onError, onExpire }: TurnstileProps) => {
   const onVerifyRef = useRef(onVerify)
   const onErrorRef = useRef(onError)
   const onExpireRef = useRef(onExpire)
+  const isInitializedRef = useRef(false)
 
   // Actualizar refs cuando cambien las callbacks
   useEffect(() => {
@@ -21,28 +22,35 @@ const Turnstile = ({ onVerify, onError, onExpire }: TurnstileProps) => {
   }, [onVerify, onError, onExpire])
 
   useEffect(() => {
+    if (isInitializedRef.current) return
+
     // Wait for Cloudflare Turnstile script to load
     const initTurnstile = () => {
       if (containerRef.current && window.turnstile && !widgetIdRef.current) {
-        console.log('Inicializando Turnstile...')
-        widgetIdRef.current = window.turnstile.render(containerRef.current, {
-          sitekey: '0x4AAAAAACDm_ksAJvXupdOP',
-          theme: 'light',
-          size: 'normal',
-          callback: (token: string) => {
-            console.log('Turnstile token recibido')
-            onVerifyRef.current(token)
-          },
-          'error-callback': () => {
-            console.error('Turnstile error callback')
-            if (onErrorRef.current) onErrorRef.current()
-          },
-          'expired-callback': () => {
-            console.log('Turnstile token expirado')
-            if (onExpireRef.current) onExpireRef.current()
-          },
-        })
-        console.log('Turnstile renderizado con ID:', widgetIdRef.current)
+        try {
+          console.log('Inicializando Turnstile...')
+          widgetIdRef.current = window.turnstile.render(containerRef.current, {
+            sitekey: '0x4AAAAAACDm_ksAJvXupdOP',
+            theme: 'light',
+            size: 'invisible',
+            callback: (token: string) => {
+              console.log('Turnstile token recibido')
+              onVerifyRef.current(token)
+            },
+            'error-callback': () => {
+              console.error('Turnstile error callback')
+              if (onErrorRef.current) onErrorRef.current()
+            },
+            'expired-callback': () => {
+              console.log('Turnstile token expirado')
+              if (onExpireRef.current) onExpireRef.current()
+            },
+          })
+          console.log('Turnstile renderizado con ID:', widgetIdRef.current)
+          isInitializedRef.current = true
+        } catch (error) {
+          console.error('Error al inicializar Turnstile:', error)
+        }
       }
     }
 
@@ -55,7 +63,7 @@ const Turnstile = ({ onVerify, onError, onExpire }: TurnstileProps) => {
       // Wait for script to load
       interval = setInterval(() => {
         if (window.turnstile) {
-          clearInterval(interval!)
+          if (interval) clearInterval(interval)
           initTurnstile()
         }
       }, 100)
@@ -65,13 +73,18 @@ const Turnstile = ({ onVerify, onError, onExpire }: TurnstileProps) => {
     return () => {
       if (interval) clearInterval(interval)
       if (widgetIdRef.current && window.turnstile) {
-        window.turnstile.remove(widgetIdRef.current)
+        try {
+          window.turnstile.remove(widgetIdRef.current)
+        } catch (error) {
+          console.error('Error al limpiar Turnstile:', error)
+        }
         widgetIdRef.current = null
       }
+      isInitializedRef.current = false
     }
   }, [])
 
-  return <div ref={containerRef}></div>
+  return <div ref={containerRef} className="turnstile-container"></div>
 }
 
 // Extend Window interface for TypeScript
