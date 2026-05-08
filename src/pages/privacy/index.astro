@@ -1,253 +1,1076 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+
+const lastUpdated = "Mayo 2025";
+const contactEmail = "tadeoaragoon@gmail.com";
+
+const sections = [
+  { id: "introduccion", title: "Introducción" },
+  { id: "aceptacion", title: "Aceptación de los Términos" },
+  { id: "descripcion", title: "Descripción del Servicio" },
+  { id: "requisitos", title: "Requisitos de Cuenta" },
+  { id: "terceros", title: "Integración con Terceros" },
+  { id: "whatsapp", title: "WhatsApp Business Platform" },
+  { id: "antispam", title: "Políticas Anti-spam" },
+  { id: "consentimiento", title: "Consentimiento de Mensajes" },
+  { id: "privacidad", title: "Privacidad y Datos" },
+  { id: "almacenamiento", title: "Almacenamiento de Conversaciones" },
+  { id: "suspension", title: "Suspensión de Cuentas" },
+  { id: "responsabilidad", title: "Limitación de Responsabilidad" },
+  { id: "disponibilidad", title: "Disponibilidad del Servicio" },
+  { id: "propiedad", title: "Propiedad Intelectual" },
+  { id: "facturacion", title: "Facturación y Pagos" },
+  { id: "terminacion", title: "Terminación del Servicio" },
+  { id: "cambios", title: "Cambios en los Términos" },
+  { id: "legislacion", title: "Legislación Aplicable" },
+  { id: "contacto", title: "Contacto" },
+];
 ---
 
-<Layout title="Política de Privacidad y Uso - Agoramy">
-	<div class="text-gray-700">
-		<!-- Hero Section -->
-		<section class="pt-32 pb-12 relative bg-gradient-to-b from-green-50/30 to-white">
-			<div class="container mx-auto px-4">
-				<div class="max-w-4xl mx-auto text-center">
-					<h1 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">
-						Política de Privacidad y Uso
-					</h1>
-					<p class="text-lg text-gray-600">
-						Última actualización: Noviembre 2025
-					</p>
-				</div>
-			</div>
-		</section>
+<Layout title="Términos de Uso y Privacidad — Agoramy">
+  <div class="text-gray-700 min-h-screen bg-white">
 
-		<!-- Content Section -->
-		<section class="py-12 bg-white">
-			<div class="container mx-auto px-4">
-				<div class="max-w-4xl mx-auto prose prose-lg">
+    <!-- Hero -->
+    <section class="pt-32 pb-16 bg-gradient-to-b from-gray-950 to-gray-900 relative overflow-hidden">
+      <div class="absolute inset-0 opacity-10">
+        <div class="absolute top-20 left-1/4 w-72 h-72 bg-green-400 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-emerald-500 rounded-full blur-3xl"></div>
+      </div>
+      <div class="container mx-auto px-4 relative z-10">
+        <div class="max-w-3xl mx-auto text-center">
+          <span class="inline-flex items-center gap-2 px-4 py-1.5 bg-green-500/10 border border-green-500/20 text-green-400 text-sm font-medium rounded-full mb-6">
+            <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M10 2a8 8 0 100 16A8 8 0 0010 2zm0 14a6 6 0 110-12 6 6 0 010 12zm1-7a1 1 0 11-2 0V7a1 1 0 112 0v2zm0 4a1 1 0 11-2 0 1 1 0 012 0z" clip-rule="evenodd" />
+            </svg>
+            Documento Legal
+          </span>
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-5 leading-tight">
+            Términos de Uso<br/>
+            <span class="text-green-400">&amp; Privacidad</span>
+          </h1>
+          <p class="text-gray-400 text-lg leading-relaxed max-w-xl mx-auto">
+            Al usar Agoramy / IAHub, aceptas estos términos en su totalidad. Léelos con atención antes de comenzar.
+          </p>
+          <div class="mt-8 flex flex-wrap justify-center gap-4 text-sm text-gray-500">
+            <span class="flex items-center gap-1.5">
+              <svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+              </svg>
+              Última actualización: {lastUpdated}
+            </span>
+            <span class="flex items-center gap-1.5">
+              <svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+              </svg>
+              19 secciones
+            </span>
+            <span class="flex items-center gap-1.5">
+              <svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
+              </svg>
+              Versión en Español
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
 
-					<!-- Introducción -->
-					<div class="mb-12">
-						<h2 class="text-3xl font-bold text-gray-900 mb-4">Introducción</h2>
-						<p class="text-gray-600 leading-relaxed">
-							En Agoramy, nos comprometemos a proteger tu privacidad y a ser transparentes sobre cómo recopilamos,
-							usamos y compartimos tu información. Esta Política de Privacidad explica nuestras prácticas de
-							manejo de datos para nuestro sistema de punto de venta (POS) diseñado específicamente para farmacias.
-						</p>
-					</div>
+    <!-- Main Content -->
+    <div class="container mx-auto px-4 py-16">
+      <div class="max-w-7xl mx-auto lg:grid lg:grid-cols-[280px_1fr] lg:gap-12 xl:gap-16">
 
-					<!-- Información que Recopilamos -->
-					<div class="mb-12">
-						<h2 class="text-3xl font-bold text-gray-900 mb-4">Información que Recopilamos</h2>
+        <!-- Sidebar TOC -->
+        <aside class="hidden lg:block">
+          <div class="sticky top-24">
+            <p class="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-4">Contenido</p>
+            <nav class="space-y-0.5" id="toc">
+              {sections.map((s, i) => (
+                <a
+                  href={`#${s.id}`}
+                  class="toc-link flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm text-gray-500 hover:text-green-600 hover:bg-green-50 transition-all group"
+                  data-section={s.id}
+                >
+                  <span class="w-5 h-5 rounded-md bg-gray-100 group-hover:bg-green-100 flex items-center justify-center text-[10px] font-bold text-gray-400 group-hover:text-green-600 flex-shrink-0 transition-all">
+                    {i + 1}
+                  </span>
+                  <span class="leading-tight">{s.title}</span>
+                </a>
+              ))}
+            </nav>
+          </div>
+        </aside>
 
-						<h3 class="text-2xl font-semibold text-gray-800 mb-3 mt-6">Información de la Cuenta</h3>
-						<ul class="list-disc pl-6 text-gray-600 space-y-2">
-							<li>Nombre y apellidos</li>
-							<li>Dirección de correo electrónico</li>
-							<li>Número de teléfono</li>
-							<li>Información de la farmacia (nombre, dirección, RFC)</li>
-							<li>Información de facturación y pago</li>
-						</ul>
+        <!-- Document Body -->
+        <main class="min-w-0">
+          <div class="space-y-14">
 
-						<h3 class="text-2xl font-semibold text-gray-800 mb-3 mt-6">Datos de Uso del Sistema</h3>
-						<ul class="list-disc pl-6 text-gray-600 space-y-2">
-							<li>Datos de transacciones y ventas</li>
-							<li>Inventario de productos</li>
-							<li>Información de empleados (nombres, roles, horarios)</li>
-							<li>Registros de actividad del sistema</li>
-							<li>Datos analíticos y reportes generados</li>
-						</ul>
+            <!-- 1. Introducción -->
+            <section id="introduccion" class="scroll-mt-24">
+              <div class="flex items-start gap-4 mb-6">
+                <span class="flex-shrink-0 w-10 h-10 rounded-xl bg-green-500 text-white text-sm font-bold flex items-center justify-center shadow-sm shadow-green-200">1</span>
+                <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 pt-1.5">Introducción</h2>
+              </div>
+              <div class="pl-14 space-y-4 text-gray-600 leading-relaxed">
+                <p>
+                  Bienvenido a <strong class="text-gray-800">Agoramy</strong>, también comercializada bajo la marca <strong class="text-gray-800">IAHub</strong> (en adelante, "la Plataforma", "nosotros" o "Agoramy"). Agoramy es una plataforma SaaS multi-tenant que ofrece herramientas de automatización empresarial, gestión de conversaciones, CRM y atención al cliente a través de la integración con WhatsApp Business Platform y otras APIs de mensajería.
+                </p>
+                <p>
+                  Los presentes Términos de Uso y la Política de Privacidad (colectivamente, "los Términos") rigen el acceso y uso de todos los servicios, funcionalidades y contenidos ofrecidos por Agoramy, accesibles a través de nuestro sitio web y aplicación.
+                </p>
+                <p>
+                  Al registrarte, acceder o utilizar cualquier funcionalidad de Agoramy, confirmas haber leído, comprendido y aceptado vincularte a estos Términos. Si actúas en nombre de una organización, declaras tener la autoridad legal para aceptar estos Términos en su nombre.
+                </p>
+              </div>
+            </section>
 
-						<h3 class="text-2xl font-semibold text-gray-800 mb-3 mt-6">Información Técnica</h3>
-						<ul class="list-disc pl-6 text-gray-600 space-y-2">
-							<li>Dirección IP</li>
-							<li>Tipo de navegador y dispositivo</li>
-							<li>Sistema operativo</li>
-							<li>Datos de cookies y tecnologías similares</li>
-						</ul>
-					</div>
+            <hr class="border-gray-100" />
 
-					<!-- Cómo Usamos tu Información -->
-					<div class="mb-12">
-						<h2 class="text-3xl font-bold text-gray-900 mb-4">Cómo Usamos tu Información</h2>
-						<p class="text-gray-600 leading-relaxed mb-4">
-							Utilizamos la información recopilada para los siguientes propósitos:
-						</p>
-						<ul class="list-disc pl-6 text-gray-600 space-y-2">
-							<li>Proporcionar y mantener nuestro servicio de POS</li>
-							<li>Procesar pagos y transacciones</li>
-							<li>Generar reportes y análisis de datos para tu farmacia</li>
-							<li>Mejorar y personalizar tu experiencia</li>
-							<li>Enviar notificaciones importantes sobre el servicio</li>
-							<li>Proporcionar soporte técnico y al cliente</li>
-							<li>Cumplir con obligaciones legales y fiscales</li>
-							<li>Detectar y prevenir fraudes o actividades sospechosas</li>
-						</ul>
-					</div>
+            <!-- 2. Aceptación -->
+            <section id="aceptacion" class="scroll-mt-24">
+              <div class="flex items-start gap-4 mb-6">
+                <span class="flex-shrink-0 w-10 h-10 rounded-xl bg-green-500 text-white text-sm font-bold flex items-center justify-center shadow-sm shadow-green-200">2</span>
+                <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 pt-1.5">Aceptación de los Términos</h2>
+              </div>
+              <div class="pl-14 space-y-4 text-gray-600 leading-relaxed">
+                <p>
+                  El acceso y uso de Agoramy implica la aceptación plena, sin reservas, de estos Términos y de todas las políticas complementarias incorporadas por referencia. Si no aceptas estos Términos en su totalidad, debes abstenerte de usar la Plataforma.
+                </p>
+                <div class="bg-amber-50 border-l-4 border-amber-400 rounded-r-xl p-5">
+                  <div class="flex gap-3">
+                    <svg class="w-5 h-5 text-amber-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
+                    </svg>
+                    <div>
+                      <p class="font-semibold text-amber-800 mb-1">Importante</p>
+                      <p class="text-amber-700 text-sm">Agoramy se reserva el derecho de modificar estos Términos en cualquier momento. Los cambios entrarán en vigor tras su publicación en la Plataforma. El uso continuado del servicio tras dichas modificaciones implica la aceptación de los nuevos términos.</p>
+                    </div>
+                  </div>
+                </div>
+                <p>
+                  Debes tener al menos 18 años de edad para usar la Plataforma. Al aceptar estos Términos, declaras tener la capacidad legal para celebrar contratos vinculantes.
+                </p>
+              </div>
+            </section>
 
-					<!-- Compartir Información -->
-					<div class="mb-12">
-						<h2 class="text-3xl font-bold text-gray-900 mb-4">Compartir de Información</h2>
-						<p class="text-gray-600 leading-relaxed mb-4">
-							No vendemos tu información personal. Podemos compartir tu información en las siguientes circunstancias:
-						</p>
-						<ul class="list-disc pl-6 text-gray-600 space-y-2">
-							<li><strong>Proveedores de Servicios:</strong> Con terceros que nos ayudan a operar nuestro servicio (procesadores de pago, servicios de hosting, etc.)</li>
-							<li><strong>Cumplimiento Legal:</strong> Cuando sea requerido por ley o para proteger nuestros derechos</li>
-							<li><strong>Transferencia de Negocio:</strong> En caso de fusión, adquisición o venta de activos</li>
-							<li><strong>Con tu Consentimiento:</strong> Cuando hayas dado tu autorización explícita</li>
-						</ul>
-					</div>
+            <hr class="border-gray-100" />
 
-					<!-- Seguridad de los Datos -->
-					<div class="mb-12">
-						<h2 class="text-3xl font-bold text-gray-900 mb-4">Seguridad de los Datos</h2>
-						<p class="text-gray-600 leading-relaxed mb-4">
-							Implementamos medidas de seguridad técnicas y organizativas para proteger tu información:
-						</p>
-						<ul class="list-disc pl-6 text-gray-600 space-y-2">
-							<li>Encriptación de datos en tránsito y en reposo</li>
-							<li>Acceso restringido a datos personales</li>
-							<li>Autenticación de múltiples factores</li>
-							<li>Monitoreo continuo de seguridad</li>
-							<li>Copias de seguridad regulares</li>
-							<li>Auditorías de seguridad periódicas</li>
-						</ul>
-					</div>
+            <!-- 3. Descripción del Servicio -->
+            <section id="descripcion" class="scroll-mt-24">
+              <div class="flex items-start gap-4 mb-6">
+                <span class="flex-shrink-0 w-10 h-10 rounded-xl bg-green-500 text-white text-sm font-bold flex items-center justify-center shadow-sm shadow-green-200">3</span>
+                <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 pt-1.5">Descripción del Servicio</h2>
+              </div>
+              <div class="pl-14 space-y-4 text-gray-600 leading-relaxed">
+                <p>Agoramy ofrece una plataforma integral de automatización empresarial y comunicación que incluye:</p>
+                <div class="grid sm:grid-cols-2 gap-3 mt-2">
+                  {[
+                    { icon: "💬", title: "Integración WhatsApp Business", desc: "Conexión oficial con la API de WhatsApp Business Platform de Meta para gestionar conversaciones empresariales." },
+                    { icon: "🤖", title: "Chatbots con IA", desc: "Creación y despliegue de chatbots inteligentes con procesamiento de lenguaje natural para automatizar la atención." },
+                    { icon: "⚡", title: "Automatización de Mensajes", desc: "Flujos de trabajo automatizados para el envío y gestión de mensajes según reglas y disparadores definidos." },
+                    { icon: "📊", title: "CRM Integrado", desc: "Gestión de contactos, historial de conversaciones, segmentación y seguimiento del ciclo de vida del cliente." },
+                    { icon: "🎧", title: "Atención al Cliente", desc: "Panel centralizado para gestionar conversaciones multi-agente con asignación, etiquetas y métricas." },
+                    { icon: "🏢", title: "Multi-tenant SaaS", desc: "Arquitectura que permite a múltiples organizaciones operar de forma aislada y segura dentro de la misma plataforma." },
+                  ].map(item => (
+                    <div class="flex gap-3 p-4 bg-gray-50 rounded-xl border border-gray-100">
+                      <span class="text-xl flex-shrink-0">{item.icon}</span>
+                      <div>
+                        <p class="font-semibold text-gray-800 text-sm mb-1">{item.title}</p>
+                        <p class="text-xs text-gray-500 leading-relaxed">{item.desc}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+                <p class="text-sm text-gray-500">
+                  Las funcionalidades disponibles dependen del plan de suscripción contratado. Agoramy se reserva el derecho de agregar, modificar o descontinuar funciones con notificación previa razonable.
+                </p>
+              </div>
+            </section>
 
-					<!-- Retención de Datos -->
-					<div class="mb-12">
-						<h2 class="text-3xl font-bold text-gray-900 mb-4">Retención de Datos</h2>
-						<p class="text-gray-600 leading-relaxed">
-							Conservamos tu información personal durante el tiempo que sea necesario para cumplir con los propósitos
-							descritos en esta política, a menos que la ley requiera o permita un período de retención más largo.
-							Los datos de transacciones se conservan de acuerdo con los requisitos fiscales y contables mexicanos.
-						</p>
-					</div>
+            <hr class="border-gray-100" />
 
-					<!-- Tus Derechos -->
-					<div class="mb-12">
-						<h2 class="text-3xl font-bold text-gray-900 mb-4">Tus Derechos</h2>
-						<p class="text-gray-600 leading-relaxed mb-4">
-							De acuerdo con la Ley Federal de Protección de Datos Personales en Posesión de los Particulares, tienes derecho a:
-						</p>
-						<ul class="list-disc pl-6 text-gray-600 space-y-2">
-							<li><strong>Acceso:</strong> Conocer qué datos personales tenemos sobre ti</li>
-							<li><strong>Rectificación:</strong> Solicitar la corrección de datos inexactos o incompletos</li>
-							<li><strong>Cancelación:</strong> Solicitar la eliminación de tus datos personales</li>
-							<li><strong>Oposición:</strong> Oponerte al tratamiento de tus datos personales</li>
-							<li><strong>Portabilidad:</strong> Recibir tus datos en un formato estructurado y de uso común</li>
-						</ul>
-						<p class="text-gray-600 leading-relaxed mt-4">
-							Para ejercer estos derechos, contáctanos en <a href="mailto:contacto@agoramy.com" class="text-green-500 hover:underline">contacto@agoramy.com</a>
-						</p>
-					</div>
+            <!-- 4. Requisitos de Cuenta -->
+            <section id="requisitos" class="scroll-mt-24">
+              <div class="flex items-start gap-4 mb-6">
+                <span class="flex-shrink-0 w-10 h-10 rounded-xl bg-green-500 text-white text-sm font-bold flex items-center justify-center shadow-sm shadow-green-200">4</span>
+                <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 pt-1.5">Requisitos de Cuenta</h2>
+              </div>
+              <div class="pl-14 space-y-4 text-gray-600 leading-relaxed">
+                <p>Para acceder a los servicios de Agoramy, debes:</p>
+                <ul class="space-y-2.5">
+                  {[
+                    "Proporcionar información de registro verdadera, precisa, actual y completa.",
+                    "Mantener y actualizar tu información de cuenta para que permanezca exacta.",
+                    "Ser mayor de 18 años o contar con representación legal si eres una entidad.",
+                    "Ser responsable de mantener la confidencialidad de tus credenciales de acceso.",
+                    "Notificarnos de inmediato cualquier uso no autorizado de tu cuenta.",
+                    "Contar con una cuenta válida de WhatsApp Business si deseas usar las funcionalidades de mensajería (sujeto a los requisitos de Meta).",
+                    "Aceptar las políticas de uso de Meta y WhatsApp Business Platform de forma independiente.",
+                  ].map(item => (
+                    <li class="flex items-start gap-3">
+                      <svg class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+                      </svg>
+                      <span class="text-sm">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+                <p class="text-sm">
+                  Agoramy no será responsable por pérdidas derivadas del acceso no autorizado a tu cuenta cuando dicho acceso resulte de tu incumplimiento de estas obligaciones de seguridad.
+                </p>
+              </div>
+            </section>
 
-					<!-- Cookies -->
-					<div class="mb-12">
-						<h2 class="text-3xl font-bold text-gray-900 mb-4">Cookies y Tecnologías Similares</h2>
-						<p class="text-gray-600 leading-relaxed mb-4">
-							Utilizamos cookies y tecnologías similares para:
-						</p>
-						<ul class="list-disc pl-6 text-gray-600 space-y-2">
-							<li>Mantener tu sesión activa</li>
-							<li>Recordar tus preferencias</li>
-							<li>Analizar el uso del servicio</li>
-							<li>Mejorar la funcionalidad del sistema</li>
-						</ul>
-						<p class="text-gray-600 leading-relaxed mt-4">
-							Puedes configurar tu navegador para rechazar cookies, aunque esto puede afectar la funcionalidad del servicio.
-						</p>
-					</div>
+            <hr class="border-gray-100" />
 
-					<!-- Menores de Edad -->
-					<div class="mb-12">
-						<h2 class="text-3xl font-bold text-gray-900 mb-4">Menores de Edad</h2>
-						<p class="text-gray-600 leading-relaxed">
-							Nuestro servicio no está dirigido a menores de 18 años. No recopilamos intencionalmente información
-							personal de menores. Si descubrimos que hemos recopilado datos de un menor, tomaremos medidas para
-							eliminar esa información.
-						</p>
-					</div>
+            <!-- 5. Integración con Terceros -->
+            <section id="terceros" class="scroll-mt-24">
+              <div class="flex items-start gap-4 mb-6">
+                <span class="flex-shrink-0 w-10 h-10 rounded-xl bg-green-500 text-white text-sm font-bold flex items-center justify-center shadow-sm shadow-green-200">5</span>
+                <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 pt-1.5">Integración con Servicios de Terceros</h2>
+              </div>
+              <div class="pl-14 space-y-4 text-gray-600 leading-relaxed">
+                <p>
+                  Agoramy se integra con servicios de terceros, incluyendo pero no limitado a Meta / WhatsApp Business Platform, proveedores cloud, motores de IA y herramientas de CRM. Al usar estas integraciones, reconoces y aceptas lo siguiente:
+                </p>
+                <div class="space-y-3">
+                  {[
+                    { title: "Términos independientes", desc: "El uso de servicios de terceros está sujeto a sus propios términos y condiciones. Agoramy no controla ni es responsable de las políticas de dichos proveedores." },
+                    { title: "Interrupciones de terceros", desc: "Agoramy no garantiza la disponibilidad continua de servicios de terceros. Las interrupciones, cambios de API o cancelaciones por parte de proveedores externos quedan fuera de nuestra responsabilidad." },
+                    { title: "Transmisión de datos", desc: "Al usar integraciones, algunos de tus datos pueden ser transmitidos a proveedores externos. Consulta nuestra sección de Privacidad para más detalles." },
+                    { title: "Cambios en APIs de terceros", desc: "Si una integración deja de estar disponible por cambios en la política del proveedor externo (ej. Meta), Agoramy hará esfuerzos razonables para notificarte, pero no podrá garantizar continuidad." },
+                  ].map(item => (
+                    <div class="p-4 border border-gray-200 rounded-xl">
+                      <p class="font-semibold text-gray-800 text-sm mb-1">{item.title}</p>
+                      <p class="text-sm text-gray-500">{item.desc}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </section>
 
-					<!-- Cambios a la Política -->
-					<div class="mb-12">
-						<h2 class="text-3xl font-bold text-gray-900 mb-4">Cambios a esta Política</h2>
-						<p class="text-gray-600 leading-relaxed">
-							Podemos actualizar esta Política de Privacidad periódicamente. Te notificaremos sobre cambios
-							significativos publicando la nueva política en esta página y actualizando la fecha de "Última
-							actualización". Te recomendamos revisar esta política regularmente.
-						</p>
-					</div>
+            <hr class="border-gray-100" />
 
-					<!-- Términos de Uso -->
-					<div class="mb-12">
-						<h2 class="text-3xl font-bold text-gray-900 mb-4">Términos de Uso del Servicio</h2>
+            <!-- 6. WhatsApp Business Platform -->
+            <section id="whatsapp" class="scroll-mt-24">
+              <div class="flex items-start gap-4 mb-6">
+                <span class="flex-shrink-0 w-10 h-10 rounded-xl bg-green-500 text-white text-sm font-bold flex items-center justify-center shadow-sm shadow-green-200">6</span>
+                <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 pt-1.5">Uso de WhatsApp Business Platform</h2>
+              </div>
+              <div class="pl-14 space-y-4 text-gray-600 leading-relaxed">
+                <div class="bg-blue-50 border border-blue-100 rounded-xl p-5 mb-2">
+                  <div class="flex gap-3 items-start">
+                    <svg class="w-5 h-5 text-blue-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                    </svg>
+                    <p class="text-sm text-blue-800">
+                      <strong>Aviso de marca:</strong> WhatsApp™ y Meta™ son marcas registradas de <strong>Meta Platforms, Inc.</strong> Agoramy no está afiliada, patrocinada ni avalada oficialmente por Meta o WhatsApp. El uso de estas marcas es únicamente referencial para describir compatibilidad técnica.
+                    </p>
+                  </div>
+                </div>
+                <p>
+                  Agoramy actúa como proveedor de soluciones de negocio (<em>Business Solution Provider</em>) que facilita el acceso a la WhatsApp Business Platform API de Meta. Al usar estas funcionalidades, el usuario acepta:
+                </p>
+                <ul class="space-y-2.5">
+                  {[
+                    "Cumplir en todo momento con las Políticas de Uso Comercial de WhatsApp Business Platform publicadas por Meta.",
+                    "No usar la plataforma para enviar mensajes a números de teléfono sin consentimiento previo y documentado del destinatario.",
+                    "No crear, usar ni facilitar plantillas (templates) de mensajes que contengan contenido engañoso, fraudulento o que viole las políticas de Meta.",
+                    "Mantener actualizados y vigentes los perfiles de WhatsApp Business asociados a su cuenta en Agoramy.",
+                    "Asumir responsabilidad total por la calificación de calidad (quality rating) de sus números registrados ante Meta.",
+                    "Comprender que Meta puede restringir, suspender o eliminar acceso a la API por violaciones de política sin previo aviso.",
+                    "Agoramy puede suspender el acceso a funcionalidades de WhatsApp si detecta uso que viole políticas de Meta o estas condiciones.",
+                  ].map(item => (
+                    <li class="flex items-start gap-3">
+                      <svg class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+                      </svg>
+                      <span class="text-sm">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </section>
 
-						<h3 class="text-2xl font-semibold text-gray-800 mb-3 mt-6">Aceptación de los Términos</h3>
-						<p class="text-gray-600 leading-relaxed">
-							Al acceder y usar Agoramy POS, aceptas estar sujeto a estos términos de uso. Si no estás de acuerdo
-							con alguna parte de estos términos, no debes usar nuestro servicio.
-						</p>
+            <hr class="border-gray-100" />
 
-						<h3 class="text-2xl font-semibold text-gray-800 mb-3 mt-6">Uso Permitido</h3>
-						<p class="text-gray-600 leading-relaxed mb-4">
-							Te concedemos una licencia limitada, no exclusiva e intransferible para usar Agoramy POS de acuerdo
-							con tu plan de suscripción. Te comprometes a:
-						</p>
-						<ul class="list-disc pl-6 text-gray-600 space-y-2">
-							<li>Usar el servicio solo para fines legales y autorizados</li>
-							<li>No intentar acceder a sistemas o datos no autorizados</li>
-							<li>No interferir con el funcionamiento del servicio</li>
-							<li>Mantener la confidencialidad de tus credenciales de acceso</li>
-							<li>Cumplir con todas las leyes aplicables</li>
-						</ul>
+            <!-- 7. Anti-spam -->
+            <section id="antispam" class="scroll-mt-24">
+              <div class="flex items-start gap-4 mb-6">
+                <span class="flex-shrink-0 w-10 h-10 rounded-xl bg-green-500 text-white text-sm font-bold flex items-center justify-center shadow-sm shadow-green-200">7</span>
+                <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 pt-1.5">Políticas Anti-spam y Uso Indebido</h2>
+              </div>
+              <div class="pl-14 space-y-4 text-gray-600 leading-relaxed">
+                <p>
+                  Agoramy tiene una política de cero tolerancia ante el abuso de la plataforma. El siguiente uso está estrictamente <strong class="text-red-600">prohibido</strong> y puede resultar en suspensión inmediata de la cuenta sin reembolso:
+                </p>
+                <div class="grid sm:grid-cols-2 gap-3">
+                  {[
+                    { icon: "🚫", label: "Spam masivo", desc: "Envío no solicitado de mensajes en masa a usuarios que no han otorgado consentimiento expreso." },
+                    { icon: "🎣", label: "Phishing", desc: "Mensajes diseñados para engañar a destinatarios y obtener información personal, financiera o credenciales." },
+                    { icon: "💸", label: "Fraude", desc: "Cualquier actividad engañosa, estafas, esquemas piramidales o promesas fraudulentas de ganancias." },
+                    { icon: "🔄", label: "Campañas masivas no autorizadas", desc: "Difusión de contenido publicitario a listas sin opt-in verificado y documentado." },
+                    { icon: "⚖️", label: "Actividades ilegales", desc: "Uso del servicio para fines que violen leyes locales, nacionales o internacionales aplicables." },
+                    { icon: "🔓", label: "Acceso no autorizado", desc: "Intentos de acceder a datos de otros usuarios, sistemas de Agoramy o infraestructura de terceros." },
+                    { icon: "🦠", label: "Malware / código malicioso", desc: "Distribución de virus, malware, ransomware o cualquier código diseñado para causar daño." },
+                    { icon: "📛", label: "Suplantación de identidad", desc: "Hacerse pasar por otra persona, empresa o entidad de forma engañosa a través de la plataforma." },
+                  ].map(item => (
+                    <div class="flex gap-3 p-4 bg-red-50/50 border border-red-100 rounded-xl">
+                      <span class="text-lg flex-shrink-0">{item.icon}</span>
+                      <div>
+                        <p class="font-semibold text-red-800 text-sm mb-1">{item.label}</p>
+                        <p class="text-xs text-gray-500 leading-relaxed">{item.desc}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+                <p class="text-sm">
+                  Agoramy cooperará activamente con autoridades competentes ante investigaciones sobre usos ilícitos de la plataforma. Los usuarios que incurran en prácticas prohibidas serán reportados si la ley así lo exige.
+                </p>
+              </div>
+            </section>
 
-						<h3 class="text-2xl font-semibold text-gray-800 mb-3 mt-6">Propiedad Intelectual</h3>
-						<p class="text-gray-600 leading-relaxed">
-							Agoramy y todo su contenido, características y funcionalidades son propiedad de Agoramy y están
-							protegidos por leyes de derechos de autor, marcas registradas y otras leyes de propiedad intelectual.
-						</p>
+            <hr class="border-gray-100" />
 
-						<h3 class="text-2xl font-semibold text-gray-800 mb-3 mt-6">Suscripciones y Pagos</h3>
-						<ul class="list-disc pl-6 text-gray-600 space-y-2">
-							<li>Los pagos se procesan mensualmente según el plan seleccionado</li>
-							<li>Los precios están sujetos a cambios con notificación previa de 30 días</li>
-							<li>Las suscripciones se renuevan automáticamente</li>
-							<li>Puedes cancelar tu suscripción en cualquier momento</li>
-							<li>No ofrecemos reembolsos por períodos parciales</li>
-						</ul>
+            <!-- 8. Consentimiento -->
+            <section id="consentimiento" class="scroll-mt-24">
+              <div class="flex items-start gap-4 mb-6">
+                <span class="flex-shrink-0 w-10 h-10 rounded-xl bg-green-500 text-white text-sm font-bold flex items-center justify-center shadow-sm shadow-green-200">8</span>
+                <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 pt-1.5">Responsabilidad sobre el Consentimiento de Mensajes</h2>
+              </div>
+              <div class="pl-14 space-y-4 text-gray-600 leading-relaxed">
+                <div class="bg-green-50 border border-green-200 rounded-xl p-5">
+                  <p class="font-semibold text-green-800 mb-2">Principio fundamental</p>
+                  <p class="text-green-700 text-sm">
+                    El usuario de Agoramy es el <strong>único y exclusivo responsable</strong> de obtener, documentar y mantener el consentimiento previo, informado y verificable de cada destinatario antes de enviarle mensajes automatizados a través de la plataforma.
+                  </p>
+                </div>
+                <p>
+                  Agoramy proporciona la infraestructura técnica para el envío de mensajes, pero no verifica ni valida el consentimiento de los destinatarios finales. En consecuencia:
+                </p>
+                <ul class="space-y-3">
+                  {[
+                    "El usuario debe obtener opt-in explícito de cada contacto antes de incluirlo en flujos de mensajería automatizada.",
+                    "El usuario debe ofrecer a los destinatarios un mecanismo claro y accesible de opt-out (baja/cancelación de mensajes) en todo momento.",
+                    "El usuario asume responsabilidad legal por el cumplimiento de la Ley Federal de Protección de Datos Personales en Posesión de los Particulares (México), GDPR (si aplica) y demás normativas de privacidad aplicables.",
+                    "El usuario indemnizará y mantendrá indemne a Agoramy frente a cualquier reclamación, sanción o daño derivado de mensajes enviados sin el consentimiento adecuado de los destinatarios.",
+                    "Agoramy puede suspender preventivamente cuentas que reciban un número inusualmente alto de reportes de spam o quejas de destinatarios.",
+                  ].map(item => (
+                    <li class="flex items-start gap-3">
+                      <svg class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+                      </svg>
+                      <span class="text-sm">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </section>
 
-						<h3 class="text-2xl font-semibold text-gray-800 mb-3 mt-6">Limitación de Responsabilidad</h3>
-						<p class="text-gray-600 leading-relaxed">
-							Agoramy se proporciona "tal cual" sin garantías de ningún tipo. No seremos responsables por daños
-							indirectos, incidentales o consecuentes que surjan del uso o la imposibilidad de usar el servicio.
-						</p>
-					</div>
+            <hr class="border-gray-100" />
 
-					<!-- Contacto -->
-					<div class="mb-12">
-						<h2 class="text-3xl font-bold text-gray-900 mb-4">Contacto</h2>
-						<p class="text-gray-600 leading-relaxed mb-4">
-							Si tienes preguntas sobre esta Política de Privacidad o nuestros Términos de Uso, contáctanos:
-						</p>
-						<div class="bg-green-50 border border-green-200 rounded-lg p-6">
-							<p class="text-gray-700 mb-2"><strong>Email:</strong> <a href="mailto:contacto@agoramy.com" class="text-green-500 hover:underline">contacto@agoramy.com</a></p>
-							<p class="text-gray-700 mb-2"><strong>Teléfono:</strong> xxxx-xxx-xxx-xx</p>
-							<p class="text-gray-700"><strong>Dirección:</strong> Ciudad de México, México</p>
-						</div>
-					</div>
+            <!-- 9. Privacidad -->
+            <section id="privacidad" class="scroll-mt-24">
+              <div class="flex items-start gap-4 mb-6">
+                <span class="flex-shrink-0 w-10 h-10 rounded-xl bg-green-500 text-white text-sm font-bold flex items-center justify-center shadow-sm shadow-green-200">9</span>
+                <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 pt-1.5">Privacidad y Protección de Datos</h2>
+              </div>
+              <div class="pl-14 space-y-4 text-gray-600 leading-relaxed">
+                <p>La protección de tus datos personales es una prioridad para Agoramy. Recopilamos y procesamos la siguiente información:</p>
 
-					<!-- Back Button -->
-					<div class="mt-12 text-center">
-						<a
-							href="/"
-							class="inline-flex items-center gap-2 px-6 py-3 bg-green-500 text-white font-semibold rounded-lg hover:bg-green-600 hover:shadow-lg hover:scale-105 transition-all"
-						>
-							<i class="fas fa-arrow-left"></i>
-							<span>Volver al Inicio</span>
-						</a>
-					</div>
+                <div class="space-y-4">
+                  <div>
+                    <h3 class="font-semibold text-gray-800 mb-3">Datos que recopilamos</h3>
+                    <div class="grid sm:grid-cols-3 gap-3">
+                      {[
+                        { cat: "Datos de cuenta", items: ["Nombre y apellidos", "Correo electrónico", "Número de teléfono", "Información de la empresa"] },
+                        { cat: "Datos de uso", items: ["Conversaciones gestionadas", "Métricas de campañas", "Flujos de automatización", "Registros de actividad"] },
+                        { cat: "Datos técnicos", items: ["Dirección IP", "Tipo de dispositivo/navegador", "Sistema operativo", "Cookies de sesión"] },
+                      ].map(cat => (
+                        <div class="p-4 bg-gray-50 rounded-xl border border-gray-100">
+                          <p class="font-semibold text-gray-700 text-sm mb-2">{cat.cat}</p>
+                          <ul class="space-y-1">
+                            {cat.items.map(i => (
+                              <li class="text-xs text-gray-500 flex items-center gap-1.5">
+                                <span class="w-1 h-1 bg-green-400 rounded-full flex-shrink-0"></span>
+                                {i}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
 
-				</div>
-			</div>
-		</section>
-	</div>
+                  <div>
+                    <h3 class="font-semibold text-gray-800 mb-2">Finalidades del tratamiento</h3>
+                    <ul class="space-y-1.5 text-sm">
+                      {[
+                        "Prestación, mantenimiento y mejora de los servicios de la Plataforma.",
+                        "Procesamiento de pagos y gestión de suscripciones.",
+                        "Soporte técnico y atención al usuario.",
+                        "Detección y prevención de fraudes y usos indebidos.",
+                        "Cumplimiento de obligaciones legales y fiscales.",
+                        "Comunicaciones sobre actualizaciones, cambios en el servicio y notificaciones operativas.",
+                      ].map(item => (
+                        <li class="flex items-start gap-2.5">
+                          <svg class="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+                          </svg>
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div class="p-4 bg-gray-50 rounded-xl border border-gray-200">
+                    <p class="font-semibold text-gray-800 text-sm mb-2">Derechos ARCO</p>
+                    <p class="text-sm text-gray-600 mb-2">De acuerdo con la Ley Federal de Protección de Datos Personales en Posesión de los Particulares (México), tienes derecho de <strong>Acceso, Rectificación, Cancelación y Oposición</strong> al tratamiento de tus datos personales.</p>
+                    <p class="text-sm text-gray-600">
+                      Para ejercer estos derechos o solicitar la <strong>eliminación de tu cuenta y datos</strong>, escríbenos a:
+                      <a href={`mailto:${contactEmail}`} class="text-green-600 font-semibold hover:underline ml-1">{contactEmail}</a>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <hr class="border-gray-100" />
+
+            <!-- 10. Almacenamiento -->
+            <section id="almacenamiento" class="scroll-mt-24">
+              <div class="flex items-start gap-4 mb-6">
+                <span class="flex-shrink-0 w-10 h-10 rounded-xl bg-green-500 text-white text-sm font-bold flex items-center justify-center shadow-sm shadow-green-200">10</span>
+                <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 pt-1.5">Almacenamiento y Procesamiento de Conversaciones</h2>
+              </div>
+              <div class="pl-14 space-y-4 text-gray-600 leading-relaxed">
+                <p>
+                  Agoramy almacena el historial de conversaciones gestionadas a través de la Plataforma con el fin de proporcionar funcionalidades de CRM, análisis y continuidad del servicio. El usuario reconoce y acepta que:
+                </p>
+                <ul class="space-y-2.5">
+                  {[
+                    "Las conversaciones se almacenan en servidores seguros con cifrado en tránsito (TLS) y en reposo.",
+                    "Los datos de conversaciones pueden incluir mensajes de texto, multimedia, archivos y metadatos de interacción.",
+                    "Agoramy no accede al contenido de las conversaciones salvo para fines técnicos de mantenimiento, soporte o cumplimiento legal.",
+                    "Los datos de conversaciones son propiedad del usuario titular de la cuenta.",
+                    "Tras la cancelación de la cuenta, los datos de conversaciones se conservarán durante un período máximo de 90 días antes de su eliminación definitiva, salvo que la ley exija mayor retención.",
+                    "El usuario puede solicitar la exportación o eliminación anticipada de sus datos de conversaciones contactando al equipo de soporte.",
+                    "Los modelos de IA de Agoramy pueden procesar el contenido de conversaciones para mejorar la funcionalidad de chatbots, de forma anonimizada y conforme a las políticas de privacidad.",
+                  ].map(item => (
+                    <li class="flex items-start gap-3">
+                      <svg class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+                      </svg>
+                      <span class="text-sm">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </section>
+
+            <hr class="border-gray-100" />
+
+            <!-- 11. Suspensión -->
+            <section id="suspension" class="scroll-mt-24">
+              <div class="flex items-start gap-4 mb-6">
+                <span class="flex-shrink-0 w-10 h-10 rounded-xl bg-green-500 text-white text-sm font-bold flex items-center justify-center shadow-sm shadow-green-200">11</span>
+                <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 pt-1.5">Suspensión o Cancelación de Cuentas</h2>
+              </div>
+              <div class="pl-14 space-y-4 text-gray-600 leading-relaxed">
+                <p>Agoramy se reserva el derecho de suspender o cancelar cuentas, con o sin previo aviso, en los siguientes supuestos:</p>
+                <div class="space-y-3">
+                  {[
+                    { type: "Inmediata", color: "red", items: ["Violación de políticas de Meta / WhatsApp Business Platform", "Spam, fraude, phishing o actividades ilegales confirmadas", "Riesgo inminente para la seguridad de la plataforma o de otros usuarios"] },
+                    { type: "Con notificación (48–72 horas)", color: "amber", items: ["Falta de pago por más de 7 días calendario", "Incumplimiento de estos Términos tras notificación y período de subsanación", "Solicitud expresa del usuario titular de la cuenta"] },
+                  ].map(({ type, color, items }) => (
+                    <div class={`p-5 rounded-xl border ${color === 'red' ? 'bg-red-50 border-red-100' : 'bg-amber-50 border-amber-100'}`}>
+                      <p class={`font-semibold text-sm mb-3 ${color === 'red' ? 'text-red-800' : 'text-amber-800'}`}>
+                        Suspensión {type}
+                      </p>
+                      <ul class="space-y-1.5">
+                        {items.map(item => (
+                          <li class={`text-sm flex items-start gap-2 ${color === 'red' ? 'text-red-700' : 'text-amber-700'}`}>
+                            <span class="mt-1.5 w-1.5 h-1.5 rounded-full flex-shrink-0 bg-current opacity-60"></span>
+                            {item}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
+                </div>
+                <p class="text-sm">
+                  En caso de cancelación voluntaria por el usuario, el acceso al servicio se mantendrá hasta el final del período de facturación vigente. No se emitirán reembolsos por tiempo no utilizado salvo acuerdo expreso.
+                </p>
+              </div>
+            </section>
+
+            <hr class="border-gray-100" />
+
+            <!-- 12. Limitación de Responsabilidad -->
+            <section id="responsabilidad" class="scroll-mt-24">
+              <div class="flex items-start gap-4 mb-6">
+                <span class="flex-shrink-0 w-10 h-10 rounded-xl bg-green-500 text-white text-sm font-bold flex items-center justify-center shadow-sm shadow-green-200">12</span>
+                <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 pt-1.5">Limitación de Responsabilidad</h2>
+              </div>
+              <div class="pl-14 space-y-4 text-gray-600 leading-relaxed">
+                <p>
+                  En la máxima medida permitida por la ley aplicable, Agoramy, sus directivos, empleados, socios y proveedores no serán responsables por:
+                </p>
+                <div class="space-y-3">
+                  {[
+                    { title: "Interrupciones de servicios de terceros", desc: "Agoramy no se hace responsable por interrupciones, cambios de API, caídas de servicio o restricciones impuestas por Meta, WhatsApp, proveedores cloud, redes de telecomunicaciones u otros terceros, aunque estas afecten directamente la disponibilidad de la Plataforma." },
+                    { title: "Daños indirectos o consecuentes", desc: "Pérdida de beneficios, pérdida de datos, daño a la reputación, costos de servicios sustitutos o cualquier daño indirecto, incidental, especial, punitivo o consecuente, incluso si Agoramy ha sido informada de la posibilidad de dichos daños." },
+                    { title: "Contenido de usuarios", desc: "Agoramy no asume responsabilidad por el contenido de mensajes enviados por los usuarios a través de la Plataforma. La responsabilidad por el contenido es exclusiva del usuario que lo origina." },
+                    { title: "Uso inapropiado del servicio", desc: "Pérdidas derivadas del uso de la Plataforma de forma contraria a estos Términos o a las políticas de terceros integrados." },
+                  ].map(item => (
+                    <div class="p-4 border border-gray-200 rounded-xl">
+                      <p class="font-semibold text-gray-800 text-sm mb-1">{item.title}</p>
+                      <p class="text-sm text-gray-500 leading-relaxed">{item.desc}</p>
+                    </div>
+                  ))}
+                </div>
+                <p class="text-sm">
+                  La responsabilidad total acumulada de Agoramy frente al usuario, independientemente de la causa, no excederá el importe pagado por el usuario en los tres (3) meses anteriores al evento que originó la reclamación.
+                </p>
+              </div>
+            </section>
+
+            <hr class="border-gray-100" />
+
+            <!-- 13. Disponibilidad -->
+            <section id="disponibilidad" class="scroll-mt-24">
+              <div class="flex items-start gap-4 mb-6">
+                <span class="flex-shrink-0 w-10 h-10 rounded-xl bg-green-500 text-white text-sm font-bold flex items-center justify-center shadow-sm shadow-green-200">13</span>
+                <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 pt-1.5">Disponibilidad del Servicio</h2>
+              </div>
+              <div class="pl-14 space-y-4 text-gray-600 leading-relaxed">
+                <p>
+                  Agoramy se esfuerza por mantener una alta disponibilidad del servicio, pero no garantiza un uptime del 100%. El servicio puede verse afectado por:
+                </p>
+                <ul class="space-y-2 text-sm">
+                  {[
+                    "Mantenimiento programado (con notificación previa de al menos 24 horas en circunstancias normales).",
+                    "Fallos de infraestructura o proveedores cloud.",
+                    "Eventos de fuerza mayor: catástrofes naturales, actos de guerra, pandemias, cortes de energía generalizados.",
+                    "Restricciones o cambios en las APIs de servicios de terceros como Meta.",
+                    "Ataques cibernéticos o incidentes de seguridad.",
+                    "Actualizaciones de emergencia necesarias para preservar la seguridad o integridad del servicio.",
+                  ].map(item => (
+                    <li class="flex items-start gap-2.5">
+                      <svg class="w-4 h-4 text-gray-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4" />
+                      </svg>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+                <p class="text-sm">
+                  Las interrupciones planificadas se comunicarán a través del panel de la Plataforma y/o por correo electrónico con la mayor anticipación posible. Agoramy no ofrecerá compensaciones automáticas por tiempo de inactividad, salvo que exista un acuerdo de nivel de servicio (SLA) escrito específico con el usuario.
+                </p>
+              </div>
+            </section>
+
+            <hr class="border-gray-100" />
+
+            <!-- 14. Propiedad Intelectual -->
+            <section id="propiedad" class="scroll-mt-24">
+              <div class="flex items-start gap-4 mb-6">
+                <span class="flex-shrink-0 w-10 h-10 rounded-xl bg-green-500 text-white text-sm font-bold flex items-center justify-center shadow-sm shadow-green-200">14</span>
+                <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 pt-1.5">Propiedad Intelectual</h2>
+              </div>
+              <div class="pl-14 space-y-4 text-gray-600 leading-relaxed">
+                <p>
+                  Todos los derechos de propiedad intelectual sobre la Plataforma, incluyendo su código fuente, diseño, interfaces, algoritmos, marcas, logotipos, textos y documentación, son y permanecen propiedad exclusiva de Agoramy o sus licenciantes.
+                </p>
+                <div class="grid sm:grid-cols-2 gap-4">
+                  <div class="p-4 bg-green-50 rounded-xl border border-green-100">
+                    <p class="font-semibold text-green-800 text-sm mb-2">Lo que el usuario SÍ puede hacer</p>
+                    <ul class="space-y-1.5 text-xs text-green-700">
+                      <li class="flex items-start gap-1.5"><span>✓</span> Usar la Plataforma según los términos de su plan</li>
+                      <li class="flex items-start gap-1.5"><span>✓</span> Exportar sus propios datos y conversaciones</li>
+                      <li class="flex items-start gap-1.5"><span>✓</span> Mostrar el logotipo de Agoramy para indicar uso oficial</li>
+                    </ul>
+                  </div>
+                  <div class="p-4 bg-red-50 rounded-xl border border-red-100">
+                    <p class="font-semibold text-red-800 text-sm mb-2">Lo que el usuario NO puede hacer</p>
+                    <ul class="space-y-1.5 text-xs text-red-700">
+                      <li class="flex items-start gap-1.5"><span>✗</span> Copiar, modificar o distribuir el software de Agoramy</li>
+                      <li class="flex items-start gap-1.5"><span>✗</span> Realizar ingeniería inversa del código de la Plataforma</li>
+                      <li class="flex items-start gap-1.5"><span>✗</span> Usar las marcas de Agoramy sin autorización escrita</li>
+                      <li class="flex items-start gap-1.5"><span>✗</span> Sublicenciar el acceso a terceros no autorizados</li>
+                    </ul>
+                  </div>
+                </div>
+                <p class="text-sm">
+                  El contenido generado por el usuario (contactos, conversaciones, plantillas de mensajes) pertenece al usuario. Agoramy recibe una licencia limitada, no exclusiva, para procesar dicho contenido exclusivamente con el fin de prestar el servicio.
+                </p>
+              </div>
+            </section>
+
+            <hr class="border-gray-100" />
+
+            <!-- 15. Facturación -->
+            <section id="facturacion" class="scroll-mt-24">
+              <div class="flex items-start gap-4 mb-6">
+                <span class="flex-shrink-0 w-10 h-10 rounded-xl bg-green-500 text-white text-sm font-bold flex items-center justify-center shadow-sm shadow-green-200">15</span>
+                <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 pt-1.5">Facturación y Pagos</h2>
+              </div>
+              <div class="pl-14 space-y-4 text-gray-600 leading-relaxed">
+                <ul class="space-y-2.5">
+                  {[
+                    "Los pagos se procesan de forma periódica según el ciclo de facturación del plan contratado (mensual o anual).",
+                    "Los precios están sujetos a cambios. Agoramy notificará con al menos 30 días de anticipación cualquier incremento en los precios de planes existentes.",
+                    "Las suscripciones se renuevan automáticamente al final de cada período, salvo cancelación previa por parte del usuario.",
+                    "En caso de falta de pago, Agoramy podrá suspender el acceso a la Plataforma tras un período de gracia de 7 días calendario.",
+                    "No se ofrecen reembolsos por períodos parciales de suscripción ya iniciados, salvo disposición legal obligatoria en contrario.",
+                    "Los costos asociados al uso de la WhatsApp Business API (tarifas de Meta/conversación) son adicionales y responsabilidad del usuario según el modelo de precios de Meta.",
+                    "Los pagos deben realizarse mediante los métodos aceptados en la Plataforma. El usuario es responsable de mantener métodos de pago válidos y actualizados.",
+                  ].map(item => (
+                    <li class="flex items-start gap-3">
+                      <svg class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+                      </svg>
+                      <span class="text-sm">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </section>
+
+            <hr class="border-gray-100" />
+
+            <!-- 16. Terminación -->
+            <section id="terminacion" class="scroll-mt-24">
+              <div class="flex items-start gap-4 mb-6">
+                <span class="flex-shrink-0 w-10 h-10 rounded-xl bg-green-500 text-white text-sm font-bold flex items-center justify-center shadow-sm shadow-green-200">16</span>
+                <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 pt-1.5">Terminación del Servicio</h2>
+              </div>
+              <div class="pl-14 space-y-4 text-gray-600 leading-relaxed">
+                <p>
+                  Cualquiera de las partes puede dar por terminada la relación contractual conforme a lo siguiente:
+                </p>
+                <div class="space-y-3">
+                  <div class="p-4 border border-gray-200 rounded-xl">
+                    <p class="font-semibold text-gray-800 text-sm mb-2">Por el Usuario</p>
+                    <p class="text-sm text-gray-500">El usuario puede cancelar su suscripción en cualquier momento desde el panel de administración o contactando a soporte. La cancelación tendrá efecto al término del período de facturación vigente.</p>
+                  </div>
+                  <div class="p-4 border border-gray-200 rounded-xl">
+                    <p class="font-semibold text-gray-800 text-sm mb-2">Por Agoramy</p>
+                    <p class="text-sm text-gray-500">Agoramy puede terminar el servicio por violación de estos Términos, falta de pago, o por decisión de negocio. En el último caso, se notificará con al menos 30 días de anticipación.</p>
+                  </div>
+                  <div class="p-4 border border-gray-200 rounded-xl">
+                    <p class="font-semibold text-gray-800 text-sm mb-2">Efectos de la terminación</p>
+                    <p class="text-sm text-gray-500">Tras la terminación, el usuario tendrá un período de 15 días hábiles para exportar sus datos. Transcurrido este plazo, los datos serán eliminados de forma permanente salvo obligación legal de retención.</p>
+                  </div>
+                </div>
+                <p class="text-sm">
+                  Las cláusulas de limitación de responsabilidad, propiedad intelectual y legislación aplicable sobreviven a la terminación de estos Términos.
+                </p>
+              </div>
+            </section>
+
+            <hr class="border-gray-100" />
+
+            <!-- 17. Cambios en los Términos -->
+            <section id="cambios" class="scroll-mt-24">
+              <div class="flex items-start gap-4 mb-6">
+                <span class="flex-shrink-0 w-10 h-10 rounded-xl bg-green-500 text-white text-sm font-bold flex items-center justify-center shadow-sm shadow-green-200">17</span>
+                <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 pt-1.5">Cambios en los Términos</h2>
+              </div>
+              <div class="pl-14 space-y-4 text-gray-600 leading-relaxed">
+                <p>
+                  Agoramy puede modificar estos Términos en cualquier momento. El procedimiento para cambios significativos es el siguiente:
+                </p>
+                <ol class="space-y-3 text-sm list-none">
+                  {[
+                    "Publicación de los nuevos Términos en esta página con la fecha de actualización.",
+                    "Notificación por correo electrónico a los usuarios registrados con al menos 14 días de anticipación para cambios sustanciales.",
+                    "Indicación clara de los cambios principales mediante resumen de modificaciones.",
+                    "El uso continuado del servicio tras la fecha de entrada en vigor implica la aceptación de los nuevos Términos.",
+                    "Si el usuario no acepta los cambios, puede cancelar su cuenta antes de la fecha de entrada en vigor sin penalización.",
+                  ].map((item, i) => (
+                    <li class="flex items-start gap-3">
+                      <span class="flex-shrink-0 w-6 h-6 rounded-full bg-gray-100 text-gray-500 text-xs font-bold flex items-center justify-center">{i + 1}</span>
+                      {item}
+                    </li>
+                  ))}
+                </ol>
+              </div>
+            </section>
+
+            <hr class="border-gray-100" />
+
+            <!-- 18. Legislación -->
+            <section id="legislacion" class="scroll-mt-24">
+              <div class="flex items-start gap-4 mb-6">
+                <span class="flex-shrink-0 w-10 h-10 rounded-xl bg-green-500 text-white text-sm font-bold flex items-center justify-center shadow-sm shadow-green-200">18</span>
+                <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 pt-1.5">Legislación Aplicable</h2>
+              </div>
+              <div class="pl-14 space-y-4 text-gray-600 leading-relaxed">
+                <p>
+                  Estos Términos se regirán e interpretarán de conformidad con las leyes vigentes de los <strong class="text-gray-800">Estados Unidos Mexicanos</strong>. Las partes se someten expresamente a la jurisdicción de los tribunales competentes de la <strong class="text-gray-800">Ciudad de México</strong>, renunciando a cualquier otra jurisdicción que pudiera corresponderles por razón de sus domicilios presentes o futuros.
+                </p>
+                <p>
+                  Sin perjuicio de lo anterior, las siguientes normativas pueden aplicar dependiendo de la jurisdicción del usuario:
+                </p>
+                <div class="grid sm:grid-cols-3 gap-3 text-sm">
+                  {[
+                    { ley: "LFPDPPP", desc: "Ley Federal de Protección de Datos Personales en Posesión de los Particulares (México)" },
+                    { ley: "GDPR", desc: "Reglamento General de Protección de Datos (Unión Europea, cuando sea aplicable)" },
+                    { ley: "Políticas Meta", desc: "Términos del Servicio de WhatsApp Business Platform y políticas de uso comercial de Meta" },
+                  ].map(item => (
+                    <div class="p-4 bg-gray-50 rounded-xl border border-gray-100">
+                      <p class="font-bold text-gray-800 mb-1">{item.ley}</p>
+                      <p class="text-xs text-gray-500">{item.desc}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </section>
+
+            <hr class="border-gray-100" />
+
+            <!-- 19. Contacto -->
+            <section id="contacto" class="scroll-mt-24">
+              <div class="flex items-start gap-4 mb-6">
+                <span class="flex-shrink-0 w-10 h-10 rounded-xl bg-green-500 text-white text-sm font-bold flex items-center justify-center shadow-sm shadow-green-200">19</span>
+                <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 pt-1.5">Contacto</h2>
+              </div>
+              <div class="pl-14 space-y-4 text-gray-600 leading-relaxed">
+                <p>
+                  Para consultas, solicitudes legales, ejercicio de derechos ARCO, reportes de abuso, solicitudes de eliminación de datos o cualquier asunto relacionado con estos Términos, contáctanos a través de los siguientes medios:
+                </p>
+                <div class="bg-gray-950 rounded-2xl p-6 sm:p-8">
+                  <div class="flex items-center gap-3 mb-6">
+                    <div class="w-10 h-10 bg-green-500/10 rounded-xl flex items-center justify-center">
+                      <svg class="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                      </svg>
+                    </div>
+                    <div>
+                      <p class="text-white font-semibold">Agoramy / IAHub — Legal & Privacidad</p>
+                      <p class="text-gray-400 text-sm">Tiempo de respuesta estimado: 3–5 días hábiles</p>
+                    </div>
+                  </div>
+                  <div class="space-y-3">
+                    <div class="flex items-center gap-3 p-3 bg-white/5 rounded-xl">
+                      <svg class="w-4 h-4 text-green-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                      </svg>
+                      <div>
+                        <p class="text-gray-400 text-xs">Correo electrónico</p>
+                        <a href={`mailto:${contactEmail}`} class="text-white font-medium hover:text-green-400 transition-colors">{contactEmail}</a>
+                      </div>
+                    </div>
+                    <div class="flex items-center gap-3 p-3 bg-white/5 rounded-xl">
+                      <svg class="w-4 h-4 text-green-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                      </svg>
+                      <div>
+                        <p class="text-gray-400 text-xs">Jurisdicción</p>
+                        <p class="text-white font-medium">Ciudad de México, México</p>
+                      </div>
+                    </div>
+                    <div class="flex items-center gap-3 p-3 bg-white/5 rounded-xl">
+                      <svg class="w-4 h-4 text-green-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+                      </svg>
+                      <div>
+                        <p class="text-gray-400 text-xs">Plataforma</p>
+                        <p class="text-white font-medium">agoramy.com</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- ─── APÉNDICE: Política de Privacidad Producto POS ─── -->
+            <div class="mt-6">
+              <div class="border border-gray-200 rounded-2xl overflow-hidden">
+                <!-- Apéndice header -->
+                <div class="bg-gray-50 border-b border-gray-200 px-6 py-5">
+                  <div class="flex items-center gap-3">
+                    <span class="px-2.5 py-1 bg-gray-200 text-gray-600 text-xs font-bold rounded-md tracking-wide uppercase">Apéndice A</span>
+                    <div>
+                      <h2 class="text-lg font-bold text-gray-800">Política de Privacidad — Producto Agoramy POS</h2>
+                      <p class="text-xs text-gray-500 mt-0.5">Aplicable al sistema de punto de venta para farmacias. Vigente desde Noviembre 2024.</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="p-6 sm:p-8 space-y-10 text-gray-600">
+
+                  <!-- Intro apéndice -->
+                  <p class="leading-relaxed text-sm">
+                    Esta sección complementa los Términos principales de Agoramy y aplica específicamente a los usuarios del producto <strong class="text-gray-800">Agoramy POS</strong>, sistema de punto de venta diseñado para farmacias en México. En caso de conflicto entre esta sección y los términos principales, prevalecen los términos principales.
+                  </p>
+
+                  <!-- Información que Recopilamos -->
+                  <div>
+                    <h3 class="text-base font-bold text-gray-800 mb-4 flex items-center gap-2">
+                      <span class="w-6 h-6 rounded-lg bg-gray-900 text-white text-xs font-bold flex items-center justify-center flex-shrink-0">A1</span>
+                      Información que Recopilamos
+                    </h3>
+                    <div class="space-y-4 pl-8">
+                      <div>
+                        <p class="font-semibold text-gray-700 text-sm mb-2">Información de la Cuenta</p>
+                        <ul class="list-disc pl-5 space-y-1 text-sm">
+                          <li>Nombre y apellidos</li>
+                          <li>Dirección de correo electrónico</li>
+                          <li>Número de teléfono</li>
+                          <li>Información de la farmacia (nombre, dirección, RFC)</li>
+                          <li>Información de facturación y pago</li>
+                        </ul>
+                      </div>
+                      <div>
+                        <p class="font-semibold text-gray-700 text-sm mb-2">Datos de Uso del Sistema</p>
+                        <ul class="list-disc pl-5 space-y-1 text-sm">
+                          <li>Datos de transacciones y ventas</li>
+                          <li>Inventario de productos</li>
+                          <li>Información de empleados (nombres, roles, horarios)</li>
+                          <li>Registros de actividad del sistema</li>
+                          <li>Datos analíticos y reportes generados</li>
+                        </ul>
+                      </div>
+                      <div>
+                        <p class="font-semibold text-gray-700 text-sm mb-2">Información Técnica</p>
+                        <ul class="list-disc pl-5 space-y-1 text-sm">
+                          <li>Dirección IP</li>
+                          <li>Tipo de navegador y dispositivo</li>
+                          <li>Sistema operativo</li>
+                          <li>Datos de cookies y tecnologías similares</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Cómo Usamos -->
+                  <div>
+                    <h3 class="text-base font-bold text-gray-800 mb-4 flex items-center gap-2">
+                      <span class="w-6 h-6 rounded-lg bg-gray-900 text-white text-xs font-bold flex items-center justify-center flex-shrink-0">A2</span>
+                      Cómo Usamos tu Información
+                    </h3>
+                    <div class="pl-8">
+                      <p class="text-sm mb-3">Utilizamos la información recopilada para:</p>
+                      <ul class="list-disc pl-5 space-y-1.5 text-sm">
+                        <li>Proporcionar y mantener nuestro servicio de POS</li>
+                        <li>Procesar pagos y transacciones</li>
+                        <li>Generar reportes y análisis de datos para tu farmacia</li>
+                        <li>Mejorar y personalizar tu experiencia</li>
+                        <li>Enviar notificaciones importantes sobre el servicio</li>
+                        <li>Proporcionar soporte técnico y al cliente</li>
+                        <li>Cumplir con obligaciones legales y fiscales</li>
+                        <li>Detectar y prevenir fraudes o actividades sospechosas</li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <!-- Compartir -->
+                  <div>
+                    <h3 class="text-base font-bold text-gray-800 mb-4 flex items-center gap-2">
+                      <span class="w-6 h-6 rounded-lg bg-gray-900 text-white text-xs font-bold flex items-center justify-center flex-shrink-0">A3</span>
+                      Compartir Información
+                    </h3>
+                    <div class="pl-8 space-y-2 text-sm">
+                      <p>No vendemos tu información personal. Podemos compartirla en estas circunstancias:</p>
+                      <ul class="list-disc pl-5 space-y-1.5">
+                        <li><strong class="text-gray-700">Proveedores de Servicios:</strong> Terceros que ayudan a operar el servicio (procesadores de pago, hosting, etc.)</li>
+                        <li><strong class="text-gray-700">Cumplimiento Legal:</strong> Cuando sea requerido por ley o para proteger nuestros derechos</li>
+                        <li><strong class="text-gray-700">Transferencia de Negocio:</strong> En caso de fusión, adquisición o venta de activos</li>
+                        <li><strong class="text-gray-700">Con tu Consentimiento:</strong> Cuando hayas dado autorización explícita</li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <!-- Seguridad -->
+                  <div>
+                    <h3 class="text-base font-bold text-gray-800 mb-4 flex items-center gap-2">
+                      <span class="w-6 h-6 rounded-lg bg-gray-900 text-white text-xs font-bold flex items-center justify-center flex-shrink-0">A4</span>
+                      Seguridad de los Datos
+                    </h3>
+                    <div class="pl-8">
+                      <p class="text-sm mb-3">Implementamos las siguientes medidas de seguridad técnicas y organizativas:</p>
+                      <ul class="list-disc pl-5 space-y-1.5 text-sm">
+                        <li>Encriptación de datos en tránsito y en reposo</li>
+                        <li>Acceso restringido a datos personales</li>
+                        <li>Autenticación de múltiples factores</li>
+                        <li>Monitoreo continuo de seguridad</li>
+                        <li>Copias de seguridad regulares</li>
+                        <li>Auditorías de seguridad periódicas</li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <!-- Retención -->
+                  <div>
+                    <h3 class="text-base font-bold text-gray-800 mb-4 flex items-center gap-2">
+                      <span class="w-6 h-6 rounded-lg bg-gray-900 text-white text-xs font-bold flex items-center justify-center flex-shrink-0">A5</span>
+                      Retención de Datos
+                    </h3>
+                    <div class="pl-8">
+                      <p class="text-sm leading-relaxed">
+                        Conservamos tu información personal durante el tiempo necesario para cumplir con los propósitos descritos, a menos que la ley requiera un período de retención mayor. Los datos de transacciones se conservan conforme a los requisitos fiscales y contables mexicanos.
+                      </p>
+                    </div>
+                  </div>
+
+                  <!-- Derechos ARCO -->
+                  <div>
+                    <h3 class="text-base font-bold text-gray-800 mb-4 flex items-center gap-2">
+                      <span class="w-6 h-6 rounded-lg bg-gray-900 text-white text-xs font-bold flex items-center justify-center flex-shrink-0">A6</span>
+                      Tus Derechos
+                    </h3>
+                    <div class="pl-8 space-y-3 text-sm">
+                      <p>De acuerdo con la LFPDPPP, tienes derecho a:</p>
+                      <ul class="list-disc pl-5 space-y-1.5">
+                        <li><strong class="text-gray-700">Acceso:</strong> Conocer qué datos personales tenemos sobre ti</li>
+                        <li><strong class="text-gray-700">Rectificación:</strong> Solicitar corrección de datos inexactos o incompletos</li>
+                        <li><strong class="text-gray-700">Cancelación:</strong> Solicitar la eliminación de tus datos personales</li>
+                        <li><strong class="text-gray-700">Oposición:</strong> Oponerte al tratamiento de tus datos</li>
+                        <li><strong class="text-gray-700">Portabilidad:</strong> Recibir tus datos en formato estructurado</li>
+                      </ul>
+                      <p>
+                        Para ejercer estos derechos, contacta a:
+                        <a href={`mailto:${contactEmail}`} class="text-green-600 font-semibold hover:underline ml-1">{contactEmail}</a>
+                      </p>
+                    </div>
+                  </div>
+
+                  <!-- Cookies -->
+                  <div>
+                    <h3 class="text-base font-bold text-gray-800 mb-4 flex items-center gap-2">
+                      <span class="w-6 h-6 rounded-lg bg-gray-900 text-white text-xs font-bold flex items-center justify-center flex-shrink-0">A7</span>
+                      Cookies y Tecnologías Similares
+                    </h3>
+                    <div class="pl-8 space-y-2 text-sm">
+                      <p>Utilizamos cookies y tecnologías similares para:</p>
+                      <ul class="list-disc pl-5 space-y-1.5">
+                        <li>Mantener tu sesión activa</li>
+                        <li>Recordar tus preferencias</li>
+                        <li>Analizar el uso del servicio</li>
+                        <li>Mejorar la funcionalidad del sistema</li>
+                      </ul>
+                      <p class="text-gray-500">Puedes configurar tu navegador para rechazar cookies, aunque esto puede afectar la funcionalidad del servicio.</p>
+                    </div>
+                  </div>
+
+                  <!-- Menores -->
+                  <div>
+                    <h3 class="text-base font-bold text-gray-800 mb-4 flex items-center gap-2">
+                      <span class="w-6 h-6 rounded-lg bg-gray-900 text-white text-xs font-bold flex items-center justify-center flex-shrink-0">A8</span>
+                      Menores de Edad
+                    </h3>
+                    <div class="pl-8">
+                      <p class="text-sm leading-relaxed">
+                        Nuestro servicio no está dirigido a menores de 18 años. No recopilamos intencionalmente información personal de menores. Si descubrimos que hemos recopilado datos de un menor, tomaremos medidas inmediatas para eliminar esa información.
+                      </p>
+                    </div>
+                  </div>
+
+                  <!-- Términos POS -->
+                  <div>
+                    <h3 class="text-base font-bold text-gray-800 mb-4 flex items-center gap-2">
+                      <span class="w-6 h-6 rounded-lg bg-gray-900 text-white text-xs font-bold flex items-center justify-center flex-shrink-0">A9</span>
+                      Términos de Uso del Servicio POS
+                    </h3>
+                    <div class="pl-8 space-y-5 text-sm">
+                      <div>
+                        <p class="font-semibold text-gray-700 mb-2">Uso Permitido</p>
+                        <p class="mb-2 text-gray-600">Se concede una licencia limitada, no exclusiva e intransferible para usar Agoramy POS según el plan de suscripción. El usuario se compromete a:</p>
+                        <ul class="list-disc pl-5 space-y-1.5 text-gray-600">
+                          <li>Usar el servicio solo para fines legales y autorizados</li>
+                          <li>No intentar acceder a sistemas o datos no autorizados</li>
+                          <li>No interferir con el funcionamiento del servicio</li>
+                          <li>Mantener la confidencialidad de sus credenciales</li>
+                          <li>Cumplir con todas las leyes aplicables</li>
+                        </ul>
+                      </div>
+                      <div>
+                        <p class="font-semibold text-gray-700 mb-2">Suscripciones y Pagos (POS)</p>
+                        <ul class="list-disc pl-5 space-y-1.5 text-gray-600">
+                          <li>Los pagos se procesan mensualmente según el plan seleccionado</li>
+                          <li>Los precios están sujetos a cambios con notificación previa de 30 días</li>
+                          <li>Las suscripciones se renuevan automáticamente</li>
+                          <li>Puedes cancelar tu suscripción en cualquier momento</li>
+                          <li>No se ofrecen reembolsos por períodos parciales</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+            <!-- ─── FIN APÉNDICE ─── -->
+
+            <!-- Back Button -->
+            <div class="pt-4 flex flex-wrap gap-3">
+              <a
+                href="/"
+                class="inline-flex items-center gap-2 px-6 py-3 bg-gray-900 text-white font-semibold rounded-xl hover:bg-gray-800 transition-all text-sm"
+              >
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                </svg>
+                Volver al Inicio
+              </a>
+              <a
+                href={`mailto:${contactEmail}`}
+                class="inline-flex items-center gap-2 px-6 py-3 bg-green-500 text-white font-semibold rounded-xl hover:bg-green-600 hover:shadow-lg hover:shadow-green-500/20 transition-all text-sm"
+              >
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+                Contactar Legal
+              </a>
+            </div>
+
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <!-- Legal Footer Banner -->
+    <div class="bg-gray-950 border-t border-gray-800">
+      <div class="container mx-auto px-4 py-6">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-gray-500">
+          <p>
+            © {new Date().getFullYear()} <span class="text-white font-semibold">Agoramy</span> · IAHub. Todos los derechos reservados.
+          </p>
+          <p class="text-center text-xs leading-relaxed max-w-lg">
+            WhatsApp™ y Meta™ son marcas registradas de <strong class="text-gray-400">Meta Platforms, Inc.</strong> Agoramy no está afiliada, patrocinada ni avalada por Meta o WhatsApp.
+          </p>
+          <p class="text-xs">
+            Última actualización: <span class="text-gray-400">{lastUpdated}</span>
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </div>
 </Layout>
+
+<script>
+  // Highlight active section in TOC
+  const sections = document.querySelectorAll('section[id]');
+  const tocLinks = document.querySelectorAll('.toc-link');
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          tocLinks.forEach(link => {
+            link.classList.remove('text-green-600', 'bg-green-50', 'font-medium');
+            if (link.getAttribute('data-section') === entry.target.id) {
+              link.classList.add('text-green-600', 'bg-green-50', 'font-medium');
+            }
+          });
+        }
+      });
+    },
+    { rootMargin: '-20% 0px -70% 0px' }
+  );
+
+  sections.forEach(s => observer.observe(s));
+</script>

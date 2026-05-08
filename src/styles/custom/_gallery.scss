@@ -14,5 +14,8 @@
 }
 
 .lg-react-element {
-    @apply flex flex-wrap justify-center items-start #{!important};
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    align-items: flex-start !important;
 }
