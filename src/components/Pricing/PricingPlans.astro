@@ -1,208 +1,163 @@
 ---
 // Pricing Plans component
+
+const checkIcon = `<svg class="w-4 h-4 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>`;
+
+const plans = [
+  {
+    name: "Básico",
+    price: "120",
+    desc: "Perfecto para farmacias pequeñas que inician su digitalización.",
+    popular: false,
+    features: [
+      "3 cajas registradoras",
+      "25 empleados",
+      "3,000 productos en catálogo",
+      "Facturación CFDI 4.0",
+      "Analítica de datos básica",
+      "Trazabilidad de ventas y compras",
+      "Módulo de ofertas y descuentos",
+    ],
+    extras: [
+      "Caja extra: $30/mes",
+      "Empleado extra: $20/mes",
+      "+2,000 productos: $60/mes",
+    ],
+    cta: "Comenzar Ahora",
+    ctaLink: "/product",
+  },
+  {
+    name: "Emprendedor",
+    price: "250",
+    desc: "El más popular. Ideal para farmacias en crecimiento con operación multi-área.",
+    popular: true,
+    features: [
+      "Todo lo del Plan Básico",
+      "6 cajas registradoras",
+      "50 empleados",
+      "6,000 productos en catálogo",
+      "Catálogo digital para clientes",
+      "Gestión de ventas y envíos",
+      "100 mensajes de IA para clientes",
+      "3 análisis mensuales de datos",
+    ],
+    extras: [
+      "Caja extra: $20/mes",
+      "+2,000 productos: $40/mes",
+      "+200 mensajes de IA: $100/mes",
+    ],
+    cta: "Comenzar Ahora",
+    ctaLink: "/product",
+  },
+  {
+    name: "Empresa",
+    price: "450",
+    desc: "Para cadenas y farmacias de alto volumen que necesitan máxima capacidad.",
+    popular: false,
+    features: [
+      "Todo lo de Emprendedor",
+      "12 cajas registradoras",
+      "100 empleados",
+      "12,000 productos en catálogo",
+      "400 mensajes de IA al mes",
+      "8 análisis mensuales de IA avanzada",
+      "Reportes personalizados",
+    ],
+    extras: [
+      "Caja extra: $15/mes",
+      "Empleado extra: $10/mes",
+      "+200 mensajes de IA: $50/mes",
+    ],
+    cta: "Contactar Ventas",
+    ctaLink: "/contact",
+  },
+];
 ---
 
-<section class="py-20">
-  <div class="container">
-    <div class="text-center max-w-2xl mx-auto">
-      <span class="text-sm font-medium py-1 px-3 rounded-full text-primary bg-primary/10">
+<section class="py-20 bg-white" id="planes">
+  <div class="container mx-auto px-4">
+    <div class="text-center max-w-2xl mx-auto mb-14">
+      <span class="text-sm font-medium py-1 px-3 rounded-full text-green-600 bg-green-50 border border-green-100">
         Planes
       </span>
-      <h2 class="md:text-3xl/tight text-3xl font-semibold my-4">
-        Planes de Precios
+      <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mt-4 mb-4">
+        Elige tu plan
       </h2>
-      <p class="md:text-lg text-slate-500 leading-7">
-        Precios que <span class="text-primary">funcionan</span> para todos.
+      <p class="text-gray-500 text-lg">
+        Precios en MXN. Facturación mensual. Sin permanencia mínima.
       </p>
     </div>
-    <div class="grid xl:grid-cols-3 lg:grid-cols-2 grid-cols-1 gap-6 items-center mt-16">
-      <div>
-        <div class="border p-6 text-center rounded hover:shadow-lg">
-          <h4 class="text-lg text-primary">Plan Básico</h4>
-          <h1 class="mt-3 mb-8">
-            <sup class="align-super text-sm text-slate-500">$</sup>
-            <span class="text-3xl font-semibold">120</span>
-            <sub class="text-sm text-slate-500"> MXN/mes</sub>
-          </h1>
-          <hr />
-          <div class="grid gap-y-3 mt-8 text-sm">
-            <div class="flex items-center gap-2">
-              <svg class="w-5 h-5 text-green-500 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="20 6 9 17 4 12"></polyline>
-              </svg>
-              <span class="text-left">3 cajas</span>
+
+    <div class="grid xl:grid-cols-3 lg:grid-cols-2 grid-cols-1 gap-6 max-w-6xl mx-auto items-start">
+      {plans.map(plan => (
+        <div class={`relative rounded-2xl overflow-hidden border transition-all duration-300 ${
+          plan.popular
+            ? 'border-green-400 shadow-xl shadow-green-100 scale-[1.02]'
+            : 'border-gray-200 hover:border-green-200 hover:shadow-lg'
+        }`}>
+          {plan.popular && (
+            <div class="bg-green-500 text-white text-xs font-bold text-center py-2 tracking-wider uppercase">
+              ⭐ Más popular
             </div>
-            <div class="flex items-center gap-2">
-              <svg class="w-5 h-5 text-green-500 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="20 6 9 17 4 12"></polyline>
-              </svg>
-              <span class="text-left">25 empleados</span>
+          )}
+          <div class={`p-7 ${plan.popular ? 'bg-white' : 'bg-white'}`}>
+            <!-- Header -->
+            <div class="mb-6">
+              <h3 class="text-lg font-bold text-gray-900 mb-1">Plan {plan.name}</h3>
+              <p class="text-gray-500 text-sm leading-relaxed">{plan.desc}</p>
             </div>
-            <div class="flex items-center gap-2">
-              <svg class="w-5 h-5 text-green-500 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="20 6 9 17 4 12"></polyline>
-              </svg>
-              <span class="text-left">3,000 productos</span>
+
+            <!-- Price -->
+            <div class="mb-6 pb-6 border-b border-gray-100">
+              <div class="flex items-baseline gap-1">
+                <span class="text-sm text-gray-400 font-medium">$</span>
+                <span class="text-5xl font-extrabold text-gray-900">{plan.price}</span>
+                <span class="text-gray-400 text-sm ml-1">MXN / mes</span>
+              </div>
             </div>
-            <div class="flex items-center gap-2">
-              <svg class="w-5 h-5 text-green-500 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="20 6 9 17 4 12"></polyline>
-              </svg>
-              <span class="text-left">Facturación</span>
+
+            <!-- Features -->
+            <ul class="space-y-3 mb-6">
+              {plan.features.map(f => (
+                <li class="flex items-start gap-2.5 text-sm text-gray-600">
+                  <svg class="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+                  </svg>
+                  {f}
+                </li>
+              ))}
+            </ul>
+
+            <!-- Extras -->
+            <div class="bg-gray-50 rounded-xl p-4 mb-6">
+              <p class="text-xs font-bold text-gray-700 mb-2 uppercase tracking-wide">Extras disponibles</p>
+              {plan.extras.map(e => (
+                <p class="text-xs text-gray-500 py-0.5">{e}</p>
+              ))}
             </div>
-            <div class="flex items-center gap-2">
-              <svg class="w-5 h-5 text-green-500 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="20 6 9 17 4 12"></polyline>
-              </svg>
-              <span class="text-left">Analítica de datos básica</span>
-            </div>
-            <div class="flex items-center gap-2">
-              <svg class="w-5 h-5 text-green-500 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="20 6 9 17 4 12"></polyline>
-              </svg>
-              <span class="text-left">Trazabilidad de ventas y compras</span>
-            </div>
-            <div class="flex items-center gap-2">
-              <svg class="w-5 h-5 text-green-500 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="20 6 9 17 4 12"></polyline>
-              </svg>
-              <span class="text-left">Módulo de ofertas</span>
-            </div>
-          </div>
-          <hr class="my-5" />
-          <div class="text-xs text-left text-slate-500">
-            <p class="font-semibold text-slate-700">Extras:</p>
-            <p>Caja extra: $30/mes</p>
-            <p>Empleado extra: $20/mes</p>
-            <p>+2,000 productos: $60/mes</p>
-          </div>
-          <div class="mt-6">
-            <a href="/product" class="py-3 px-6 flex items-center justify-center rounded hover:border hover:border-primary/50 text-primary bg-primary/10 transition-all duration-500">Comenzar Ahora</a>
+
+            <!-- CTA -->
+            <a
+              href={plan.ctaLink}
+              class={`w-full py-3.5 px-6 flex items-center justify-center rounded-xl font-semibold text-sm transition-all ${
+                plan.popular
+                  ? 'bg-green-500 text-white hover:bg-green-600 hover:shadow-lg hover:shadow-green-500/25'
+                  : 'bg-gray-900 text-white hover:bg-gray-800'
+              }`}
+            >
+              {plan.cta}
+            </a>
           </div>
         </div>
-      </div>
-      <div>
-        <div class="border p-6 rounded hover:shadow-lg relative">
-          <div class="absolute w-full h-[188px] -z-10 top-0 left-0 overflow-hidden">
-            <span class="absolute transform rotate-45 bg-primary text-center text-white font-medium py-1 right-[-52px] top-[23px] w-[170px] h-5 z-[2] text-xs overflow-hidden border border-dashed leading-[8px] border-white shadow-[0_0_0_3px] shadow-primary/40">Popular</span>
-          </div>
-          <h4 class="text-lg text-primary text-center">Plan Emprendedor</h4>
-          <h1 class="mt-3 mb-8 text-center">
-            <sup class="align-super text-sm text-slate-500">$</sup>
-            <span class="text-3xl font-semibold">250</span>
-            <sub class="text-sm text-slate-500"> MXN/mes</sub>
-          </h1>
-          <hr />
-          <p class="text-xs text-slate-600 mt-4 mb-3">Incluye todo lo del Plan Básico más:</p>
-          <div class="grid gap-y-3 text-sm">
-            <div class="flex items-center gap-2">
-              <svg class="w-5 h-5 text-green-500 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="20 6 9 17 4 12"></polyline>
-              </svg>
-              <span class="text-left">6 cajas</span>
-            </div>
-            <div class="flex items-center gap-2">
-              <svg class="w-5 h-5 text-green-500 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="20 6 9 17 4 12"></polyline>
-              </svg>
-              <span class="text-left">50 empleados</span>
-            </div>
-            <div class="flex items-center gap-2">
-              <svg class="w-5 h-5 text-green-500 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="20 6 9 17 4 12"></polyline>
-              </svg>
-              <span class="text-left">6,000 productos</span>
-            </div>
-            <div class="flex items-center gap-2">
-              <svg class="w-5 h-5 text-green-500 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="20 6 9 17 4 12"></polyline>
-              </svg>
-              <span class="text-left">Catálogo digital</span>
-            </div>
-            <div class="flex items-center gap-2">
-              <svg class="w-5 h-5 text-green-500 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="20 6 9 17 4 12"></polyline>
-              </svg>
-              <span class="text-left">Gestión de ventas y envíos</span>
-            </div>
-            <div class="flex items-center gap-2">
-              <svg class="w-5 h-5 text-green-500 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="20 6 9 17 4 12"></polyline>
-              </svg>
-              <span class="text-left">100 mensajes de IA para clientes</span>
-            </div>
-            <div class="flex items-center gap-2">
-              <svg class="w-5 h-5 text-green-500 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="20 6 9 17 4 12"></polyline>
-              </svg>
-              <span class="text-left">3 análisis mensuales de datos</span>
-            </div>
-          </div>
-          <hr class="my-5" />
-          <div class="text-xs text-left text-slate-500">
-            <p class="font-semibold text-slate-700">Extras:</p>
-            <p>Caja extra: $20/mes</p>
-            <p>+2,000 productos: $40/mes</p>
-            <p>+200 mensajes de IA: $100/mes</p>
-          </div>
-          <div class="mt-6">
-            <a href="/product" class="py-3 px-6 flex items-center justify-center rounded hover:border hover:border-primary/50 text-primary bg-primary/10 transition-all duration-500">Comenzar Ahora</a>
-          </div>
-        </div>
-      </div>
-      <div>
-        <div class="border p-6 rounded hover:shadow-lg">
-          <h4 class="text-lg text-primary text-center">Plan Empresa</h4>
-          <h1 class="mt-3 mb-8 text-center">
-            <sup class="align-super text-sm text-slate-500">$</sup>
-            <span class="text-3xl font-semibold">450</span>
-            <sub class="text-sm text-slate-500"> MXN/mes</sub>
-          </h1>
-          <hr />
-          <p class="text-xs text-slate-600 mt-4 mb-3">Incluye todo lo del Plan Emprendedor y Básico más:</p>
-          <div class="grid gap-y-3 text-sm">
-            <div class="flex items-center gap-2">
-              <svg class="w-5 h-5 text-green-500 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="20 6 9 17 4 12"></polyline>
-              </svg>
-              <span class="text-left">12 cajas</span>
-            </div>
-            <div class="flex items-center gap-2">
-              <svg class="w-5 h-5 text-green-500 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="20 6 9 17 4 12"></polyline>
-              </svg>
-              <span class="text-left">100 empleados</span>
-            </div>
-            <div class="flex items-center gap-2">
-              <svg class="w-5 h-5 text-green-500 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="20 6 9 17 4 12"></polyline>
-              </svg>
-              <span class="text-left">12,000 productos</span>
-            </div>
-            <div class="flex items-center gap-2">
-              <svg class="w-5 h-5 text-green-500 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="20 6 9 17 4 12"></polyline>
-              </svg>
-              <span class="text-left">400 mensajes de IA</span>
-            </div>
-            <div class="flex items-center gap-2">
-              <svg class="w-5 h-5 text-green-500 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="20 6 9 17 4 12"></polyline>
-              </svg>
-              <span class="text-left">8 análisis mensuales de IA avanzada</span>
-            </div>
-          </div>
-          <hr class="my-5" />
-          <div class="text-xs text-left text-slate-500">
-            <p class="font-semibold text-slate-700">Extras:</p>
-            <p>Caja extra: $15/mes</p>
-            <p>Empleado extra: $10/mes</p>
-            <p>+200 mensajes de IA: $50/mes</p>
-          </div>
-          <div class="mt-6">
-            <a href="/product" class="py-3 px-6 flex items-center justify-center rounded hover:border hover:border-primary/50 text-primary bg-primary/10 transition-all duration-500">Contactar Ventas</a>
-          </div>
-        </div>
+      ))}
+    </div>
+
+    <!-- Nota Beta -->
+    <div class="mt-12 max-w-2xl mx-auto text-center">
+      <div class="bg-green-50 border border-green-200 rounded-xl p-5">
+        <p class="text-green-800 text-sm font-semibold mb-1">🎉 Oferta de lanzamiento — Fase Beta</p>
+        <p class="text-green-700 text-sm">Los primeros usuarios tienen acceso gratuito por 2 meses sin restricciones. Cupos limitados.</p>
+        <a href="/product" class="inline-block mt-3 text-green-600 text-sm font-semibold hover:underline">Registrarme en la lista de espera →</a>
       </div>
     </div>
   </div>

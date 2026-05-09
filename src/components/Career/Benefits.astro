@@ -2,62 +2,36 @@
 // Benefits component for Career page
 ---
 
-<section class="py-20 bg-slate-100">
-  <div class="container">
-    <div class="text-center max-w-2xl mx-auto">
-      <span class="text-sm font-medium py-1 px-3 rounded-full text-primary bg-primary/10">
+<section class="py-20 bg-white">
+  <div class="container mx-auto px-4">
+    <div class="text-center max-w-2xl mx-auto mb-14">
+      <span class="text-sm font-medium py-1 px-3 rounded-full text-green-600 bg-green-50 border border-green-100">
         Beneficios
       </span>
-      <h2 class="md:text-3xl/tight text-3xl font-semibold my-4">
-        ¿Por qué trabajar con nosotros?
+      <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mt-4 mb-4">
+        ¿Por qué trabajar en Agoramy?
       </h2>
-      <p class="md:text-lg text-slate-500 leading-7">
-        Ofrecemos grandes beneficios y un excelente ambiente de trabajo
+      <p class="text-gray-500 text-lg leading-relaxed">
+        Somos una startup en crecimiento que valora a las personas que la construyen.
       </p>
     </div>
-    <div class="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-6 mt-16">
-      <div class="bg-white p-6 rounded-lg shadow-sm">
-        <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
-          <i class="fa-solid fa-heart text-primary text-xl"></i>
+    <div class="grid lg:grid-cols-3 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+      {[
+        { icon: "🏠", title: "Trabajo 100% Remoto", desc: "Trabaja desde donde seas más productivo. Sin oficina obligatoria, sin traslados." },
+        { icon: "⏰", title: "Horario Flexible", desc: "Gestiona tu tiempo. Lo que importa son los resultados, no el horario rígido." },
+        { icon: "📚", title: "Aprendizaje Continuo", desc: "Budget para cursos, libros y conferencias. Crecer es parte del trabajo." },
+        { icon: "🚀", title: "Impacto Real", desc: "Tu código llega directamente a farmacias y negocios mexicanos desde el primer día." },
+        { icon: "🤝", title: "Equipo Apasionado", desc: "Trabajarás con personas que de verdad disfrutan lo que construyen." },
+        { icon: "📈", title: "Crecimiento Profesional", desc: "Startup en expansión = oportunidades reales de asumir más responsabilidad y crecer con la empresa." },
+      ].map(b => (
+        <div class="p-6 border border-gray-100 rounded-2xl hover:border-green-200 hover:shadow-md transition-all group">
+          <div class="w-12 h-12 bg-gray-50 rounded-xl flex items-center justify-center text-2xl mb-4 group-hover:bg-green-50 transition-colors">
+            {b.icon}
+          </div>
+          <h5 class="text-base font-bold text-gray-900 mb-2">{b.title}</h5>
+          <p class="text-gray-500 text-sm leading-relaxed">{b.desc}</p>
         </div>
-        <h5 class="text-lg font-semibold mb-2">Seguro de Salud</h5>
-        <p class="text-gray-600">Cobertura de salud completa para ti y tu familia</p>
-      </div>
-      <div class="bg-white p-6 rounded-lg shadow-sm">
-        <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
-          <i class="fa-solid fa-plane text-primary text-xl"></i>
-        </div>
-        <h5 class="text-lg font-semibold mb-2">Tiempo Libre Flexible</h5>
-        <p class="text-gray-600">Tómate tiempo cuando lo necesites con vacaciones ilimitadas</p>
-      </div>
-      <div class="bg-white p-6 rounded-lg shadow-sm">
-        <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
-          <i class="fa-solid fa-home text-primary text-xl"></i>
-        </div>
-        <h5 class="text-lg font-semibold mb-2">Trabajo Remoto</h5>
-        <p class="text-gray-600">Trabaja desde cualquier parte del mundo</p>
-      </div>
-      <div class="bg-white p-6 rounded-lg shadow-sm">
-        <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
-          <i class="fa-solid fa-graduation-cap text-primary text-xl"></i>
-        </div>
-        <h5 class="text-lg font-semibold mb-2">Presupuesto de Aprendizaje</h5>
-        <p class="text-gray-600">Presupuesto anual para desarrollo profesional</p>
-      </div>
-      <div class="bg-white p-6 rounded-lg shadow-sm">
-        <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
-          <i class="fa-solid fa-users text-primary text-xl"></i>
-        </div>
-        <h5 class="text-lg font-semibold mb-2">Gran Equipo</h5>
-        <p class="text-gray-600">Trabaja con personas talentosas y apasionadas</p>
-      </div>
-      <div class="bg-white p-6 rounded-lg shadow-sm">
-        <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
-          <i class="fa-solid fa-chart-line text-primary text-xl"></i>
-        </div>
-        <h5 class="text-lg font-semibold mb-2">Crecimiento Profesional</h5>
-        <p class="text-gray-600">Camino claro para el avance y crecimiento profesional</p>
-      </div>
+      ))}
     </div>
   </div>
 </section>

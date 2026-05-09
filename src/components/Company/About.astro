@@ -1,118 +1,89 @@
 ---
-// About component for Company page - Quiénes Somos
+// About component for Company page
 ---
 
-<section class="pt-6 sm:pt-8 pb-16 sm:pb-24 bg-white" id="quienes-somos">
-  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="grid lg:grid-cols-2 gap-12 items-center">
-      <!-- Columna de Imagen -->
-      <div class="order-2 lg:order-1" data-aos="fade-right">
+<!-- Hero Banner -->
+<section class="pt-32 pb-20 bg-gradient-to-b from-gray-950 to-gray-900 relative overflow-hidden">
+  <div class="absolute inset-0 opacity-10">
+    <div class="absolute top-10 left-1/3 w-80 h-80 bg-green-400 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-emerald-500 rounded-full blur-3xl"></div>
+  </div>
+  <div class="container mx-auto px-4 relative z-10">
+    <div class="max-w-3xl mx-auto text-center">
+      <span class="inline-flex items-center gap-2 px-4 py-1.5 bg-green-500/10 border border-green-500/20 text-green-400 text-sm font-medium rounded-full mb-6">
+        <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+        Nuestra Historia
+      </span>
+      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+        Tecnología que
+        <span class="text-green-400"> transforma</span><br/>negocios en México
+      </h1>
+      <p class="text-gray-400 text-lg leading-relaxed max-w-xl mx-auto">
+        Nacimos para simplificar la operación de farmacias y negocios mexicanos con software moderno, intuitivo y diseñado desde cero para la realidad local.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Stats -->
+<section class="py-14 bg-white border-b border-gray-100">
+  <div class="container mx-auto px-4">
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 max-w-4xl mx-auto text-center">
+      {[
+        { value: "2024", label: "Año de fundación" },
+        { value: "100%", label: "Enfoque en México" },
+        { value: "2", label: "Productos activos" },
+        { value: "24/7", label: "Soporte técnico" },
+      ].map(stat => (
+        <div>
+          <p class="text-4xl font-bold text-gray-900 mb-2">{stat.value}</p>
+          <p class="text-sm text-gray-500">{stat.label}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- Quiénes Somos -->
+<section class="py-20 bg-white" id="quienes-somos">
+  <div class="container mx-auto px-4">
+    <div class="grid lg:grid-cols-2 gap-16 items-center max-w-6xl mx-auto">
+      <div data-aos="fade-right">
+        <span class="text-sm font-medium px-3 py-1 rounded-full text-green-600 bg-green-50 border border-green-100">Quiénes Somos</span>
+        <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mt-4 mb-6 leading-tight">
+          Un equipo apasionado<br/>
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-green-500 to-emerald-600">construyendo el futuro</span>
+        </h2>
+        <p class="text-gray-600 text-lg leading-relaxed mb-5">
+          Agoramy nació de la visión de simplificar y modernizar la gestión de negocios en México. Identificamos que farmacias, comercios y empresas locales necesitaban herramientas tecnológicas accesibles y adaptadas a la realidad mexicana — no traducciones de software extranjero.
+        </p>
+        <p class="text-gray-600 leading-relaxed mb-8">
+          Hoy ofrecemos dos líneas de producto: <strong class="text-gray-800">Agoramy POS</strong>, sistema especializado para farmacias, y <strong class="text-gray-800">IAHub</strong>, plataforma SaaS de automatización empresarial con IA y WhatsApp Business.
+        </p>
+        <div class="grid sm:grid-cols-2 gap-5">
+          {[
+            { icon: "💡", title: "Innovación constante", desc: "Tecnología de vanguardia adaptada a las necesidades mexicanas" },
+            { icon: "🤝", title: "Colaboración real", desc: "Trabajamos junto a nuestros clientes, no solo para ellos" },
+            { icon: "📈", title: "Enfoque en resultados", desc: "Cada feature existe para generar impacto medible en tu negocio" },
+            { icon: "🔒", title: "Confianza y transparencia", desc: "Seguridad, datos protegidos y comunicación honesta siempre" },
+          ].map(v => (
+            <div class="flex items-start gap-3 p-4 bg-gray-50 rounded-xl border border-gray-100">
+              <span class="text-xl flex-shrink-0 mt-0.5">{v.icon}</span>
+              <div>
+                <p class="font-semibold text-gray-800 text-sm mb-1">{v.title}</p>
+                <p class="text-xs text-gray-500 leading-relaxed">{v.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div class="order-first lg:order-last" data-aos="fade-left">
         <div class="relative">
+          <div class="absolute -inset-4 bg-gradient-to-br from-green-100 to-emerald-50 rounded-2xl -z-10"></div>
           <img
             src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=800&q=80"
-            alt="Equipo Agoramy trabajando"
-            class="rounded-lg shadow-2xl w-full h-auto object-cover"
-          />
-        </div>
-      </div>
-
-      <!-- Columna de Contenido -->
-      <div class="order-1 lg:order-2" data-aos="fade-left">
-        <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-6">
-          Transformando la gestión
-          <span class="text-transparent bg-clip-text bg-gradient-to-r from-green-500 to-green-600">
-            de farmacias en México
-          </span>
-        </h2>
-
-        <p class="text-lg text-gray-600 mb-6 leading-relaxed">
-          Agoramy nació de la visión de simplificar y modernizar la gestión de farmacias en México. Vimos la necesidad de un sistema POS que no solo fuera eficiente, sino que también entendiera las complejidades únicas del sector farmacéutico mexicano.
-        </p>
-
-        <p class="text-lg text-gray-600 mb-8 leading-relaxed">
-          Somos un equipo apasionado de profesionales dedicado a crear soluciones tecnológicas innovadoras que empoderen a las farmacias para alcanzar su máximo potencial. Creemos en la innovación constante y en construir relaciones duraderas con nuestros clientes.
-        </p>
-
-        <!-- Valores o características -->
-        <div class="grid sm:grid-cols-2 gap-6">
-          <div class="flex items-start space-x-4">
-            <div class="flex-shrink-0">
-              <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
-                <i class="fas fa-lightbulb text-green-600 text-xl"></i>
-              </div>
-            </div>
-            <div>
-              <h3 class="font-semibold text-gray-900 mb-1">Innovación</h3>
-              <p class="text-gray-600 text-sm">Tecnología de vanguardia para tu farmacia</p>
-            </div>
-          </div>
-
-          <div class="flex items-start space-x-4">
-            <div class="flex-shrink-0">
-              <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
-                <i class="fas fa-users text-blue-600 text-xl"></i>
-              </div>
-            </div>
-            <div>
-              <h3 class="font-semibold text-gray-900 mb-1">Colaboración</h3>
-              <p class="text-gray-600 text-sm">Trabajamos junto a ti para tu éxito</p>
-            </div>
-          </div>
-
-          <div class="flex items-start space-x-4">
-            <div class="flex-shrink-0">
-              <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center">
-                <i class="fas fa-chart-line text-purple-600 text-xl"></i>
-              </div>
-            </div>
-            <div>
-              <h3 class="font-semibold text-gray-900 mb-1">Resultados</h3>
-              <p class="text-gray-600 text-sm">Enfocados en el crecimiento de tu negocio</p>
-            </div>
-          </div>
-
-          <div class="flex items-start space-x-4">
-            <div class="flex-shrink-0">
-              <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center">
-                <i class="fas fa-shield-alt text-orange-600 text-xl"></i>
-              </div>
-            </div>
-            <div>
-              <h3 class="font-semibold text-gray-900 mb-1">Confianza</h3>
-              <p class="text-gray-600 text-sm">Seguridad y transparencia en todo momento</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Sección de Misión -->
-<section class="py-16 sm:py-24 bg-gray-50">
-  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="grid lg:grid-cols-2 gap-12 items-center">
-      <!-- Columna de Contenido -->
-      <div class="order-1" data-aos="fade-right">
-        <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-6">
-          Proporcionar soluciones
-          <span class="text-transparent bg-clip-text bg-gradient-to-r from-green-500 to-green-600">
-            POS innovadoras
-          </span>
-        </h2>
-
-        <p class="text-lg text-gray-600 leading-relaxed">
-          Proporcionar soluciones POS innovadoras y especializadas que empoderen a las farmacias mexicanas para alcanzar sus objetivos, mejorando su eficiencia operativa y transformando digitalmente sus procesos con herramientas modernas, intuitivas y accesibles.
-        </p>
-      </div>
-
-      <!-- Columna de Imagen -->
-      <div class="order-2" data-aos="fade-left">
-        <div class="relative">
-          <img
-            src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800&q=80"
-            alt="Misión Agoramy"
-            class="rounded-lg shadow-2xl w-full h-auto object-cover"
+            alt="Equipo Agoramy"
+            class="rounded-xl shadow-xl w-full h-auto object-cover"
           />
         </div>
       </div>
@@ -120,33 +91,113 @@
   </div>
 </section>
 
-<!-- Sección de Visión -->
-<section class="py-16 sm:py-24 bg-white">
-  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="grid lg:grid-cols-2 gap-12 items-center">
-      <!-- Columna de Imagen -->
-      <div class="order-2 lg:order-1" data-aos="fade-right">
-        <div class="relative">
-          <img
-            src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80"
-            alt="Visión Agoramy"
-            class="rounded-lg shadow-2xl w-full h-auto object-cover"
-          />
+<!-- Misión & Visión -->
+<section class="py-20 bg-gray-50">
+  <div class="container mx-auto px-4">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-14">
+        <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Misión y Visión</h2>
+        <p class="text-gray-500 text-lg max-w-xl mx-auto">Lo que nos guía cada día y hacia dónde nos dirigimos.</p>
+      </div>
+      <div class="grid lg:grid-cols-2 gap-8">
+        <!-- Misión -->
+        <div class="bg-white rounded-2xl p-8 border border-gray-100 shadow-sm" data-aos="fade-up">
+          <div class="w-14 h-14 bg-green-500 rounded-2xl flex items-center justify-center mb-6 shadow-md shadow-green-200">
+            <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-4">Misión</h3>
+          <p class="text-gray-600 leading-relaxed text-lg">
+            Proporcionar soluciones tecnológicas innovadoras y accesibles que empoderen a farmacias y empresas mexicanas para alcanzar sus objetivos operativos, mejorando su eficiencia y competitividad con herramientas modernas adaptadas a su realidad.
+          </p>
+        </div>
+        <!-- Visión -->
+        <div class="bg-gray-950 rounded-2xl p-8 border border-gray-800" data-aos="fade-up" data-aos-delay="100">
+          <div class="w-14 h-14 bg-green-500 rounded-2xl flex items-center justify-center mb-6 shadow-md shadow-green-900">
+            <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-4">Visión</h3>
+          <p class="text-gray-400 leading-relaxed text-lg">
+            Ser la plataforma tecnológica de referencia para negocios en México — reconocidos por nuestra innovación, simplicidad y el impacto real que generamos en la productividad y el crecimiento de nuestros clientes.
+          </p>
         </div>
       </div>
+    </div>
+  </div>
+</section>
 
-      <!-- Columna de Contenido -->
-      <div class="order-1 lg:order-2" data-aos="fade-left">
-        <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-6">
-          Ser el sistema POS
-          <span class="text-transparent bg-clip-text bg-gradient-to-r from-green-500 to-green-600">
-            líder en México
-          </span>
-        </h2>
+<!-- Productos -->
+<section class="py-20 bg-white">
+  <div class="container mx-auto px-4">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-14">
+        <span class="text-sm font-medium px-3 py-1 rounded-full text-green-600 bg-green-50 border border-green-100">Nuestros Productos</span>
+        <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mt-4 mb-4">Dos plataformas, un mismo propósito</h2>
+        <p class="text-gray-500 max-w-xl mx-auto">Tecnología diseñada para resolver los retos reales de los negocios mexicanos.</p>
+      </div>
+      <div class="grid lg:grid-cols-2 gap-8">
+        <div class="border border-gray-200 rounded-2xl p-8 hover:border-green-300 hover:shadow-lg transition-all" data-aos="fade-up">
+          <div class="flex items-center gap-4 mb-6">
+            <div class="w-12 h-12 bg-green-500/10 rounded-xl flex items-center justify-center text-2xl">💊</div>
+            <div>
+              <p class="font-bold text-gray-900 text-lg">Agoramy POS</p>
+              <p class="text-green-600 text-sm font-medium">Sistema POS para Farmacias</p>
+            </div>
+          </div>
+          <p class="text-gray-600 leading-relaxed mb-6">Sistema de punto de venta especializado para farmacias en México. Gestión de inventario, facturación CFDI 4.0, control de medicamentos controlados, empleados y analítica de datos.</p>
+          <ul class="space-y-2 text-sm">
+            {["Facturación electrónica CFDI 4.0", "Control de medicamentos COFEPRIS", "Inventario y alertas de caducidad", "Multi-caja y multi-empleado"].map(f => (
+              <li class="flex items-center gap-2 text-gray-600">
+                <svg class="w-4 h-4 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+                </svg>
+                {f}
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div class="border border-gray-800 bg-gray-950 rounded-2xl p-8 hover:border-green-700 hover:shadow-lg hover:shadow-green-900/20 transition-all" data-aos="fade-up" data-aos-delay="100">
+          <div class="flex items-center gap-4 mb-6">
+            <div class="w-12 h-12 bg-green-500/10 rounded-xl flex items-center justify-center text-2xl">🤖</div>
+            <div>
+              <p class="font-bold text-white text-lg">IAHub</p>
+              <p class="text-green-400 text-sm font-medium">Plataforma SaaS / WhatsApp CRM</p>
+            </div>
+          </div>
+          <p class="text-gray-400 leading-relaxed mb-6">Plataforma de automatización empresarial con IA, chatbots y CRM integrado vía WhatsApp Business Platform. Gestiona conversaciones, automatiza procesos y atiende clientes a escala.</p>
+          <ul class="space-y-2 text-sm">
+            {["WhatsApp Business API oficial", "Chatbots con inteligencia artificial", "CRM y gestión de conversaciones", "Automatizaciones empresariales"].map(f => (
+              <li class="flex items-center gap-2 text-gray-400">
+                <svg class="w-4 h-4 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+                </svg>
+                {f}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-        <p class="text-lg text-gray-600 leading-relaxed">
-          Ser el sistema POS líder y más confiable para farmacias en México, reconocidos por nuestra innovación tecnológica, facilidad de uso y compromiso con el éxito de nuestros clientes en toda la República Mexicana.
-        </p>
+<!-- CTA -->
+<section class="py-20 bg-gradient-to-r from-green-500 to-emerald-600">
+  <div class="container mx-auto px-4">
+    <div class="max-w-3xl mx-auto text-center">
+      <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">¿Listo para transformar tu negocio?</h2>
+      <p class="text-green-100 text-lg mb-10">Únete a los negocios mexicanos que ya confían en Agoramy.</p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="/product" class="px-8 py-4 bg-white text-green-600 font-bold rounded-xl hover:shadow-xl hover:scale-105 transition-all">
+          Conocer Producto
+        </a>
+        <a href="/contact" class="px-8 py-4 bg-green-600/40 text-white font-bold rounded-xl border border-white/30 hover:bg-green-600/60 transition-all">
+          Contactar Equipo
+        </a>
       </div>
     </div>
   </div>
