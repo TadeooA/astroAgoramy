@@ -31,17 +31,17 @@ const post1: Post[] = [
 	{
 		image: lanzamientoBlog.src,
 		tag: { value: 'Anuncio' },
-		title: '¡Agoramy Está por Llegar! Acceso Beta Gratuito por 2 Meses',
+		title: '¡Agoramy Está por Llegar! Acceso Beta Gratuito por 4 Meses',
 		slug: 'lanzamiento-beta-agoramy',
 		description:
-			'Estamos emocionados de anunciar el lanzamiento de Agoramy POS. Los primeros usuarios tendrán 2 meses completamente gratis para probar nuestro sistema en fase beta...',
+			'Estamos emocionados de anunciar el lanzamiento de Agoramy POS. Los primeros usuarios tendrán 4 meses completamente gratis para probar nuestro sistema en fase beta...',
 		content: `
 			<p class="mb-4">Después de meses de desarrollo y pruebas, estamos listos para presentar Agoramy POS, el sistema de punto de venta diseñado específicamente para farmacias en México.</p>
 			<h2 class="text-2xl font-bold mb-3 mt-6">Oferta Especial de Lanzamiento</h2>
 			<p class="mb-4">Para celebrar nuestro lanzamiento, estamos ofreciendo una oportunidad única:</p>
 			<div class="bg-green-50 border-l-4 border-green-500 p-6 mb-6">
-				<p class="font-bold text-green-800 mb-2">🎉 2 Meses Completamente Gratis</p>
-				<p class="text-green-700">Los primeros usuarios que se registren durante la fase beta tendrán acceso gratuito por 2 meses a todas las funciones del sistema, sin restricciones.</p>
+				<p class="font-bold text-green-800 mb-2">🎉 4 Meses Completamente Gratis</p>
+				<p class="text-green-700">Los primeros usuarios que se registren durante la fase beta tendrán acceso gratuito por 4 meses a todas las funciones del sistema, sin restricciones.</p>
 			</div>
 			<h2 class="text-2xl font-bold mb-3 mt-6">Cupos Limitados</h2>
 			<p class="mb-4">Esta oferta es exclusiva para un número limitado de farmacias. Una vez que alcancemos el cupo, la promoción finalizará. No queremos saturar el sistema durante la fase beta para garantizar la mejor experiencia posible.</p>
@@ -162,7 +162,7 @@ const post2: Post[] = [
 				<li>Lector de código de barras (recomendado)</li>
 			</ul>
 			<h2 class="text-2xl font-bold mb-3 mt-6">Inversión</h2>
-			<p class="mb-4">Ofrecemos planes flexibles que se adaptan a tu presupuesto, con acceso beta gratuito por 2 meses.</p>
+			<p class="mb-4">Ofrecemos planes flexibles que se adaptan a tu presupuesto, con acceso beta gratuito por 4 meses.</p>
 			<h2 class="text-2xl font-bold mb-3 mt-6">Soporte y Capacitación</h2>
 			<p class="mb-4">Incluimos capacitación inicial y soporte técnico continuo para que siempre tengas ayuda cuando la necesites.</p>
 		`,
