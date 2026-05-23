@@ -44,7 +44,7 @@ export default function FeaturesAccordion({ items }: FeaturesAccordionProps) {
               </a>
             </div>
           </div>
-          {idx < items.length - 1 && <div className="border-b my-6"></div>}
+          {idx < items.length - 1 && <div className="border-b border-gray-100 my-6"></div>}
         </div>
       ))}
     </div>
