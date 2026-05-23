@@ -2,80 +2,56 @@
 // Culture component for Career page
 ---
 
-<section class="py-20 bg-gray-50">
-  <div class="container mx-auto px-4">
-    <div class="max-w-6xl mx-auto">
-      <div class="text-center max-w-2xl mx-auto mb-14">
-        <span class="text-sm font-medium py-1 px-3 rounded-full text-green-600 bg-green-50 border border-green-100">
-          Cultura
-        </span>
-        <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mt-4 mb-4">
-          Cómo trabajamos
-        </h2>
-        <p class="text-gray-500 text-lg leading-relaxed">
-          Un ambiente donde las ideas importan y las personas pueden dar lo mejor de sí.
+<section class="py-20">
+  <div class="container">
+    <div class="text-center max-w-2xl mx-auto mb-16">
+      <span class="text-sm font-medium py-1 px-3 rounded-full text-primary bg-primary/10">
+        Cultura
+      </span>
+      <h2 class="md:text-3xl/tight text-3xl font-semibold my-4">
+        Nuestra Cultura Empresarial
+      </h2>
+      <p class="md:text-lg text-slate-500 leading-7">
+        Creemos en fomentar una cultura de innovación, colaboración y aprendizaje continuo
+      </p>
+    </div>
+    <div class="grid lg:grid-cols-2 gap-10 items-center">
+      <div>
+        <h3 class="text-2xl font-semibold mb-4">Innovación Primero</h3>
+        <p class="text-gray-600 mb-4">
+          Fomentamos el pensamiento creativo y las soluciones innovadoras. Las ideas de cada miembro del equipo son valoradas y consideradas.
+        </p>
+        <h3 class="text-2xl font-semibold mb-4">Equilibrio Vida-Trabajo</h3>
+        <p class="text-gray-600 mb-4">
+          Creemos que los empleados felices son empleados productivos. Por eso ofrecemos horarios flexibles y vacaciones ilimitadas.
+        </p>
+        <h3 class="text-2xl font-semibold mb-4">Aprendizaje Continuo</h3>
+        <p class="text-gray-600">
+          Invertimos en el crecimiento de nuestro equipo a través de programas de capacitación, conferencias y oportunidades de mentoría.
         </p>
       </div>
-
-      <div class="grid lg:grid-cols-2 gap-12 items-center">
-        <div class="space-y-8">
-          {[
-            {
-              num: "01",
-              title: "Autonomía con responsabilidad",
-              desc: "Confiamos en nuestro equipo. Tienes libertad para tomar decisiones en tu área y hacerte dueño de tu trabajo."
-            },
-            {
-              num: "02",
-              title: "Comunicación directa",
-              desc: "Sin burocracia ni capas innecesarias. Hablamos directo, damos feedback claro y resolvemos rápido."
-            },
-            {
-              num: "03",
-              title: "Shipping rápido, aprendizaje constante",
-              desc: "Preferimos lanzar, medir y mejorar. El error es parte del proceso si aprendemos de él."
-            },
-            {
-              num: "04",
-              title: "Misión compartida",
-              desc: "Todos entendemos el por qué detrás de lo que construimos. El impacto en el cliente nos motiva."
-            },
-          ].map(item => (
-            <div class="flex gap-5 items-start">
-              <span class="flex-shrink-0 w-12 h-12 rounded-xl bg-green-500 text-white font-bold text-sm flex items-center justify-center shadow-sm shadow-green-200">
-                {item.num}
-              </span>
-              <div>
-                <h4 class="font-bold text-gray-900 mb-1">{item.title}</h4>
-                <p class="text-gray-500 text-sm leading-relaxed">{item.desc}</p>
-              </div>
+      <div class="bg-primary/5 rounded-lg p-8">
+        <div class="space-y-4">
+          <div class="flex items-center gap-4">
+            <div class="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center text-primary text-2xl font-bold">1</div>
+            <div>
+              <h5 class="font-semibold">Colaborar</h5>
+              <p class="text-sm text-gray-600">Trabajar juntos como equipo</p>
             </div>
-          ))}
-        </div>
-
-        <div class="bg-gray-950 rounded-2xl p-8 border border-gray-800">
-          <p class="text-green-400 text-sm font-semibold mb-6 uppercase tracking-wider">Stack & Herramientas</p>
-          <div class="grid grid-cols-2 gap-3">
-            {[
-              { name: "Astro + React", cat: "Frontend" },
-              { name: "TypeScript", cat: "Lenguaje" },
-              { name: "Tailwind CSS", cat: "Estilos" },
-              { name: "Node.js", cat: "Backend" },
-              { name: "WhatsApp API", cat: "Integración" },
-              { name: "IA / LLMs", cat: "Inteligencia" },
-              { name: "GitHub Actions", cat: "CI/CD" },
-              { name: "Cloudflare", cat: "Infraestructura" },
-            ].map(t => (
-              <div class="p-3 bg-white/5 rounded-lg border border-white/5">
-                <p class="text-white text-sm font-medium">{t.name}</p>
-                <p class="text-gray-500 text-xs">{t.cat}</p>
-              </div>
-            ))}
           </div>
-          <div class="mt-8 pt-6 border-t border-gray-800">
-            <p class="text-gray-400 text-sm">
-              ¿No ves tu stack aquí? Lo que más valoramos es la capacidad de aprender y la actitud de resolver problemas.
-            </p>
+          <div class="flex items-center gap-4">
+            <div class="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center text-primary text-2xl font-bold">2</div>
+            <div>
+              <h5 class="font-semibold">Innovar</h5>
+              <p class="text-sm text-gray-600">Pensar de forma innovadora</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-4">
+            <div class="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center text-primary text-2xl font-bold">3</div>
+            <div>
+              <h5 class="font-semibold">Entregar</h5>
+              <p class="text-sm text-gray-600">Ejecutar con excelencia</p>
+            </div>
           </div>
         </div>
       </div>
