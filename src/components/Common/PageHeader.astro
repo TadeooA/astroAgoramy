@@ -1,0 +1,55 @@
+---
+// Encabezado compartido de las páginas interiores.
+// Reproduce el hero de la portada: mismo degradado, misma ola (white-wave.svg)
+// y la palabra subrayada en verde. Antes cada página lo resolvía distinto:
+// h1 vs h2, tres fondos diferentes y una ola propia solo en Contacto.
+
+import whiteWave from '../../assets/images/shapes/white-wave.svg';
+
+interface Props {
+  /** Texto anterior a la palabra subrayada. */
+  title: string;
+  /** Palabra o frase que va subrayada en verde. Opcional. */
+  highlight?: string;
+  /** Texto posterior al subrayado (por ejemplo un signo de cierre). */
+  titleAfter?: string;
+  subtitle?: string;
+  /** Rótulo pequeño en versalita sobre el título. */
+  eyebrow?: string;
+}
+
+const { title, highlight, titleAfter, subtitle, eyebrow } = Astro.props;
+---
+
+<section class="relative bg-gradient-to-t from-slate-500/10 pt-16 pb-24 sm:pb-32">
+  <div class="container mx-auto px-4">
+    <div class="max-w-3xl mx-auto text-center">
+      {eyebrow && (
+        <p class="text-sm font-medium uppercase tracking-wide text-gray-500 mb-5">
+          {eyebrow}
+        </p>
+      )}
+      <h1 class="text-3xl/tight md:text-4xl/tight xl:text-5xl/tight font-semibold text-gray-800 text-pretty">
+        {title}{' '}
+        {highlight && (
+          <span class="relative z-0 after:bg-green-500/50 after:-z-10 after:absolute md:after:h-6 after:h-4 after:w-full after:bottom-0 after:end-0">
+            {highlight}
+          </span>
+        )}{titleAfter}
+      </h1>
+      {subtitle && (
+        <p class="text-base md:text-lg text-gray-500 leading-7 mt-5">{subtitle}</p>
+      )}
+      <slot />
+    </div>
+  </div>
+
+  <div class="absolute bottom-0 inset-x-0 hidden sm:block">
+    <img
+      src={whiteWave.src}
+      alt=""
+      aria-hidden="true"
+      class="w-full -scale-x-100 -scale-y-100"
+    />
+  </div>
+</section>

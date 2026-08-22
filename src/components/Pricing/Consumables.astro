@@ -1,6 +1,10 @@
 ---
 // Consumibles: lo que se descuenta de un monedero aparte de la cuota del plan.
-// Los importes marcados como [PENDIENTE] los define ventas; no inventar cifras aquí.
+//
+// Solo se listan aquí los que tienen precio público confirmado. Timbres CFDI,
+// correos a clientes y entregas de flota propia existen en el sistema pero se
+// omiten hasta que ventas defina su tarifa: no publicar cifras inventadas ni
+// textos de relleno tipo [PRECIO POR TIMBRE].
 
 type Consumable = {
   name: string;
@@ -8,33 +12,15 @@ type Consumable = {
   included: string;
   price: string;
   when: string;
-  wallet: 'saldo' | 'creditos';
 };
 
 const consumables: Consumable[] = [
-  {
-    name: 'Timbres CFDI',
-    detail: 'Timbrado de facturas ante el SAT',
-    included: 'Cuota mensual incluida según tu plan',
-    price: '[PRECIO POR TIMBRE]',
-    when: 'En cada factura timbrada',
-    wallet: 'saldo',
-  },
-  {
-    name: 'Correos a clientes',
-    detail: 'Envío de facturas, tickets y avisos al cliente',
-    included: 'Cuota mensual incluida según tu plan',
-    price: '1 crédito por correo · [PRECIO POR CRÉDITO]',
-    when: 'Solo en los correos que van al cliente. Los avisos internos del sistema no gastan créditos',
-    wallet: 'creditos',
-  },
   {
     name: 'Análisis de receta con IA',
     detail: 'Lectura automática de la receta médica',
     included: 'Cuota mensual incluida según tu plan',
     price: '$2.00 MXN por receta',
     when: 'Cada receta analizada',
-    wallet: 'saldo',
   },
   {
     name: 'Guías de paquetería',
@@ -42,15 +28,6 @@ const consumables: Consumable[] = [
     included: 'Sin cuota incluida',
     price: 'El precio del courier, sin margen encima',
     when: 'Cada guía creada',
-    wallet: 'saldo',
-  },
-  {
-    name: 'Entregas con flota propia',
-    detail: 'Reparto con tus propios repartidores',
-    included: 'Sin cuota incluida',
-    price: '1 crédito por entrega · [PRECIO POR CRÉDITO]',
-    when: 'Al registrar la entrega',
-    wallet: 'creditos',
   },
 ];
 ---
@@ -67,8 +44,8 @@ const consumables: Consumable[] = [
         Lo que se cobra aparte del plan
       </h2>
       <p class="text-gray-500">
-        Tu plan cubre el sistema. Hay cinco cosas que cuestan dinero cada vez que
-        se usan, así que van por separado y solo pagas lo que consumes.
+        Tu plan cubre el sistema. Algunas cosas cuestan dinero cada vez que se
+        usan, así que van por separado y solo pagas lo que consumes.
       </p>
     </div>
 
@@ -103,9 +80,8 @@ const consumables: Consumable[] = [
         <h3 class="text-lg font-semibold text-gray-800 mb-2">Cómo funciona el monedero</h3>
         <p class="text-sm text-gray-600 leading-relaxed">
           Cada consumible tiene su propio monedero. Unos se descuentan de un saldo
-          en pesos (timbres, análisis de recetas y guías) y otros de créditos
-          enteros (correos y entregas). Primero se consume la cuota que ya trae tu
-          plan; cuando se agota, empieza a descontarse del monedero.
+          en pesos y otros de créditos enteros. Primero se consume la cuota que ya
+          trae tu plan; cuando se agota, empieza a descontarse del monedero.
         </p>
       </div>
       <div class="border border-gray-300 rounded bg-white p-6">

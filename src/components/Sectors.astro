@@ -1,0 +1,144 @@
+---
+// La base del sistema es la misma para los tres giros; lo que cambia son los
+// módulos que se activan al dar de alta el negocio.
+
+const sectors = [
+  {
+    name: 'Farmacias',
+    icon: 'fa-solid fa-pills',
+    iconColor: 'text-red-500',
+    iconBg: 'bg-red-500/10',
+    features: [
+      {
+        title: 'Medicamentos controlados',
+        detail: 'Registro y reportes conforme a COFEPRIS',
+      },
+      {
+        title: 'Recetas y trazabilidad',
+        detail: 'Folio de receta, lote y caducidad por venta',
+      },
+      {
+        title: 'Alertas de caducidad',
+        detail: 'Avisos antes de que el producto se vuelva merma',
+      },
+      {
+        title: 'Genéricos y equivalencias',
+        detail: 'Sugiere alternativas por sustancia activa',
+      },
+    ],
+  },
+  {
+    name: 'Ferreterías',
+    icon: 'fa-solid fa-screwdriver-wrench',
+    iconColor: 'text-orange-500',
+    iconBg: 'bg-orange-500/10',
+    features: [
+      {
+        title: 'Venta a granel y por medida',
+        detail: 'Metro, kilo, pieza y conversión entre unidades',
+      },
+      {
+        title: 'Claves de proveedor',
+        detail: 'Busca por clave, medida o equivalencia de marca',
+      },
+      {
+        title: 'Cotizaciones y crédito',
+        detail: 'Cotiza a obra y controla saldos de clientes',
+      },
+      {
+        title: 'Kits y armados',
+        detail: 'Vende juegos y descuenta cada componente',
+      },
+    ],
+  },
+  {
+    name: 'Tiendas y abarrotes',
+    icon: 'fa-solid fa-basket-shopping',
+    iconColor: 'text-indigo-500',
+    iconBg: 'bg-indigo-500/10',
+    features: [
+      {
+        title: 'Cobro en segundos',
+        detail: 'Código de barras, teclas rápidas y báscula',
+      },
+      {
+        title: 'Fiado y apartados',
+        detail: 'Cuentas por cobrar del cliente de siempre',
+      },
+      {
+        title: 'Promociones y temporada',
+        detail: '2x1, 3x2 y descuentos por volumen',
+      },
+      {
+        title: 'Control de mermas',
+        detail: 'Caducidad, roturas y ajustes de inventario',
+      },
+    ],
+  },
+];
+---
+
+<section id="sectores" class="py-16 sm:py-24">
+  <div class="container mx-auto px-4">
+    <div class="text-center">
+      <span class="text-sm font-medium py-1 px-3 rounded-full text-green-500 bg-green-500/10">
+        Un POS, tres giros
+      </span>
+      <h2 class="text-3xl/tight font-medium mt-3 mb-4">
+        Módulos que se activan según tu negocio
+      </h2>
+      <p class="text-gray-500">
+        La base es la misma. Lo que cambia es lo que tu giro necesita todos los días.
+      </p>
+    </div>
+
+    <div class="grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-7 mt-14">
+      {sectors.map((sector, index) => (
+        <div data-aos="fade-up" data-aos-duration={500 + index * 200}>
+          <div class="transition-all duration-300 h-full pointer-events-auto hover:shadow-[0_0_1.5rem_0_rgba(0,0,0,.12)] hover:-translate-y-1">
+            <div class="border border-gray-300 bg-white rounded w-full h-full p-6 flex flex-col">
+              <div class="flex items-center gap-3 mb-5">
+                <div class={`h-12 w-12 ${sector.iconBg} flex items-center justify-center rounded-lg flex-shrink-0`}>
+                  <i class={`${sector.icon} ${sector.iconColor} text-xl`}></i>
+                </div>
+                <h3 class="text-xl font-semibold text-gray-800">{sector.name}</h3>
+              </div>
+
+              <div class="flex flex-col gap-3 grow">
+                {sector.features.map((feature) => (
+                  <div class="flex items-start gap-3">
+                    <svg
+                      class={`${sector.iconColor} stroke-current w-4 h-4 flex-shrink-0 mt-1`}
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke-width="2.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                    <div>
+                      <p class="text-sm font-semibold text-gray-700">{feature.title}</p>
+                      <p class="text-sm text-gray-500">{feature.detail}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <div class="flex mt-6">
+                <a
+                  href="/product"
+                  class="bg-green-500/10 text-green-500/90 w-full py-3 rounded-lg text-center text-sm font-semibold border border-transparent hover:border-green-500/20 transition-all duration-300"
+                >
+                  Ver Agoramy para {sector.name.toLowerCase()}
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

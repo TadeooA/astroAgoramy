@@ -1,20 +1,9 @@
 ---
-import heroBg from '../../assets/images/blog/hero.png';
+import PageHeader from '../Common/PageHeader.astro';
 ---
 
-<section class="relative pt-36 pb-20">
-	<div class="absolute inset-0 bg-cover bg-no-repeat bg-center" style={`background-image: url(${heroBg.src})`}>
-		<div class="w-full h-full bg-black/40"></div>
-	</div>
-	<div class="container mx-auto px-4">
-		<div class="relative lg:w-3/5 mx-auto z-10">
-			<div class="text-center text-white">
-				<h1 class="text-5xl font-semibold mb-8">Blog</h1>
-				<p class="text-base/relaxed tracking-wide">
-					Artículos y guías sobre punto de venta, inventario, facturación y cómo llevar un
-					negocio de mostrador en México.
-				</p>
-			</div>
-		</div>
-	</div>
-</section>
+<PageHeader
+  title="Historias del"
+  highlight="mostrador"
+  subtitle="Artículos y guías sobre punto de venta, inventario, facturación y cómo llevar un negocio de mostrador en México."
+/>

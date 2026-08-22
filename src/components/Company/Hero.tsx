@@ -13,7 +13,7 @@ const Hero = () => {
               Conoce a Agoramy: Tu Socio Tecnológico para Farmacias
             </h1>
             <p className="sm:text-lg text-gray-500">
-              Somos líderes en soluciones POS especializadas para farmacias en México. Nuestra misión es potenciar tu negocio con tecnología moderna, eficiente y fácil de usar, diseñada para las necesidades únicas de tu farmacia.
+              Somos líderes en soluciones POS para farmacias, ferreterías y tiendas en México. Nuestra misión es potenciar tu negocio con tecnología moderna, eficiente y fácil de usar, adaptada a las necesidades de tu giro.
             </p>
           </div>
         </div>
