@@ -132,15 +132,15 @@ const SubscriptionForm = () => {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           placeholder="tu@email.com"
-          className="flex-1 px-6 py-3 border-2 border-gray-300 rounded-xl text-gray-900 placeholder-gray-400 focus:outline-none focus:border-green-500 focus:ring-4 focus:ring-green-500/10 bg-white text-base transition-all"
+          className="flex-1 px-5 py-3 border border-gray-300 rounded-lg text-gray-900 placeholder-gray-400 focus:outline-none focus:border-green-500 focus:ring-2 focus:ring-green-500/20 bg-white text-base transition-all"
           required
         />
         <button
           type="submit"
           disabled={isSubmitting || !turnstileToken}
-          className="px-8 py-3 bg-green-500 text-white font-semibold rounded-xl hover:bg-green-600 hover:shadow-lg hover:shadow-green-500/30 transition-all duration-300 text-base disabled:opacity-50 disabled:cursor-not-allowed"
+          className="px-7 py-3 bg-green-500 text-white text-sm font-semibold rounded-lg hover:bg-green-600 hover:shadow-lg hover:shadow-green-500/30 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap"
         >
-          {isSubmitting ? 'Procesando...' : 'Notifícame'}
+          {isSubmitting ? 'Procesando...' : 'Apuntarme a la lista'}
         </button>
       </div>
       <div className="flex items-start gap-2">

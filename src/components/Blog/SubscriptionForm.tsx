@@ -53,9 +53,9 @@ const SubscriptionForm = () => {
 	return (
 		<div>
 			<div className="border rounded-md p-5 w-full">
-				<h1 className="mb-3">
+				<h2 className="mb-3 text-lg font-semibold text-gray-800">
 					Recibe las últimas novedades de Agoramy sobre desarrollo de productos
-				</h1>
+				</h2>
 				<p className="text-sm/relaxed tracking-wider text-gray-500">
 					Enviamos un boletín semanal con las últimas novedades en desarrollo de productos
 				</p>

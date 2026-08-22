@@ -1,0 +1,97 @@
+---
+// Consumibles: lo que se descuenta de un monedero aparte de la cuota del plan.
+//
+// Solo se listan aquí los que tienen precio público confirmado. Timbres CFDI,
+// correos a clientes y entregas de flota propia existen en el sistema pero se
+// omiten hasta que ventas defina su tarifa: no publicar cifras inventadas ni
+// textos de relleno tipo [PRECIO POR TIMBRE].
+
+type Consumable = {
+  name: string;
+  detail: string;
+  included: string;
+  price: string;
+  when: string;
+};
+
+const consumables: Consumable[] = [
+  {
+    name: 'Análisis de receta con IA',
+    detail: 'Lectura automática de la receta médica',
+    included: 'Cuota mensual incluida según tu plan',
+    price: '$2.00 MXN por receta',
+    when: 'Cada receta analizada',
+  },
+  {
+    name: 'Guías de paquetería',
+    detail: 'Envíos con paqueterías externas',
+    included: 'Sin cuota incluida',
+    price: 'El precio del courier, sin margen encima',
+    when: 'Cada guía creada',
+  },
+];
+---
+
+<section class="py-16 sm:py-24">
+  <div class="container mx-auto px-4">
+    <div class="text-center max-w-2xl mx-auto">
+      <span
+        class="text-sm font-medium py-1 px-3 rounded-full text-green-500 bg-green-500/10"
+      >
+        Consumibles
+      </span>
+      <h2 class="text-3xl/tight font-medium mt-3 mb-4">
+        Lo que se cobra aparte del plan
+      </h2>
+      <p class="text-gray-500">
+        Tu plan cubre el sistema. Algunas cosas cuestan dinero cada vez que se
+        usan, así que van por separado y solo pagas lo que consumes.
+      </p>
+    </div>
+
+    <div class="mt-12 overflow-x-auto">
+      <table class="w-full min-w-[720px] border-collapse text-left">
+        <thead>
+          <tr class="border-b border-gray-300">
+            <th class="text-sm font-semibold text-gray-700 pb-3 pe-6">Consumible</th>
+            <th class="text-sm font-semibold text-gray-700 pb-3 pe-6">Incluido en tu plan</th>
+            <th class="text-sm font-semibold text-gray-700 pb-3 pe-6">Costo al pasarte</th>
+            <th class="text-sm font-semibold text-gray-700 pb-3">Cuándo se descuenta</th>
+          </tr>
+        </thead>
+        <tbody>
+          {consumables.map((item) => (
+            <tr class="border-b border-gray-200 align-top">
+              <td class="py-5 pe-6">
+                <p class="text-sm font-semibold text-gray-800">{item.name}</p>
+                <p class="text-xs text-gray-500 mt-1">{item.detail}</p>
+              </td>
+              <td class="py-5 pe-6 text-sm text-gray-600">{item.included}</td>
+              <td class="py-5 pe-6 text-sm text-gray-600">{item.price}</td>
+              <td class="py-5 text-sm text-gray-600">{item.when}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+
+    <div class="mt-10 grid md:grid-cols-2 gap-6">
+      <div class="border border-gray-300 rounded bg-white p-6">
+        <h3 class="text-lg font-semibold text-gray-800 mb-2">Cómo funciona el monedero</h3>
+        <p class="text-sm text-gray-600 leading-relaxed">
+          Cada consumible tiene su propio monedero. Unos se descuentan de un saldo
+          en pesos y otros de créditos enteros. Primero se consume la cuota que ya
+          trae tu plan; cuando se agota, empieza a descontarse del monedero.
+        </p>
+      </div>
+      <div class="border border-gray-300 rounded bg-white p-6">
+        <h3 class="text-lg font-semibold text-gray-800 mb-2">Sin sorpresas en la factura</h3>
+        <p class="text-sm text-gray-600 leading-relaxed">
+          Cada movimiento queda registrado con fecha, concepto y saldo restante, y
+          lo puedes consultar desde el sistema cuando quieras. Si un monedero se
+          queda sin saldo, te avisamos antes de que deje de funcionar.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

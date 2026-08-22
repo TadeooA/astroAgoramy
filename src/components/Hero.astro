@@ -7,6 +7,11 @@ import hero2 from '../assets/hero2w.webp';
 import hero3 from '../assets/hero3w.webp';
 import hero4 from '../assets/hero4w.webp';
 import whiteWave from '../assets/images/shapes/white-wave.svg';
+import dot2 from '../assets/images/pattern/dot2.svg';
+import dot5 from '../assets/images/pattern/dot5.svg';
+
+const dot2Style = `--dot2: url(${dot2.src})`;
+const dot5Style = `--dot5: url(${dot5.src})`;
 
 const images = [
   { src: hero1.src, alt: 'hero1', type: 'image' as const },
@@ -14,6 +19,57 @@ const images = [
   { src: hero3.src, alt: 'hero3', type: 'image' as const },
   { src: hero4.src, alt: 'hero4', type: 'image' as const },
 ];
+
+// Un solo sistema, tres giros. El selector cambia el titular y los puntos
+// fuertes; la base del producto es la misma para los tres.
+const sectors = [
+  {
+    id: 'farmacia',
+    label: 'Farmacia',
+    noun: 'farmacia',
+    icon: '<path d="M12 5v14M5 12h14"></path>',
+    bullets: [
+      'Control de inventario en tiempo real',
+      'Facturación electrónica automática',
+      'Alertas de caducidad de productos',
+      'Reportes de ventas detallados',
+      'Gestión de múltiples sucursales',
+      'Control de recetas médicas',
+    ],
+  },
+  {
+    id: 'ferreteria',
+    label: 'Ferretería',
+    noun: 'ferretería',
+    icon: '<path d="M14.7 6.3a4 4 0 0 0 5 5l-8.4 8.4a2.1 2.1 0 0 1-3-3l8.4-8.4a4 4 0 0 0-5-5"></path>',
+    bullets: [
+      'Inventario por clave, SKU y proveedor',
+      'Facturación electrónica automática',
+      'Venta a granel, por metro y por kilo',
+      'Cotizaciones y ventas a crédito',
+      'Gestión de múltiples sucursales',
+      'Equivalencias entre marcas y medidas',
+    ],
+  },
+  {
+    id: 'tienda',
+    label: 'Tienda',
+    noun: 'tienda',
+    icon: '<path d="M3 9h18l-1.5 11H4.5L3 9Z"></path><path d="M8.5 9V6.5a3.5 3.5 0 0 1 7 0V9"></path>',
+    bullets: [
+      'Cobro rápido con código de barras',
+      'Facturación electrónica automática',
+      'Control de caducidad y mermas',
+      'Promociones 2x1 y por temporada',
+      'Gestión de múltiples sucursales',
+      'Apartados y ventas fiadas',
+    ],
+  },
+];
+
+const pillBase =
+  'flex items-center gap-2 rounded-lg border px-4 py-2 text-sm transition-all duration-200 cursor-pointer';
+const pillIdle = 'bg-white text-gray-700 border-gray-300 font-medium hover:border-gray-400';
 ---
 
 <div>
@@ -23,97 +79,87 @@ const images = [
         <div class="grid lg:grid-cols-2 grid-cols-1 gap-8 md:gap-12 items-center">
           <div class="order-2 lg:order-1">
             <div class="text-center sm:text-start">
+              <div
+                id="sector-picker"
+                class="flex flex-wrap gap-2 justify-center sm:justify-start mb-5"
+              >
+                {sectors.map((sector) => (
+                  <button type="button" data-sector={sector.id} class={`${pillBase} ${pillIdle}`}>
+                    <svg
+                      class="w-4 h-4 flex-shrink-0"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                      set:html={sector.icon}
+                    />
+                    {sector.label}
+                  </button>
+                ))}
+              </div>
+
               <h1 class="text-3xl/tight sm:text-3xl/tight md:text-4xl/tight lg:text-4xl/tight xl:text-5xl/tight font-semibold mb-5 md:mb-6">
                 El sistema POS más
                 <span class="relative z-0 after:bg-green-500/50 after:-z-10 after:absolute md:after:h-6 after:h-4 after:w-full after:bottom-0 after:end-0">
                   completo
                 </span>
-                para tu farmacia
+                para tu <span id="sector-noun">farmacia</span>
               </h1>
+
               <p class="text-base md:text-lg text-gray-500 mb-6 md:mb-8">
-                Agoramy es el sistema POS moderno diseñado específicamente para farmacias en México. Gestiona tu negocio de forma eficiente y profesional.
+                Agoramy es el sistema POS moderno para farmacias, ferreterías y tiendas
+                en México. Un solo sistema, adaptado al giro de tu negocio.
               </p>
-              <div class="flex gap-3 justify-center sm:justify-start mb-6">
-                <a href="/product" class="bg-green-500 text-white rounded-lg text-sm font-semibold flex-none hover:shadow-lg hover:shadow-green-500/30 focus:shadow-none focus:outline focus:outline-green-500/40 px-6 py-3">
+
+              <div class="flex flex-wrap gap-3 justify-center sm:justify-start mb-6">
+                <a
+                  href="/product"
+                  class="bg-green-500 text-white rounded-lg text-sm font-semibold flex-none hover:shadow-lg hover:shadow-green-500/30 focus:shadow-none focus:outline focus:outline-green-500/40 px-6 py-3"
+                >
                   Comenzar
                 </a>
+                <a
+                  href="#sectores"
+                  class="bg-white text-gray-700 border border-gray-300 rounded-lg text-sm font-semibold flex-none hover:border-gray-400 transition-all px-6 py-3"
+                >
+                  Ver mi giro
+                </a>
               </div>
-              <div class="grid sm:grid-cols-2 gap-3">
-                <div class="flex items-start gap-3">
-                  <svg
-                    class="stroke-green-500 stroke-2 w-5 h-5 flex-shrink-0 mt-0.5"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                  >
-                    <polyline points="20 6 9 17 4 12"></polyline>
-                  </svg>
-                  <p class="text-sm text-gray-700">Control de inventario en tiempo real</p>
+
+              {sectors.map((sector) => (
+                <div
+                  data-sector-bullets={sector.id}
+                  class="grid sm:grid-cols-2 gap-3"
+                  hidden={sector.id !== 'farmacia'}
+                >
+                  {sector.bullets.map((bullet) => (
+                    <div class="flex items-start gap-3">
+                      <svg
+                        class="stroke-green-500 stroke-2 w-5 h-5 flex-shrink-0 mt-0.5"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        aria-hidden="true"
+                      >
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                      </svg>
+                      <p class="text-sm text-gray-700">{bullet}</p>
+                    </div>
+                  ))}
                 </div>
-                <div class="flex items-start gap-3">
-                  <svg
-                    class="stroke-green-500 stroke-2 w-5 h-5 flex-shrink-0 mt-0.5"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                  >
-                    <polyline points="20 6 9 17 4 12"></polyline>
-                  </svg>
-                  <p class="text-sm text-gray-700">Facturación electrónica automática</p>
-                </div>
-                <div class="flex items-start gap-3">
-                  <svg
-                    class="stroke-green-500 stroke-2 w-5 h-5 flex-shrink-0 mt-0.5"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                  >
-                    <polyline points="20 6 9 17 4 12"></polyline>
-                  </svg>
-                  <p class="text-sm text-gray-700">Alertas de caducidad de productos</p>
-                </div>
-                <div class="flex items-start gap-3">
-                  <svg
-                    class="stroke-green-500 stroke-2 w-5 h-5 flex-shrink-0 mt-0.5"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                  >
-                    <polyline points="20 6 9 17 4 12"></polyline>
-                  </svg>
-                  <p class="text-sm text-gray-700">Reportes de ventas detallados</p>
-                </div>
-                <div class="flex items-start gap-3">
-                  <svg
-                    class="stroke-green-500 stroke-2 w-5 h-5 flex-shrink-0 mt-0.5"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                  >
-                    <polyline points="20 6 9 17 4 12"></polyline>
-                  </svg>
-                  <p class="text-sm text-gray-700">Gestión de múltiples sucursales</p>
-                </div>
-                <div class="flex items-start gap-3">
-                  <svg
-                    class="stroke-green-500 stroke-2 w-5 h-5 flex-shrink-0 mt-0.5"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                  >
-                    <polyline points="20 6 9 17 4 12"></polyline>
-                  </svg>
-                  <p class="text-sm text-gray-700">Control de recetas médicas</p>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
 
           <div class="order-1 lg:order-2">
             <div class="relative">
               <div class="hidden sm:block">
-                <div class="before:w-24 before:h-24 before:absolute before:-bottom-8 before:-start-8 before:bg-[url('/src/assets/images/pattern/dot2.svg')]"></div>
-                <div class="after:w-24 after:h-24 after:absolute after:-top-10 after:end-10 xl:after:end-5 2xl:after:end-0 after:rotate-45 after:bg-[url('/src/assets/images/pattern/dot5.svg')]"></div>
+                <div class="before:w-24 before:h-24 before:absolute before:-bottom-8 before:-start-8 before:bg-[image:var(--dot2)]" style={dot2Style}></div>
+                <div class="after:w-24 after:h-24 after:absolute after:-top-10 after:end-10 xl:after:end-5 2xl:after:end-0 after:rotate-45 after:bg-[image:var(--dot5)]" style={dot5Style}></div>
               </div>
 
               <div
@@ -132,9 +178,50 @@ const images = [
     <div class="absolute bottom-0 inset-x-0 hidden sm:block">
       <img
         src={whiteWave.src}
-        alt="white-wave-svg"
+        alt=""
+        aria-hidden="true"
         class="w-full -scale-x-100 -scale-y-100"
       />
     </div>
   </section>
 </div>
+
+<script>
+  const picker = document.getElementById('sector-picker');
+  const noun = document.getElementById('sector-noun');
+  const buttons = Array.from(
+    picker?.querySelectorAll<HTMLButtonElement>('[data-sector]') ?? []
+  );
+  const groups = Array.from(
+    document.querySelectorAll<HTMLElement>('[data-sector-bullets]')
+  );
+
+  const nouns: Record<string, string> = {
+    farmacia: 'farmacia',
+    ferreteria: 'ferretería',
+    tienda: 'tienda',
+  };
+
+  const ACTIVE = ['bg-green-500', 'text-white', 'border-green-500', 'font-semibold'];
+  const IDLE = ['bg-white', 'text-gray-700', 'border-gray-300', 'font-medium'];
+
+  function pick(id: string) {
+    for (const button of buttons) {
+      const on = button.dataset.sector === id;
+      button.classList.remove(...(on ? IDLE : ACTIVE));
+      button.classList.add(...(on ? ACTIVE : IDLE));
+      button.setAttribute('aria-pressed', String(on));
+    }
+    for (const group of groups) {
+      group.hidden = group.dataset.sectorBullets !== id;
+    }
+    if (noun && nouns[id]) noun.textContent = nouns[id];
+  }
+
+  picker?.addEventListener('click', (event) => {
+    const button = (event.target as HTMLElement).closest<HTMLButtonElement>('[data-sector]');
+    if (button?.dataset.sector) pick(button.dataset.sector);
+  });
+
+  pick('farmacia');
+</script>

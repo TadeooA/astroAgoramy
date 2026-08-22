@@ -21,9 +21,9 @@ const { post } = Astro.props;
 					<span class="bg-orange-500/10 text-orange-500 font-medium rounded-md text-xs py-1 px-2">
 						<a href={post.slug ? `/blog/${post.slug}` : '#'}>{post.tag.value}</a>
 					</span>
-					<h1 class="text-lg my-3 transition-all hover:text-primary">
+					<h3 class="text-lg my-3 transition-all hover:text-primary">
 						<a href={post.slug ? `/blog/${post.slug}` : '#'}>{post.title}</a>
-					</h1>
+					</h3>
 					<p class="text-sm/relaxed tracking-wider text-gray-500">
 						{post.description}{' '}
 						<a href={post.slug ? `/blog/${post.slug}` : '#'} class="text-primary">
