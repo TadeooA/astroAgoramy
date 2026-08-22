@@ -1,19 +1,19 @@
 ---
-// Ninguna importación necesaria para este componente
+import heroBg from '../../assets/images/blog/hero.png';
 ---
 
-<section class="pt-36 pb-20">
-	<div class="container">
-		<div class="absolute inset-0 h-96 bg-cover bg-no-repeat bg-center bg-[url('/src/assets/images/blog/hero.png')]">
-			<div class="relative w-full h-full z-30 bg-black/10"></div>
-		</div>
-		<div class="relative lg:w-3/5 mx-auto z-30">
+<section class="relative pt-36 pb-20">
+	<div class="absolute inset-0 bg-cover bg-no-repeat bg-center" style={`background-image: url(${heroBg.src})`}>
+		<div class="w-full h-full bg-black/40"></div>
+	</div>
+	<div class="container mx-auto px-4">
+		<div class="relative lg:w-3/5 mx-auto z-10">
 			<div class="text-center text-white">
-				<h2 class="text-5xl font-semibold mb-8">Blog</h2>
+				<h1 class="text-5xl font-semibold mb-8">Blog</h1>
 				<p class="text-base/relaxed tracking-wide">
-					Explora nuestros artículos, noticias y guías sobre desarrollo web, diseño y tecnología.
+					Artículos y guías sobre punto de venta, inventario, facturación y cómo llevar un
+					negocio de mostrador en México.
 				</p>
-				<p></p>
 			</div>
 		</div>
 	</div>

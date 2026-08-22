@@ -14,6 +14,11 @@ const images = [
   { src: hero3.src, alt: 'hero3', type: 'image' as const },
   { src: hero4.src, alt: 'hero4', type: 'image' as const },
 ];
+
+import dot2 from '../assets/images/pattern/dot2.svg';
+import dot5 from '../assets/images/pattern/dot5.svg';
+const dot2Style = `--dot2: url(${dot2.src})`;
+const dot5Style = `--dot5: url(${dot5.src})`;
 ---
 
 <div>
@@ -112,8 +117,8 @@ const images = [
           <div class="order-1 lg:order-2">
             <div class="relative">
               <div class="hidden sm:block">
-                <div class="before:w-24 before:h-24 before:absolute before:-bottom-8 before:-start-8 before:bg-[url('/src/assets/images/pattern/dot2.svg')]"></div>
-                <div class="after:w-24 after:h-24 after:absolute after:-top-10 after:end-10 xl:after:end-5 2xl:after:end-0 after:rotate-45 after:bg-[url('/src/assets/images/pattern/dot5.svg')]"></div>
+                <div class="before:w-24 before:h-24 before:absolute before:-bottom-8 before:-start-8 before:bg-[image:var(--dot2)]" style={dot2Style}></div>
+                <div class="after:w-24 after:h-24 after:absolute after:-top-10 after:end-10 xl:after:end-5 2xl:after:end-0 after:rotate-45 after:bg-[image:var(--dot5)]" style={dot5Style}></div>
               </div>
 
               <div
