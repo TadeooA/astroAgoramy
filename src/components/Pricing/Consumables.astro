@@ -1,0 +1,121 @@
+---
+// Consumibles: lo que se descuenta de un monedero aparte de la cuota del plan.
+// Los importes marcados como [PENDIENTE] los define ventas; no inventar cifras aquí.
+
+type Consumable = {
+  name: string;
+  detail: string;
+  included: string;
+  price: string;
+  when: string;
+  wallet: 'saldo' | 'creditos';
+};
+
+const consumables: Consumable[] = [
+  {
+    name: 'Timbres CFDI',
+    detail: 'Timbrado de facturas ante el SAT',
+    included: 'Cuota mensual incluida según tu plan',
+    price: '[PRECIO POR TIMBRE]',
+    when: 'En cada factura timbrada',
+    wallet: 'saldo',
+  },
+  {
+    name: 'Correos a clientes',
+    detail: 'Envío de facturas, tickets y avisos al cliente',
+    included: 'Cuota mensual incluida según tu plan',
+    price: '1 crédito por correo · [PRECIO POR CRÉDITO]',
+    when: 'Solo en los correos que van al cliente. Los avisos internos del sistema no gastan créditos',
+    wallet: 'creditos',
+  },
+  {
+    name: 'Análisis de receta con IA',
+    detail: 'Lectura automática de la receta médica',
+    included: 'Cuota mensual incluida según tu plan',
+    price: '$2.00 MXN por receta',
+    when: 'Cada receta analizada',
+    wallet: 'saldo',
+  },
+  {
+    name: 'Guías de paquetería',
+    detail: 'Envíos con paqueterías externas',
+    included: 'Sin cuota incluida',
+    price: 'El precio del courier, sin margen encima',
+    when: 'Cada guía creada',
+    wallet: 'saldo',
+  },
+  {
+    name: 'Entregas con flota propia',
+    detail: 'Reparto con tus propios repartidores',
+    included: 'Sin cuota incluida',
+    price: '1 crédito por entrega · [PRECIO POR CRÉDITO]',
+    when: 'Al registrar la entrega',
+    wallet: 'creditos',
+  },
+];
+---
+
+<section class="py-16 sm:py-24">
+  <div class="container mx-auto px-4">
+    <div class="text-center max-w-2xl mx-auto">
+      <span
+        class="text-sm font-medium py-1 px-3 rounded-full text-green-500 bg-green-500/10"
+      >
+        Consumibles
+      </span>
+      <h2 class="text-3xl/tight font-medium mt-3 mb-4">
+        Lo que se cobra aparte del plan
+      </h2>
+      <p class="text-gray-500">
+        Tu plan cubre el sistema. Hay cinco cosas que cuestan dinero cada vez que
+        se usan, así que van por separado y solo pagas lo que consumes.
+      </p>
+    </div>
+
+    <div class="mt-12 overflow-x-auto">
+      <table class="w-full min-w-[720px] border-collapse text-left">
+        <thead>
+          <tr class="border-b border-gray-300">
+            <th class="text-sm font-semibold text-gray-700 pb-3 pe-6">Consumible</th>
+            <th class="text-sm font-semibold text-gray-700 pb-3 pe-6">Incluido en tu plan</th>
+            <th class="text-sm font-semibold text-gray-700 pb-3 pe-6">Costo al pasarte</th>
+            <th class="text-sm font-semibold text-gray-700 pb-3">Cuándo se descuenta</th>
+          </tr>
+        </thead>
+        <tbody>
+          {consumables.map((item) => (
+            <tr class="border-b border-gray-200 align-top">
+              <td class="py-5 pe-6">
+                <p class="text-sm font-semibold text-gray-800">{item.name}</p>
+                <p class="text-xs text-gray-500 mt-1">{item.detail}</p>
+              </td>
+              <td class="py-5 pe-6 text-sm text-gray-600">{item.included}</td>
+              <td class="py-5 pe-6 text-sm text-gray-600">{item.price}</td>
+              <td class="py-5 text-sm text-gray-600">{item.when}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+
+    <div class="mt-10 grid md:grid-cols-2 gap-6">
+      <div class="border border-gray-300 rounded bg-white p-6">
+        <h3 class="text-lg font-semibold text-gray-800 mb-2">Cómo funciona el monedero</h3>
+        <p class="text-sm text-gray-600 leading-relaxed">
+          Cada consumible tiene su propio monedero. Unos se descuentan de un saldo
+          en pesos (timbres, análisis de recetas y guías) y otros de créditos
+          enteros (correos y entregas). Primero se consume la cuota que ya trae tu
+          plan; cuando se agota, empieza a descontarse del monedero.
+        </p>
+      </div>
+      <div class="border border-gray-300 rounded bg-white p-6">
+        <h3 class="text-lg font-semibold text-gray-800 mb-2">Sin sorpresas en la factura</h3>
+        <p class="text-sm text-gray-600 leading-relaxed">
+          Cada movimiento queda registrado con fecha, concepto y saldo restante, y
+          lo puedes consultar desde el sistema cuando quieras. Si un monedero se
+          queda sin saldo, te avisamos antes de que deje de funcionar.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
