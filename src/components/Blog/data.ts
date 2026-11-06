@@ -1,6 +1,6 @@
 // images
 import postImg1 from '../../assets/images/blog/post1.jpg'
-import postImg2 from '../../assets/images/hero/farmaciaw.webp'
+import postImg2 from '../../assets/images/hero/tiendaw.webp'
 
 import agoramyAutor from '../../assets/images/agoramyAutorw.webp'
 
@@ -48,7 +48,7 @@ const post1: Post[] = [
 				<li>Inventario en tiempo real y alertas de reorden</li>
 				<li>Facturación electrónica CFDI 4.0 con timbrado automático</li>
 				<li>Reportes de ventas, márgenes y productos más vendidos</li>
-				<li>Multi-sucursal y control de empleados por rol</li>
+				<li>Control de empleados por rol, y multisucursal desde el plan Nebula</li>
 				<li>Modo sin conexión, con sincronización cuando vuelve la red</li>
 			</ul>
 
@@ -75,7 +75,7 @@ const post1: Post[] = [
 			<p class="mb-4">Nada de lo que ya tenías se va. Medicamentos controlados con registro y reportes para COFEPRIS, folio de receta, trazabilidad por lote y caducidad, y sugerencia de genéricos por sustancia activa siguen ahí, igual que antes.</p>
 
 			<h2 class="text-2xl font-bold mb-3 mt-6">¿Y si tengo dos negocios de giros distintos?</h2>
-			<p class="mb-4">Se pueden administrar desde la misma cuenta. Cada sucursal conserva su giro y su módulo, y los reportes se pueden ver por negocio o consolidados.</p>
+			<p class="mb-4">Desde el plan Nebula se pueden administrar en la misma cuenta. Cada sucursal conserva su giro y su módulo, y los reportes se pueden ver por negocio o consolidados.</p>
 
 			<h2 class="text-2xl font-bold mb-3 mt-6">Seguimos en beta</h2>
 			<p class="mb-4">El sistema ya está operando en negocios reales, pero seguimos en fase de pruebas y publicando mejoras cada semana. Si tu giro es de mostrador y no está en la lista, escríbenos: la mayoría funciona con la configuración estándar.</p>
@@ -187,16 +187,16 @@ const post1: Post[] = [
 	{
 		image: postImg2.src,
 		tag: { value: 'Tutorial' },
-		title: 'Cómo empezar con Agoramy en tu farmacia',
+		title: 'Cómo empezar con Agoramy en tu negocio',
 		slug: 'empezar-con-agoramy',
 		description:
-			'Una guía paso a paso para configurar Agoramy en tu farmacia y comenzar a disfrutar de sus beneficios desde el primer día...',
+			'Una guía paso a paso para configurar Agoramy en tu farmacia, ferretería o tienda y empezar a vender desde el primer día.',
 		content: `
-			<p class="mb-4">Empezar con Agoramy es más fácil de lo que piensas. En esta guía te mostraremos paso a paso cómo configurar el sistema en tu farmacia.</p>
+			<p class="mb-4">Empezar con Agoramy es más fácil de lo que piensas. En esta guía te mostraremos paso a paso cómo configurar el sistema en tu negocio, sea farmacia, ferretería o tienda.</p>
 			<h2 class="text-2xl font-bold mb-3 mt-6">Paso 1: Registro e Instalación</h2>
-			<p class="mb-4">Lo primero es crear tu cuenta en Agoramy. El proceso es simple y solo toma unos minutos. Una vez registrado, podrás descargar e instalar el sistema en tu computadora o tablet.</p>
+			<p class="mb-4">Por ahora el alta directa está cerrada: <a href="/product">apúntate a la lista en la página de producto</a> y te contactamos cuando abramos lugar. Con tu cuenta lista, podrás descargar e instalar el sistema en tu computadora o tablet.</p>
 			<h2 class="text-2xl font-bold mb-3 mt-6">Paso 2: Configuración Inicial</h2>
-			<p class="mb-4">Configura los datos de tu farmacia, incluyendo:</p>
+			<p class="mb-4">Elige el giro de tu negocio para activar su módulo y configura sus datos, incluyendo:</p>
 			<ul class="list-disc pl-6 mb-4">
 				<li>Información fiscal y de facturación</li>
 				<li>Datos de contacto</li>
@@ -220,15 +220,15 @@ const post1: Post[] = [
 	{
 		image: postImg1.src,
 		tag: { value: 'Negocios' },
-		title: 'La Transformación Digital en Farmacias Mexicanas',
+		title: 'La transformación digital en los negocios de mostrador en México',
 		slug: 'transformacion-digital-farmacias',
 		description:
-			'Descubre cómo la tecnología está revolucionando el sector farmacéutico en México y por qué tu farmacia no puede quedarse atrás...',
+			'Descubre cómo la tecnología está cambiando a las farmacias, ferreterías y tiendas en México, y por qué tu negocio no puede quedarse atrás.',
 		content: `
-			<p class="mb-4">La transformación digital ha llegado al sector farmacéutico mexicano y está cambiando la forma en que las farmacias operan día a día.</p>
+			<p class="mb-4">La transformación digital ha llegado a los negocios de mostrador en México y está cambiando la forma en que farmacias, ferreterías y tiendas operan día a día.</p>
 			<h2 class="text-2xl font-bold mb-3 mt-6">¿Qué es la Transformación Digital?</h2>
 			<p class="mb-4">Es la integración de tecnología digital en todas las áreas de tu negocio, cambiando fundamentalmente cómo operas y entregas valor a tus clientes.</p>
-			<h2 class="text-2xl font-bold mb-3 mt-6">Beneficios para tu Farmacia</h2>
+			<h2 class="text-2xl font-bold mb-3 mt-6">Beneficios para tu Negocio</h2>
 			<ul class="list-disc pl-6 mb-4">
 				<li><strong>Mayor eficiencia:</strong> Automatiza procesos repetitivos y ahorra tiempo</li>
 				<li><strong>Mejor control:</strong> Conoce en tiempo real el estado de tu inventario</li>
@@ -236,7 +236,7 @@ const post1: Post[] = [
 				<li><strong>Mejores decisiones:</strong> Reportes y análisis para tomar decisiones informadas</li>
 			</ul>
 			<h2 class="text-2xl font-bold mb-3 mt-6">El Futuro es Digital</h2>
-			<p class="mb-4">Las farmacias que adoptan tecnología moderna están mejor preparadas para competir y crecer en el mercado actual.</p>
+			<p class="mb-4">Los negocios que adoptan tecnología moderna están mejor preparados para competir y crecer en el mercado actual.</p>
 		`,
 		postedBy: {
 			avatar: agoramyAutor.src,
@@ -256,11 +256,11 @@ const post2: Post[] = [
 		title: 'Lo que debes saber antes de considerar Agoramy',
 		slug: 'que-saber-antes-agoramy',
 		description:
-			'Ofrecemos una guía y un contexto bastante extensos antes de que tomes tu decisión de considerar Agoramy...',
+			'Para quién es, qué necesitas para usarlo, cuánto cuesta y qué soporte incluye: lo esencial antes de tomar tu decisión.',
 		content: `
-			<p class="mb-4">Antes de elegir un sistema POS para tu farmacia, es importante conocer todos los detalles. Aquí te compartimos todo lo que necesitas saber sobre Agoramy.</p>
+			<p class="mb-4">Antes de elegir un sistema POS para tu negocio, es importante conocer todos los detalles. Aquí te compartimos todo lo que necesitas saber sobre Agoramy.</p>
 			<h2 class="text-2xl font-bold mb-3 mt-6">¿Para quién es Agoramy?</h2>
-			<p class="mb-4">Agoramy está diseñado específicamente para farmacias en México, desde pequeños negocios hasta cadenas medianas.</p>
+			<p class="mb-4">Agoramy es un solo sistema para farmacias, ferreterías y tiendas en México, desde pequeños negocios hasta cadenas medianas. Al dar de alta tu negocio eliges el giro y se activa el módulo que necesitas.</p>
 			<h2 class="text-2xl font-bold mb-3 mt-6">Requisitos Técnicos</h2>
 			<ul class="list-disc pl-6 mb-4">
 				<li>Computadora con Windows 10 o superior</li>
@@ -268,7 +268,8 @@ const post2: Post[] = [
 				<li>Lector de código de barras (recomendado)</li>
 			</ul>
 			<h2 class="text-2xl font-bold mb-3 mt-6">Inversión</h2>
-			<p class="mb-4">Ofrecemos planes flexibles que se adaptan a tu presupuesto, con acceso beta gratuito por 2 meses.</p>
+			<p class="mb-4">Tenemos cuatro planes, de Onyx a Quasar, para distintos tamaños de negocio. Las sucursales adicionales y los consumibles, como timbres y correos, se cobran aparte. Todos los montos están en la <a href="/pricing">página de precios</a>.</p>
+			<p class="mb-4">Los 1,000 lugares de la beta, con seis meses sin costo, ya se agotaron. Si te <a href="/product">apuntas a la lista</a>, entras con descuento u otra oferta de lanzamiento cuando abramos lugar.</p>
 			<h2 class="text-2xl font-bold mb-3 mt-6">Soporte y Capacitación</h2>
 			<p class="mb-4">Incluimos capacitación inicial y soporte técnico continuo para que siempre tengas ayuda cuando la necesites.</p>
 		`,
@@ -284,24 +285,24 @@ const post2: Post[] = [
 	{
 		image: inventarioBlog.src,
 		tag: { value: 'Tutorial' },
-		title: 'Cómo Gestionar el Inventario de tu Farmacia',
+		title: 'Cómo gestionar el inventario de tu negocio',
 		slug: 'gestionar-inventario-farmacia',
 		description:
-			'Aprende a controlar tu inventario de manera efectiva, evitar pérdidas por caducidad y mantener el stock óptimo en tu farmacia...',
+			'Aprende a controlar tu inventario de manera efectiva, evitar mermas y mantener el stock óptimo en tu farmacia, ferretería o tienda.',
 		content: `
-			<p class="mb-4">La gestión del inventario es crucial para el éxito de tu farmacia. Un buen control te ayuda a evitar pérdidas y maximizar ganancias.</p>
+			<p class="mb-4">La gestión del inventario es crucial para el éxito de tu negocio, sea farmacia, ferretería o tienda. Un buen control te ayuda a evitar pérdidas y maximizar ganancias.</p>
 			<h2 class="text-2xl font-bold mb-3 mt-6">Importancia del Control de Inventario</h2>
 			<p class="mb-4">Un inventario bien gestionado te permite:</p>
 			<ul class="list-disc pl-6 mb-4">
-				<li>Evitar productos caducados</li>
+				<li>Evitar mermas y productos caducados</li>
 				<li>Mantener stock suficiente de productos populares</li>
 				<li>Reducir capital inmovilizado</li>
 				<li>Tomar mejores decisiones de compra</li>
 			</ul>
 			<h2 class="text-2xl font-bold mb-3 mt-6">Método PEPS (Primeras Entradas, Primeras Salidas)</h2>
-			<p class="mb-4">Usa este método para rotar tu inventario y minimizar caducidades. Los productos que llegaron primero deben venderse primero.</p>
+			<p class="mb-4">Usa este método para rotar tu inventario y evitar que la mercancía se quede parada o caduque. Los productos que llegaron primero deben venderse primero.</p>
 			<h2 class="text-2xl font-bold mb-3 mt-6">Usa Tecnología</h2>
-			<p class="mb-4">Un sistema POS moderno te ayuda a rastrear automáticamente tu inventario y recibir alertas cuando los productos están por caducar.</p>
+			<p class="mb-4">Un sistema POS moderno te ayuda a rastrear automáticamente tu inventario y recibir alertas cuando un producto se está acabando o está por caducar.</p>
 		`,
 		postedBy: {
 			avatar: agoramyAutor.src,
