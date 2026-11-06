@@ -4,20 +4,22 @@ const SubscriptionForm = () => {
 	const [email, setEmail] = useState('');
 	const [acceptPrivacy, setAcceptPrivacy] = useState(false);
 	const [isSubmitting, setIsSubmitting] = useState(false);
+	const [status, setStatus] = useState<{ ok: boolean; message: string } | null>(null);
 
 	const handleSubmit = async (e: React.FormEvent) => {
 		e.preventDefault();
 
 		if (!email) {
-			alert('Por favor, introduce tu correo electrónico');
+			setStatus({ ok: false, message: 'Por favor, introduce tu correo electrónico.' });
 			return;
 		}
 
 		if (!acceptPrivacy) {
-			alert('Debes aceptar las políticas de privacidad para continuar');
+			setStatus({ ok: false, message: 'Debes aceptar las políticas de privacidad para continuar.' });
 			return;
 		}
 
+		setStatus(null);
 		setIsSubmitting(true);
 		try {
 			const response = await fetch(
@@ -38,26 +40,28 @@ const SubscriptionForm = () => {
 				throw new Error(errorData.error || 'Error al suscribirse');
 			}
 
-			const result = await response.json();
-			console.log('Suscripción exitosa:', result);
-			alert('¡Gracias por suscribirte! Recibirás nuestro boletín semanal.');
+			setStatus({ ok: true, message: '¡Gracias por suscribirte! Recibirás nuestro boletín semanal.' });
 			setEmail('');
+			setAcceptPrivacy(false);
 		} catch (error) {
 			console.error('Error al suscribirse:', error);
-			alert(error instanceof Error ? error.message : 'Error al procesar tu suscripción');
+			setStatus({
+				ok: false,
+				message: error instanceof Error ? error.message : 'Error al procesar tu suscripción.',
+			});
 		} finally {
 			setIsSubmitting(false);
 		}
 	};
 
 	return (
-		<div>
-			<div className="border rounded-md p-5 w-full">
-				<h2 className="mb-3 text-lg font-semibold text-gray-800">
-					Recibe las últimas novedades de Agoramy sobre desarrollo de productos
+		<div className="h-full">
+			<div className="border border-gray-300 bg-white rounded p-5 w-full h-full">
+				<h2 className="mb-3 text-lg/snug font-semibold text-gray-800">
+					Recibe las novedades de Agoramy
 				</h2>
-				<p className="text-sm/relaxed tracking-wider text-gray-500">
-					Enviamos un boletín semanal con las últimas novedades en desarrollo de productos
+				<p className="text-sm/relaxed text-gray-500">
+					Enviamos un boletín semanal con novedades del sistema y guías para tu negocio.
 				</p>
 				<form onSubmit={handleSubmit} className="flex flex-col gap-3 mt-7">
 					<input
@@ -94,7 +98,15 @@ const SubscriptionForm = () => {
 						{isSubmitting ? 'Procesando...' : 'Suscribirse'}
 					</button>
 				</form>
-				<p className="text-sm text-gray-500 mt-2">*Nunca spam.</p>
+				{status && (
+					<p
+						role="status"
+						className={`text-sm mt-3 ${status.ok ? 'text-green-600' : 'text-red-600'}`}
+					>
+						{status.message}
+					</p>
+				)}
+				<p className="text-xs text-gray-500 mt-3">Nunca spam.</p>
 			</div>
 		</div>
 	);

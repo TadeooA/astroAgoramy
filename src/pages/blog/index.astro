@@ -18,18 +18,21 @@ const tags = [...new Set(allPosts.map((p) => p.tag.value))].sort((a, b) =>
 );
 
 const tagBase =
-	'border rounded-md text-xs font-medium tracking-wider transition-all duration-150 hover:shadow-lg focus:shadow-lg py-2 px-3 cursor-pointer';
+	'rounded-lg border px-4 py-2 text-sm font-medium transition-all duration-200 hover:border-gray-400 cursor-pointer';
 const tagIdle = 'border-gray-300 text-gray-700';
 ---
 
-<Layout title="Blog - Agoramy">
+<Layout
+	title="Blog - Agoramy"
+	description="Artículos y guías sobre punto de venta, inventario, facturación y cómo llevar un negocio de mostrador en México."
+>
 	<div class="text-gray-700">
 		<Hero />
-		<section class="py-24">
+		<section class="pt-10 pb-20">
 			<div class="container mx-auto px-4">
-				<div class="flex items-center gap-2 flex-wrap">
-					<p>Etiquetas:</p>
-					<div class="flex flex-wrap items-center gap-1" id="blog-tag-filter">
+				<div class="flex items-center gap-3 flex-wrap">
+					<p class="text-sm text-gray-500">Etiquetas:</p>
+					<div class="flex flex-wrap items-center gap-2" id="blog-tag-filter">
 						<button type="button" data-tag="todos" class={`${tagBase} ${tagIdle}`}>
 							Todos
 						</button>
@@ -43,7 +46,7 @@ const tagIdle = 'border-gray-300 text-gray-700';
 
 				<div
 					id="blog-featured"
-					class="grid lg:grid-cols-3 grid-cols-1 gap-10 items-center lg:py-16 py-14"
+					class="grid lg:grid-cols-3 grid-cols-1 gap-6 mt-8"
 					data-aos="fade-up"
 					data-aos-duration="300"
 				>
@@ -54,7 +57,7 @@ const tagIdle = 'border-gray-300 text-gray-700';
 
 				<div
 					id="blog-grid"
-					class="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-x-6 gap-y-12 lg:py-16 py-14"
+					class="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-6 mt-6"
 					data-aos="fade-up"
 				>
 					<div data-post-tag={featuredPost.tag.value} data-featured-card class="hidden">

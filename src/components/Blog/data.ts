@@ -1,18 +1,18 @@
 // images
 import postImg1 from '../../assets/images/blog/post1.jpg'
-import postImg2 from '../../assets/images/blog/post3.jpg'
+import postImg2 from '../../assets/images/hero/farmaciaw.webp'
 
 import agoramyAutor from '../../assets/images/agoramyAutorw.webp'
 
 import lanzamientoBlog from '../../assets/images/blog/lanzamientoBlogw.webp'
 import consideracionesBlog from '../../assets/images/blog/consideracionesw.webp'
 import inventarioBlog from '../../assets/images/blog/inventarioBlogw.webp'
-import expansionBlog from '../../assets/images/blog/blog-2.png'
+import expansionBlog from '../../assets/images/hero/ferreteriaw.webp'
 import controlBlog from '../../assets/images/blog/post2.jpg'
 
 export type Post = {
 	image: string
-	tag: { variant?: string; value: string }
+	tag: { value: string }
 	title: string
 	slug?: string
 	description?: string
@@ -252,7 +252,7 @@ const post1: Post[] = [
 const post2: Post[] = [
 	{
 		image: consideracionesBlog.src,
-		tag: { variant: 'bg-green-500/10 text-green-500 ', value: 'Tutorial' },
+		tag: { value: 'Tutorial' },
 		title: 'Lo que debes saber antes de considerar Agoramy',
 		slug: 'que-saber-antes-agoramy',
 		description:
@@ -283,7 +283,7 @@ const post2: Post[] = [
 	},
 	{
 		image: inventarioBlog.src,
-		tag: { variant: 'bg-purple-500/10 text-purple-500', value: 'Tutorial' },
+		tag: { value: 'Tutorial' },
 		title: 'Cómo Gestionar el Inventario de tu Farmacia',
 		slug: 'gestionar-inventario-farmacia',
 		description:
@@ -323,4 +323,16 @@ const post3: Post[] = [
 	// },
 ]
 
-export { post1, post2, post3 }
+// Un color por etiqueta, para que un mismo tema no cambie de color entre tarjetas.
+const tagClasses: Record<string, string> = {
+	Anuncio: 'bg-orange-500/10 text-orange-600',
+	Negocios: 'bg-blue-500/10 text-blue-600',
+	Tutorial: 'bg-green-500/10 text-green-600',
+}
+
+const tagClass = (tag: string) => tagClasses[tag] ?? 'bg-gray-500/10 text-gray-600'
+
+// Las descripciones se escribieron como adelanto y terminan en puntos suspensivos.
+const summary = (post: Post) => post.description?.replace(/\.{3}$/, '.') ?? ''
+
+export { post1, post2, post3, tagClass, summary }
