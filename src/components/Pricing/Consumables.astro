@@ -1,33 +1,58 @@
 ---
 // Consumibles: lo que se descuenta de un monedero aparte de la cuota del plan.
 //
-// Solo se listan aquí los que tienen precio público confirmado. Timbres CFDI,
-// correos a clientes y entregas de flota propia existen en el sistema pero se
-// omiten hasta que ventas defina su tarifa: no publicar cifras inventadas ni
-// textos de relleno tipo [PRECIO POR TIMBRE].
+// Solo se publican tarifas confirmadas: no usar cifras inventadas ni textos de
+// relleno tipo [PRECIO POR TIMBRE]. Las guías varían por envío y no llevan monto.
 
 type Consumable = {
   name: string;
   detail: string;
-  included: string;
-  price: string;
+  price: string[];
   when: string;
 };
 
 const consumables: Consumable[] = [
   {
+    name: 'Timbre CFDI suelto',
+    detail: 'Factura electrónica',
+    price: ['De $3.50 a $0.80 MXN por timbre, según plan y volumen'],
+    when: 'Cada factura timbrada',
+  },
+  {
+    name: 'Correos',
+    detail: 'Correos a tus clientes, por paquete',
+    price: [
+      '100 correos: $30 MXN',
+      '500 correos: $100 MXN',
+      '1,500 correos: $250 MXN',
+      '5,000 correos: $500 MXN',
+      '15,000 correos: $1,000 MXN',
+    ],
+    when: 'Cada correo enviado',
+  },
+  {
     name: 'Análisis de receta con IA',
-    detail: 'Lectura automática de la receta médica',
-    included: 'Cuota mensual incluida según tu plan',
-    price: '$2.00 MXN por receta',
+    detail: 'Lectura automática de la receta médica. Cuota mensual incluida según tu plan',
+    price: ['$2.00 MXN por análisis'],
     when: 'Cada receta analizada',
+  },
+  {
+    name: 'Bot de WhatsApp con IA',
+    detail: 'Disponible desde el plan Nebula',
+    price: ['$100 MXN por 500 mensajes'],
+    when: 'Cada mensaje',
   },
   {
     name: 'Guías de paquetería',
     detail: 'Envíos con paqueterías externas',
-    included: 'Sin cuota incluida',
-    price: 'El precio del courier, sin margen encima',
+    price: ['Costo del courier más margen, cargo fijo, comisión e IVA. Varía por envío'],
     when: 'Cada guía creada',
+  },
+  {
+    name: 'Entregas de flota propia',
+    detail: 'Rutas de reparto con tus repartidores',
+    price: ['$1.00 MXN por ruta'],
+    when: 'Cada ruta',
   },
 ];
 ---
@@ -54,8 +79,7 @@ const consumables: Consumable[] = [
         <thead>
           <tr class="border-b border-gray-300">
             <th class="text-sm font-semibold text-gray-700 pb-3 pe-6">Consumible</th>
-            <th class="text-sm font-semibold text-gray-700 pb-3 pe-6">Incluido en tu plan</th>
-            <th class="text-sm font-semibold text-gray-700 pb-3 pe-6">Costo al pasarte</th>
+            <th class="text-sm font-semibold text-gray-700 pb-3 pe-6">Costo</th>
             <th class="text-sm font-semibold text-gray-700 pb-3">Cuándo se descuenta</th>
           </tr>
         </thead>
@@ -66,8 +90,9 @@ const consumables: Consumable[] = [
                 <p class="text-sm font-semibold text-gray-800">{item.name}</p>
                 <p class="text-xs text-gray-500 mt-1">{item.detail}</p>
               </td>
-              <td class="py-5 pe-6 text-sm text-gray-600">{item.included}</td>
-              <td class="py-5 pe-6 text-sm text-gray-600">{item.price}</td>
+              <td class="py-5 pe-6 text-sm text-gray-600">
+                {item.price.map((line) => <p>{line}</p>)}
+              </td>
               <td class="py-5 text-sm text-gray-600">{item.when}</td>
             </tr>
           ))}
