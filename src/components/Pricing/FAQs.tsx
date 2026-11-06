@@ -11,7 +11,7 @@ const faqContent = [
   },
   {
     title: '¿Puedo cambiar mi plan más tarde?',
-    description: 'Sí, puedes actualizar o cambiar tu plan en cualquier momento según las necesidades de tu farmacia. Los cambios se reflejarán en tu próximo ciclo de facturación mensual.'
+    description: 'Sí, puedes actualizar o cambiar tu plan en cualquier momento según las necesidades de tu negocio. Los cambios se reflejarán en tu próximo ciclo de facturación mensual.'
   },
   {
     title: '¿Qué se cobra aparte del plan?',

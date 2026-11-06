@@ -10,7 +10,7 @@ const Hero = () => {
         <div className="container">
           <div className="text-center">
             <h1 className="text-3xl/tight sm:text-4xl/tight lg:text-5xl/tight font-semibold mb-5">
-              Conoce a Agoramy: Tu Socio Tecnológico para Farmacias
+              Conoce a Agoramy: Tu Socio Tecnológico para Negocios de Mostrador
             </h1>
             <p className="sm:text-lg text-gray-500">
               Somos líderes en soluciones POS para farmacias, ferreterías y tiendas en México. Nuestra misión es potenciar tu negocio con tecnología moderna, eficiente y fácil de usar, adaptada a las necesidades de tu giro.
