@@ -1,5 +1,23 @@
 ---
 import logo from '@/assets/agoramyLandingw.webp';
+
+const links = [
+  { href: '/', label: 'Inicio' },
+  { href: '/company', label: 'Quiénes Somos' },
+  { href: '/career', label: 'Carreras' },
+  { href: '/pricing', label: 'Precios' },
+  { href: '/blog', label: 'Blog' },
+  { href: '/contact', label: 'Contacto' },
+];
+
+const path = Astro.url.pathname.replace(/\/+$/, '') || '/';
+
+// "page" solo en la página exacta; un artículo del blog marca Blog como su sección.
+function currentState(href: string) {
+  if (path === href) return 'page';
+  if (href !== '/' && path.startsWith(`${href}/`)) return 'true';
+  return undefined;
+}
 ---
 
 <nav class="fixed top-0 left-0 right-0 z-50 bg-white border-b-0 transition-all duration-300">
@@ -13,29 +31,33 @@ import logo from '@/assets/agoramyLandingw.webp';
       </div>
 
       <!-- Desktop Navigation -->
-      <div class="hidden md:flex items-center space-x-8">
-        <a href="/" class="text-gray-700 hover:text-green-500 transition-colors font-medium">
-          Inicio
-        </a>
-        <a href="/company" class="text-gray-700 hover:text-green-500 transition-colors font-medium">
-          Quiénes Somos
-        </a>
-        <a href="/career" class="text-gray-700 hover:text-green-500 transition-colors font-medium">
-          Carreras
-        </a>
-        <a href="/pricing" class="text-gray-700 hover:text-green-500 transition-colors font-medium">
-          Precios
-        </a>
-        <a href="/blog" class="text-gray-700 hover:text-green-500 transition-colors font-medium">
-          Blog
-        </a>
-        <a href="/contact" class="text-gray-700 hover:text-green-500 transition-colors font-medium">
-          Contacto
-        </a>
+      <div id="nav-links" class="relative hidden lg:flex items-center">
+        <span
+          id="nav-hover"
+          aria-hidden="true"
+          class="absolute inset-y-0 left-0 rounded-md bg-green-500/10 opacity-0 pointer-events-none transition-[transform,width,opacity] duration-200 ease-out motion-reduce:transition-none"
+        ></span>
+        {links.map((link) => {
+          const current = currentState(link.href);
+          return (
+            <a
+              href={link.href}
+              aria-current={current}
+              class:list={[
+                'relative z-10 px-4 py-2 transition-colors font-medium hover:text-green-600',
+                current
+                  ? "text-green-600 after:absolute after:inset-x-4 after:bottom-0 after:h-0.5 after:rounded-full after:bg-green-500 after:content-['']"
+                  : 'text-gray-700',
+              ]}
+            >
+              {link.label}
+            </a>
+          );
+        })}
       </div>
 
       <!-- CTA Buttons -->
-      <div class="hidden md:flex items-center space-x-4">
+      <div class="hidden lg:flex items-center space-x-4">
 
         <a
           href="/product"
@@ -48,7 +70,7 @@ import logo from '@/assets/agoramyLandingw.webp';
       <!-- Mobile Menu Button -->
       <button
         id="mobile-menu-button"
-        class="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors"
+        class="lg:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors"
         aria-label="Toggle menu"
       >
         <svg
@@ -70,27 +92,24 @@ import logo from '@/assets/agoramyLandingw.webp';
     <!-- Mobile Menu -->
     <div
       id="mobile-menu"
-      class="hidden md:hidden pb-4 border-t border-gray-200 mt-2 bg-white"
+      class="hidden lg:hidden pb-4 border-t border-gray-200 mt-2 bg-white"
     >
       <div class="flex flex-col space-y-3 pt-4">
-        <a href="/" class="text-gray-700 hover:text-green-500 transition-colors font-medium py-2">
-          Inicio
-        </a>
-        <a href="/company" class="text-gray-700 hover:text-green-500 transition-colors font-medium py-2">
-          Quiénes Somos
-        </a>
-        <a href="/career" class="text-gray-700 hover:text-green-500 transition-colors font-medium py-2">
-          Carreras
-        </a>
-        <a href="/pricing" class="text-gray-700 hover:text-green-500 transition-colors font-medium py-2">
-          Precios
-        </a>
-        <a href="/blog" class="text-gray-700 hover:text-green-500 transition-colors font-medium py-2">
-          Blog
-        </a>
-        <a href="/contact" class="text-gray-700 hover:text-green-500 transition-colors font-medium py-2">
-          Contacto
-        </a>
+        {links.map((link) => {
+          const current = currentState(link.href);
+          return (
+            <a
+              href={link.href}
+              aria-current={current}
+              class:list={[
+                'hover:text-green-500 transition-colors font-medium py-2',
+                current ? 'text-green-600 border-s-2 border-green-500 ps-3' : 'text-gray-700',
+              ]}
+            >
+              {link.label}
+            </a>
+          );
+        })}
         <div class="flex flex-col space-y-2 pt-2">
 
           <a
@@ -124,4 +143,35 @@ import logo from '@/assets/agoramyLandingw.webp';
       mobileMenu?.classList.add('hidden');
     });
   });
+
+  // Fondo que se desliza entre los enlaces de escritorio (hover y teclado)
+  const navLinks = document.getElementById('nav-links');
+  const navHover = document.getElementById('nav-hover');
+
+  if (navLinks && navHover) {
+    const moveTo = (link: HTMLElement) => {
+      const wasHidden = navHover.style.opacity !== '1';
+      // Al entrar desde fuera aparece sobre el enlace, sin viajar desde su última posición.
+      if (wasHidden) navHover.style.transition = 'none';
+      navHover.style.width = `${link.offsetWidth}px`;
+      navHover.style.transform = `translateX(${link.offsetLeft}px)`;
+      if (wasHidden) {
+        void navHover.offsetWidth;
+        navHover.style.transition = '';
+      }
+      navHover.style.opacity = '1';
+    };
+    const hide = () => {
+      navHover.style.opacity = '0';
+    };
+
+    navLinks.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('mouseenter', () => moveTo(link));
+      link.addEventListener('focus', () => {
+        if (link.matches(':focus-visible')) moveTo(link);
+      });
+      link.addEventListener('blur', hide);
+    });
+    navLinks.addEventListener('mouseleave', hide);
+  }
 </script>
