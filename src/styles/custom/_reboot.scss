@@ -2,8 +2,6 @@
 // reboot.scss
 //
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
-
 html {
     @apply relative scroll-smooth;
 }
@@ -12,6 +10,8 @@ html {
 body {
     font-size: 15px;
     @apply font-body overflow-x-hidden text-gray-500;
+    // Sin ligaduras de código: en texto de marketing "->" o "!=" deben verse tal cual.
+    font-variant-ligatures: none;
 }
 
 // Fix event bubbling on iOS devices
@@ -32,6 +32,8 @@ a {
 
 h1,h2,h3,h4,h5,h6 {
     @apply font-semibold;
+    // La monoespaciada corre ancha: se compactan los títulos.
+    letter-spacing: -0.03em;
 }
 
 .vertical-rl {

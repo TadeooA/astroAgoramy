@@ -150,7 +150,7 @@ const post1: Post[] = [
 
 			<h2 class="text-2xl font-bold mb-3 mt-6">Seis meses sin costo durante la beta</h2>
 			<p class="mb-4">Los 1,000 negocios de esta ronda entraron con seis meses sin costo. No fue un regalo: fue un intercambio. Queremos tu retroalimentación mientras el sistema se termina de afinar, y estamos dispuestos a pagarla con tiempo de uso.</p>
-			<p class="mb-4">Fueron 1,000 lugares, asignados por orden de registro, sobre un plan de pruebas con todo lo del Plan Emprendedor incluido. Los consumibles (timbres de facturación, correos y rutas de reparto) se pagan aparte. Las condiciones completas están en la página de producto.</p>
+			<p class="mb-4">Fueron 1,000 lugares, asignados por orden de registro, sobre un plan de pruebas con todo lo del Plan Nebula incluido. Los consumibles (timbres de facturación, correos y rutas de reparto) se pagan aparte. Las condiciones completas están en la página de producto.</p>
 
 			<h2 class="text-2xl font-bold mb-3 mt-6">Qué incluye</h2>
 			<ul class="list-disc pl-6 mb-4">

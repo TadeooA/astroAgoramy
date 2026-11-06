@@ -7,15 +7,15 @@ const faqContent = [
   },
   {
     title: '¿Qué incluye cada plan?',
-    description: 'Cada plan incluye diferentes límites de cajas, empleados y productos. Todos los planes incluyen facturación electrónica, soporte técnico, capacitación y acceso a análisis de datos. Los planes superiores incluyen características adicionales como mensajes de IA y análisis avanzados.'
+    description: 'Cada plan incluye diferentes límites de cajas, empleados y productos. Todos los planes incluyen facturación electrónica, soporte técnico, capacitación y acceso a análisis de datos. Los planes superiores incluyen características adicionales como funciones de IA y análisis avanzados.'
   },
   {
     title: '¿Puedo cambiar mi plan más tarde?',
     description: 'Sí, puedes actualizar o cambiar tu plan en cualquier momento según las necesidades de tu farmacia. Los cambios se reflejarán en tu próximo ciclo de facturación mensual.'
   },
   {
-    title: '¿Cómo funcionan los extras?',
-    description: 'Cada plan permite agregar extras como cajas adicionales, empleados extra, más productos o mensajes de IA. Los costos de los extras se suman a tu suscripción mensual y puedes ajustarlos según tus necesidades.'
+    title: '¿Qué se cobra aparte del plan?',
+    description: 'Las sucursales adicionales y los consumibles: timbres de facturación, correos, mensajes del bot, recetas con IA, guías y entregas. Los consumibles se pagan según lo que uses. El bot de WhatsApp con IA está disponible desde el plan Nebula, a $100 MXN por 500 mensajes. Si necesitas más cajas, empleados o productos que los de tu plan, puedes cambiar a un plan superior.'
   },
   {
     title: '¿El sistema cumple con las normativas mexicanas?',
