@@ -1,5 +1,16 @@
 ---
 // About component for Company page - Quiénes Somos
+import farmacia from '../../assets/images/hero/farmaciaw.webp';
+import ferreteria from '../../assets/images/hero/ferreteriaw.webp';
+import tienda from '../../assets/images/hero/tiendaw.webp';
+import equipoInventario from '../../assets/images/blog/inventarioBlogw.webp';
+import crecimiento from '../../assets/images/blog/lanzamientoBlogw.webp';
+
+const giros = [
+  { image: farmacia, label: 'Farmacia' },
+  { image: ferreteria, label: 'Ferretería' },
+  { image: tienda, label: 'Tienda' },
+];
 ---
 
 <section class="pt-6 sm:pt-8 pb-16 sm:pb-24 bg-white" id="quienes-somos">
@@ -7,12 +18,21 @@
     <div class="grid lg:grid-cols-2 gap-12 items-center">
       <!-- Columna de Imagen -->
       <div class="order-2 lg:order-1" data-aos="fade-right">
-        <div class="relative">
-          <img
-            src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=800&q=80"
-            alt="Equipo Agoramy trabajando"
-            class="rounded-lg shadow-2xl w-full h-auto object-cover"
-          />
+        <div class="grid grid-cols-2 gap-3">
+          {giros.map((giro, index) => (
+            <figure class={`relative overflow-hidden rounded-lg shadow-2xl ${index === 0 ? 'col-span-2' : ''}`}>
+              <img
+                src={giro.image.src}
+                width={giro.image.width}
+                height={giro.image.height}
+                alt={`Fachada de una ${giro.label.toLowerCase()} con el logo de Agoramy`}
+                class="w-full h-auto"
+              />
+              <figcaption class="absolute bottom-2 start-2 rounded bg-white/90 px-2 py-1 text-xs font-semibold text-gray-800">
+                {giro.label}
+              </figcaption>
+            </figure>
+          ))}
         </div>
       </div>
 
@@ -21,16 +41,16 @@
         <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-6">
           Transformando la gestión
           <span class="text-transparent bg-clip-text bg-gradient-to-r from-green-500 to-green-600">
-            de farmacias en México
+            de los negocios de mostrador en México
           </span>
         </h2>
 
         <p class="text-lg text-gray-600 mb-6 leading-relaxed">
-          Agoramy nació de la visión de simplificar y modernizar la gestión de farmacias en México. Vimos la necesidad de un sistema POS que no solo fuera eficiente, sino que también entendiera las complejidades únicas del sector farmacéutico mexicano.
+          Agoramy nació para simplificar y modernizar la gestión de las farmacias en México. Hoy es un solo sistema POS para farmacias, ferreterías y tiendas, adaptado a lo que necesita cada giro: control de recetas y caducidades, venta a granel y cotizaciones, o cobro rápido y promociones.
         </p>
 
         <p class="text-lg text-gray-600 mb-8 leading-relaxed">
-          Somos un equipo apasionado de profesionales dedicado a crear soluciones tecnológicas innovadoras que empoderen a las farmacias para alcanzar su máximo potencial. Creemos en la innovación constante y en construir relaciones duraderas con nuestros clientes.
+          Somos un equipo apasionado de profesionales dedicado a crear soluciones tecnológicas innovadoras que empoderen a cada negocio para alcanzar su máximo potencial, sea cual sea su giro. Creemos en la innovación constante y en construir relaciones duraderas con nuestros clientes.
         </p>
 
         <!-- Valores o características -->
@@ -43,7 +63,7 @@
             </div>
             <div>
               <h3 class="font-semibold text-gray-900 mb-1">Innovación</h3>
-              <p class="text-gray-600 text-sm">Tecnología de vanguardia para tu farmacia</p>
+              <p class="text-gray-600 text-sm">Tecnología de vanguardia para tu negocio</p>
             </div>
           </div>
 
@@ -102,7 +122,7 @@
         </h2>
 
         <p class="text-lg text-gray-600 leading-relaxed">
-          Proporcionar soluciones POS innovadoras y especializadas que empoderen a las farmacias mexicanas para alcanzar sus objetivos, mejorando su eficiencia operativa y transformando digitalmente sus procesos con herramientas modernas, intuitivas y accesibles.
+          Proporcionar soluciones POS innovadoras y adaptadas a cada giro que empoderen a las farmacias, ferreterías y tiendas mexicanas para alcanzar sus objetivos, mejorando su eficiencia operativa y transformando digitalmente sus procesos con herramientas modernas, intuitivas y accesibles.
         </p>
       </div>
 
@@ -110,8 +130,11 @@
       <div class="order-2" data-aos="fade-left">
         <div class="relative">
           <img
-            src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800&q=80"
-            alt="Misión Agoramy"
+            src={equipoInventario.src}
+            width={equipoInventario.width}
+            height={equipoInventario.height}
+            alt="Dos personas revisan el inventario de su negocio con una tablet"
+            loading="lazy"
             class="rounded-lg shadow-2xl w-full h-auto object-cover"
           />
         </div>
@@ -128,8 +151,11 @@
       <div class="order-2 lg:order-1" data-aos="fade-right">
         <div class="relative">
           <img
-            src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80"
-            alt="Visión Agoramy"
+            src={crecimiento.src}
+            width={crecimiento.width}
+            height={crecimiento.height}
+            alt="Cohete despegando junto al logo de Agoramy"
+            loading="lazy"
             class="rounded-lg shadow-2xl w-full h-auto object-cover"
           />
         </div>

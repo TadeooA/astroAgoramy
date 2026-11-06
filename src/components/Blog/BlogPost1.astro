@@ -1,54 +1,35 @@
 ---
-import type { Post } from './data';
+import { summary, tagClass, type Post } from './data';
 
 interface Props {
 	post: Post;
 }
 
 const { post } = Astro.props;
+const href = post.slug ? `/blog/${post.slug}` : '#';
 ---
 
-<div class="lg:col-span-2">
-	<div class="grid md:grid-cols-5 gap-10">
-		<div class="md:col-span-2 col-span-3">
-			<a href={post.slug ? `/blog/${post.slug}` : '#'}>
-				<img src={post.image} class="w-full h-full rounded-md hover:opacity-90 transition-opacity" alt={post.title} />
-			</a>
+<article class="lg:col-span-2 group relative grid md:grid-cols-5 overflow-hidden border border-gray-300 bg-white rounded transition-all duration-300 hover:shadow-[0_0_1.5rem_0_rgba(0,0,0,.12)] hover:-translate-y-1">
+	<div class="md:col-span-2 aspect-video md:aspect-auto overflow-hidden bg-gray-100">
+		<img src={post.image} alt="" class="w-full h-full object-cover" />
+	</div>
+	<div class="md:col-span-3 p-6 flex flex-col">
+		<div class="flex flex-wrap items-center gap-2 mb-3">
+			<span class="text-xs font-medium uppercase tracking-wide text-gray-500">Destacado</span>
+			<span class={`${tagClass(post.tag.value)} font-medium rounded-md text-xs py-1 px-2`}>
+				{post.tag.value}
+			</span>
 		</div>
-		<div class="col-span-3">
-			<div class="flex flex-col gap-14 justify-between xl:h-full">
-				<div>
-					<span class="bg-orange-500/10 text-orange-500 font-medium rounded-md text-xs py-1 px-2">
-						<a href={post.slug ? `/blog/${post.slug}` : '#'}>{post.tag.value}</a>
-					</span>
-					<h3 class="text-lg my-3 transition-all hover:text-primary">
-						<a href={post.slug ? `/blog/${post.slug}` : '#'}>{post.title}</a>
-					</h3>
-					<p class="text-sm/relaxed tracking-wider text-gray-500">
-						{post.description}{' '}
-						<a href={post.slug ? `/blog/${post.slug}` : '#'} class="text-primary">
-							leer más
-						</a>
-					</p>
-				</div>
-				<div>
-					<div class="flex items-center gap-2">
-						<img
-							src={post.postedBy?.avatar}
-							class="h-10 w-10 rounded-md"
-							alt={post.postedBy?.name}
-						/>
-						<div>
-							<h6 class="text-sm transition-all hover:text-primary">
-								<a href="#">{post.postedBy?.name}</a>
-							</h6>
-							<p class="text-sm text-gray-500">
-								{post.postedOn?.date} · {post.postedOn?.time}
-							</p>
-						</div>
-					</div>
-				</div>
+		<h2 class="text-xl/snug md:text-2xl/snug font-semibold text-gray-800 mb-3 transition-colors group-hover:text-green-600">
+			<a href={href} class="after:absolute after:inset-0">{post.title}</a>
+		</h2>
+		<p class="text-sm/relaxed text-gray-500 mb-6">{summary(post)}</p>
+		<div class="mt-auto flex items-center gap-3">
+			<img src={post.postedBy?.avatar} alt="" class="h-10 w-10 rounded-md" />
+			<div>
+				<p class="text-sm font-medium text-gray-800">{post.postedBy?.name}</p>
+				<p class="text-xs text-gray-500">{post.postedOn?.date} · {post.postedOn?.time}</p>
 			</div>
 		</div>
 	</div>
-</div>
+</article>
