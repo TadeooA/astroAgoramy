@@ -18,14 +18,12 @@ const images = [
   { src: heroTienda.src, alt: 'Fachada de una tienda de abarrotes con el logo de Agoramy', type: 'image' as const },
 ];
 
-// Un solo sistema, tres giros. El selector cambia el titular y los puntos
-// fuertes; la base del producto es la misma para los tres.
+// Un solo sistema, tres giros. El titular los escribe por turnos y los puntos
+// fuertes cambian con cada palabra; la base del producto es la misma.
 const sectors = [
   {
     id: 'farmacia',
-    label: 'Farmacia',
     noun: 'farmacia',
-    icon: '<path d="M12 5v14M5 12h14"></path>',
     bullets: [
       'Control de inventario en tiempo real',
       'Facturación electrónica automática',
@@ -37,9 +35,7 @@ const sectors = [
   },
   {
     id: 'ferreteria',
-    label: 'Ferretería',
     noun: 'ferretería',
-    icon: '<path d="M14.7 6.3a4 4 0 0 0 5 5l-8.4 8.4a2.1 2.1 0 0 1-3-3l8.4-8.4a4 4 0 0 0-5-5"></path>',
     bullets: [
       'Inventario por clave, SKU y proveedor',
       'Facturación electrónica automática',
@@ -51,9 +47,7 @@ const sectors = [
   },
   {
     id: 'tienda',
-    label: 'Tienda',
     noun: 'tienda',
-    icon: '<path d="M3 9h18l-1.5 11H4.5L3 9Z"></path><path d="M8.5 9V6.5a3.5 3.5 0 0 1 7 0V9"></path>',
     bullets: [
       'Cobro rápido con código de barras',
       'Facturación electrónica automática',
@@ -64,10 +58,6 @@ const sectors = [
     ],
   },
 ];
-
-const pillBase =
-  'flex items-center gap-2 rounded-lg border px-4 py-2 text-sm transition-all duration-200 cursor-pointer';
-const pillIdle = 'bg-white text-gray-700 border-gray-300 font-medium hover:border-gray-400';
 ---
 
 <div>
@@ -77,35 +67,18 @@ const pillIdle = 'bg-white text-gray-700 border-gray-300 font-medium hover:borde
         <div class="grid lg:grid-cols-2 grid-cols-1 gap-8 md:gap-12 items-center">
           <div class="order-2 lg:order-1">
             <div class="text-center sm:text-start">
-              <div
-                id="sector-picker"
-                class="flex flex-wrap gap-2 justify-center sm:justify-start mb-5"
-              >
-                {sectors.map((sector) => (
-                  <button type="button" data-sector={sector.id} class={`${pillBase} ${pillIdle}`}>
-                    <svg
-                      class="w-4 h-4 flex-shrink-0"
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      aria-hidden="true"
-                      set:html={sector.icon}
-                    />
-                    {sector.label}
-                  </button>
-                ))}
-              </div>
-
               <h1 class="text-3xl/tight sm:text-3xl/tight md:text-4xl/tight lg:text-4xl/tight xl:text-5xl/tight font-semibold mb-5 md:mb-6">
                 El sistema POS más
                 <span class="relative z-0 after:bg-primary/50 after:-z-10 after:absolute md:after:h-6 after:h-4 after:w-full after:bottom-0 after:end-0">
                   completo
                 </span>
-                para tu <span id="sector-noun">farmacia</span>
+                para tu
+                <span class="sr-only">farmacia, ferretería o tienda</span>
+                <!-- La palabra más larga, invisible, reserva el ancho para que la línea no se mueva. -->
+                <span aria-hidden="true" class="inline-grid text-start whitespace-nowrap">
+                  <span class="invisible [grid-area:1/1]">ferretería</span>
+                  <span class="[grid-area:1/1] justify-self-start"><span id="sector-noun">farmacia</span><span class="sector-caret inline-block w-0.5 h-[0.9em] ms-1 align-[-0.1em] bg-primary motion-reduce:hidden"></span></span>
+                </span>
               </h1>
 
               <p class="text-base md:text-lg text-gray-500 mb-6 md:mb-8">
@@ -128,28 +101,34 @@ const pillIdle = 'bg-white text-gray-700 border-gray-300 font-medium hover:borde
                 </a>
               </div>
 
-              {sectors.map((sector) => (
-                <div
-                  data-sector-bullets={sector.id}
-                  class="grid sm:grid-cols-2 gap-3"
-                  hidden={sector.id !== 'farmacia'}
-                >
-                  {sector.bullets.map((bullet) => (
-                    <div class="flex items-start gap-3">
-                      <svg
-                        class="stroke-primary stroke-2 w-5 h-5 flex-shrink-0 mt-0.5"
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        aria-hidden="true"
-                      >
-                        <polyline points="20 6 9 17 4 12"></polyline>
-                      </svg>
-                      <p class="text-sm text-gray-700">{bullet}</p>
-                    </div>
-                  ))}
-                </div>
-              ))}
+              <!-- Las tres listas ocupan la misma celda: la altura no cambia al pasar de una a otra. -->
+              <div class="grid">
+                {sectors.map((sector) => (
+                  <div
+                    data-sector-bullets={sector.id}
+                    data-noun={sector.noun}
+                    class:list={[
+                      'grid sm:grid-cols-2 gap-3 [grid-area:1/1] transition-[opacity,visibility] duration-300 motion-reduce:transition-none',
+                      sector.id !== 'farmacia' && 'invisible opacity-0',
+                    ]}
+                  >
+                    {sector.bullets.map((bullet) => (
+                      <div class="flex items-start gap-3">
+                        <svg
+                          class="stroke-primary stroke-2 w-5 h-5 flex-shrink-0 mt-0.5"
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          aria-hidden="true"
+                        >
+                          <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                        <p class="text-sm text-gray-700">{bullet}</p>
+                      </div>
+                    ))}
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
 
@@ -184,42 +163,58 @@ const pillIdle = 'bg-white text-gray-700 border-gray-300 font-medium hover:borde
   </section>
 </div>
 
+<style>
+  .sector-caret {
+    animation: sector-caret-blink 1s step-end infinite;
+  }
+
+  @keyframes sector-caret-blink {
+    50% {
+      opacity: 0;
+    }
+  }
+</style>
+
 <script>
-  const picker = document.getElementById('sector-picker');
+  const HOLD_MS = 3000;
+  const TYPE_MS = 90;
+  const ERASE_MS = 45;
+
   const noun = document.getElementById('sector-noun');
-  const buttons = Array.from(
-    picker?.querySelectorAll<HTMLButtonElement>('[data-sector]') ?? []
-  );
   const groups = Array.from(
     document.querySelectorAll<HTMLElement>('[data-sector-bullets]')
   );
+  const wait = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
-  const nouns: Record<string, string> = {
-    farmacia: 'farmacia',
-    ferreteria: 'ferretería',
-    tienda: 'tienda',
-  };
-
-  const ACTIVE = ['bg-primary', 'text-white', 'border-primary', 'font-semibold'];
-  const IDLE = ['bg-white', 'text-gray-700', 'border-gray-300', 'font-medium'];
-
-  function pick(id: string) {
-    for (const button of buttons) {
-      const on = button.dataset.sector === id;
-      button.classList.remove(...(on ? IDLE : ACTIVE));
-      button.classList.add(...(on ? ACTIVE : IDLE));
-      button.setAttribute('aria-pressed', String(on));
-    }
+  function showBullets(active: HTMLElement) {
     for (const group of groups) {
-      group.hidden = group.dataset.sectorBullets !== id;
+      group.classList.toggle('invisible', group !== active);
+      group.classList.toggle('opacity-0', group !== active);
     }
-    if (noun && nouns[id]) noun.textContent = nouns[id];
   }
 
-  picker?.addEventListener('click', (event) => {
-    const button = (event.target as HTMLElement).closest<HTMLButtonElement>('[data-sector]');
-    if (button?.dataset.sector) pick(button.dataset.sector);
-  });
+  async function cycle(target: HTMLElement) {
+    for (let index = 0; ; index = (index + 1) % groups.length) {
+      const word = groups[index].dataset.noun ?? '';
+      // La primera palabra ya viene escrita en el HTML; las demás se teclean.
+      if (target.textContent !== word) {
+        showBullets(groups[index]);
+        document.dispatchEvent(new CustomEvent('hero:sector', { detail: index }));
+        for (let length = 1; length <= word.length; length++) {
+          target.textContent = word.slice(0, length);
+          await wait(TYPE_MS);
+        }
+      }
+      await wait(HOLD_MS);
+      for (let length = word.length - 1; length >= 0; length--) {
+        target.textContent = word.slice(0, length);
+        await wait(ERASE_MS);
+      }
+    }
+  }
 
-  pick('farmacia');
+  // Con movimiento reducido se queda la primera palabra, sin animación.
+  if (noun && groups.length && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    cycle(noun);
+  }
 </script>
