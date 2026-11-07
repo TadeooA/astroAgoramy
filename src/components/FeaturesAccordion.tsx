@@ -39,7 +39,7 @@ export default function FeaturesAccordion({ items }: FeaturesAccordionProps) {
           >
             <p className="text-gray-700 dark:text-gray-300 mb-4">{item.description}</p>
             <div className="mt-7 flex items-center mb-6">
-              <a href="#" className="text-green-500">
+              <a href="#" className="text-primary">
                 Conocer más <i className="fa-solid fa-arrow-right ms-2"></i>
               </a>
             </div>

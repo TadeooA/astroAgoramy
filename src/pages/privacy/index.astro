@@ -33,12 +33,12 @@ const sections = [
     <!-- Hero -->
     <section class="pt-32 pb-16 bg-gradient-to-b from-gray-950 to-gray-900 relative overflow-hidden">
       <div class="absolute inset-0 opacity-10">
-        <div class="absolute top-20 left-1/4 w-72 h-72 bg-green-400 rounded-full blur-3xl"></div>
-        <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-emerald-500 rounded-full blur-3xl"></div>
+        <div class="absolute top-20 left-1/4 w-72 h-72 bg-accent-dark rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-accent-dark rounded-full blur-3xl"></div>
       </div>
       <div class="container mx-auto px-4 relative z-10">
         <div class="max-w-3xl mx-auto text-center">
-          <span class="inline-flex items-center gap-2 px-4 py-1.5 bg-green-500/10 border border-green-500/20 text-green-400 text-sm font-medium rounded-full mb-6">
+          <span class="inline-flex items-center gap-2 px-4 py-1.5 bg-accent-dark/10 border border-accent-dark/20 text-accent-dark text-sm font-medium rounded-full mb-6">
             <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
               <path fill-rule="evenodd" d="M10 2a8 8 0 100 16A8 8 0 0010 2zm0 14a6 6 0 110-12 6 6 0 010 12zm1-7a1 1 0 11-2 0V7a1 1 0 112 0v2zm0 4a1 1 0 11-2 0 1 1 0 012 0z" clip-rule="evenodd" />
             </svg>
@@ -46,26 +46,26 @@ const sections = [
           </span>
           <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-5 leading-tight">
             Términos de Uso<br/>
-            <span class="text-green-400">&amp; Privacidad</span>
+            <span class="text-accent-dark">&amp; Privacidad</span>
           </h1>
           <p class="text-gray-400 text-lg leading-relaxed max-w-xl mx-auto">
             Al usar Agoramy / IAHub, aceptas estos términos en su totalidad. Léelos con atención antes de comenzar.
           </p>
           <div class="mt-8 flex flex-wrap justify-center gap-4 text-sm text-gray-500">
             <span class="flex items-center gap-1.5">
-              <svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg class="w-4 h-4 text-accent-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
               </svg>
               Última actualización: {lastUpdated}
             </span>
             <span class="flex items-center gap-1.5">
-              <svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg class="w-4 h-4 text-accent-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
               </svg>
               19 secciones
             </span>
             <span class="flex items-center gap-1.5">
-              <svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg class="w-4 h-4 text-accent-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
               </svg>
               Versión en Español
@@ -87,10 +87,10 @@ const sections = [
               {sections.map((s, i) => (
                 <a
                   href={`#${s.id}`}
-                  class="toc-link flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm text-gray-500 hover:text-green-600 hover:bg-green-50 transition-all group"
+                  class="toc-link flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm text-gray-500 hover:text-primary hover:bg-primary/5 transition-all group"
                   data-section={s.id}
                 >
-                  <span class="w-5 h-5 rounded-md bg-gray-100 group-hover:bg-green-100 flex items-center justify-center text-[10px] font-bold text-gray-400 group-hover:text-green-600 flex-shrink-0 transition-all">
+                  <span class="w-5 h-5 rounded-md bg-gray-100 group-hover:bg-primary/10 flex items-center justify-center text-[10px] font-bold text-gray-400 group-hover:text-primary flex-shrink-0 transition-all">
                     {i + 1}
                   </span>
                   <span class="leading-tight">{s.title}</span>
@@ -107,7 +107,7 @@ const sections = [
             <!-- 1. Introducción -->
             <section id="introduccion" class="scroll-mt-24">
               <div class="flex items-start gap-4 mb-6">
-                <span class="flex-shrink-0 w-10 h-10 rounded-xl bg-green-500 text-white text-sm font-bold flex items-center justify-center shadow-sm shadow-green-200">1</span>
+                <span class="flex-shrink-0 w-10 h-10 rounded-xl bg-primary text-white text-sm font-bold flex items-center justify-center shadow-sm shadow-primary/20">1</span>
                 <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 pt-1.5">Introducción</h2>
               </div>
               <div class="pl-14 space-y-4 text-gray-600 leading-relaxed">
@@ -128,7 +128,7 @@ const sections = [
             <!-- 2. Aceptación -->
             <section id="aceptacion" class="scroll-mt-24">
               <div class="flex items-start gap-4 mb-6">
-                <span class="flex-shrink-0 w-10 h-10 rounded-xl bg-green-500 text-white text-sm font-bold flex items-center justify-center shadow-sm shadow-green-200">2</span>
+                <span class="flex-shrink-0 w-10 h-10 rounded-xl bg-primary text-white text-sm font-bold flex items-center justify-center shadow-sm shadow-primary/20">2</span>
                 <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 pt-1.5">Aceptación de los Términos</h2>
               </div>
               <div class="pl-14 space-y-4 text-gray-600 leading-relaxed">
@@ -157,7 +157,7 @@ const sections = [
             <!-- 3. Descripción del Servicio -->
             <section id="descripcion" class="scroll-mt-24">
               <div class="flex items-start gap-4 mb-6">
-                <span class="flex-shrink-0 w-10 h-10 rounded-xl bg-green-500 text-white text-sm font-bold flex items-center justify-center shadow-sm shadow-green-200">3</span>
+                <span class="flex-shrink-0 w-10 h-10 rounded-xl bg-primary text-white text-sm font-bold flex items-center justify-center shadow-sm shadow-primary/20">3</span>
                 <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 pt-1.5">Descripción del Servicio</h2>
               </div>
               <div class="pl-14 space-y-4 text-gray-600 leading-relaxed">
@@ -191,7 +191,7 @@ const sections = [
             <!-- 4. Requisitos de Cuenta -->
             <section id="requisitos" class="scroll-mt-24">
               <div class="flex items-start gap-4 mb-6">
-                <span class="flex-shrink-0 w-10 h-10 rounded-xl bg-green-500 text-white text-sm font-bold flex items-center justify-center shadow-sm shadow-green-200">4</span>
+                <span class="flex-shrink-0 w-10 h-10 rounded-xl bg-primary text-white text-sm font-bold flex items-center justify-center shadow-sm shadow-primary/20">4</span>
                 <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 pt-1.5">Requisitos de Cuenta</h2>
               </div>
               <div class="pl-14 space-y-4 text-gray-600 leading-relaxed">
@@ -207,7 +207,7 @@ const sections = [
                     "Aceptar las políticas de uso de Meta y WhatsApp Business Platform de forma independiente.",
                   ].map(item => (
                     <li class="flex items-start gap-3">
-                      <svg class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <svg class="w-5 h-5 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
                       </svg>
                       <span class="text-sm">{item}</span>
@@ -225,7 +225,7 @@ const sections = [
             <!-- 5. Integración con Terceros -->
             <section id="terceros" class="scroll-mt-24">
               <div class="flex items-start gap-4 mb-6">
-                <span class="flex-shrink-0 w-10 h-10 rounded-xl bg-green-500 text-white text-sm font-bold flex items-center justify-center shadow-sm shadow-green-200">5</span>
+                <span class="flex-shrink-0 w-10 h-10 rounded-xl bg-primary text-white text-sm font-bold flex items-center justify-center shadow-sm shadow-primary/20">5</span>
                 <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 pt-1.5">Integración con Servicios de Terceros</h2>
               </div>
               <div class="pl-14 space-y-4 text-gray-600 leading-relaxed">
@@ -253,7 +253,7 @@ const sections = [
             <!-- 6. WhatsApp Business Platform -->
             <section id="whatsapp" class="scroll-mt-24">
               <div class="flex items-start gap-4 mb-6">
-                <span class="flex-shrink-0 w-10 h-10 rounded-xl bg-green-500 text-white text-sm font-bold flex items-center justify-center shadow-sm shadow-green-200">6</span>
+                <span class="flex-shrink-0 w-10 h-10 rounded-xl bg-primary text-white text-sm font-bold flex items-center justify-center shadow-sm shadow-primary/20">6</span>
                 <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 pt-1.5">Uso de WhatsApp Business Platform</h2>
               </div>
               <div class="pl-14 space-y-4 text-gray-600 leading-relaxed">
@@ -281,7 +281,7 @@ const sections = [
                     "Agoramy puede suspender el acceso a funcionalidades de WhatsApp si detecta uso que viole políticas de Meta o estas condiciones.",
                   ].map(item => (
                     <li class="flex items-start gap-3">
-                      <svg class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <svg class="w-5 h-5 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
                       </svg>
                       <span class="text-sm">{item}</span>
@@ -296,7 +296,7 @@ const sections = [
             <!-- 7. Anti-spam -->
             <section id="antispam" class="scroll-mt-24">
               <div class="flex items-start gap-4 mb-6">
-                <span class="flex-shrink-0 w-10 h-10 rounded-xl bg-green-500 text-white text-sm font-bold flex items-center justify-center shadow-sm shadow-green-200">7</span>
+                <span class="flex-shrink-0 w-10 h-10 rounded-xl bg-primary text-white text-sm font-bold flex items-center justify-center shadow-sm shadow-primary/20">7</span>
                 <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 pt-1.5">Políticas Anti-spam y Uso Indebido</h2>
               </div>
               <div class="pl-14 space-y-4 text-gray-600 leading-relaxed">
@@ -334,13 +334,13 @@ const sections = [
             <!-- 8. Consentimiento -->
             <section id="consentimiento" class="scroll-mt-24">
               <div class="flex items-start gap-4 mb-6">
-                <span class="flex-shrink-0 w-10 h-10 rounded-xl bg-green-500 text-white text-sm font-bold flex items-center justify-center shadow-sm shadow-green-200">8</span>
+                <span class="flex-shrink-0 w-10 h-10 rounded-xl bg-primary text-white text-sm font-bold flex items-center justify-center shadow-sm shadow-primary/20">8</span>
                 <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 pt-1.5">Responsabilidad sobre el Consentimiento de Mensajes</h2>
               </div>
               <div class="pl-14 space-y-4 text-gray-600 leading-relaxed">
-                <div class="bg-green-50 border border-green-200 rounded-xl p-5">
-                  <p class="font-semibold text-green-800 mb-2">Principio fundamental</p>
-                  <p class="text-green-700 text-sm">
+                <div class="bg-primary/5 border border-primary/30 rounded-xl p-5">
+                  <p class="font-semibold text-primary-hover mb-2">Principio fundamental</p>
+                  <p class="text-primary-hover text-sm">
                     El usuario de Agoramy es el <strong>único y exclusivo responsable</strong> de obtener, documentar y mantener el consentimiento previo, informado y verificable de cada destinatario antes de enviarle mensajes automatizados a través de la plataforma.
                   </p>
                 </div>
@@ -356,7 +356,7 @@ const sections = [
                     "Agoramy puede suspender preventivamente cuentas que reciban un número inusualmente alto de reportes de spam o quejas de destinatarios.",
                   ].map(item => (
                     <li class="flex items-start gap-3">
-                      <svg class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <svg class="w-5 h-5 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
                       </svg>
                       <span class="text-sm">{item}</span>
@@ -371,7 +371,7 @@ const sections = [
             <!-- 9. Privacidad -->
             <section id="privacidad" class="scroll-mt-24">
               <div class="flex items-start gap-4 mb-6">
-                <span class="flex-shrink-0 w-10 h-10 rounded-xl bg-green-500 text-white text-sm font-bold flex items-center justify-center shadow-sm shadow-green-200">9</span>
+                <span class="flex-shrink-0 w-10 h-10 rounded-xl bg-primary text-white text-sm font-bold flex items-center justify-center shadow-sm shadow-primary/20">9</span>
                 <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 pt-1.5">Privacidad y Protección de Datos</h2>
               </div>
               <div class="pl-14 space-y-4 text-gray-600 leading-relaxed">
@@ -391,7 +391,7 @@ const sections = [
                           <ul class="space-y-1">
                             {cat.items.map(i => (
                               <li class="text-xs text-gray-500 flex items-center gap-1.5">
-                                <span class="w-1 h-1 bg-green-400 rounded-full flex-shrink-0"></span>
+                                <span class="w-1 h-1 bg-primary rounded-full flex-shrink-0"></span>
                                 {i}
                               </li>
                             ))}
@@ -413,7 +413,7 @@ const sections = [
                         "Comunicaciones sobre actualizaciones, cambios en el servicio y notificaciones operativas.",
                       ].map(item => (
                         <li class="flex items-start gap-2.5">
-                          <svg class="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <svg class="w-4 h-4 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
                           </svg>
                           {item}
@@ -427,7 +427,7 @@ const sections = [
                     <p class="text-sm text-gray-600 mb-2">De acuerdo con la Ley Federal de Protección de Datos Personales en Posesión de los Particulares (México), tienes derecho de <strong>Acceso, Rectificación, Cancelación y Oposición</strong> al tratamiento de tus datos personales.</p>
                     <p class="text-sm text-gray-600">
                       Para ejercer estos derechos o solicitar la <strong>eliminación de tu cuenta y datos</strong>, escríbenos a:
-                      <a href={`mailto:${contactEmail}`} class="text-green-600 font-semibold hover:underline ml-1">{contactEmail}</a>
+                      <a href={`mailto:${contactEmail}`} class="text-primary font-semibold hover:underline ml-1">{contactEmail}</a>
                     </p>
                   </div>
                 </div>
@@ -439,7 +439,7 @@ const sections = [
             <!-- 10. Almacenamiento -->
             <section id="almacenamiento" class="scroll-mt-24">
               <div class="flex items-start gap-4 mb-6">
-                <span class="flex-shrink-0 w-10 h-10 rounded-xl bg-green-500 text-white text-sm font-bold flex items-center justify-center shadow-sm shadow-green-200">10</span>
+                <span class="flex-shrink-0 w-10 h-10 rounded-xl bg-primary text-white text-sm font-bold flex items-center justify-center shadow-sm shadow-primary/20">10</span>
                 <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 pt-1.5">Almacenamiento y Procesamiento de Conversaciones</h2>
               </div>
               <div class="pl-14 space-y-4 text-gray-600 leading-relaxed">
@@ -457,7 +457,7 @@ const sections = [
                     "Los modelos de IA de Agoramy pueden procesar el contenido de conversaciones para mejorar la funcionalidad de chatbots, de forma anonimizada y conforme a las políticas de privacidad.",
                   ].map(item => (
                     <li class="flex items-start gap-3">
-                      <svg class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <svg class="w-5 h-5 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
                       </svg>
                       <span class="text-sm">{item}</span>
@@ -472,7 +472,7 @@ const sections = [
             <!-- 11. Suspensión -->
             <section id="suspension" class="scroll-mt-24">
               <div class="flex items-start gap-4 mb-6">
-                <span class="flex-shrink-0 w-10 h-10 rounded-xl bg-green-500 text-white text-sm font-bold flex items-center justify-center shadow-sm shadow-green-200">11</span>
+                <span class="flex-shrink-0 w-10 h-10 rounded-xl bg-primary text-white text-sm font-bold flex items-center justify-center shadow-sm shadow-primary/20">11</span>
                 <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 pt-1.5">Suspensión o Cancelación de Cuentas</h2>
               </div>
               <div class="pl-14 space-y-4 text-gray-600 leading-relaxed">
@@ -508,7 +508,7 @@ const sections = [
             <!-- 12. Limitación de Responsabilidad -->
             <section id="responsabilidad" class="scroll-mt-24">
               <div class="flex items-start gap-4 mb-6">
-                <span class="flex-shrink-0 w-10 h-10 rounded-xl bg-green-500 text-white text-sm font-bold flex items-center justify-center shadow-sm shadow-green-200">12</span>
+                <span class="flex-shrink-0 w-10 h-10 rounded-xl bg-primary text-white text-sm font-bold flex items-center justify-center shadow-sm shadow-primary/20">12</span>
                 <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 pt-1.5">Limitación de Responsabilidad</h2>
               </div>
               <div class="pl-14 space-y-4 text-gray-600 leading-relaxed">
@@ -539,7 +539,7 @@ const sections = [
             <!-- 13. Disponibilidad -->
             <section id="disponibilidad" class="scroll-mt-24">
               <div class="flex items-start gap-4 mb-6">
-                <span class="flex-shrink-0 w-10 h-10 rounded-xl bg-green-500 text-white text-sm font-bold flex items-center justify-center shadow-sm shadow-green-200">13</span>
+                <span class="flex-shrink-0 w-10 h-10 rounded-xl bg-primary text-white text-sm font-bold flex items-center justify-center shadow-sm shadow-primary/20">13</span>
                 <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 pt-1.5">Disponibilidad del Servicio</h2>
               </div>
               <div class="pl-14 space-y-4 text-gray-600 leading-relaxed">
@@ -574,7 +574,7 @@ const sections = [
             <!-- 14. Propiedad Intelectual -->
             <section id="propiedad" class="scroll-mt-24">
               <div class="flex items-start gap-4 mb-6">
-                <span class="flex-shrink-0 w-10 h-10 rounded-xl bg-green-500 text-white text-sm font-bold flex items-center justify-center shadow-sm shadow-green-200">14</span>
+                <span class="flex-shrink-0 w-10 h-10 rounded-xl bg-primary text-white text-sm font-bold flex items-center justify-center shadow-sm shadow-primary/20">14</span>
                 <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 pt-1.5">Propiedad Intelectual</h2>
               </div>
               <div class="pl-14 space-y-4 text-gray-600 leading-relaxed">
@@ -611,7 +611,7 @@ const sections = [
             <!-- 15. Facturación -->
             <section id="facturacion" class="scroll-mt-24">
               <div class="flex items-start gap-4 mb-6">
-                <span class="flex-shrink-0 w-10 h-10 rounded-xl bg-green-500 text-white text-sm font-bold flex items-center justify-center shadow-sm shadow-green-200">15</span>
+                <span class="flex-shrink-0 w-10 h-10 rounded-xl bg-primary text-white text-sm font-bold flex items-center justify-center shadow-sm shadow-primary/20">15</span>
                 <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 pt-1.5">Facturación y Pagos</h2>
               </div>
               <div class="pl-14 space-y-4 text-gray-600 leading-relaxed">
@@ -626,7 +626,7 @@ const sections = [
                     "Los pagos deben realizarse mediante los métodos aceptados en la Plataforma. El usuario es responsable de mantener métodos de pago válidos y actualizados.",
                   ].map(item => (
                     <li class="flex items-start gap-3">
-                      <svg class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <svg class="w-5 h-5 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
                       </svg>
                       <span class="text-sm">{item}</span>
@@ -641,7 +641,7 @@ const sections = [
             <!-- 16. Terminación -->
             <section id="terminacion" class="scroll-mt-24">
               <div class="flex items-start gap-4 mb-6">
-                <span class="flex-shrink-0 w-10 h-10 rounded-xl bg-green-500 text-white text-sm font-bold flex items-center justify-center shadow-sm shadow-green-200">16</span>
+                <span class="flex-shrink-0 w-10 h-10 rounded-xl bg-primary text-white text-sm font-bold flex items-center justify-center shadow-sm shadow-primary/20">16</span>
                 <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 pt-1.5">Terminación del Servicio</h2>
               </div>
               <div class="pl-14 space-y-4 text-gray-600 leading-relaxed">
@@ -673,7 +673,7 @@ const sections = [
             <!-- 17. Cambios en los Términos -->
             <section id="cambios" class="scroll-mt-24">
               <div class="flex items-start gap-4 mb-6">
-                <span class="flex-shrink-0 w-10 h-10 rounded-xl bg-green-500 text-white text-sm font-bold flex items-center justify-center shadow-sm shadow-green-200">17</span>
+                <span class="flex-shrink-0 w-10 h-10 rounded-xl bg-primary text-white text-sm font-bold flex items-center justify-center shadow-sm shadow-primary/20">17</span>
                 <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 pt-1.5">Cambios en los Términos</h2>
               </div>
               <div class="pl-14 space-y-4 text-gray-600 leading-relaxed">
@@ -702,7 +702,7 @@ const sections = [
             <!-- 18. Legislación -->
             <section id="legislacion" class="scroll-mt-24">
               <div class="flex items-start gap-4 mb-6">
-                <span class="flex-shrink-0 w-10 h-10 rounded-xl bg-green-500 text-white text-sm font-bold flex items-center justify-center shadow-sm shadow-green-200">18</span>
+                <span class="flex-shrink-0 w-10 h-10 rounded-xl bg-primary text-white text-sm font-bold flex items-center justify-center shadow-sm shadow-primary/20">18</span>
                 <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 pt-1.5">Legislación Aplicable</h2>
               </div>
               <div class="pl-14 space-y-4 text-gray-600 leading-relaxed">
@@ -732,7 +732,7 @@ const sections = [
             <!-- 19. Contacto -->
             <section id="contacto" class="scroll-mt-24">
               <div class="flex items-start gap-4 mb-6">
-                <span class="flex-shrink-0 w-10 h-10 rounded-xl bg-green-500 text-white text-sm font-bold flex items-center justify-center shadow-sm shadow-green-200">19</span>
+                <span class="flex-shrink-0 w-10 h-10 rounded-xl bg-primary text-white text-sm font-bold flex items-center justify-center shadow-sm shadow-primary/20">19</span>
                 <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 pt-1.5">Contacto</h2>
               </div>
               <div class="pl-14 space-y-4 text-gray-600 leading-relaxed">
@@ -741,8 +741,8 @@ const sections = [
                 </p>
                 <div class="bg-gray-950 rounded-2xl p-6 sm:p-8">
                   <div class="flex items-center gap-3 mb-6">
-                    <div class="w-10 h-10 bg-green-500/10 rounded-xl flex items-center justify-center">
-                      <svg class="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div class="w-10 h-10 bg-accent-dark/10 rounded-xl flex items-center justify-center">
+                      <svg class="w-5 h-5 text-accent-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                       </svg>
                     </div>
@@ -753,16 +753,16 @@ const sections = [
                   </div>
                   <div class="space-y-3">
                     <div class="flex items-center gap-3 p-3 bg-white/5 rounded-xl">
-                      <svg class="w-4 h-4 text-green-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <svg class="w-4 h-4 text-accent-dark flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                       </svg>
                       <div>
                         <p class="text-gray-400 text-xs">Correo electrónico</p>
-                        <a href={`mailto:${contactEmail}`} class="text-white font-medium hover:text-green-400 transition-colors">{contactEmail}</a>
+                        <a href={`mailto:${contactEmail}`} class="text-white font-medium hover:text-accent-dark transition-colors">{contactEmail}</a>
                       </div>
                     </div>
                     <div class="flex items-center gap-3 p-3 bg-white/5 rounded-xl">
-                      <svg class="w-4 h-4 text-green-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <svg class="w-4 h-4 text-accent-dark flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                       </svg>
@@ -772,7 +772,7 @@ const sections = [
                       </div>
                     </div>
                     <div class="flex items-center gap-3 p-3 bg-white/5 rounded-xl">
-                      <svg class="w-4 h-4 text-green-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <svg class="w-4 h-4 text-accent-dark flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
                       </svg>
                       <div>
@@ -932,7 +932,7 @@ const sections = [
                       </ul>
                       <p>
                         Para ejercer estos derechos, contacta a:
-                        <a href={`mailto:${contactEmail}`} class="text-green-600 font-semibold hover:underline ml-1">{contactEmail}</a>
+                        <a href={`mailto:${contactEmail}`} class="text-primary font-semibold hover:underline ml-1">{contactEmail}</a>
                       </p>
                     </div>
                   </div>
@@ -1017,7 +1017,7 @@ const sections = [
               </a>
               <a
                 href={`mailto:${contactEmail}`}
-                class="inline-flex items-center gap-2 px-6 py-3 bg-green-500 text-white font-semibold rounded-xl hover:bg-green-600 hover:shadow-lg hover:shadow-green-500/20 transition-all text-sm"
+                class="inline-flex items-center gap-2 px-6 py-3 bg-primary text-white font-semibold rounded-xl hover:bg-primary-hover hover:shadow-lg hover:shadow-primary/20 transition-all text-sm"
               >
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
@@ -1061,9 +1061,9 @@ const sections = [
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           tocLinks.forEach(link => {
-            link.classList.remove('text-green-600', 'bg-green-50', 'font-medium');
+            link.classList.remove('text-primary', 'bg-primary/5', 'font-medium');
             if (link.getAttribute('data-section') === entry.target.id) {
-              link.classList.add('text-green-600', 'bg-green-50', 'font-medium');
+              link.classList.add('text-primary', 'bg-primary/5', 'font-medium');
             }
           });
         }

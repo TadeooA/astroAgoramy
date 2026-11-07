@@ -35,7 +35,7 @@ function currentState(href: string) {
         <span
           id="nav-hover"
           aria-hidden="true"
-          class="absolute inset-y-0 left-0 rounded-md bg-green-500/10 opacity-0 pointer-events-none transition-[transform,width,opacity] duration-200 ease-out motion-reduce:transition-none"
+          class="absolute inset-y-0 left-0 rounded-md bg-primary/10 opacity-0 pointer-events-none transition-[transform,width,opacity] duration-200 ease-out motion-reduce:transition-none"
         ></span>
         {links.map((link) => {
           const current = currentState(link.href);
@@ -44,9 +44,9 @@ function currentState(href: string) {
               href={link.href}
               aria-current={current}
               class:list={[
-                'relative z-10 px-4 py-2 transition-colors font-medium hover:text-green-600',
+                'relative z-10 px-4 py-2 transition-colors font-medium hover:text-primary',
                 current
-                  ? "text-green-600 after:absolute after:inset-x-4 after:bottom-0 after:h-0.5 after:rounded-full after:bg-green-500 after:content-['']"
+                  ? "text-primary after:absolute after:inset-x-4 after:bottom-0 after:h-0.5 after:rounded-full after:bg-primary after:content-['']"
                   : 'text-gray-700',
               ]}
             >
@@ -61,7 +61,7 @@ function currentState(href: string) {
 
         <a
           href="/product"
-          class="bg-green-500 text-white px-6 py-2 rounded-lg hover:bg-green-600 hover:shadow-lg hover:shadow-green-500/30 transition-all font-medium"
+          class="bg-primary text-white px-6 py-2 rounded-lg hover:bg-primary-hover hover:shadow-lg hover:shadow-primary/30 transition-all font-medium"
         >
           Registrarse
         </a>
@@ -102,8 +102,8 @@ function currentState(href: string) {
               href={link.href}
               aria-current={current}
               class:list={[
-                'hover:text-green-500 transition-colors font-medium py-2',
-                current ? 'text-green-600 border-s-2 border-green-500 ps-3' : 'text-gray-700',
+                'hover:text-primary transition-colors font-medium py-2',
+                current ? 'text-primary border-s-2 border-primary ps-3' : 'text-gray-700',
               ]}
             >
               {link.label}
@@ -114,7 +114,7 @@ function currentState(href: string) {
 
           <a
             href="/product"
-            class="text-center bg-green-500 text-white px-6 py-2 rounded-lg hover:bg-green-600 transition-all font-medium"
+            class="text-center bg-primary text-white px-6 py-2 rounded-lg hover:bg-primary-hover transition-all font-medium"
           >
             Registrarse
           </a>

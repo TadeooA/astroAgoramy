@@ -2,7 +2,11 @@
 @plugin "@tailwindcss/forms";
 
 @theme {
-  --color-primary: #22c55e;
+  --color-primary: #2563eb;
+  --color-primary-hover: #1d4ed8;
+  /* En secciones oscuras el acento de marca no es azul */
+  --color-accent-dark: #d7dde8;
+  --color-accent-dark-foreground: #22262d;
   --font-body: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
   --font-sans: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;

@@ -28,7 +28,7 @@ export default function SwiperSlider({ images }: SwiperSliderProps) {
             <div className="absolute inset-0 flex items-center justify-center">
               <a
                 href="#"
-                className="sm:h-14 h-10 sm:w-14 w-10 rounded-full bg-green-500 flex items-center justify-center"
+                className="sm:h-14 h-10 sm:w-14 w-10 rounded-full bg-primary flex items-center justify-center"
               >
                 <svg
                   className="h-5 w-5 fill-white"

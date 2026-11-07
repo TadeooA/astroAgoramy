@@ -34,7 +34,7 @@ import overview from '../../assets/images/plans/planesw.webp';
           <div>
             <div
               class={dark
-                ? 'h-full flex flex-col overflow-hidden bg-gradient-to-b from-gray-900 to-gray-800 ring-1 ring-green-500/30 rounded-xl hover:shadow-[0_0_2.5rem_0_rgba(34,197,94,.2)] transition-all duration-300'
+                ? 'h-full flex flex-col overflow-hidden bg-gradient-to-b from-gray-900 to-gray-800 ring-1 ring-accent-dark/30 rounded-xl hover:shadow-[0_0_2.5rem_0_rgba(215,221,232,.2)] transition-all duration-300'
                 : 'h-full flex flex-col overflow-hidden border rounded hover:shadow-lg'}
             >
               <img
@@ -48,7 +48,7 @@ import overview from '../../assets/images/plans/planesw.webp';
               <div class="p-6 flex flex-col flex-1">
                 {dark && (
                   <div class="text-center mb-3">
-                    <span class="text-xs font-medium bg-green-500/20 text-green-400 px-3 py-1 rounded-full">Popular</span>
+                    <span class="text-xs font-medium bg-accent-dark/20 text-accent-dark px-3 py-1 rounded-full">Popular</span>
                   </div>
                 )}
                 <h4 class={`text-lg font-semibold text-center ${dark ? 'text-violet-300' : plan.accent}`}>
@@ -75,7 +75,7 @@ import overview from '../../assets/images/plans/planesw.webp';
                 <div class="grid gap-y-3 mt-4 text-sm">
                   {plan.features.map((feature) => (
                     <div class="flex items-start gap-2">
-                      <svg class={`w-5 h-5 flex-shrink-0 ${dark ? 'text-green-400' : 'text-green-500'}`} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <svg class={`w-5 h-5 flex-shrink-0 ${dark ? 'text-accent-dark' : 'text-primary'}`} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <polyline points="20 6 9 17 4 12"></polyline>
                       </svg>
                       <span class={`text-left ${dark ? 'text-gray-300' : ''}`}>{feature}</span>
@@ -95,7 +95,7 @@ import overview from '../../assets/images/plans/planesw.webp';
                   <a
                     href={plan.cta.href}
                     class={dark
-                      ? 'py-3 px-6 flex items-center justify-center rounded-lg bg-green-500 text-white hover:bg-green-400 hover:shadow-lg hover:shadow-green-500/40 transition-all duration-300'
+                      ? 'py-3 px-6 flex items-center justify-center rounded-lg bg-accent-dark text-accent-dark-foreground hover:bg-white hover:shadow-lg hover:shadow-accent-dark/30 transition-all duration-300'
                       : 'py-3 px-6 flex items-center justify-center rounded hover:border hover:border-primary/50 text-primary bg-primary/10 transition-all duration-500'}
                   >
                     {plan.cta.label}
