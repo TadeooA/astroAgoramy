@@ -1,7 +1,7 @@
+import { useEffect, useRef } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay } from 'swiper/modules';
+import type { Swiper as SwiperInstance } from 'swiper';
 import 'swiper/css';
-import 'swiper/css/autoplay';
 
 interface SwiperSliderProps {
   images: {
@@ -12,15 +12,26 @@ interface SwiperSliderProps {
 }
 
 export default function SwiperSlider({ images }: SwiperSliderProps) {
+  const swiper = useRef<SwiperInstance | null>(null);
+
+  // La animación del titular de Hero.astro indica qué fachada mostrar.
+  useEffect(() => {
+    const showSlide = (event: Event) => {
+      swiper.current?.slideToLoop((event as CustomEvent<number>).detail);
+    };
+    document.addEventListener('hero:sector', showSlide);
+    return () => document.removeEventListener('hero:sector', showSlide);
+  }, []);
+
   return (
     <Swiper
-      modules={[Autoplay]}
-      autoplay={{
-        delay: 2500,
-        disableOnInteraction: false,
+      onSwiper={(instance) => {
+        swiper.current = instance;
       }}
+      allowTouchMove={false}
+      speed={1200}
       loop={true}
-      className="border-[6px] border-white bg-white xl:w-[130%] 2xl:w-[140%]"
+      className="border-[6px] border-white bg-white"
     >
       {images.map((image, index) => (
         <SwiperSlide key={index}>
