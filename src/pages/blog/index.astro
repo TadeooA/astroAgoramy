@@ -89,7 +89,7 @@ const tagIdle = 'border-gray-300 text-gray-700';
 		filter?.querySelectorAll<HTMLButtonElement>('[data-tag]') ?? []
 	);
 
-	const ACTIVE = ['bg-green-500', 'text-white', 'border-green-500'];
+	const ACTIVE = ['bg-primary', 'text-white', 'border-primary'];
 	const IDLE = ['border-gray-300', 'text-gray-700'];
 
 	const known = new Set(buttons.map((b) => b.dataset.tag));
@@ -113,7 +113,7 @@ const tagIdle = 'border-gray-300 text-gray-700';
 
 		for (const button of buttons) {
 			const on = button.dataset.tag === tag;
-			button.classList.toggle('bg-green-500', on);
+			button.classList.toggle('bg-primary', on);
 			button.classList.remove(...(on ? IDLE : ACTIVE));
 			button.classList.add(...(on ? ACTIVE : IDLE));
 			button.setAttribute('aria-pressed', String(on));

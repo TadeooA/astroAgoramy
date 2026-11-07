@@ -30,7 +30,7 @@ const SubscriptionForm = () => {
       particleCount: 150,
       spread: 120,
       origin: { y: 0.5 },
-      colors: ['#10b981', '#3b82f6', '#8b5cf6', '#ec4899', '#f59e0b']
+      colors: ['#2563eb', '#3b82f6', '#8b5cf6', '#ec4899', '#f59e0b']
     })
 
     const interval: any = setInterval(() => {
@@ -47,7 +47,7 @@ const SubscriptionForm = () => {
         ...defaults,
         particleCount,
         origin: { x: randomInRange(0, 0.2), y: Math.random() * 0.5 },
-        colors: ['#10b981', '#3b82f6', '#8b5cf6']
+        colors: ['#2563eb', '#3b82f6', '#8b5cf6']
       })
 
       // Confeti desde la derecha
@@ -55,7 +55,7 @@ const SubscriptionForm = () => {
         ...defaults,
         particleCount,
         origin: { x: randomInRange(0.8, 1), y: Math.random() * 0.5 },
-        colors: ['#ec4899', '#f59e0b', '#10b981']
+        colors: ['#ec4899', '#f59e0b', '#2563eb']
       })
 
       // Confeti desde arriba centro
@@ -132,13 +132,13 @@ const SubscriptionForm = () => {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           placeholder="tu@email.com"
-          className="flex-1 px-5 py-3 border border-gray-300 rounded-lg text-gray-900 placeholder-gray-400 focus:outline-none focus:border-green-500 focus:ring-2 focus:ring-green-500/20 bg-white text-base transition-all"
+          className="flex-1 px-5 py-3 border border-gray-300 rounded-lg text-gray-900 placeholder-gray-400 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 bg-white text-base transition-all"
           required
         />
         <button
           type="submit"
           disabled={isSubmitting || !turnstileToken}
-          className="px-7 py-3 bg-green-500 text-white text-sm font-semibold rounded-lg hover:bg-green-600 hover:shadow-lg hover:shadow-green-500/30 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap"
+          className="px-7 py-3 bg-primary text-white text-sm font-semibold rounded-lg hover:bg-primary-hover hover:shadow-lg hover:shadow-primary/30 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap"
         >
           {isSubmitting ? 'Procesando...' : 'Apuntarme a la lista'}
         </button>
@@ -149,12 +149,12 @@ const SubscriptionForm = () => {
           type="checkbox"
           checked={acceptPrivacy}
           onChange={(e) => setAcceptPrivacy(e.target.checked)}
-          className="mt-1 rounded border-gray-300 text-green-500 focus:ring-green-500"
+          className="mt-1 rounded border-gray-300 text-primary focus:ring-primary"
           required
         />
         <label htmlFor="product-privacy-checkbox" className="text-sm text-gray-600">
           Acepto el{' '}
-          <a href="/privacy/" className="text-green-500 hover:underline">
+          <a href="/privacy/" className="text-primary hover:underline">
             manejo de mis datos y las políticas de privacidad
           </a>
         </label>

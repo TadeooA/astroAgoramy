@@ -104,7 +104,7 @@ const ContactUs = () => {
                         <input
                           id="fname"
                           type="text"
-                          className="py-2 px-4 leading-6 block w-full border border-gray-300 rounded text-sm focus:border-green-500 focus:ring-0"
+                          className="py-2 px-4 leading-6 block w-full border border-gray-300 rounded text-sm focus:border-primary focus:ring-0"
                           placeholder="Tu Nombre"
                           {...register('fname')}
                         />
@@ -123,7 +123,7 @@ const ContactUs = () => {
                         <input
                           id="lname"
                           type="text"
-                          className="py-2 px-4 leading-6 block w-full border border-gray-300 rounded text-sm focus:border-green-500 focus:ring-0"
+                          className="py-2 px-4 leading-6 block w-full border border-gray-300 rounded text-sm focus:border-primary focus:ring-0"
                           placeholder="Tu Apellido"
                           {...register('lname')}
                         />
@@ -143,7 +143,7 @@ const ContactUs = () => {
                       <input
                         id="email"
                         type="email"
-                        className="py-2 px-4 leading-6 block w-full border border-gray-300 rounded text-sm focus:border-green-500 focus:ring-0"
+                        className="py-2 px-4 leading-6 block w-full border border-gray-300 rounded text-sm focus:border-primary focus:ring-0"
                         placeholder="Tu Correo Electrónico"
                         {...register('email')}
                       />
@@ -160,7 +160,7 @@ const ContactUs = () => {
                       <input
                         id="phone"
                         type="tel"
-                        className="py-2 px-4 leading-6 block w-full border border-gray-300 rounded text-sm focus:border-green-500 focus:ring-0"
+                        className="py-2 px-4 leading-6 block w-full border border-gray-300 rounded text-sm focus:border-primary focus:ring-0"
                         placeholder="Tu Teléfono"
                         {...register('phone')}
                       />
@@ -176,7 +176,7 @@ const ContactUs = () => {
                       </label>
                       <textarea
                         id="message"
-                        className="py-2 px-4 leading-6 block w-full border border-gray-300 rounded text-sm focus:border-green-500 focus:ring-0"
+                        className="py-2 px-4 leading-6 block w-full border border-gray-300 rounded text-sm focus:border-primary focus:ring-0"
                         placeholder="Escribe tu Mensaje..."
                         rows={4}
                         {...register('message')}
@@ -195,12 +195,12 @@ const ContactUs = () => {
                         type="checkbox"
                         checked={acceptPrivacy}
                         onChange={(e) => setAcceptPrivacy(e.target.checked)}
-                        className="mt-1 rounded border-gray-300 text-green-500 focus:ring-green-500"
+                        className="mt-1 rounded border-gray-300 text-primary focus:ring-primary"
                         required
                       />
                       <label htmlFor="contact-privacy-checkbox" className="text-sm text-gray-600">
                         Acepto el{' '}
-                        <a href="/privacy/" className="text-green-500 hover:underline">
+                        <a href="/privacy/" className="text-primary hover:underline">
                           manejo de mis datos y las políticas de privacidad
                         </a>
                       </label>
@@ -335,9 +335,9 @@ const ContactUs = () => {
             </div>
           </div>
           <div className="flex mb-3">
-            <span className="flex items-center justify-center w-12 h-12 bg-teal-500/20 rounded-lg relative me-4 shrink-0">
+            <span className="flex items-center justify-center w-12 h-12 bg-primary/20 rounded-lg relative me-4 shrink-0">
               <svg
-                className="w-7 h-7 text-teal-500"
+                className="w-7 h-7 text-primary"
                 viewBox="0 0 24 24"
                 version="1.1"
                 xmlns="http://www.w3.org/2000/svg"

@@ -328,7 +328,7 @@ const post3: Post[] = [
 const tagClasses: Record<string, string> = {
 	Anuncio: 'bg-orange-500/10 text-orange-600',
 	Negocios: 'bg-blue-500/10 text-blue-600',
-	Tutorial: 'bg-green-500/10 text-green-600',
+	Tutorial: 'bg-primary/10 text-primary',
 }
 
 const tagClass = (tag: string) => tagClasses[tag] ?? 'bg-gray-500/10 text-gray-600'
