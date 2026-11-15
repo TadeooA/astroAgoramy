@@ -18,9 +18,16 @@ interface Props {
   mask?: string;
   /** Fondo fijo de toda la ventana (detrás de toda la página) en vez de llenar su contenedor. */
   fixed?: boolean;
+  /**
+   * Zona con menos puntos (detrás del texto): elipse con centro `x`,`y` y radios
+   * `rx`,`ry` en fracciones del contenedor (y desde arriba). `amount` = cuánto
+   * se reduce la densidad (0-1).
+   */
+  clear?: { x: number; y: number; rx: number; ry: number; amount?: number };
 }
 
-const { color = '#2563eb', opacity = 0.55, brightness = -0.5, dot = 4, mask, fixed = false } = Astro.props;
+const { color = '#2563eb', opacity = 0.55, brightness = -0.5, dot = 4, mask, fixed = false, clear } = Astro.props;
+const clearAttr = clear ? [clear.x, clear.y, clear.rx, clear.ry, clear.amount ?? 0.6].join(',') : undefined;
 ---
 
 <div class:list={['dither-bg', { 'dither-bg--fixed': fixed }]} aria-hidden="true" style={mask ? `mask-image:${mask};-webkit-mask-image:${mask}` : undefined}>
@@ -29,6 +36,7 @@ const { color = '#2563eb', opacity = 0.55, brightness = -0.5, dot = 4, mask, fix
     data-opacity={opacity}
     data-brightness={brightness}
     data-dot={dot}
+    data-clear={clearAttr}
   ></canvas>
 </div>
 
@@ -67,6 +75,8 @@ const { color = '#2563eb', opacity = 0.55, brightness = -0.5, dot = 4, mask, fix
     uniform vec3 uColor;
     uniform float uOpacity;
     uniform float uBrightness;
+    uniform vec4 uClear;          // elipse con menos puntos: centro xy, radios zw (0-1)
+    uniform float uClearAmount;
     uniform vec2 uClicks[${MAX_CLICKS}];   // posición en puntos
     uniform float uClickTimes[${MAX_CLICKS}];
 
@@ -123,6 +133,13 @@ const { color = '#2563eb', opacity = 0.55, brightness = -0.5, dot = 4, mask, fix
 
       float v = (n + 1.0) * 0.5 + waves;
       v = (v - 0.5) * 1.2 + 0.5 + uBrightness + waves * 0.5;
+
+      // Menos puntos dentro de la elipse, con borde suave.
+      if (uClearAmount > 0.0) {
+        vec2 p = vec2(fc.x / uRes.x, 1.0 - fc.y / uRes.y);
+        float e = length((p - uClear.xy) / uClear.zw);
+        v -= uClearAmount * (1.0 - smoothstep(0.55, 1.0, e));
+      }
       v = clamp(v, 0.0, 1.0);
 
       float on = step(0.5, v + 0.5 * (bayer8(fc) - 0.5));
@@ -178,6 +195,14 @@ const { color = '#2563eb', opacity = 0.55, brightness = -0.5, dot = 4, mask, fix
     gl.uniform1f(u('uOpacity'), Number(canvas.dataset.opacity ?? 0.35));
     gl.uniform1f(u('uBrightness'), Number(canvas.dataset.brightness ?? -0.6));
     const dot = Math.max(1, Number(canvas.dataset.dot ?? 4));
+    const clear = (canvas.dataset.clear ?? '').split(',').map(Number);
+    if (clear.length === 5 && clear.every(Number.isFinite)) {
+      gl.uniform4f(u('uClear'), clear[0], clear[1], clear[2], clear[3]);
+      gl.uniform1f(u('uClearAmount'), clear[4]);
+    } else {
+      gl.uniform4f(u('uClear'), 0.5, 0.5, 1, 1);
+      gl.uniform1f(u('uClearAmount'), 0);
+    }
 
     const clicks = new Float32Array(MAX_CLICKS * 2);
     const clickTimes = new Float32Array(MAX_CLICKS).fill(-1e3);
