@@ -16,12 +16,14 @@ interface Props {
   dot?: number;
   /** `mask-image` CSS opcional para desvanecer el efecto en zonas (p. ej. detrás del texto). */
   mask?: string;
+  /** Fondo fijo de toda la ventana (detrás de toda la página) en vez de llenar su contenedor. */
+  fixed?: boolean;
 }
 
-const { color = '#2563eb', opacity = 0.35, brightness = -0.5, dot = 4, mask } = Astro.props;
+const { color = '#2563eb', opacity = 0.55, brightness = -0.5, dot = 4, mask, fixed = false } = Astro.props;
 ---
 
-<div class="dither-bg" aria-hidden="true" style={mask ? `mask-image:${mask};-webkit-mask-image:${mask}` : undefined}>
+<div class:list={['dither-bg', { 'dither-bg--fixed': fixed }]} aria-hidden="true" style={mask ? `mask-image:${mask};-webkit-mask-image:${mask}` : undefined}>
   <canvas
     data-color={color}
     data-opacity={opacity}
@@ -36,6 +38,10 @@ const { color = '#2563eb', opacity = 0.35, brightness = -0.5, dot = 4, mask } = 
     inset: 0;
     overflow: hidden;
     pointer-events: none;
+  }
+  .dither-bg--fixed {
+    position: fixed;
+    z-index: -1;
   }
   .dither-bg canvas {
     display: block;
@@ -214,10 +220,14 @@ const { color = '#2563eb', opacity = 0.35, brightness = -0.5, dot = 4, mask } = 
     }
 
     // Ondas al hacer clic en el contenedor (el canvas no recibe eventos).
-    const host = canvas.parentElement!.parentElement ?? document.body;
+    const wrapper = canvas.parentElement!;
+    const host = wrapper.classList.contains('dither-bg--fixed')
+      ? document
+      : (wrapper.parentElement ?? document);
     host.addEventListener(
       'pointerdown',
-      (e) => {
+      (ev) => {
+        const e = ev as PointerEvent;
         if (reduceMotion.matches) return;
         const r = canvas.getBoundingClientRect();
         clicks[nextClick * 2] = (e.clientX - r.left) / dot;
