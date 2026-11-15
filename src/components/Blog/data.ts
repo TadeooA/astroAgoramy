@@ -145,7 +145,7 @@ const post1: Post[] = [
 				<p class="font-semibold text-gray-700 mb-1">Actualización</p>
 				<p class="text-gray-600">Los 1,000 lugares de esta ronda ya se agotaron. Seguimos recibiendo registros: quien se apunte a la lista entra con descuento u otra oferta de lanzamiento cuando abramos lugar.</p>
 			</div>
-			<p class="mb-4">Agoramy POS ya está en operación. No es un anuncio de algo que viene: hay farmacias, ferreterías y tiendas cobrando, facturando y llevando su inventario con el sistema todos los días.</p>
+			<p class="mb-4">El punto de venta de Agoramy ya está en operación. No es un anuncio de algo que viene: hay farmacias, ferreterías y tiendas cobrando, facturando y llevando su inventario con el sistema todos los días.</p>
 			<p class="mb-4">Al mismo tiempo, seguimos en fase de pruebas. Publicamos mejoras cada semana y hay módulos que todavía estamos afinando con los negocios que ya lo usan. Preferimos decirlo así, con todas sus letras, que vender un producto terminado que no lo está.</p>
 
 			<h2 class="text-2xl font-bold mb-3 mt-6">Seis meses sin costo durante la beta</h2>
@@ -258,7 +258,7 @@ const post2: Post[] = [
 		description:
 			'Para quién es, qué necesitas para usarlo, cuánto cuesta y qué soporte incluye: lo esencial antes de tomar tu decisión.',
 		content: `
-			<p class="mb-4">Antes de elegir un sistema POS para tu negocio, es importante conocer todos los detalles. Aquí te compartimos todo lo que necesitas saber sobre Agoramy.</p>
+			<p class="mb-4">Antes de elegir un sistema de punto de venta para tu negocio, es importante conocer todos los detalles. Aquí te compartimos todo lo que necesitas saber sobre Agoramy.</p>
 			<h2 class="text-2xl font-bold mb-3 mt-6">¿Para quién es Agoramy?</h2>
 			<p class="mb-4">Agoramy es un solo sistema para farmacias, ferreterías y tiendas en México, desde pequeños negocios hasta cadenas medianas. Al dar de alta tu negocio eliges el giro y se activa el módulo que necesitas.</p>
 			<h2 class="text-2xl font-bold mb-3 mt-6">Requisitos Técnicos</h2>
@@ -302,7 +302,7 @@ const post2: Post[] = [
 			<h2 class="text-2xl font-bold mb-3 mt-6">Método PEPS (Primeras Entradas, Primeras Salidas)</h2>
 			<p class="mb-4">Usa este método para rotar tu inventario y evitar que la mercancía se quede parada o caduque. Los productos que llegaron primero deben venderse primero.</p>
 			<h2 class="text-2xl font-bold mb-3 mt-6">Usa Tecnología</h2>
-			<p class="mb-4">Un sistema POS moderno te ayuda a rastrear automáticamente tu inventario y recibir alertas cuando un producto se está acabando o está por caducar.</p>
+			<p class="mb-4">Un sistema de punto de venta moderno te ayuda a rastrear automáticamente tu inventario y recibir alertas cuando un producto se está acabando o está por caducar.</p>
 		`,
 		postedBy: {
 			avatar: agoramyAutor.src,

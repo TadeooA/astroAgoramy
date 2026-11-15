@@ -3,7 +3,7 @@ import { useState } from 'react'
 const faqContent = [
   {
     title: '¿Cómo funciona Agoramy?',
-    description: 'Agoramy es un sistema POS para farmacias, ferreterías y tiendas en México. Te ayuda a gestionar inventario, ventas, facturación electrónica, empleados y mucho más desde una sola plataforma, con los módulos que necesita tu giro.'
+    description: 'Agoramy es un sistema de punto de venta para farmacias, ferreterías y tiendas en México. Te ayuda a gestionar inventario, ventas, facturación electrónica, empleados y mucho más desde una sola plataforma, con los módulos que necesita tu giro.'
   },
   {
     title: '¿Qué incluye cada plan?',
