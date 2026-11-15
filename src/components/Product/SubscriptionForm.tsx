@@ -1,12 +1,19 @@
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import confetti from 'canvas-confetti'
-import Turnstile from '../Common/Turnstile'
+import Honeypot from '../Common/Honeypot'
+import { firstErrors, subscribeNewsletter } from '../../lib/landingApi'
 
 const SubscriptionForm = () => {
   const [email, setEmail] = useState('')
   const [acceptPrivacy, setAcceptPrivacy] = useState(false)
-  const [turnstileToken, setTurnstileToken] = useState<string | null>(null)
+  const [website, setWebsite] = useState('')
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [status, setStatus] = useState<{ ok: boolean; message: string } | null>(null)
+  const renderedAt = useRef(0)
+
+  useEffect(() => {
+    renderedAt.current = Date.now()
+  }, [])
 
   const launchConfetti = () => {
     const duration = 4000
@@ -71,59 +78,42 @@ const SubscriptionForm = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
 
-    if (!email) {
-      alert('Por favor, introduce tu correo electrónico')
+    if (!email.trim()) {
+      setStatus({ ok: false, message: 'Por favor, introduce tu correo electrónico.' })
       return
     }
 
     if (!acceptPrivacy) {
-      alert('Debes aceptar las políticas de privacidad para continuar')
+      setStatus({ ok: false, message: 'Debes aceptar las políticas de privacidad para continuar.' })
       return
     }
 
-    if (!turnstileToken) {
-      alert('Por favor, completa la verificación de seguridad')
-      return
-    }
-
+    setStatus(null)
     setIsSubmitting(true)
-    try {
-      const response = await fetch(
-        'https://farmacialaluz.com/agoramy/api/mailapp/',
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            email: email,
-          }),
-        }
-      )
+    const result = await subscribeNewsletter({
+      email: email.trim(),
+      accept_privacy: true,
+      website,
+      _ts: renderedAt.current,
+    })
+    setIsSubmitting(false)
 
-      if (!response.ok) {
-        const errorData = await response.json()
-        throw new Error(errorData.error || 'Error al suscribirse')
-      }
-
-      const result = await response.json()
-      console.log('Suscripción exitosa:', result)
-
-      // Lanzar confeti
+    if (result.ok) {
       launchConfetti()
-
-      alert('¡Gracias por suscribirte! Te notificaremos cuando lancemos.')
+      setStatus({ ok: true, message: result.message })
       setEmail('')
-    } catch (error) {
-      console.error('Error al suscribirse:', error)
-      alert(error instanceof Error ? error.message : 'Error al procesar tu suscripción')
-    } finally {
-      setIsSubmitting(false)
+      setAcceptPrivacy(false)
+      renderedAt.current = Date.now()
+      return
     }
+
+    const fieldErrors = firstErrors(result.errors)
+    setStatus({ ok: false, message: fieldErrors.email || fieldErrors.accept_privacy || result.message })
   }
 
   return (
     <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+      <Honeypot id="product-website" value={website} onChange={(e) => setWebsite(e.target.value)} />
       <div className="flex flex-col sm:flex-row gap-4">
         <input
           id="subscription-email"
@@ -137,7 +127,7 @@ const SubscriptionForm = () => {
         />
         <button
           type="submit"
-          disabled={isSubmitting || !turnstileToken}
+          disabled={isSubmitting}
           className="px-7 py-3 bg-primary text-white text-sm font-semibold rounded-lg hover:bg-primary-hover hover:shadow-lg hover:shadow-primary/30 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap"
         >
           {isSubmitting ? 'Procesando...' : 'Apuntarme a la lista'}
@@ -159,19 +149,14 @@ const SubscriptionForm = () => {
           </a>
         </label>
       </div>
-      <div className="flex justify-center">
-        <Turnstile
-          onVerify={(token) => setTurnstileToken(token)}
-          onError={() => {
-            console.error('Turnstile error')
-            setTurnstileToken(null)
-          }}
-          onExpire={() => {
-            console.log('Turnstile token expired')
-            setTurnstileToken(null)
-          }}
-        />
-      </div>
+      {status && (
+        <p
+          role="status"
+          className={`text-sm text-center ${status.ok ? 'text-green-600' : 'text-red-600'}`}
+        >
+          {status.message}
+        </p>
+      )}
     </form>
   )
 }

@@ -52,7 +52,11 @@ Without `@reference`, Tailwind v4 cannot resolve custom utilities like `font-bod
 Content is hardcoded in `src/components/Blog/data.ts` as `post1`, `post2`, `post3` arrays of type `Post`. Adding a new post means adding to one of those arrays with a unique `slug`. The slug is what `getStaticPaths()` uses to generate the route.
 
 ### Forms and spam protection
-Forms use **Cloudflare Turnstile** (invisible widget, sitekey `0x4AAAAAACDm_ksAJvXupdOP`). The `Turnstile.tsx` component handles widget lifecycle. The Turnstile JS is loaded globally in `Layout.astro` head.
+Forms post to `https://app.agoramy.com/api/landing/{contact,newsletter}` via `src/lib/landingApi.ts` (CORS only allows `agoramy.com` / `www.agoramy.com`, so submissions fail from localhost). Responses: 2xx `{success,message}`, 422 `{message,errors:{field:[...]}}`, 429 rate limit.
+
+Spam protection is server-side: every form must include the `Honeypot` component (`src/components/Common/Honeypot.tsx`, field `website`, hidden via off-screen CSS) and send `_ts` = `Date.now()` captured on mount. Submissions faster than 3 s or with `website` filled get a fake success and are discarded, so test by filling forms by hand.
+
+`Turnstile.tsx` and the Turnstile script in `Layout.astro` are legacy and no longer used by any form.
 
 ### Global styles chain
 ```

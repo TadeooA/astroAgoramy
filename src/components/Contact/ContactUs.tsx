@@ -1,40 +1,90 @@
 import * as yup from 'yup'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { useForm } from 'react-hook-form'
-import { useState } from 'react'
-import Turnstile from '../Common/Turnstile'
+import { useEffect, useRef, useState } from 'react'
+import Honeypot from '../Common/Honeypot'
+import { firstErrors, sendContact } from '../../lib/landingApi'
+
+// Mismas reglas que valida el backend (POST /api/landing/contact)
+const schema = yup.object({
+  first_name: yup
+    .string()
+    .trim()
+    .required('Por favor, introduce tu nombre')
+    .min(2, 'El nombre debe tener al menos 2 caracteres')
+    .max(100, 'El nombre no puede superar los 100 caracteres'),
+  last_name: yup
+    .string()
+    .trim()
+    .max(100, 'El apellido no puede superar los 100 caracteres')
+    .default(''),
+  email: yup
+    .string()
+    .trim()
+    .required('Por favor, introduce tu correo electrónico')
+    .email('Por favor, introduce un correo electrónico válido'),
+  phone: yup
+    .string()
+    .trim()
+    .default('')
+    .test(
+      'phone',
+      'Introduce un teléfono válido (7 a 30 caracteres: dígitos, espacios y + ( ) - .)',
+      (v) => !v || /^[0-9\s+().-]{7,30}$/.test(v)
+    ),
+  message: yup
+    .string()
+    .trim()
+    .required('Por favor, introduce tu mensaje')
+    .min(10, 'El mensaje debe tener al menos 10 caracteres')
+    .max(5000, 'El mensaje no puede superar los 5000 caracteres'),
+  accept_privacy: yup
+    .boolean()
+    .default(false)
+    .oneOf([true], 'Debes aceptar el manejo de tus datos y las políticas de privacidad'),
+  website: yup.string().default(''),
+})
+
+type ContactForm = yup.InferType<typeof schema>
+const FIELDS = ['first_name', 'last_name', 'email', 'phone', 'message', 'accept_privacy'] as const
 
 const ContactUs = () => {
-  const [turnstileToken, setTurnstileToken] = useState<string | null>(null)
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [acceptPrivacy, setAcceptPrivacy] = useState(false)
-  // form validation schema
-  const schemaResolver = yupResolver(
-    yup.object().shape({
-      fname: yup.string().required('Por favor, introduce tu nombre'),
-      lname: yup.string().required('Por favor, introduce tu apellido'),
-      email: yup
-        .string()
-        .required('Por favor, introduce tu correo electrónico')
-        .email('Por favor, introduce un correo electrónico válido'),
-      phone: yup
-        .string()
-        .required('Por favor, introduce tu teléfono')
-        .min(10, 'El teléfono debe tener al menos 10 dígitos'),
-      message: yup
-        .string()
-        .required('Por favor, introduce tu mensaje')
-        .min(10, 'El mensaje debe tener al menos 10 caracteres'),
-    })
-  )
+  const [status, setStatus] = useState<{ ok: boolean; message: string } | null>(null)
+  const renderedAt = useRef(0)
 
-  // form method
-  const methods = useForm({ resolver: schemaResolver })
+  useEffect(() => {
+    renderedAt.current = Date.now()
+  }, [])
+
   const {
     handleSubmit,
     register,
-    formState: { errors },
-  } = methods
+    reset,
+    setError,
+    formState: { errors, isSubmitting },
+  } = useForm<ContactForm>({ resolver: yupResolver(schema) })
+
+  const onSubmit = async (data: ContactForm) => {
+    setStatus(null)
+    const result = await sendContact({
+      ...data,
+      _ts: renderedAt.current,
+      source_url: window.location.href,
+    })
+
+    if (result.ok) {
+      setStatus({ ok: true, message: result.message })
+      reset()
+      renderedAt.current = Date.now()
+      return
+    }
+
+    const fieldErrors = firstErrors(result.errors)
+    for (const field of FIELDS) {
+      if (fieldErrors[field]) setError(field, { type: 'server', message: fieldErrors[field] })
+    }
+    setStatus({ ok: false, message: result.message })
+  }
 
   return (
     <section className="lg:pb-24 py-6 relative">
@@ -49,87 +99,43 @@ const ContactUs = () => {
                 <p className="mb-12 text-base/6">
                                   Por favor, rellena el siguiente formulario y nos pondremos en contacto
                                   contigo en breve                </p>
-                <form
-                  onSubmit={handleSubmit(async (data) => {
-                    if (!acceptPrivacy) {
-                      alert('Debes aceptar las políticas de privacidad para continuar')
-                      return
-                    }
-
-                    if (!turnstileToken) {
-                      alert('Por favor, completa la verificación de seguridad')
-                      return
-                    }
-
-                    setIsSubmitting(true)
-                    try {
-                      const response = await fetch(
-                        'https://farmacialaluz.com/agoramy/api/messages/',
-                        {
-                          method: 'POST',
-                          headers: {
-                            'Content-Type': 'application/json',
-                          },
-                          body: JSON.stringify({
-                            name: `${data.fname} ${data.lname}`,
-                            email: data.email,
-                            phone: data.phone,
-                            message: data.message,
-                          }),
-                        }
-                      )
-
-                      if (!response.ok) {
-                        const errorData = await response.json()
-                        throw new Error(errorData.error || 'Error al enviar el mensaje')
-                      }
-
-                      const result = await response.json()
-                      console.log('Mensaje enviado:', result)
-                      alert('¡Mensaje enviado correctamente! Nos pondremos en contacto contigo pronto.')
-                    } catch (error) {
-                      console.error('Error al enviar el formulario:', error)
-                      alert(error instanceof Error ? error.message : 'Error al enviar el formulario')
-                    } finally {
-                      setIsSubmitting(false)
-                    }
-                  })}
-                >
+                <form noValidate onSubmit={handleSubmit(onSubmit)}>
+                  <Honeypot id="contact-website" {...register('website')} />
                   <div className="flex gap-6">
                     <div className="md:w-1/2">
                       <div className="mb-5">
-                        <label htmlFor="fname" className="block text-sm font-medium mb-1 text-gray-600">
+                        <label htmlFor="first_name" className="block text-sm font-medium mb-1 text-gray-600">
                           Nombre
                         </label>
                         <input
-                          id="fname"
+                          id="first_name"
                           type="text"
                           className="py-2 px-4 leading-6 block w-full border border-gray-300 rounded text-sm focus:border-primary focus:ring-0"
                           placeholder="Tu Nombre"
-                          {...register('fname')}
+                          {...register('first_name')}
                         />
-                        {errors.fname && (
+                        {errors.first_name && (
                           <p className="text-xs text-red-600 mt-2">
-                            {errors.fname.message}
+                            {errors.first_name.message}
                           </p>
                         )}
                       </div>
                     </div>
                     <div className="md:w-1/2">
                       <div className="mb-5">
-                        <label htmlFor="lname" className="block text-sm font-medium mb-1 text-gray-600">
-                          Apellido
+                        <label htmlFor="last_name" className="block text-sm font-medium mb-1 text-gray-600">
+                          Apellido <span className="text-gray-400 font-normal">(opcional)</span>
                         </label>
                         <input
-                          id="lname"
+                          id="last_name"
                           type="text"
                           className="py-2 px-4 leading-6 block w-full border border-gray-300 rounded text-sm focus:border-primary focus:ring-0"
                           placeholder="Tu Apellido"
-                          {...register('lname')}
+                          {...register('last_name')}
                         />
-                        {errors.lname && (
+                        {errors.last_name && (
                           <p className="text-xs text-red-600 mt-2">
-                            {errors.lname.message}
+                            {errors.last_name.message}
                           </p>
                         )}
                       </div>
@@ -155,7 +161,7 @@ const ContactUs = () => {
                     </div>
                     <div className="mb-5">
                       <label htmlFor="phone" className="block text-sm font-medium mb-1 text-gray-600">
-                        Teléfono
+                        Teléfono <span className="text-gray-400 font-normal">(opcional)</span>
                       </label>
                       <input
                         id="phone"
@@ -193,10 +199,8 @@ const ContactUs = () => {
                       <input
                         id="contact-privacy-checkbox"
                         type="checkbox"
-                        checked={acceptPrivacy}
-                        onChange={(e) => setAcceptPrivacy(e.target.checked)}
                         className="mt-1 rounded border-gray-300 text-primary focus:ring-primary"
-                        required
+                        {...register('accept_privacy')}
                       />
                       <label htmlFor="contact-privacy-checkbox" className="text-sm text-gray-600">
                         Acepto el{' '}
@@ -205,23 +209,15 @@ const ContactUs = () => {
                         </a>
                       </label>
                     </div>
-                  </div>
-                  <div className="mb-5">
-                    <Turnstile
-                      onVerify={(token) => setTurnstileToken(token)}
-                      onError={() => {
-                        console.error('Turnstile error')
-                        setTurnstileToken(null)
-                      }}
-                      onExpire={() => {
-                        console.log('Turnstile token expired')
-                        setTurnstileToken(null)
-                      }}
-                    />
+                    {errors.accept_privacy && (
+                      <p className="text-xs text-red-600 mt-2">
+                        {errors.accept_privacy.message}
+                      </p>
+                    )}
                   </div>
                   <button
                     type="submit"
-                    disabled={isSubmitting || !turnstileToken}
+                    disabled={isSubmitting}
                     className="inline-flex items-center text-sm bg-primary text-white font-medium leading-6 text-center align-middle select-none py-2 px-4 rounded-md transition-all hover:shadow-lg hover:shadow-primary/80 disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     {isSubmitting ? 'Enviando...' : 'Enviar'}
@@ -255,6 +251,14 @@ const ContactUs = () => {
                       </svg>
                     </span>
                   </button>
+                  {status && (
+                    <p
+                      role="status"
+                      className={`text-sm mt-4 ${status.ok ? 'text-green-600' : 'text-red-600'}`}
+                    >
+                      {status.message}
+                    </p>
+                  )}
                 </form>
               </div>
             </div>
