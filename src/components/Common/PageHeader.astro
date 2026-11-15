@@ -5,6 +5,7 @@
 // h1 vs h2, tres fondos diferentes y una ola propia solo en Contacto.
 
 import whiteWave from '../../assets/images/shapes/white-wave.svg';
+import DitherBackground from '../DitherBackground.astro';
 
 interface Props {
   /** Texto anterior a la palabra subrayada. */
@@ -22,7 +23,8 @@ const { title, highlight, titleAfter, subtitle, eyebrow } = Astro.props;
 ---
 
 <section class="relative bg-gradient-to-t from-slate-500/10 pt-16 pb-24 sm:pb-32">
-  <div class="container mx-auto px-4">
+  <DitherBackground />
+  <div class="container mx-auto px-4 relative">
     <div class="max-w-3xl mx-auto text-center">
       {eyebrow && (
         <p class="text-sm font-medium uppercase tracking-wide text-gray-500 mb-5">

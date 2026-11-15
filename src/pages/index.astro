@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import DitherBackground from '../components/DitherBackground.astro';
 import Hero from '../components/Hero.astro';
 import Features from '../components/Features.astro';
 import Sectors from '../components/Sectors.astro';
@@ -13,6 +14,7 @@ import whiteWave from '../assets/images/shapes/white-wave.svg';
 ---
 
 <Layout title="Agoramy">
+  <DitherBackground fixed opacity={0.45} />
   	<div class="text-gray-800 py-4 px-4">    <section id="home">
       <Hero />
     </section>
