@@ -1,15 +1,23 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import Honeypot from '../Common/Honeypot';
+import { firstErrors, subscribeNewsletter } from '../../lib/landingApi';
 
 const SubscriptionForm = () => {
 	const [email, setEmail] = useState('');
+	const [website, setWebsite] = useState('');
 	const [acceptPrivacy, setAcceptPrivacy] = useState(false);
 	const [isSubmitting, setIsSubmitting] = useState(false);
 	const [status, setStatus] = useState<{ ok: boolean; message: string } | null>(null);
+	const renderedAt = useRef(0);
+
+	useEffect(() => {
+		renderedAt.current = Date.now();
+	}, []);
 
 	const handleSubmit = async (e: React.FormEvent) => {
 		e.preventDefault();
 
-		if (!email) {
+		if (!email.trim()) {
 			setStatus({ ok: false, message: 'Por favor, introduce tu correo electrónico.' });
 			return;
 		}
@@ -21,37 +29,24 @@ const SubscriptionForm = () => {
 
 		setStatus(null);
 		setIsSubmitting(true);
-		try {
-			const response = await fetch(
-				'https://farmacialaluz.com/agoramy/api/mailapp/',
-				{
-					method: 'POST',
-					headers: {
-						'Content-Type': 'application/json',
-					},
-					body: JSON.stringify({
-						email: email,
-					}),
-				}
-			);
+		const result = await subscribeNewsletter({
+			email: email.trim(),
+			accept_privacy: true,
+			website,
+			_ts: renderedAt.current,
+		});
+		setIsSubmitting(false);
 
-			if (!response.ok) {
-				const errorData = await response.json();
-				throw new Error(errorData.error || 'Error al suscribirse');
-			}
-
-			setStatus({ ok: true, message: '¡Gracias por suscribirte! Recibirás nuestro boletín semanal.' });
+		if (result.ok) {
+			setStatus({ ok: true, message: result.message });
 			setEmail('');
 			setAcceptPrivacy(false);
-		} catch (error) {
-			console.error('Error al suscribirse:', error);
-			setStatus({
-				ok: false,
-				message: error instanceof Error ? error.message : 'Error al procesar tu suscripción.',
-			});
-		} finally {
-			setIsSubmitting(false);
+			renderedAt.current = Date.now();
+			return;
 		}
+
+		const fieldErrors = firstErrors(result.errors);
+		setStatus({ ok: false, message: fieldErrors.email || fieldErrors.accept_privacy || result.message });
 	};
 
 	return (
@@ -64,6 +59,7 @@ const SubscriptionForm = () => {
 					Enviamos un boletín semanal con novedades del sistema y guías para tu negocio.
 				</p>
 				<form onSubmit={handleSubmit} className="flex flex-col gap-3 mt-7">
+					<Honeypot id="blog-website" value={website} onChange={(e) => setWebsite(e.target.value)} />
 					<input
 						id="blog-subscription-email"
 						type="email"
