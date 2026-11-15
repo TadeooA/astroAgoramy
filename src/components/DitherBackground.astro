@@ -1,0 +1,245 @@
+---
+// Fondo animado: niebla de ruido fBm pixelada y tramada (dithering Bayer 8x8)
+// que fluye lentamente; cada clic lanza una onda. Se coloca como primer hijo
+// de un contenedor con `position: relative`.
+//
+// El canvas se dibuja a 1/DOT de resolución (un píxel del canvas = un punto
+// de la trama) y se escala con `image-rendering: pixelated`: mucho más barato.
+interface Props {
+  /** Color de los puntos (hex #rrggbb). */
+  color?: string;
+  /** Opacidad de los puntos encendidos (0-1). */
+  opacity?: number;
+  /** Densidad: valores más altos encienden más puntos (aprox. -1 a 0). */
+  brightness?: number;
+  /** Tamaño en px CSS de cada punto de la trama. */
+  dot?: number;
+  /** `mask-image` CSS opcional para desvanecer el efecto en zonas (p. ej. detrás del texto). */
+  mask?: string;
+}
+
+const { color = '#2563eb', opacity = 0.35, brightness = -0.5, dot = 4, mask } = Astro.props;
+---
+
+<div class="dither-bg" aria-hidden="true" style={mask ? `mask-image:${mask};-webkit-mask-image:${mask}` : undefined}>
+  <canvas
+    data-color={color}
+    data-opacity={opacity}
+    data-brightness={brightness}
+    data-dot={dot}
+  ></canvas>
+</div>
+
+<style>
+  .dither-bg {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+  }
+  .dither-bg canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+    image-rendering: pixelated;
+  }
+</style>
+
+<script>
+  const VERT = `
+    attribute vec2 aPos;
+    void main() { gl_Position = vec4(aPos, 0.0, 1.0); }
+  `;
+
+  const MAX_CLICKS = 8;
+  const WAVE_SECONDS = 3.5;
+
+  const FRAG = `
+    precision highp float;
+    uniform vec2 uRes;            // tamaño del canvas en puntos
+    uniform float uTime;
+    uniform vec3 uColor;
+    uniform float uOpacity;
+    uniform float uBrightness;
+    uniform vec2 uClicks[${MAX_CLICKS}];   // posición en puntos
+    uniform float uClickTimes[${MAX_CLICKS}];
+
+    float hash(vec2 p) { return fract(sin(dot(p, vec2(12.9898, 78.233))) * 43758.5453); }
+
+    float vnoise(vec2 p) {
+      vec2 i = floor(p), f = fract(p);
+      vec2 u = f * f * (3.0 - 2.0 * f);
+      return mix(mix(hash(i), hash(i + vec2(1.0, 0.0)), u.x),
+                 mix(hash(i + vec2(0.0, 1.0)), hash(i + vec2(1.0, 1.0)), u.x), u.y);
+    }
+
+    // Ruido fractal con remolinos que cambian con el tiempo.
+    float fbm(vec2 p, float t) {
+      float v = 0.0, a = 0.5, total = 0.0;
+      vec2 drift = vec2(sin(t * 0.1) * 3.0 + cos(t * 0.15) * 2.0,
+                        cos(t * 0.12) * 3.0 - sin(t * 0.08) * 2.0);
+      vec2 flow = vec2(sin(p.y * 0.8 + t * 0.2), cos(p.x * 0.7 + t * 0.15)) * 1.5;
+      for (int i = 0; i < 6; i++) {
+        float fi = float(i);
+        float ang = vnoise(p * 0.2 + fi) * 6.2832 + t * (0.4 + fi * 0.15);
+        vec2 swirl = vec2(cos(ang), sin(ang)) * (1.0 + fi * 0.3);
+        v += a * vnoise(p + swirl + flow);
+        total += a;
+        p = p * (1.9 + 0.1 * sin(t * 0.2 + fi * 3.5)) + drift * 0.3;
+        flow *= 0.5;
+        a *= 0.55;
+      }
+      return v / total;
+    }
+
+    // Matriz de Bayer 8x8 normalizada a [0, 1).
+    float bayer2(vec2 a) { a = floor(a); return fract(a.x / 2.0 + a.y * a.y * 0.75); }
+    float bayer4(vec2 a) { return bayer2(0.5 * a) * 0.25 + bayer2(a); }
+    float bayer8(vec2 a) { return bayer4(0.5 * a) * 0.25 + bayer2(a); }
+
+    void main() {
+      vec2 fc = gl_FragCoord.xy;
+      // Bloques de 8x8 puntos: el ruido es constante dentro de cada bloque.
+      vec2 uv = floor(fc / 8.0) * 8.0 / uRes.x;
+
+      float n = fbm(uv * 4.0, uTime * 0.5);
+
+      float waves = 0.0;
+      for (int i = 0; i < ${MAX_CLICKS}; i++) {
+        float dt = uTime - uClickTimes[i];
+        if (dt >= 0.0 && dt < ${WAVE_SECONDS.toFixed(1)}) {
+          float d = length(uv - uClicks[i] / uRes.x);
+          float w = sin(d * 15.0 - dt * 3.0) * 0.5 + 0.5;
+          w *= exp(-d * 3.5) * smoothstep(${WAVE_SECONDS.toFixed(1)}, 0.0, dt);
+          waves += pow(w, 2.5) * 0.45;
+        }
+      }
+
+      float v = (n + 1.0) * 0.5 + waves;
+      v = (v - 0.5) * 1.2 + 0.5 + uBrightness + waves * 0.5;
+      v = clamp(v, 0.0, 1.0);
+
+      float on = step(0.5, v + 0.5 * (bayer8(fc) - 0.5));
+      float a = on * uOpacity;
+      gl_FragColor = vec4(uColor * a, a);
+    }
+  `;
+
+  function hexToRgb(hex: string): [number, number, number] {
+    const m = /^#?([0-9a-f]{2})([0-9a-f]{2})([0-9a-f]{2})$/i.exec(hex) ?? ['', '25', '63', 'eb'];
+    return [parseInt(m[1], 16) / 255, parseInt(m[2], 16) / 255, parseInt(m[3], 16) / 255];
+  }
+
+  function compile(gl: WebGLRenderingContext, type: number, src: string) {
+    const s = gl.createShader(type)!;
+    gl.shaderSource(s, src);
+    gl.compileShader(s);
+    if (!gl.getShaderParameter(s, gl.COMPILE_STATUS)) {
+      console.warn('[DitherBackground]', gl.getShaderInfoLog(s));
+      return null;
+    }
+    return s;
+  }
+
+  function init(canvas: HTMLCanvasElement) {
+    const gl = canvas.getContext('webgl', { alpha: true, antialias: false, premultipliedAlpha: true });
+    if (!gl) return; // Sin WebGL: el hero se ve igual que antes.
+
+    const vs = compile(gl, gl.VERTEX_SHADER, VERT);
+    const fs = compile(gl, gl.FRAGMENT_SHADER, FRAG);
+    if (!vs || !fs) return;
+    const prog = gl.createProgram()!;
+    gl.attachShader(prog, vs);
+    gl.attachShader(prog, fs);
+    gl.linkProgram(prog);
+    if (!gl.getProgramParameter(prog, gl.LINK_STATUS)) return;
+    gl.useProgram(prog);
+
+    const buf = gl.createBuffer();
+    gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 3, -1, -1, 3]), gl.STATIC_DRAW);
+    const aPos = gl.getAttribLocation(prog, 'aPos');
+    gl.enableVertexAttribArray(aPos);
+    gl.vertexAttribPointer(aPos, 2, gl.FLOAT, false, 0, 0);
+
+    const u = (name: string) => gl.getUniformLocation(prog, name);
+    const uRes = u('uRes');
+    const uTime = u('uTime');
+    const uClicks = u('uClicks');
+    const uClickTimes = u('uClickTimes');
+
+    gl.uniform3fv(u('uColor'), hexToRgb(canvas.dataset.color ?? '#2563eb'));
+    gl.uniform1f(u('uOpacity'), Number(canvas.dataset.opacity ?? 0.35));
+    gl.uniform1f(u('uBrightness'), Number(canvas.dataset.brightness ?? -0.6));
+    const dot = Math.max(1, Number(canvas.dataset.dot ?? 4));
+
+    const clicks = new Float32Array(MAX_CLICKS * 2);
+    const clickTimes = new Float32Array(MAX_CLICKS).fill(-1e3);
+    let nextClick = 0;
+    gl.uniform1fv(uClickTimes, clickTimes);
+
+    const start = performance.now();
+    const now = () => (performance.now() - start) / 1000;
+
+    function resize() {
+      const w = Math.max(1, Math.ceil(canvas.clientWidth / dot));
+      const h = Math.max(1, Math.ceil(canvas.clientHeight / dot));
+      if (canvas.width !== w || canvas.height !== h) {
+        canvas.width = w;
+        canvas.height = h;
+        gl!.viewport(0, 0, w, h);
+        gl!.uniform2f(uRes, w, h);
+      }
+    }
+
+    function draw(t: number) {
+      resize();
+      gl!.uniform1f(uTime, t);
+      gl!.drawArrays(gl!.TRIANGLES, 0, 3);
+    }
+
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    let visible = true;
+    let raf = 0;
+
+    function loop() {
+      raf = 0;
+      if (!visible || document.hidden || reduceMotion.matches) return;
+      draw(now());
+      raf = requestAnimationFrame(loop);
+    }
+    function kick() {
+      if (reduceMotion.matches) draw(now()); // Un solo cuadro estático.
+      else if (!raf) raf = requestAnimationFrame(loop);
+    }
+
+    // Ondas al hacer clic en el contenedor (el canvas no recibe eventos).
+    const host = canvas.parentElement!.parentElement ?? document.body;
+    host.addEventListener(
+      'pointerdown',
+      (e) => {
+        if (reduceMotion.matches) return;
+        const r = canvas.getBoundingClientRect();
+        clicks[nextClick * 2] = (e.clientX - r.left) / dot;
+        clicks[nextClick * 2 + 1] = (r.bottom - e.clientY) / dot;
+        clickTimes[nextClick] = now();
+        nextClick = (nextClick + 1) % MAX_CLICKS;
+        gl.uniform2fv(uClicks, clicks);
+        gl.uniform1fv(uClickTimes, clickTimes);
+      },
+      { passive: true }
+    );
+
+    new IntersectionObserver(([entry]) => {
+      visible = entry.isIntersecting;
+      kick();
+    }).observe(canvas);
+    document.addEventListener('visibilitychange', kick);
+    reduceMotion.addEventListener('change', kick);
+    new ResizeObserver(() => reduceMotion.matches && draw(now())).observe(canvas);
+
+    kick();
+  }
+
+  document.querySelectorAll<HTMLCanvasElement>('.dither-bg canvas').forEach(init);
+</script>

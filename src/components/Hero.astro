@@ -1,5 +1,6 @@
 ---
 import SwiperSlider from './SwiperSlider.tsx';
+import DitherBackground from './DitherBackground.astro';
 
 // images
 import heroFarmacia from '../assets/images/hero/farmaciaw.webp';
@@ -62,6 +63,8 @@ const sectors = [
 
 <div>
   <section class="bg-gradient-to-t from-slate-500/10 relative">
+    <!-- En pantallas grandes el texto va a la izquierda: ahí el efecto se desvanece. -->
+    <DitherBackground mask="linear-gradient(to right, rgb(0 0 0 / 0.15) 0%, rgb(0 0 0 / 0.15) 35%, #000 70%)" />
     <section class="relative pt-6 md:pt-8 lg:pt-10 pb-16 md:pb-20 lg:pb-24">
       <div class="container mx-auto px-4">
         <div class="grid lg:grid-cols-2 grid-cols-1 gap-8 md:gap-12 items-center">
