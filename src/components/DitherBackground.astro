@@ -26,7 +26,7 @@ interface Props {
   clear?: { x: number; y: number; rx: number; ry: number; amount?: number };
 }
 
-const { color = '#2563eb', opacity = 0.55, brightness = -0.5, dot = 4, mask, fixed = false, clear } = Astro.props;
+const { color = '#2563eb', opacity = 0.55, brightness = -0.555, dot = 4, mask, fixed = false, clear } = Astro.props;
 const clearAttr = clear ? [clear.x, clear.y, clear.rx, clear.ry, clear.amount ?? 0.6].join(',') : undefined;
 ---
 
@@ -133,6 +133,8 @@ const clearAttr = clear ? [clear.x, clear.y, clear.rx, clear.ry, clear.amount ??
 
       float v = (n + 1.0) * 0.5 + waves;
       v = (v - 0.5) * 1.2 + 0.5 + uBrightness + waves * 0.5;
+      // Tope de densidad: evita manchas compactas (las ondas pueden superarlo).
+      v = min(v, 0.3 + waves);
 
       // Menos puntos dentro de la elipse, con borde suave.
       if (uClearAmount > 0.0) {
