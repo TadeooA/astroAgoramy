@@ -1,6 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import About from '../../components/Company/About.astro';
+import PageHeader from '../../components/Common/PageHeader.astro';
 ---
 
 <Layout
@@ -8,6 +9,12 @@ import About from '../../components/Company/About.astro';
   description="Conoce a Agoramy: un solo sistema de punto de venta para farmacias, ferreterías y tiendas en México, adaptado al giro de cada negocio."
 >
   <div class="text-gray-700">
+    <PageHeader
+      eyebrow="Quiénes somos"
+      title="Conoce a"
+      highlight="Agoramy"
+      subtitle="Tu socio tecnológico para negocios de mostrador: un solo sistema de punto de venta para farmacias, ferreterías y tiendas en México, adaptado a tu giro."
+    />
     <About />
   </div>
 </Layout>
