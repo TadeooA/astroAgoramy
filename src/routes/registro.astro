@@ -1,0 +1,15 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageHeader from '../components/Common/PageHeader.astro';
+import RegisterForm from '../components/Register/RegisterForm.tsx';
+---
+
+<Layout title="Crea tu cuenta - Agoramy">
+  <PageHeader
+    eyebrow="Cuenta de prueba"
+    title="Da de alta"
+    highlight="tu negocio"
+    subtitle="Llena tus datos, confirma tu correo con el código que te mandamos y tu sistema queda listo en un par de minutos."
+  />
+  <RegisterForm client:load />
+</Layout>

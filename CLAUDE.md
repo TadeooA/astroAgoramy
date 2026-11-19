@@ -56,6 +56,11 @@ Forms post to `https://app.agoramy.com/api/landing/{contact,newsletter}` via `sr
 
 Spam protection is server-side: every form must include the `Honeypot` component (`src/components/Common/Honeypot.tsx`, field `website`, hidden via off-screen CSS) and send `_ts` = `Date.now()` captured on mount. Submissions faster than 3 s or with `website` filled get a fake success and are discarded, so test by filling forms by hand.
 
+### Business sign-up (`/registro`) — hidden, not published yet
+`src/components/Register/RegisterForm.tsx` + `CodeBoxes.tsx` implement the tenant sign-up with email code (contract: backend repo `docs/landing/API-FORMULARIOS.md` §3): form → `POST /api/register/code` → six code boxes → `register/code/check` → `POST /api/register` with the full form + `code`. The trap field here is `_hp_field` (not `website`).
+
+The page lives in `src/routes/registro.astro`, **outside** `src/pages`, and is injected by the `registroOculto` integration in `astro.config.mjs` only in `npm run dev` or when building with `REGISTRO_PUBLICO=true`. A normal build ships neither the page nor the API calls. To publish: set that env in `.github/workflows/deploy.yml` (or move the file into `src/pages`), point the «Comenzar Ahora» CTAs in `src/components/Pricing/plans.ts` to `/registro`, and tell the backend to turn on `TENANT_REQUIRE_REGISTRATION_CODE`. The trial-terms version shown next to the checkbox is the `TERMS_VERSION` constant in `RegisterForm.tsx`, a copy of `App\Support\TrialTerms::VERSION`: bump it whenever the backend does.
+
 `Turnstile.tsx` and the Turnstile script in `Layout.astro` are legacy and no longer used by any form.
 
 ### Global styles chain
