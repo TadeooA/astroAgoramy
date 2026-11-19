@@ -74,7 +74,8 @@ const shareLinks = [
 			</header>
 
 			<div class="container mx-auto px-4">
-				<div class="max-w-3xl mx-auto -mt-24 sm:-mt-32">
+				<!-- relative z-10: el header es posicionado y, sin esto, sus puntos se pintan encima de la imagen. -->
+				<div class="relative z-10 max-w-3xl mx-auto -mt-24 sm:-mt-32">
 					<img
 						src={post.image}
 						alt=""
