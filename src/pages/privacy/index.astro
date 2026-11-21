@@ -1,7 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 
-const lastUpdated = "Mayo 2025";
+const lastUpdated = "21 de noviembre de 2026";
 const contactEmail = "contacto@agoramy.com";
 
 const sections = [
@@ -881,6 +881,8 @@ import DitherBackground from '../../components/DitherBackground.astro';
                         <li><strong class="text-gray-700">Cumplimiento Legal:</strong> Cuando sea requerido por ley o para proteger nuestros derechos</li>
                         <li><strong class="text-gray-700">Transferencia de Negocio:</strong> En caso de fusión, adquisición o venta de activos</li>
                         <li><strong class="text-gray-700">Con tu Consentimiento:</strong> Cuando hayas dado autorización explícita</li>
+                        <li><strong class="text-gray-700">Proveedor de Inteligencia Artificial (subencargado):</strong> Cuando el negocio activa la lectura de recetas con inteligencia artificial, la fotografía de la receta se remite a un proveedor externo de IA que actúa como subencargado de Agoramy. Esta remisión tiene como finalidad exclusiva transcribir los datos de la receta para agilizar su captura; Agoramy no autoriza al proveedor a utilizar esos datos para ningún otro fin. Consulta el apartado A10.</li>
+                        {/* TODO legal: el aviso ya nombra proveedores (Meta / WhatsApp en las secciones 5 y 6). Confirmar si el proveedor de IA de lectura de recetas debe nombrarse aquí y si su contrato fija plazos de retención antes de mencionarlos. */}
                       </ul>
                     </div>
                   </div>
@@ -997,6 +999,58 @@ import DitherBackground from '../../components/DitherBackground.astro';
                           <li>Puedes cancelar tu suscripción en cualquier momento</li>
                           <li>No se ofrecen reembolsos por períodos parciales</li>
                         </ul>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Recetas médicas: Agoramy como encargado -->
+                  <div>
+                    <h3 class="text-base font-bold text-gray-800 mb-4 flex items-center gap-2">
+                      <span class="w-6 h-6 rounded-lg bg-gray-900 text-white text-xs font-bold flex items-center justify-center flex-shrink-0">A10</span>
+                      Datos de Salud de los Clientes de los Negocios (Recetas Médicas)
+                    </h3>
+                    <div class="pl-8 space-y-5 text-sm">
+                      <div>
+                        <p class="font-semibold text-gray-700 mb-2">Agoramy como Encargado</p>
+                        <p class="text-gray-600 leading-relaxed">
+                          Cuando un negocio utiliza Agoramy POS, trata datos personales de sus propios clientes. Respecto de esos datos, el negocio es el <strong class="text-gray-800">responsable</strong> del tratamiento y Agoramy actúa como <strong class="text-gray-800">encargado</strong>: los trata únicamente por cuenta del negocio y para prestarle el servicio contratado.
+                        </p>
+                      </div>
+                      <div>
+                        <p class="font-semibold text-gray-700 mb-2">Datos de Recetas Médicas</p>
+                        <p class="mb-2 text-gray-600">En farmacias, al vender medicamentos que requieren receta, el personal del negocio puede registrar en el sistema los siguientes datos:</p>
+                        <ul class="list-disc pl-5 space-y-1.5 text-gray-600">
+                          <li>Del médico: nombre, cédula profesional, especialidad y datos de contacto</li>
+                          <li>Del paciente: nombre, edad y sexo</li>
+                          <li>De la receta: folio, fecha, diagnóstico, indicaciones y fotografía</li>
+                        </ul>
+                        <p class="mt-2 text-gray-600">
+                          Estos datos se consideran <strong class="text-gray-800">datos personales sensibles</strong> en términos del artículo 3, fracción VI, de la Ley Federal de Protección de Datos Personales en Posesión de los Particulares.
+                        </p>
+                      </div>
+                      <div>
+                        <p class="font-semibold text-gray-700 mb-2">Lectura de Recetas con Inteligencia Artificial</p>
+                        <p class="text-gray-600 leading-relaxed">
+                          El negocio puede contratar una función opcional, con costo adicional, que envía la fotografía de la receta a un proveedor externo de inteligencia artificial, quien actúa como subencargado de Agoramy. El proveedor propone los datos de la receta para agilizar su captura. La finalidad de este tratamiento es exclusivamente transcribir la receta; Agoramy no utiliza estos datos para ningún otro fin. La decisión de activar la función corresponde al negocio.
+                        </p>
+                      </div>
+                      <div>
+                        <p class="font-semibold text-gray-700 mb-2">Medidas que Aplica Agoramy</p>
+                        <ul class="list-disc pl-5 space-y-1.5 text-gray-600">
+                          <li><strong class="text-gray-700">Revisión obligatoria:</strong> ningún dato se guarda como receta sin que el personal del negocio lo revise y lo confirme.</li>
+                          <li><strong class="text-gray-700">Datos no confirmados:</strong> la información leída que aún no ha sido confirmada se guarda cifrada y se elimina automáticamente a las 48 horas.</li>
+                          <li><strong class="text-gray-700">Almacenamiento privado:</strong> la fotografía de la receta se guarda en almacenamiento privado y no es accesible mediante una dirección (URL) pública.</li>
+                          <li><strong class="text-gray-700">Acceso restringido:</strong> el acceso a la fotografía y a la lectura está limitado al usuario y a la sucursal que la subió.</li>
+                          <li><strong class="text-gray-700">Registros técnicos:</strong> ninguno de estos datos se escribe en los registros técnicos (logs) del sistema.</li>
+                          <li><strong class="text-gray-700">Sin decisiones automatizadas:</strong> ninguna decisión de venta se toma de forma automatizada; la decisión corresponde siempre al personal del negocio.</li>
+                          <li><strong class="text-gray-700">Captura manual:</strong> el cliente final puede solicitar en mostrador que su receta se capture de forma manual, sin utilizar la lectura con inteligencia artificial.</li>
+                        </ul>
+                      </div>
+                      <div>
+                        <p class="font-semibold text-gray-700 mb-2">Responsabilidad del Negocio</p>
+                        <p class="text-gray-600 leading-relaxed">
+                          Como responsable, corresponde al negocio informar a sus clientes sobre el tratamiento de sus datos, incluida la lectura de recetas con inteligencia artificial, y obtener los consentimientos que exija la legislación aplicable. Para ello, Agoramy pone a disposición del negocio un texto que se incluye en el aviso de privacidad del catálogo de cada tienda. Los clientes finales que deseen ejercer sus derechos ARCO respecto de estos datos deben dirigirse al negocio responsable.
+                        </p>
                       </div>
                     </div>
                   </div>
